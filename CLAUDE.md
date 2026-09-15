@@ -14,7 +14,7 @@ Every token and guideline carries one of: observed, normalized, proposed, obsole
 
 ## Non-negotiables
 
-- Never create, modify, stylise or reconstruct the UP!, LUKSO or Universal Everything marks. No mark files exist here by design; obtain official files (see `assets/logos/README.md`).
+- Never create, modify, stylise or reconstruct the UP!, LUKSO or Universal Everything marks. No mark files exist here by design; obtain official files (see `assets/logos/README.md`). The twelve slide backgrounds in `assets/generated/backgrounds/slides-v2/` depict the official UP! box under the owner's recorded authorization (decision 0012); they are scenes, not mark files: never extract, crop out or reuse the boxes or the mark from them, never present them as the mark, and never generate a new depiction of a mark without a new recorded owner authorization.
 - Never add a colour, size, duration or font outside `tokens/src`. The only accent is `color.up.*` through the `accent.*` roles; LUKSO magenta (`network.lukso-mainnet`) is for the LUKSO network and LYX only.
 - Fonts are Inter (interface) and PT Mono (names, `#XXXX`, addresses, balances). Names render as `@name#XXXX`; anonymous profiles as `anonymous-profile#XXXX`; the suffix is never dropped or truncated.
 - Every profile representation uses the Address Signature from `packages/address-signature`: identicon badge at 24 px and above (a system rule with status proposed, `identicon.min-badge-size`), the checksummed suffix, the address gradient fallback. Never hand-pick a profile colour or replace the identicon.
@@ -57,7 +57,7 @@ Text 4.5:1 and indicators 3:1 on the pairs in `tokens/contrast-pairs.json` (chec
 
 1. Read the relevant `foundations/`, `components/` or `patterns/` document.
 2. Change tokens only in `tokens/src`; run `node scripts/build-tokens.mjs && node scripts/contrast-report.mjs`.
-3. For images, follow `imagery/briefs.md` (slide backgrounds: IB-12), record provenance (`node scripts/inspect-png.mjs <file>` prints the facts), run `node scripts/validate.mjs --only assets` and `--only rasters`. Pick backgrounds and screens from `assets/README.md`; keep copy inside the safe zone recorded for the file; generated backgrounds are proposed, app screens observed (the paywall and deployment screens exploratory), onboarding art observed shipped product art.
+3. For images, follow `imagery/briefs.md` (slide backgrounds: IB-12), record provenance (`node scripts/inspect-png.mjs <file>` prints the facts), run `node scripts/validate.mjs --only assets`, `--only rasters` and, for the slide backgrounds or contact sheets, `--only branded` (the selection is pinned in `scripts/validate/branded-backgrounds.json`; recompose the sheets with `node scripts/compose-previews.mjs`). Pick backgrounds and screens from `assets/README.md`; keep copy inside the safe zone recorded for the file; generated backgrounds are proposed (the UP! box they depict is an observed mark under an owner-authorized publication decision, not brand approval), app screens observed (the paywall and deployment screens exploratory), onboarding art observed shipped product art. Never describe the branded backgrounds as unbranded: they show the UP! mark on the official 3D UP! boxes and nothing else that reads as a word or mark.
 4. Keep web and React Native guidance in sync; a change to one requires the other or a line in `adoption/gap-register.md`.
 5. Do not install packages, add dependencies or use the network; the gate must keep running on Node alone.
 6. Before finishing: `npm test` must pass with zero errors; report the exact commands and results.
@@ -71,6 +71,7 @@ node scripts/validate.mjs --only contrast       # designated pairs and report dr
 node scripts/validate.mjs --only docs           # required files, links, headings, status lines
 node scripts/validate.mjs --only assets         # provenance hashes, dimensions, briefs, per-method fields, staged prompts
 node scripts/validate.mjs --only rasters        # slide contract, alpha and crop facts, preview compositions (pixels decoded on Node alone)
+node scripts/validate.mjs --only branded        # the pinned branded-background selection: files, prompts, reference, safe zones, contact sheets, decision, wording
 node scripts/validate.mjs --only forbidden      # private paths, URLs, identifiers, credentials
 node scripts/validate.mjs --only icons          # grid, stroke, colour, manifest
 node --test "packages/**/*.test.mjs"            # address-signature tests
@@ -79,4 +80,4 @@ node --test "scripts/**/*.test.mjs"             # PNG reader tests (decoder, alp
 
 ## Where things are
 
-Tokens `tokens/src` to `tokens/build/{css,ts,react-native,json,tailwind,figma}`; signature helpers `packages/address-signature`; icons `icons/src` with `icons/manifest.json`; imagery `imagery/` and the asset library `assets/` (index `assets/README.md`; slide backgrounds `assets/generated/backgrounds/` with its README; app screens `assets/screenshots/mobile-app/`; onboarding art and previews `assets/slides/`); rules `foundations/`, `brand/`, `components/`, `patterns/`; accessibility `accessibility/`; adoption `adoption/`; evidence `provenance/`; decisions `decisions/`; examples `examples/`.
+Tokens `tokens/src` to `tokens/build/{css,ts,react-native,json,tailwind,figma}`; signature helpers `packages/address-signature`; icons `icons/src` with `icons/manifest.json`; imagery `imagery/` and the asset library `assets/` (index `assets/README.md`; slide backgrounds `assets/generated/backgrounds/` with its README, the twelve branded files pinned in `scripts/validate/branded-backgrounds.json`; app screens `assets/screenshots/mobile-app/`; onboarding art and previews `assets/slides/`, the contact sheets composed by `scripts/compose-previews.mjs`); rules `foundations/`, `brand/`, `components/`, `patterns/`; accessibility `accessibility/`; adoption `adoption/`; evidence `provenance/`; decisions `decisions/`; examples `examples/`.

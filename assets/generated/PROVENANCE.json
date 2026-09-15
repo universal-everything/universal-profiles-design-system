@@ -15,16 +15,16 @@
       "c2pa.watermarked.unbound (invisible watermark)"
     ],
     "signer": "OpenAI OpCo, LLC (OpenAI Media Service certificate)",
-    "verified": "Chunk structure, agent name and version, claim generator, actions, signer and time-stamp authority tokens read from every file by scripts/lib/png.mjs and checked by the rasters validator at every run; the first set was countersigned on 2026-09-15 between 04:36 and 04:37 UTC, the slides-v2 set on 2026-09-15 between 19:13 and 19:19 UTC (the per-file timestamp is recorded on each entry)"
+    "verified": "Chunk structure, agent name and version, claim generator, actions, signer and time-stamp authority tokens read from every file by scripts/lib/png.mjs and checked by the rasters validator at every run; the first set was countersigned on 2026-09-15 between 04:36 and 04:37 UTC, the branded slides-v2 replacements on 2026-09-15 between 21:05 and 21:13 UTC (the per-file timestamp is recorded on each entry; the generic set they replace had been countersigned between 19:13 and 19:19 UTC the same day)"
   },
   "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
-  "generatedAt": "2026-09-14T21:36:00-07:00 (heroes and title pair, set 1); 2026-09-15T12:13:10-07:00 to 12:19:17-07:00 (slides-v2, set 2); the time-stamp authority token of each file is recorded on its entry",
+  "generatedAt": "2026-09-14T21:36:00-07:00 (heroes and title pair, set 1); 2026-09-15T14:05:04-07:00 to 14:13:26-07:00 (slides-v2 branded replacements, set 2; the generic set they replace, generated 12:13 to 12:19 the same day, is no longer in the repository); the time-stamp authority token of each file is recorded on its entry",
   "seed": null,
-  "license": "Apache-2.0 with the repository, to the extent copyright subsists in machine-generated images (see LICENSES/GENERATED-IMAGES.md); use remains subject to the generation product's terms; no warranty of exclusivity",
-  "rightsNote": "Original AI-generated project output. Use remains subject to the repository license, trademark guidance, and applicable OpenAI terms.",
+  "license": "Apache-2.0 with the repository, to the extent copyright subsists in machine-generated images (see LICENSES/GENERATED-IMAGES.md); use remains subject to the generation product's terms; no warranty of exclusivity. The twelve slides-v2 files additionally depict the UP! mark on the official 3D UP! box: the grant covers the generated scene pixels only, the mark stays its owner's trademark (TRADEMARKS.md), and extraction, cropping out, tracing or standalone reuse of the boxes or the mark is not licensed (decision 0012).",
+  "rightsNote": "Original AI-generated project output. Use remains subject to the repository license, trademark guidance, and applicable OpenAI terms. The heroes and the title pair show blank objects only. The slides-v2 files show the UP! mark on one or more 3D UP! boxes, depicted from the owner's reference under the owner's recorded authorization (decision 0012); the reference itself is not published and the depiction is not a mark file.",
   "publication": "public",
   "status": "proposed",
-  "postProcessing": "None. Files are the generator's native output (1672x941, with two slides-v2 files at 1671x941), 8-bit RGB without an alpha channel, with the C2PA manifest left intact. The briefs list larger delivery formats (IB-02: a 16:9 master with 2560x1440, 1440x2560 and 1200x630 crops; IB-10 and IB-12: 1920x1080, 1080x1080 and 1080x1920), which have not been produced and are recorded as such in imagery/briefs.md.",
+  "postProcessing": "None. Files are the generator's native output (1672x941, with two slides-v2 files at 1671x941), 8-bit RGB without an alpha channel, with the C2PA manifest left intact. The slides-v2 files are image edits: the generator received the former generic file and the UP! box reference as inputs (recorded per entry) and produced a new file, which is used as delivered. The briefs list larger delivery formats (IB-02: a 16:9 master with 2560x1440, 1440x2560 and 1200x630 crops; IB-10 and IB-12: 1920x1080, 1080x1080 and 1080x1920), which have not been produced and are recorded as such in imagery/briefs.md.",
   "sets": {
     "heroes": {
       "directory": "heroes",
@@ -53,17 +53,33 @@
         "iridescent-horizon"
       ],
       "familyNotes": {
-        "identity-orbits": "Concentric identity orbits and one portal ring, cluster on the right third.",
-        "glass-profile-stack": "Layered translucent profile-card planes in perspective, stack on the left third.",
-        "address-ribbons": "Flowing translucent ribbons inspired by address-derived colour signatures, sweeping from lower left to upper right.",
-        "modular-constellation": "Modular rounded cubes, spheres and blank identity tiles gathered along the lower-right edge.",
-        "identity-network": "Sparse glowing nodes, orbital paths and translucent halos, clusters near the corners.",
-        "iridescent-horizon": "Iridescent mist and low translucent wave forms across the bottom quarter, for section dividers and closing slides."
+        "identity-orbits": "Concentric identity orbits revolving around one large and two smaller official UP! boxes, cluster on the right third.",
+        "glass-profile-stack": "Layered translucent profile-card planes in perspective on the left third, with one large and two smaller official UP! boxes on the stack.",
+        "address-ribbons": "Flowing translucent ribbons inspired by address-derived colour signatures, sweeping from lower left to upper right and carrying four official UP! boxes.",
+        "modular-constellation": "Modular blank cubes, spheres and tiles gathered along the lower-right edge around one large and four smaller official UP! boxes.",
+        "identity-network": "Sparse nodes and orbital paths near the corners and edges linking five official UP! boxes; centre calm.",
+        "iridescent-horizon": "Iridescent mist and low wave forms across the bottom quarter with one large and two smaller official UP! boxes at the lower right, for section dividers and closing slides."
       },
-      "generatedAt": "2026-09-15T19:13:10Z to 2026-09-15T19:19:17Z (time-stamp authority tokens)",
-      "promptSource": "backgrounds/slides-v2/PROMPTS.source.json (the staged prompt file; every prompt below is byte-identical to it and the validator checks the two against each other)",
-      "use": "Presentation backgrounds in six families, each in a light and a dark register; contact sheets in assets/slides/previews",
-      "requestedBy": "The product owner asked on 2026-09-15 for these backgrounds to be visible in the repository and for further variations (decision 0011)"
+      "generatedAt": "2026-09-15T21:05:04Z to 2026-09-15T21:13:26Z (time-stamp authority tokens of the branded replacements)",
+      "replaces": "The generic slides-v2 set countersigned on 2026-09-15 between 19:13 and 19:19 UTC; every entry records the former file's SHA-256 and time stamp as its edit target (Image 1)",
+      "decision": "decisions/0012-branded-slide-backgrounds.md",
+      "references": [
+        {
+          "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+          "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+          "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+          "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+          "node": "1131:25142",
+          "status": "observed",
+          "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+          "published": false,
+          "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+        }
+      ],
+      "embeddedMarks": "Every file depicts the UP! mark on one or more 3D UP! boxes rendered from the reference (counts on each entry, by visual review). The mark stays its owner's trademark: the depiction is an owner-authorized publication and use decision for these twelve files, not brand approval, not a mark file and not a licence to extract, crop out, trace or reuse the boxes or the mark; a further branded file needs its own recorded authorization.",
+      "promptSource": "backgrounds/slides-v2/PROMPTS.source.json (the staged prompt file; every prompt below is byte-identical to it, with the generation id and the former file's hash, and the validator checks the two against each other and against the pinned selection in scripts/validate/branded-backgrounds.json)",
+      "use": "Presentation backgrounds in six families, each in a light and a dark register, every file showing one or more official UP! boxes; contact sheets in assets/slides/previews",
+      "requestedBy": "The product owner asked on 2026-09-15 for the first twelve backgrounds to be visible in the repository (decision 0011) and, later the same day, for that generic set to be replaced by sophisticated imagery containing one or more actual UP! boxes (decision 0012)"
     }
   },
   "contract": {
@@ -180,267 +196,711 @@
     },
     {
       "path": "backgrounds/slides-v2/identity-orbits-light.png",
-      "sha256": "7cfa196af8ed83347ae1a59dc62c0ab4e5ebdf496c7b9b9eb24c5352254e8ba2",
+      "sha256": "d6ee45e590a6e0a7ab5ca19e5068ecac46bbe0e3db653d31d59ae4f292d01d92",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register identity-orbits slide background",
+      "brief": "IB-12 light-register identity-orbits slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "identity-orbits",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:13:10Z"
+        "timestamp": "2026-09-15T21:05:04Z"
+      },
+      "generation": {
+        "id": "exec-4bb4e424-f3dc-4fcf-9484-13f995069aa6",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic identity-orbits-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "7cfa196af8ed83347ae1a59dc62c0ab4e5ebdf496c7b9b9eb24c5352254e8ba2",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:13:10Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.5,
         "height": 1,
-        "note": "Left half, full height; the orbit cluster sits in the right third (prompt: left 52 percent quiet; measured quiet to 50 percent)."
+        "measured": {
+          "meanLuminance": 249.9,
+          "deviation": 4.1
+        },
+        "note": "Left half, full height; one large and two smaller UP! boxes inside the orbit system on the right half, from about 53 percent of the width (prompt: left 52 percent text-safe; measured quiet to 50 percent, the same zone as the generic version it replaces). Measured on this file: mean luminance 249.9, deviation 4.1."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Create a new light-mode abstract background variation built around elegant concentric identity orbits and one softly glowing portal ring.\nStyle/medium: premium modern 3D editorial abstraction, restrained and spatial, consistent with the supplied Universal Profiles references.\nComposition/framing: wide landscape; visual cluster anchored on the right third; keep the entire left 52 percent quiet and low-contrast for slide titles and body copy; subtle depth toward the edges.\nLighting/mood: soft luminous studio atmosphere, optimistic, intelligent, calm.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF, #8494EE, tiny cool slate accents; no dominant pink.\nMaterials/textures: translucent glass, frosted acrylic, soft volumetric haze, extremely subtle fine grain.\nConstraints: background only; no words, no letters, no logos, no UI screenshots, no people, no devices, no watermarks; preserve large usable negative space; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background replacement\nInput images: Image 1 is the edit target whose wide composition, light register, right-side orbit cluster, and quiet left 52% must be preserved; Image 2 is the exact official 3D UP! box reference and must define the branded object faithfully.\nPrimary request: Upgrade Image 1 into a more sophisticated premium scene in which the orbit system revolves around one large recognizable UP! box and two smaller UP! boxes at varied depth. The boxes must retain the exact rounded-square periwinkle 3D form and clearly readable white “UP!” glyph from Image 2, with no invented logo variations.\nStyle/medium: refined high-end 3D editorial brand imagery, subtle translucent orbital rings, glass and soft acrylic, spatial depth, photoreal material rendering.\nComposition/framing: keep all branded objects and orbit detail in the right third; keep the full left 52% calm, bright, low-detail, and text-safe.\nLighting/mood: soft luminous studio daylight, optimistic, intelligent, calm.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF, #8494EE, tiny cool slate accents; no dominant pink.\nConstraints: preserve 16:9 landscape and clean negative space; at least three actual UP! boxes visible; no other words, letters, numbers, UI screenshots, people, hands, devices, coins, blockchain symbols, maps, grids, or watermarks; only the exact “UP!” branding may appear; do not crop the main box."
     },
     {
       "path": "backgrounds/slides-v2/identity-orbits-dark.png",
-      "sha256": "3d68794c040a9d254d540a9f8fa94088e320987586af8fe0e98eb903264cb364",
+      "sha256": "3c5d992a02d8b2621c6d6381b932bf5483e58ab849073008c7f775ac6490577b",
       "dimensions": "1671x941",
-      "brief": "IB-12 dark-register identity-orbits slide background",
+      "brief": "IB-12 dark-register identity-orbits slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "identity-orbits",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:14:02Z"
+        "timestamp": "2026-09-15T21:05:49Z"
+      },
+      "generation": {
+        "id": "exec-e25c5d91-2c90-4312-8109-cac30c5c4777",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic identity-orbits-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "3d68794c040a9d254d540a9f8fa94088e320987586af8fe0e98eb903264cb364",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:14:02Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.5,
         "height": 1,
-        "note": "Left half, full height; the orbit cluster sits in the right third (prompt: left 52 percent quiet; measured quiet to 50 percent)."
+        "measured": {
+          "meanLuminance": 7.6,
+          "deviation": 5.1
+        },
+        "note": "Left half, full height; one large and two smaller UP! boxes inside the orbit system on the right half, from about 53 percent of the width (prompt: left 52 percent text-safe; measured quiet to 50 percent, the same zone as the generic version it replaces). Measured on this file: mean luminance 7.6, deviation 5.1."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Create the dark-mode companion to the supplied light identity-orbits background: elegant concentric identity orbits and one softly glowing portal ring.\nStyle/medium: premium modern 3D editorial abstraction, restrained and spatial, clearly the same family as the references.\nComposition/framing: wide landscape; visual cluster anchored on the right third; keep the entire left 52 percent dark, quiet, and low-detail for white slide titles and body copy.\nLighting/mood: deep midnight studio atmosphere with controlled periwinkle luminosity, intelligent and calm.\nColor palette: near-black #0B1015, cool slate #121B21, deep indigo, #6981EC, #8494EE, restrained cool-white highlights; no dominant pink.\nMaterials/textures: translucent glass, smoked acrylic, soft volumetric light, extremely subtle fine grain.\nConstraints: background only; no words, no letters, no logos, no UI screenshots, no people, no devices, no watermarks; preserve large usable negative space; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles dark presentation background replacement\nInput images: Image 1 is the edit target whose dark register, right-side orbit cluster, and quiet left 52% must be preserved; Image 2 is the exact official 3D UP! box reference and must define the branded object faithfully.\nPrimary request: Upgrade Image 1 into the dark companion of a sophisticated brand scene in which translucent orbital systems revolve around one large recognizable UP! box and two smaller UP! boxes at varied depth. Retain the exact rounded-square periwinkle 3D form and clearly readable white “UP!” glyph from Image 2, with no invented logo variations.\nStyle/medium: refined high-end 3D editorial brand imagery, smoked glass, subtle orbit rings, cinematic depth, photoreal material rendering.\nComposition/framing: all branded objects and orbit detail in the right third; the full left 52% deep, calm, low-detail, and text-safe for white copy.\nLighting/mood: controlled midnight studio light, elegant, intelligent, calm.\nColor palette: near-black #0B1015, cool slate #121B21, deep indigo, #6981EC, #8494EE, restrained cool-white highlights; no dominant pink.\nConstraints: preserve 16:9 landscape and negative space; at least three actual UP! boxes visible; no other words, letters, numbers, UI screenshots, people, hands, devices, coins, blockchain symbols, maps, grids, or watermarks; only the exact “UP!” branding may appear; do not crop the main box."
     },
     {
       "path": "backgrounds/slides-v2/glass-profile-stack-light.png",
-      "sha256": "15a2a4fdabeeaafeb7f60063961f1ecfe591787c4fcd53f0dff0e9d6a09c7754",
+      "sha256": "8eb91eb066f29dba0dd10a70d5e95f44b55ff589e85423e15560cd439319ac92",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register glass-profile-stack slide background",
+      "brief": "IB-12 light-register glass-profile-stack slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "glass-profile-stack",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:15:19Z"
+        "timestamp": "2026-09-15T21:07:09Z"
+      },
+      "generation": {
+        "id": "exec-5ab13a0a-94c7-456b-8fee-223c988359b4",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic glass-profile-stack-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "15a2a4fdabeeaafeb7f60063961f1ecfe591787c4fcd53f0dff0e9d6a09c7754",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:15:19Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.5,
         "y": 0,
         "width": 0.5,
         "height": 1,
-        "note": "Right half, full height; the card stack sits in the left third (prompt: right 50 percent clean)."
+        "measured": {
+          "meanLuminance": 240.6,
+          "deviation": 8.2
+        },
+        "note": "Right half, full height; one large and two smaller UP! boxes on the card stack in the left half, to about 49 percent of the width (prompt: boxes and cards within the left 42 percent, right 50 percent text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 240.6, deviation 8.2."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Light-mode abstract composition of layered translucent profile-card planes floating in perspective, suggesting portable digital identity without showing a literal interface.\nStyle/medium: premium modern 3D editorial design, minimal and architectural.\nComposition/framing: card stack anchored on the left third; keep the right 50 percent clean and low-contrast for slide copy.\nLighting/mood: airy soft studio light, calm and optimistic.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF and restrained #6981EC accents.\nMaterials/textures: frosted glass, satin acrylic, faint edge refraction, soft ground shadows, subtle grain.\nConstraints: abstract background only; blank cards with no text, letters, logos, avatars, icons, people, devices, UI screenshots, or watermarks; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles light presentation background\nInput images: Image 1 is the composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Build a sophisticated dimensional identity architecture: layered translucent profile-card planes grouped tightly in the left third, with one large official UP! box and two smaller UP! boxes integrated into the stack. Preserve the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: all cards and UP! boxes stay within the left 42% of the frame; the entire right 50% is a continuous opaque warm-white to cool-mist background, quiet, low-detail, and text-safe. No transparency anywhere and no dark/black edges.\nStyle/medium: premium high-end 3D editorial brand imagery, frosted glass, soft acrylic, realistic refraction, elegant depth, controlled shadows.\nLighting/mood: soft daylight studio, optimistic, calm, precise.\nColor palette: opaque white and cool mist across the full canvas, pale periwinkle, #A4B5FF, #8494EE, restrained cool slate; no dominant pink.\nConstraints: 16:9 landscape, fully opaque RGB-style background; at least three actual UP! boxes; blank card planes with no UI; no other words, letters, numbers, logos, screenshots, people, devices, coins, maps, grids, watermarks, transparency, black areas, vignette, or clipped canvas; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/glass-profile-stack-dark.png",
-      "sha256": "0689cc2afdfac7d3f5cb31f0143f1b2fde4dd2e33f73a9ad385744d6ba323a66",
+      "sha256": "dce642861f54595f0ce2f4b1b757b8d957cf4c1ed5bdadc41af020dfeb7e04c6",
       "dimensions": "1672x941",
-      "brief": "IB-12 dark-register glass-profile-stack slide background",
+      "brief": "IB-12 dark-register glass-profile-stack slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "glass-profile-stack",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:15:40Z"
+        "timestamp": "2026-09-15T21:07:48Z"
+      },
+      "generation": {
+        "id": "exec-c4ea649e-b0c9-4f47-981c-9662db861936",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic glass-profile-stack-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "0689cc2afdfac7d3f5cb31f0143f1b2fde4dd2e33f73a9ad385744d6ba323a66",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:15:40Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.5,
         "y": 0,
         "width": 0.5,
         "height": 1,
-        "note": "Right half, full height; the card stack sits in the left third (prompt: right 50 percent clean)."
+        "measured": {
+          "meanLuminance": 18.7,
+          "deviation": 5.9
+        },
+        "note": "Right half, full height; one large and two smaller UP! boxes on the card stack in the left half, to about 49 percent of the width (prompt: boxes and cards within the left 42 percent, right 50 percent text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 18.7, deviation 5.9."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Dark-mode abstract composition of layered smoked-glass profile-card planes floating in perspective, suggesting portable digital identity without a literal interface.\nStyle/medium: premium modern 3D editorial design, minimal and architectural.\nComposition/framing: card stack anchored on the left third; keep the right 50 percent dark, clean and low-detail for white slide copy.\nLighting/mood: deep midnight studio light with controlled periwinkle edge glow.\nColor palette: near-black, cool slate, deep indigo, #6981EC, #8494EE and restrained cool-white highlights.\nMaterials/textures: smoked glass, dark satin acrylic, subtle refraction and soft shadows.\nConstraints: abstract background only; blank cards with no text, letters, logos, avatars, icons, people, devices, UI screenshots, or watermarks; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles dark presentation background\nInput images: Image 1 is the dark composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Build the dark companion to a sophisticated dimensional identity architecture: layered smoked-glass profile-card planes grouped tightly in the left third, with one large official UP! box and two smaller UP! boxes integrated into the stack. Preserve the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: all cards and UP! boxes stay within the left 42%; the entire right 50% is a continuous opaque near-black-to-deep-slate background, quiet, low-detail, and text-safe for white copy.\nStyle/medium: premium high-end 3D editorial brand imagery, smoked glass, polished acrylic, realistic refraction, elegant cinematic depth.\nLighting/mood: controlled midnight studio, intelligent, calm, precise.\nColor palette: opaque #0B1015 and #121B21 across the full canvas, deep indigo, #6981EC, #8494EE, restrained cool-white highlights; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least three actual UP! boxes; blank card planes with no UI; no other words, letters, numbers, logos, screenshots, people, devices, coins, maps, grids, watermarks, transparency, white empty canvas, or clipped edges; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/address-ribbons-light.png",
-      "sha256": "9395aeb326fbea4bdbc3fec4e427f495d3b26eac9a1bfbdb1d8a3c878a6185cd",
+      "sha256": "0c140f19d9ec407b7f8f2be460a1ee3e5527f97d093db0ee0c6c90642baa00fa",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register address-ribbons slide background",
+      "brief": "IB-12 light-register address-ribbons slide background, branded (4 official UP! boxes)",
       "set": "slides-v2",
       "family": "address-ribbons",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:15:59Z"
+        "timestamp": "2026-09-15T21:08:25Z"
+      },
+      "generation": {
+        "id": "exec-feb5a774-a86c-415a-85a0-8fb03d7999ad",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic address-ribbons-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "9395aeb326fbea4bdbc3fec4e427f495d3b26eac9a1bfbdb1d8a3c878a6185cd",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:15:59Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 4,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.15,
         "y": 0.15,
         "width": 0.5,
         "height": 0.35,
-        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; the ribbons cross the lower left and the upper right (prompt: calm central text-safe zone; measured as this band)."
+        "measured": {
+          "meanLuminance": 245.3,
+          "deviation": 7.6
+        },
+        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; two UP! boxes riding the ribbons at the lower left and two at the upper right; the ribbons cross the lower centre (prompt: text-safe band from 15 to 65 percent width and 15 to 50 percent height; the same zone as the generic version it replaces). Measured on this file: mean luminance 245.3, deviation 7.6."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A light abstract field of flowing translucent data ribbons and soft gradient strands, inspired by deterministic address-derived color signatures.\nStyle/medium: elegant contemporary 3D motion still, refined and minimal.\nComposition/framing: diagonal ribbons sweep gently from lower left toward upper right; maintain a calm central text-safe zone and low contrast behind copy.\nLighting/mood: luminous, fluid, intelligent, optimistic.\nColor palette: white, cool mist, periwinkle, pale cyan, subtle apricot and soft lime accents derived from varied address gradients.\nMaterials/textures: translucent silk-glass ribbons, fine grain, soft depth of field.\nConstraints: no text, numbers, hexadecimal strings, logos, icons, people, devices, UI, or watermarks; avoid rainbow overload; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles light presentation background replacement\nInput images: Image 1 is the light ribbon composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create a sophisticated flowing identity network: translucent address-color ribbons sweep diagonally from the lower-left edge toward the upper-right, carrying four recognizable official UP! boxes at different scales and depths, as if profiles are moving through a shared network. Each UP! box must retain the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: ribbons and branded boxes stay near the lower-left and upper-right edges; preserve a calm opaque text-safe band from 15–65% width and 15–50% height.\nStyle/medium: premium 3D editorial abstraction, elegant translucent ribbons, polished acrylic boxes, realistic refraction, sophisticated spatial depth.\nLighting/mood: luminous daylight, energetic but calm.\nColor palette: white and cool mist full canvas, pale periwinkle, #A4B5FF, #8494EE, subtle address-derived cyan and violet accents; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least four actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/address-ribbons-dark.png",
-      "sha256": "b20a33c41170d861fe95c166089ec49589b690f6cb552da21ad5f86d2c1e1730",
+      "sha256": "c9c8abfdf5efb2a4123b8ce3301bbbe5b017b684aafe8ce231274a19c308f472",
       "dimensions": "1672x941",
-      "brief": "IB-12 dark-register address-ribbons slide background",
+      "brief": "IB-12 dark-register address-ribbons slide background, branded (4 official UP! boxes)",
       "set": "slides-v2",
       "family": "address-ribbons",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:16:19Z"
+        "timestamp": "2026-09-15T21:09:04Z"
+      },
+      "generation": {
+        "id": "exec-bad476f5-eb70-4ec2-adc6-6f86904de27c",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic address-ribbons-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "b20a33c41170d861fe95c166089ec49589b690f6cb552da21ad5f86d2c1e1730",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:16:19Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 4,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.15,
         "y": 0.15,
         "width": 0.5,
         "height": 0.35,
-        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; the ribbons cross the lower left and the upper right (prompt: calm central text-safe zone; measured as this band)."
+        "measured": {
+          "meanLuminance": 21.9,
+          "deviation": 11.4
+        },
+        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; two UP! boxes riding the ribbons at the lower left and two at the upper right; the ribbons cross the lower centre (prompt: text-safe band from 15 to 65 percent width and 15 to 50 percent height; the same zone as the generic version it replaces). Measured on this file: mean luminance 21.9, deviation 11.4."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A dark abstract field of flowing translucent data ribbons and controlled gradient strands, inspired by deterministic address-derived color signatures.\nStyle/medium: elegant contemporary 3D motion still, refined and minimal.\nComposition/framing: diagonal ribbons sweep gently from lower left toward upper right; maintain a dark calm central text-safe zone and low detail behind copy.\nLighting/mood: midnight, fluid, intelligent, quietly energetic.\nColor palette: near-black, cool slate, deep periwinkle, restrained cyan, muted apricot and olive accents.\nMaterials/textures: translucent glass-silk ribbons, subtle glow, fine grain, soft depth of field.\nConstraints: no text, numbers, hexadecimal strings, logos, icons, people, devices, UI, or watermarks; avoid neon rainbow overload; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles dark presentation background replacement\nInput images: Image 1 is the dark ribbon composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create the dark companion of a sophisticated flowing identity network: translucent address-color ribbons sweep diagonally from the lower-left edge toward the upper-right, carrying four recognizable official UP! boxes at different scales and depths. Every UP! box retains the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: ribbons and branded boxes stay near the lower-left and upper-right edges; preserve a calm dark text-safe band from 15–65% width and 15–50% height for white copy.\nStyle/medium: premium 3D editorial abstraction, translucent ribbons, polished acrylic, realistic refraction, elegant cinematic depth.\nLighting/mood: controlled midnight luminosity, energetic but calm.\nColor palette: opaque near-black #0B1015 and slate #121B21 full canvas, deep indigo, #6981EC, #8494EE, subtle cyan and violet accents; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least four actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/modular-constellation-light.png",
-      "sha256": "c93aca1eec523a799cae4143d00188b3d534d85195c312861368aaa1adbcc6c8",
+      "sha256": "5dff00004a05f704681cefab46c226e4ad0b91942489d8831b69527ee68dbcc0",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register modular-constellation slide background",
+      "brief": "IB-12 light-register modular-constellation slide background, branded (5 official UP! boxes)",
       "set": "slides-v2",
       "family": "modular-constellation",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:17:19Z"
+        "timestamp": "2026-09-15T21:09:44Z"
+      },
+      "generation": {
+        "id": "exec-51592fd0-4f57-40a9-a1c3-d96b98180a91",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic modular-constellation-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "c93aca1eec523a799cae4143d00188b3d534d85195c312861368aaa1adbcc6c8",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:17:19Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 5,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.58,
         "height": 0.5,
-        "note": "Upper-left 58 percent of the width and 50 percent of the height; the objects gather along the lower-right and right edge (prompt: upper-left 58 percent quiet; measured quiet to half the height)."
+        "measured": {
+          "meanLuminance": 247.8,
+          "deviation": 1.3
+        },
+        "note": "Upper-left 58 percent of the width and 50 percent of the height; one large and four smaller UP! boxes among blank cubes, tiles and spheres along the lower-right edge, from about 38 percent of the width at the bottom and 60 percent in the upper half (prompt: upper-left 58 percent width and upper 50 percent height text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 247.8, deviation 1.3."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Light-mode constellation of modular rounded cubes, spheres and small identity tiles floating as an open ecosystem.\nStyle/medium: premium 3D editorial abstraction, playful but sophisticated, consistent with Universal Profiles.\nComposition/framing: objects gathered along the lower-right and right edge; keep the upper-left 58 percent quiet for slide titles.\nLighting/mood: bright diffused studio light, optimistic, creative and spacious.\nColor palette: white, pale periwinkle, #A4B5FF, #8494EE, cool mist, tiny restrained magenta and cyan accents.\nMaterials/textures: frosted acrylic, translucent glass, satin ceramic, soft contact shadows.\nConstraints: all tiles and cubes blank; no words, letters, logos, UI, people, hands, devices, coins, blockchain symbols or watermarks; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles light presentation background replacement\nInput images: Image 1 is the light modular-constellation composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create a sophisticated constellation of modular identity objects gathered along the lower-right edge: one prominent official UP! box, three smaller UP! boxes, and restrained blank rounded tiles and pearl spheres connected by subtle spatial relationships. Every UP! box must retain the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: branded objects and supporting forms stay in the lower-right 42%; preserve the upper-left 58% width and upper 50% height as bright, quiet, low-detail text-safe space.\nStyle/medium: premium 3D editorial brand still life, polished acrylic, frosted glass, soft sculpture, refined depth and realistic shadows.\nLighting/mood: soft daylight studio, elegant, modular, calm.\nColor palette: opaque white and cool mist full canvas, #A4B5FF, #8494EE, pearl white, tiny slate accents; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least four actual UP! boxes; blank support objects only; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, transparency, or black edges; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/modular-constellation-dark.png",
-      "sha256": "93a68b850293f5b24523ee805df5e683578c7a94a932cb425286148d6f3dc4de",
+      "sha256": "61abd21c00cea23072e53c34739cb6272af13f04c86b97aff3f3b574edce3df5",
       "dimensions": "1672x941",
-      "brief": "IB-12 dark-register modular-constellation slide background",
+      "brief": "IB-12 dark-register modular-constellation slide background, branded (5 official UP! boxes)",
       "set": "slides-v2",
       "family": "modular-constellation",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:17:40Z"
+        "timestamp": "2026-09-15T21:10:19Z"
+      },
+      "generation": {
+        "id": "exec-3619a12f-b45e-457b-b9ad-1c91805703ca",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic modular-constellation-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "93a68b850293f5b24523ee805df5e683578c7a94a932cb425286148d6f3dc4de",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:17:40Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 5,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.58,
         "height": 0.5,
-        "note": "Upper-left 58 percent of the width and 50 percent of the height; the objects gather along the lower-right and right edge (prompt: upper-left 58 percent quiet; measured quiet to half the height)."
+        "measured": {
+          "meanLuminance": 23.8,
+          "deviation": 8
+        },
+        "note": "Upper-left 58 percent of the width and 50 percent of the height; one large and four smaller UP! boxes among blank cubes, tiles and spheres along the lower-right edge, from about 38 percent of the width at the bottom and 60 percent in the upper half (prompt: upper-left 58 percent width and upper 50 percent height text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 23.8, deviation 8."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Dark-mode constellation of modular rounded cubes, spheres and small identity tiles floating as an open ecosystem.\nStyle/medium: premium 3D editorial abstraction, playful but sophisticated, consistent with Universal Profiles.\nComposition/framing: objects gathered along the lower-right and right edge; keep the upper-left 58 percent dark and quiet for white slide titles.\nLighting/mood: deep cinematic studio atmosphere with restrained periwinkle edge light.\nColor palette: near-black, cool slate, deep indigo, #6981EC, #8494EE, tiny controlled magenta and cyan accents.\nMaterials/textures: smoked glass, satin ceramic, translucent acrylic, soft contact shadows.\nConstraints: all tiles and cubes blank; no words, letters, logos, UI, people, hands, devices, coins, blockchain symbols or watermarks; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles dark presentation background replacement\nInput images: Image 1 is the dark modular-constellation target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create the dark companion: a sophisticated constellation of modular identity objects gathered along the lower-right edge, with one prominent official UP! box, three smaller UP! boxes, and restrained blank rounded tiles and pearl spheres connected by subtle orbital relationships. Every UP! box retains the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: all objects stay in the lower-right 42%; preserve the upper-left 58% width and upper 50% height as dark, quiet, low-detail text-safe space.\nStyle/medium: premium cinematic 3D editorial still life, smoked glass, polished acrylic, soft sculpture, refined depth and realistic shadows.\nLighting/mood: controlled midnight studio, elegant, modular, calm.\nColor palette: opaque #0B1015 and #121B21 full canvas, deep indigo, #6981EC, #8494EE, restrained cool-white highlights; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least four actual UP! boxes; blank support objects only; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/identity-network-light.png",
-      "sha256": "a292989605c765450dd7159810b87570ffedd28d541fab2e38fcacfcf6727faa",
+      "sha256": "39b24a229b2967080b924340fb686ef1e55817e5b327577d66003ad70cff399a",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register identity-network slide background",
+      "brief": "IB-12 light-register identity-network slide background, branded (5 official UP! boxes)",
       "set": "slides-v2",
       "family": "identity-network",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:18:02Z"
+        "timestamp": "2026-09-15T21:10:54Z"
+      },
+      "generation": {
+        "id": "exec-db8f78e4-f6be-436f-aac1-4e86f8a87bab",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic identity-network-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "a292989605c765450dd7159810b87570ffedd28d541fab2e38fcacfcf6727faa",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:18:02Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 5,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.3,
         "y": 0,
         "width": 0.4,
         "height": 0.75,
-        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; the clusters stay near the corners (prompt: centre and upper centre calm)."
+        "measured": {
+          "meanLuminance": 242.9,
+          "deviation": 9.7
+        },
+        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; five UP! boxes on orbital paths near the corners and edges, the largest at the lower left; the centre column stays clear (prompt: centre column 30 to 70 percent width and upper 75 percent height text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 242.9, deviation 9.7."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A minimal light identity-network field: sparse glowing nodes, soft orbital paths and a few translucent profile halos, suggesting people, brands and agents connected through one account layer.\nStyle/medium: refined data-visualization-inspired 3D abstraction, editorial rather than technical diagram.\nComposition/framing: balanced edge-to-edge field with the center and upper center deliberately calm for a centered slide title; detail clusters stay near the corners.\nLighting/mood: luminous, open, trustworthy, intelligent.\nColor palette: white, cool mist, pale periwinkle, #6981EC, subtle cyan, faint neutral slate.\nMaterials/textures: soft glass beads, hairline luminous paths, subtle depth and grain.\nConstraints: no labels, text, letters, logos, faces, literal avatars, UI, devices, maps, grids or watermarks; sparse, not busy; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles light presentation background replacement\nInput images: Image 1 is the light identity-network composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Visualize a sophisticated decentralized identity network with five official UP! boxes positioned near the outer corners and edges, connected by very subtle translucent arcs and pearl nodes around a calm central field. Each box must retain the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2; vary scale and depth naturally.\nComposition/framing: keep the centre column from 30–70% width and the upper 75% height quiet, bright, and text-safe; branded boxes remain near corners and edges without being cropped.\nStyle/medium: refined premium 3D editorial abstraction, elegant network topology without literal diagrams, frosted glass, soft acrylic, realistic depth.\nLighting/mood: luminous daylight, connected, calm, intelligent.\nColor palette: opaque white and cool mist full canvas, pale periwinkle, #A4B5FF, #8494EE, restrained cool slate and tiny cyan accents; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least five actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/identity-network-dark.png",
-      "sha256": "3734a9409eefc8019ef8cf7c07040a9347bc212ea5b3615c832eb79455645522",
+      "sha256": "abff75b57774a2d7cb08a44c60d1b3f97eed8ba923eb707a25870881f09d61d5",
       "dimensions": "1671x941",
-      "brief": "IB-12 dark-register identity-network slide background",
+      "brief": "IB-12 dark-register identity-network slide background, branded (5 official UP! boxes)",
       "set": "slides-v2",
       "family": "identity-network",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:18:24Z"
+        "timestamp": "2026-09-15T21:11:30Z"
+      },
+      "generation": {
+        "id": "exec-3dcda807-2963-4cae-90d8-b532af989213",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic identity-network-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "3734a9409eefc8019ef8cf7c07040a9347bc212ea5b3615c832eb79455645522",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:18:24Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 5,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0.3,
         "y": 0,
         "width": 0.4,
         "height": 0.75,
-        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; the clusters stay near the corners (prompt: centre and upper centre calm)."
+        "measured": {
+          "meanLuminance": 17.6,
+          "deviation": 6.6
+        },
+        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; five UP! boxes on orbital paths near the corners and edges, the largest at the lower left; the centre column stays clear (prompt: centre column 30 to 70 percent width and upper 75 percent height text-safe; the same zone as the generic version it replaces). Measured on this file: mean luminance 17.6, deviation 6.6."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A minimal dark identity-network field: sparse glowing nodes, soft orbital paths and a few translucent profile halos, suggesting people, brands and agents connected through one account layer.\nStyle/medium: refined data-visualization-inspired 3D abstraction, editorial rather than technical diagram.\nComposition/framing: balanced edge-to-edge field with the center and upper center deliberately calm for a centered white slide title; detail clusters stay near the corners.\nLighting/mood: deep, trustworthy, intelligent, quietly futuristic.\nColor palette: near-black, cool slate, deep indigo, #6981EC, restrained cyan and cool-white highlights.\nMaterials/textures: glass beads, hairline luminous paths, subtle volumetric depth and fine grain.\nConstraints: no labels, text, letters, logos, faces, literal avatars, UI, devices, maps, grids or watermarks; sparse, not busy; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles dark presentation background replacement\nInput images: Image 1 is the dark identity-network composition target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create the dark companion: a sophisticated decentralized identity network with five official UP! boxes positioned near the outer corners and edges, connected by subtle luminous arcs and pearl nodes around a calm central field. Each box retains the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2; vary scale and depth naturally.\nComposition/framing: keep the centre column from 30–70% width and the upper 75% height dark, quiet, and text-safe; branded boxes remain near corners and edges without being cropped.\nStyle/medium: refined cinematic 3D editorial abstraction, elegant network topology without literal diagrams, smoked glass, polished acrylic, realistic depth.\nLighting/mood: midnight studio, connected, calm, intelligent.\nColor palette: opaque near-black #0B1015 and slate #121B21 full canvas, deep indigo, #6981EC, #8494EE, restrained cyan and white highlights; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least five actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/iridescent-horizon-light.png",
-      "sha256": "23d5c283f0a4136afefc47d5fecec67d166cd37c3a085bb4245687862f3e35fe",
+      "sha256": "3d41400518ac2cf825dfbcb469f7f697fbce15b280a36b7f4e13af861056f065",
       "dimensions": "1672x941",
-      "brief": "IB-12 light-register iridescent-horizon slide background",
+      "brief": "IB-12 light-register iridescent-horizon slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "iridescent-horizon",
       "register": "light",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:19:00Z"
+        "timestamp": "2026-09-15T21:12:09Z"
+      },
+      "generation": {
+        "id": "exec-f1aa4d2d-3d69-4489-9f84-c4bf5ffd3eb0",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic iridescent-horizon-light.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "23d5c283f0a4136afefc47d5fecec67d166cd37c3a085bb4245687862f3e35fe",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:19:00Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.6,
         "height": 0.5,
-        "note": "Upper-left 60 percent of the width and 50 percent of the height; the horizon fills the lower quarter and its glow lifts the upper right (prompt: upper 65 percent calm; measured calm in the upper left half)."
+        "measured": {
+          "meanLuminance": 245.9,
+          "deviation": 6.7
+        },
+        "note": "Upper-left 60 percent of the width and 50 percent of the height; one large and two smaller UP! boxes standing on the wave forms at the lower right, from about 53 percent of the width and 46 percent (dark) or 52 percent (light) of the height; the upper right carries the periwinkle glow (prompt: upper 65 percent text-safe; measured calm in the upper-left 60 by 50 percent, the same zone as the generic version it replaces; below 50 percent the left wave crests begin). Measured on this file: mean luminance 245.9, deviation 6.7."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A luminous abstract horizon made from soft iridescent mist, low translucent wave forms and distant periwinkle light, suitable for section-divider and closing slides.\nStyle/medium: premium minimal editorial atmosphere, modern and timeless.\nComposition/framing: low visual horizon across the bottom quarter; upper 65 percent nearly empty and evenly calm for centered or left-aligned slide copy.\nLighting/mood: dawn-like, expansive, optimistic, quietly visionary.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF, faint cyan and a nearly imperceptible warm blush.\nMaterials/textures: volumetric haze, translucent glass waves, very subtle fine grain.\nConstraints: no objects that resemble landscapes, people, text, letters, logos, UI, devices, planets, coins or watermarks; abstract only; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles light presentation background replacement\nInput images: Image 1 is the light iridescent-horizon target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create a sophisticated serene identity horizon: soft iridescent mist and low translucent wave forms across the bottom quarter, with one large official UP! box rising from the lower-right horizon and two smaller UP! boxes receding toward the center-right. Every box must preserve the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: all branded objects and waves stay in the lower-right/bottom 38%; preserve the entire upper 65% and upper-left as bright, quiet, low-detail text-safe space.\nStyle/medium: premium atmospheric 3D editorial brand landscape, glassy wave forms, polished acrylic boxes, subtle volumetric mist, elegant depth.\nLighting/mood: dawn-like luminous studio atmosphere, optimistic, expansive, calm.\nColor palette: opaque white and cool mist full canvas, pale periwinkle, #A4B5FF, #8494EE, tiny cool cyan highlights; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least three actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     },
     {
       "path": "backgrounds/slides-v2/iridescent-horizon-dark.png",
-      "sha256": "b4c8ededc3b37aaa9946883e26f6c1e4372deb6e54bb32cc4a3e6bc90b5bbd59",
+      "sha256": "a41f26303d144106cc5b7151e0d59a8f0286efe1a362f21a9d76db36d470826e",
       "dimensions": "1672x941",
-      "brief": "IB-12 dark-register iridescent-horizon slide background",
+      "brief": "IB-12 dark-register iridescent-horizon slide background, branded (3 official UP! boxes)",
       "set": "slides-v2",
       "family": "iridescent-horizon",
       "register": "dark",
       "status": "proposed",
       "colour": "8-bit RGB, no alpha channel",
       "contentCredentials": {
-        "timestamp": "2026-09-15T19:19:17Z"
+        "timestamp": "2026-09-15T21:13:26Z"
+      },
+      "generation": {
+        "id": "exec-7ab9027d-be8b-42c0-b509-cee3b9cd86bd",
+        "mode": "image edit: the generator was given two input images and the prompt below; the branded object follows Image 2",
+        "inputs": [
+          {
+            "role": "Image 1: the edit target",
+            "what": "the generic iridescent-horizon-dark.png this file replaces (composition, register and text-safe zone kept)",
+            "sha256": "b4c8ededc3b37aaa9946883e26f6c1e4372deb6e54bb32cc4a3e6bc90b5bbd59",
+            "formerContentCredentialsTimestamp": "2026-09-15T19:19:17Z",
+            "published": false,
+            "note": "no longer in the repository; recorded by hash so the lineage stays verifiable"
+          },
+          {
+            "role": "Image 2 in every prompt: the brand reference that defines the depicted object",
+            "what": "Box 5a, the official 3D UP! box (the cube mark with the badge face described in brand/lockups.md)",
+            "source": "SRC-FIGMA-UP-BOARD:1131:25142",
+            "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
+            "node": "1131:25142",
+            "status": "observed",
+            "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+            "published": false,
+            "note": "A private working input the owner pointed to for this generation; verified by hash before use; not copied into the repository, not a standalone asset here, and not a licence to reproduce the mark elsewhere"
+          }
+        ],
+        "authorization": "product owner, 2026-09-15, in an authenticated private conversation (cited by date, not reproduced); recorded in decisions/0012-branded-slide-backgrounds.md"
+      },
+      "embeddedMarks": {
+        "mark": "UP!",
+        "carrier": "the official 3D UP! box, rendered by the generator from the reference input",
+        "count": 3,
+        "counted": "by visual review at integration on 2026-09-15 (the validator cannot count glyphs); every box carries the same white UP! glyph on the rounded periwinkle box, no other words, letters or marks appear",
+        "rights": "The UP! mark stays its owner's trademark; the file depicts it under the owner's recorded authorization (decision 0012) and the repository licence covers the generated scene pixels only; the boxes and the mark may not be extracted, cropped out, traced or reused as a mark (LICENSES/GENERATED-IMAGES.md, TRADEMARKS.md)"
       },
       "safeZone": {
         "x": 0,
         "y": 0,
         "width": 0.6,
         "height": 0.5,
-        "note": "Upper-left 60 percent of the width and 50 percent of the height; the horizon fills the lower quarter and its glow lifts the upper right (prompt: upper 65 percent calm; measured calm in the upper left half)."
+        "measured": {
+          "meanLuminance": 10.9,
+          "deviation": 6.6
+        },
+        "note": "Upper-left 60 percent of the width and 50 percent of the height; one large and two smaller UP! boxes standing on the wave forms at the lower right, from about 53 percent of the width and 46 percent (dark) or 52 percent (light) of the height; the upper right carries the periwinkle glow (prompt: upper 65 percent text-safe; measured calm in the upper-left 60 by 50 percent, the same zone as the generic version it replaces; below 50 percent the left wave crests begin). Measured on this file: mean luminance 10.9, deviation 6.6."
       },
-      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A dark luminous abstract horizon made from soft iridescent mist, low translucent wave forms and distant periwinkle light, suitable for section-divider and closing slides.\nStyle/medium: premium minimal editorial atmosphere, modern and timeless.\nComposition/framing: low visual horizon across the bottom quarter; upper 65 percent dark, nearly empty and evenly calm for centered or left-aligned white slide copy.\nLighting/mood: midnight-to-dawn, expansive, intelligent, quietly visionary.\nColor palette: near-black, cool slate, deep indigo, #6981EC, restrained cyan and a faint periwinkle glow.\nMaterials/textures: volumetric haze, smoked-glass waves, very subtle fine grain.\nConstraints: no objects that resemble landscapes, people, text, letters, logos, UI, devices, planets, coins or watermarks; abstract only; 16:9 landscape."
+      "prompt": "Use case: productivity-visual\nAsset type: opaque 16:9 Universal Profiles dark presentation background replacement\nInput images: Image 1 is the dark iridescent-horizon target; Image 2 is the exact official 3D UP! box reference.\nPrimary request: Create the dark companion: a sophisticated serene identity horizon with low luminous glass wave forms across the bottom quarter, one large official UP! box rising from the lower-right horizon, and two smaller UP! boxes receding toward the center-right. Preserve the exact rounded periwinkle 3D form and clearly readable white “UP!” glyph from Image 2.\nComposition/framing: branded objects and waves stay in the lower-right/bottom 38%; preserve the entire upper 65% and upper-left as dark, quiet, low-detail text-safe space.\nStyle/medium: premium atmospheric cinematic 3D editorial landscape, smoked glass waves, polished acrylic boxes, subtle volumetric haze, elegant depth.\nLighting/mood: midnight horizon, luminous but calm, expansive and intelligent.\nColor palette: opaque near-black #0B1015 and slate #121B21 full canvas, deep indigo, #6981EC, #8494EE, restrained cyan and cool-white highlights; no dominant pink.\nConstraints: 16:9 landscape, fully opaque; at least three actual UP! boxes; no other words, letters, numbers, logos, UI, people, devices, coins, blockchain symbols, maps, grids, watermarks, or transparency; only exact “UP!” branding may appear."
     }
   ]
 }

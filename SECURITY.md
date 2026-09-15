@@ -13,6 +13,6 @@ In scope: the scripts under `scripts/` and `packages/`, the generated outputs, a
 ## Practices
 
 - No dependencies, no network access, no install step; scripts read and write only inside the repository.
-- Generated files are deterministic and checked for drift.
+- Generated files are deterministic and checked for drift (for the composed contact sheets the contract is the decoded pixels; their bytes depend on the zlib of the Node that wrote them, and a matching sheet is never rewritten).
 - Assets carry hashes that the validator verifies; PNGs are decoded by the gate's own reader, so a file that is not a well-formed PNG (bad signature, chunk length or CRC) fails validation.
 - Private evidence never enters the repository; the validator scans every text file for private paths, URLs, identifiers and credentials.

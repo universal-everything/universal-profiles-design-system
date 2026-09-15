@@ -1,0 +1,31 @@
+# 0012 The official UP! box depicted inside the twelve generated slide backgrounds
+
+Status: accepted
+Date: 2026-09-15
+Closes: none (OPEN-03 and OPEN-04 stay open; this record admits a depiction, not a mark file or a trademark statement)
+
+## Context
+
+Decision 0011 admitted twelve generated slide backgrounds in six families under `assets/generated/backgrounds/slides-v2/` as generic abstractions whose prompts excluded words, letters and logos. Later on 2026-09-15 the product owner asked, in an authenticated private conversation (cited by date, not reproduced), for those generic backgrounds to be replaced by sophisticated imagery containing one or more actual UP! boxes, and for the repository to be updated comprehensively.
+
+The UP! box is the cube mark with the badge face described in `../brand/lockups.md`, a mark of its owner. Decision 0010 forbids this repository to create, reconstruct or approximate any mark under any label, and the repository ships no mark file (`../assets/logos/README.md`, OPEN-03). The owner pointed to the official 3D rendering of the box on the Universal Profile Board, file key `pAffzgmq6sjbWkyWAjnYmM`, node `1131:25142` (Box 5a; SRC-FIGMA-UP-BOARD; status observed), as the reference the generator had to follow faithfully.
+
+## Decision
+
+1. The twelve files are replaced. Each new file is an image edit of the former generic file of the same name (Image 1, recorded by its former SHA-256 and content-credentials time stamp) guided by the owner's reference (Image 2, the official 3D UP! box, private input SHA-256 `0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f`, verified before use). The selected files are `identity-orbits-light.png`, `identity-orbits-dark.png`, `glass-profile-stack-light.png`, `glass-profile-stack-dark.png`, `address-ribbons-light.png`, `address-ribbons-dark.png`, `modular-constellation-light.png`, `modular-constellation-dark.png`, `identity-network-light.png`, `identity-network-dark.png`, `iridescent-horizon-light.png` and `iridescent-horizon-dark.png`; their prompts, generation ids, hashes, time stamps and measured safe zones are recorded in `../assets/generated/PROVENANCE.json`, mirrored in `PROMPTS.source.json` and pinned in `../scripts/validate/branded-backgrounds.json`.
+2. What is authorized is exactly this: the depiction of the official UP! box inside these twelve generated scenes and their two contact sheets, published under the owner's request. It is an accepted publication and use decision for these files, not brand approval of the compositions (status proposed), not a trademark licence and not a relaxation of decision 0010 for anything else. A further branded file, variation or set needs its own recorded authorization before it enters the repository.
+3. Reference: the standalone reference is not published. The board export the generator received is a private working input: it is cited by file key, node id and hash, never copied into the repository, never linked by a temporary URL and never described by a local path. No other mark master, render or export is admitted by this record.
+4. Rights: the repository licence covers the generated scene pixels only, to the extent copyright subsists in them. The UP! mark on the boxes remains a trademark of its owner and is not licensed for extraction or standalone reuse: the boxes or the mark may not be cropped out, traced, vectorised, isolated, used as a logo, icon, sticker, lockup or app icon, altered, or presented as an official mark file. Extraction or reuse of the embedded mark is not granted by this record or by the repository licence. The contact sheets inherit the same restriction.
+5. Language: the twelve files show the UP! mark on the official 3D UP! boxes and nothing else that reads as a word, letter or mark; the repository never claims that they carry no marks or no text. The hero pair and the title pair are unchanged and show blank objects only.
+6. The validator proves this record: `node scripts/validate.mjs --only branded` compares the files, prompts, generation ids, reference citation, safe zones and measurements, the slide contract, the contact sheets (recomposed pixel for pixel by `scripts/compose-previews.mjs`), this record, the source register and the public trademark and licence wording with the pinned selection, and rejects any line that claims the branded backgrounds carry no words, letters, marks or text.
+
+## Consequences
+
+- `LICENSES/GENERATED-IMAGES.md`, `LICENSES/README.md` and `TRADEMARKS.md` state the split between the licensed scene pixels and the unlicensed mark; `assets/generated/PROVENANCE.json` and `assets/slides/previews/PROVENANCE.json` carry it per file.
+- `imagery/briefs.md` (IB-12), `imagery/README.md`, `assets/README.md`, `assets/generated/backgrounds/README.md`, `assets/slides/README.md`, `assets/logos/README.md`, `brand/lockups.md`, `brand/misuse.md`, `patterns/marketing-layouts.md`, the marketing examples, the agent playbooks, `provenance/README.md`, `provenance/sources.json`, `CLAUDE.md` and `AGENTS.md` describe the branded set and the restriction; reconciliation entry R-39 logs the change against the earlier no-logo rule.
+- The file count is unchanged: twelve backgrounds and two contact sheets replaced in place; the app showcases, app screens, onboarding art, heroes and title pair are untouched and their hashes are pinned.
+- The rendered boxes are not a source for a mark: OPEN-03 (vector masters) and OPEN-04 (trademark and licence statements) remain open.
+
+## Evidence
+
+The owner's request of 2026-09-15 (authenticated private conversation; cited by date, not reproduced); SRC-FIGMA-UP-BOARD node 1131:25142 (Box 5a, the official 3D UP! box; observed; private input verified by SHA-256 `0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f`); SRC-GENERATED-IMAGES (the twelve replacement files: prompts, generation ids, hashes, C2PA time stamps 2026-09-15T21:05:04Z to 2026-09-15T21:13:26Z, measured safe zones); decisions 0010 and 0011.

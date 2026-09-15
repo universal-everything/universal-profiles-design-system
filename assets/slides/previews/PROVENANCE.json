@@ -2,16 +2,16 @@
   "$schema": "../../../provenance/provenance.schema.json",
   "directory": "assets/slides/previews",
   "method": "composition",
-  "tool": "Raster composition of files that live in this repository (a scriptable image tool; the outputs carry cHRM, bKGD and date text chunks from the re-encoder and nothing else). No new imagery was generated; every pixel derives from the listed inputs and the flat canvas colour.",
-  "composedAt": "2026-09-15T19:20:43Z (tIME chunks of the app showcases); the contact sheets carry no timestamp",
+  "tool": "Raster composition of files that live in this repository. The two background contact sheets are composed by scripts/compose-previews.mjs (dependency-free Node: canvas fill, area-averaged thumbnails, 8-bit RGB output with no ancillary chunk), and the validator recomposes them and requires the same pixels. The two app showcases were composed with a scriptable image tool (their files carry cHRM, bKGD and date text chunks from that re-encoder and nothing else). No new imagery was generated; every pixel derives from the listed inputs and the flat canvas colour.",
+  "composedAt": "2026-09-15T19:20:43Z (tIME chunks of the app showcases); the contact sheets were recomposed on 2026-09-15 from the branded slides-v2 replacements and carry no timestamp chunk",
   "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
-  "license": "The two background-overview contact sheets contain only generated-background pixels and follow the Apache-2.0 terms in LICENSES/GENERATED-IMAGES.md. The two app-showcase previews are mixed compositions: their generated-background pixels follow those generated-image terms, while their embedded app-screen pixels retain the owner-rights, documentation-and-presentation-use-only terms in assets/screenshots/mobile-app/PROVENANCE.json. The app-showcase files are therefore not wholly covered by this repository's Apache-2.0 grant. All four previews are for the README gallery and for choosing files; they are not delivery masters.",
-  "rightsNote": "Derived previews. Regenerate from the inputs rather than editing; the validator measures every preview against its declared inputs so the pictures can never drift from the files they show.",
+  "license": "The two background-overview contact sheets contain only generated-background pixels and follow the Apache-2.0 terms in LICENSES/GENERATED-IMAGES.md, including its embedded-marks restriction: the thumbnails show the UP! mark on the 3D UP! boxes the slides-v2 backgrounds depict, the mark stays its owner's trademark (TRADEMARKS.md, decision 0012), and the boxes or the mark may not be extracted, cropped out, traced or reused from the sheets any more than from the backgrounds. The two app-showcase previews are mixed compositions: their generated-background pixels follow those generated-image terms, while their embedded app-screen pixels retain the owner-rights, documentation-and-presentation-use-only terms in assets/screenshots/mobile-app/PROVENANCE.json. The app-showcase files are therefore not wholly covered by this repository's Apache-2.0 grant. All four previews are for the README gallery and for choosing files; they are not delivery masters.",
+  "rightsNote": "Derived previews. Regenerate from the inputs rather than editing (contact sheets: node scripts/compose-previews.mjs); the validator measures every preview against its declared inputs so the pictures can never drift from the files they show.",
   "publication": "public",
   "status": "proposed",
-  "postProcessing": "None beyond the composition itself: backgrounds scaled to fit, screens scaled to about 299 by 634 (the measured best fit of a 300 by 636 target) with a soft shadow, contact-sheet thumbnails scaled to 600 by 338 on a #121B21 canvas (the dark canvas token surface.canvas). The contact sheets were saved at 16 bits per channel by the tool; the showcases at 8.",
+  "postProcessing": "None beyond the composition itself: backgrounds scaled to fit, screens scaled to about 299 by 634 (the measured best fit of a 300 by 636 target) with a soft shadow, contact-sheet thumbnails area-averaged to 600 by 338 on a #121B21 canvas (the dark canvas token surface.canvas). The contact sheets are written by the script at 8 bits per channel; the showcases were saved at 8 by the image tool.",
   "contract": {
-    "description": "Checked by node scripts/validate.mjs --only rasters: every declared input exists and is listed in its own PROVENANCE.json, and every declared placement matches the input within a mean absolute difference of 6 of 255 after scaling",
+    "description": "Checked by node scripts/validate.mjs --only rasters: every declared input exists and is listed in its own PROVENANCE.json, and every declared placement matches the input within a mean absolute difference of 6 of 255 after scaling; the branded check additionally recomposes the two contact sheets with scripts/compose-previews.mjs and requires identical pixels and the pinned grid",
     "maxMeanAbsoluteDifference": 6
   },
   "assets": [
@@ -49,11 +49,12 @@
     },
     {
       "path": "backgrounds-light-overview.png",
-      "sha256": "6b21a1d804e7b802a4eaf25d7fbef8f2c0adbed4e0e665289e51c33b4e2dbf8b",
+      "sha256": "159deda24382e43f5608cb7a2f8874291c2b9ccbf1d790eb02767ac4e2ebfdd2",
       "dimensions": "1296x1158",
       "status": "proposed",
-      "colour": "16-bit RGB, no alpha channel",
-      "description": "Contact sheet of the six light slides-v2 backgrounds in alphabetical order, two columns by three rows of 600 by 338 thumbnails, 24 pixel margins and 48 pixel gutters on the dark canvas.",
+      "colour": "8-bit RGB, no alpha channel",
+      "description": "Contact sheet of the six light branded slides-v2 backgrounds (each showing one or more official 3D UP! boxes) in alphabetical order, two columns by three rows of 600 by 338 thumbnails, 24 pixel margins and 48 pixel gutters on the dark canvas; composed by scripts/compose-previews.mjs.",
+      "embeddedMarks": "The thumbnails carry the UP! mark of their inputs; the mark stays its owner's trademark and is not licensed for extraction or standalone reuse (decision 0012).",
       "composition": {
         "canvas": "#121B21",
         "placements": [
@@ -68,11 +69,12 @@
     },
     {
       "path": "backgrounds-dark-overview.png",
-      "sha256": "d8e8a9071605668f1115b9503ccf98864857e088b461621d4f63824dc4bd4794",
+      "sha256": "c58633bf4df66989d03859cee75074bf8306a5ff25e45d74024a3014ea00d3c3",
       "dimensions": "1296x1158",
       "status": "proposed",
-      "colour": "16-bit RGB, no alpha channel",
-      "description": "Contact sheet of the six dark slides-v2 backgrounds in the same grid.",
+      "colour": "8-bit RGB, no alpha channel",
+      "description": "Contact sheet of the six dark branded slides-v2 backgrounds in the same grid; composed by scripts/compose-previews.mjs.",
+      "embeddedMarks": "The thumbnails carry the UP! mark of their inputs; the mark stays its owner's trademark and is not licensed for extraction or standalone reuse (decision 0012).",
       "composition": {
         "canvas": "#121B21",
         "placements": [

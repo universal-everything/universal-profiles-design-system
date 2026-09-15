@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { deflateSync } from "node:zlib";
-import { alphaStats, decodePng, pngChunks, pngInfo } from "./png.mjs";
+import { alphaStats, decodePng, encodeRgbPng, pngChunks, pngInfo, scaleArea, zoneLuminance } from "./png.mjs";
 
 // ---------------------------------------------------------------- a tiny encoder for fixtures
 const CRC_TABLE = new Int32Array(256).map((_, n) => {
@@ -208,4 +208,92 @@ test("a C2PA manifest chunk is summarised from its plain-text labels", () => {
   assert.equal(cc.signer, "OpenAI OpCo, LLC");
   assert.equal(cc.specVersion, "2.2.0");
   assert.equal(cc.timestamp, "2026-09-15T19:13:10Z");
+});
+
+test("encodeRgbPng writes a plain 8-bit RGB file that decodes to the same samples", () => {
+  // A gradient with noise so that every filter type gets chosen somewhere.
+  const width = 37;
+  const height = 23;
+  const rgba = Buffer.alloc(width * height * 4);
+  let seed = 7;
+  const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) % 256;
+  for (let i = 0; i < width * height; i++) {
+    rgba[i * 4] = (i * 3) & 0xff;
+    rgba[i * 4 + 1] = rnd();
+    rgba[i * 4 + 2] = Math.floor(i / width) * 11;
+    rgba[i * 4 + 3] = 255;
+  }
+  const png = encodeRgbPng({ width, height, data: rgba, channels: 4 });
+  assert.equal(pngChunks(png).map((c) => c.type).join(","), "IHDR,IDAT,IEND");
+  const info = pngInfo(png);
+  assert.equal(info.width, width);
+  assert.equal(info.height, height);
+  assert.equal(info.bitDepth, 8);
+  assert.equal(info.colourTypeName, "RGB");
+  assert.equal(info.canBeTransparent, false);
+  const back = decodePng(png);
+  assert.ok(back.data.equals(rgba));
+  // Deterministic: the same samples give the same bytes; RGB input gives the same file as RGBA input.
+  assert.ok(encodeRgbPng({ width, height, data: rgba, channels: 4 }).equals(png));
+  const rgb = Buffer.alloc(width * height * 3);
+  for (let i = 0; i < width * height; i++) rgba.copy(rgb, i * 3, i * 4, i * 4 + 3);
+  assert.ok(encodeRgbPng({ width, height, data: rgb, channels: 3 }).equals(png));
+  assert.throws(() => encodeRgbPng({ width: 0, height: 1, data: rgba }), /positive integers/);
+  assert.throws(() => encodeRgbPng({ width: 2, height: 2, data: Buffer.alloc(3) }), /samples/);
+  assert.throws(() => encodeRgbPng({ width, height, data: rgba, channels: 2 }), /channels/);
+});
+
+test("scaleArea box-averages every source pixel exactly once and flags partial coverage", () => {
+  // 4 by 2 image scaled to 2 by 1: each output pixel averages a 2 by 2 box.
+  const data = Buffer.from([
+    0, 0, 0, 255, 100, 0, 0, 255, 200, 0, 0, 255, 0, 0, 0, 255,
+    0, 200, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 128,
+  ]);
+  const out = scaleArea({ width: 4, height: 2, data }, 2, 1);
+  assert.deepEqual([...out], [25, 50, 0, 1, 50, 0, 0, 0]);
+  // 3 by 1 to 2 by 1: boxes are floor(0)..floor(1.5)=1 and floor(1.5)=1..3, so the middle pixel joins the second box.
+  const three = scaleArea({ width: 3, height: 1, data: Buffer.from([10, 0, 0, 255, 20, 0, 0, 255, 60, 0, 0, 255]) }, 2, 1);
+  assert.deepEqual([three[0], three[4]], [10, 40]);
+  assert.throws(() => scaleArea({ width: 2, height: 2, data: Buffer.alloc(16) }, 3, 1), /cannot area-average/);
+});
+
+test("scaleArea enlarges only when asked, repeating the one source pixel each output box lands on", () => {
+  // 2 by 1 to 4 by 2 with enlarge: each source pixel covers a 2 by 2 block; the partial alpha carries over as a coverage flag.
+  const image = { width: 2, height: 1, data: Buffer.from([10, 20, 30, 255, 40, 50, 60, 128]) };
+  const out = scaleArea(image, 4, 2, { enlarge: true });
+  const pixel = (x, y) => [...out.subarray((y * 4 + x) * 4, (y * 4 + x) * 4 + 4)];
+  for (const y of [0, 1]) {
+    assert.deepEqual(pixel(0, y), [10, 20, 30, 1]);
+    assert.deepEqual(pixel(1, y), [10, 20, 30, 1]);
+    assert.deepEqual(pixel(2, y), [40, 50, 60, 0]);
+    assert.deepEqual(pixel(3, y), [40, 50, 60, 0]);
+  }
+  // Downscaling is unchanged by the option, and the default still rejects an enlargement.
+  assert.deepEqual([...scaleArea(image, 1, 1, { enlarge: true })], [25, 35, 45, 0]);
+  assert.deepEqual([...scaleArea(image, 1, 1)], [25, 35, 45, 0]);
+  assert.throws(() => scaleArea(image, 4, 2), /cannot area-average 2x1 to 4x2/);
+  assert.throws(() => scaleArea(image, 0, 1, { enlarge: true }), /cannot area-average/);
+});
+
+test("zoneLuminance measures the mean and deviation of Rec. 709 luma inside a fractional zone", () => {
+  // Left half white, right half black on a 4 by 2 image.
+  const data = Buffer.alloc(4 * 2 * 4);
+  for (let i = 0; i < 8; i++) {
+    const v = i % 4 < 2 ? 255 : 0;
+    data[i * 4] = data[i * 4 + 1] = data[i * 4 + 2] = v;
+    data[i * 4 + 3] = 255;
+  }
+  const image = { width: 4, height: 2, data };
+  const left = zoneLuminance(image, { x: 0, y: 0, width: 0.5, height: 1 });
+  assert.ok(Math.abs(left.mean - 255) < 1e-9 && left.deviation < 1e-6, `left half is uniform white: ${JSON.stringify(left)}`);
+  const right = zoneLuminance(image, { x: 0.5, y: 0, width: 0.5, height: 1 });
+  assert.deepEqual(right, { mean: 0, deviation: 0 });
+  const whole = zoneLuminance(image, { x: 0, y: 0, width: 1, height: 1 });
+  assert.ok(Math.abs(whole.mean - 127.5) < 1e-9 && Math.abs(whole.deviation - 127.5) < 1e-6, `two-level image: ${JSON.stringify(whole)}`);
+  // A pure colour weights the channels 0.2126, 0.7152 and 0.0722.
+  const green = zoneLuminance({ width: 1, height: 1, data: Buffer.from([0, 200, 0, 255]) }, { x: 0, y: 0, width: 1, height: 1 });
+  assert.ok(Math.abs(green.mean - 0.7152 * 200) < 1e-9);
+  // A zone that covers no pixel measures NaN, which the validators report rather than pass.
+  const empty = zoneLuminance(image, { x: 0, y: 0, width: 0.1, height: 0.1 });
+  assert.ok(Number.isNaN(empty.mean) && Number.isNaN(empty.deviation));
 });

@@ -5,8 +5,8 @@
  *
  *   node scripts/validate.mjs             # run every check
  *   node scripts/validate.mjs --only docs # run one check (json, tokens, generated, contrast, docs,
- *                                         # assets, rasters, forbidden, mutation, sources, icons,
- *                                         # examples, package, tests)
+ *                                         # assets, rasters, branded, forbidden, mutation, sources,
+ *                                         # icons, examples, package, tests)
  *   node scripts/validate.mjs --list      # list checks
  *
  * Exit code 1 when any check reports an error. Warnings never fail the run.
@@ -25,7 +25,9 @@ import * as nodeModule from "node:module";
 import { STATUS_RANK, aliasChain, buildTheme, effectiveStatus, readJson } from "./lib/tokens.mjs";
 import { computePairs } from "./contrast-report.mjs";
 import { valueToJs } from "./lib/format.mjs";
-import { alphaStats, decodePng, pngInfo } from "./lib/png.mjs";
+import { alphaStats, decodePng, pngInfo, scaleArea, zoneLuminance } from "./lib/png.mjs";
+import { checkBranded } from "./validate/branded.mjs";
+import { PREVIEWS_DIR, compareSheet, composeAll } from "./compose-previews.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -280,10 +282,10 @@ const REQUIRED_FILES = [
   "accessibility/README.md", "accessibility/contrast-report.md", "accessibility/checklist.md",
   "adoption/web.md", "adoption/react-native.md", "adoption/migration-checklist.md", "adoption/gap-register.md",
   "provenance/README.md", "provenance/sources.json", "provenance/open-items.md", "provenance/reconciliation.md", "provenance/provenance.schema.json",
-  "decisions/README.md", "decisions/0011-owner-authorized-product-visuals.md",
+  "decisions/README.md", "decisions/0011-owner-authorized-product-visuals.md", "decisions/0012-branded-slide-backgrounds.md",
   "packages/address-signature/package.json", "packages/address-signature/src/index.mjs", "packages/address-signature/src/index.d.ts", "packages/address-signature/README.md",
   "examples/README.md", "examples/web/profile-card.html", "examples/web/profile-card.css", "examples/react-native/ProfileCard.tsx", "examples/react-native/GlassPanel.tsx", "examples/react-native/TabBar.tsx", "examples/marketing/README.md", "examples/agent-playbooks/README.md",
-  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs", "scripts/inspect-png.mjs", "scripts/lib/png.mjs",
+  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs", "scripts/compose-previews.mjs", "scripts/inspect-png.mjs", "scripts/lib/png.mjs", "scripts/validate/forbidden.json", "scripts/validate/branded.mjs", "scripts/validate/branded-backgrounds.json",
 ];
 
 const HEADING_RULES = {
@@ -506,56 +508,9 @@ checks.rasters = () => {
     if (!decoded.has(abs)) decoded.set(abs, decodePng(readFileSync(abs)));
     return decoded.get(abs);
   };
-  const luminance = (img, zone) => {
-    const { width, height, data } = img;
-    let sum = 0;
-    let sum2 = 0;
-    let n = 0;
-    for (let y = Math.floor(zone.y * height); y < Math.floor((zone.y + zone.height) * height); y++) {
-      for (let x = Math.floor(zone.x * width); x < Math.floor((zone.x + zone.width) * width); x++) {
-        const o = (y * width + x) * 4;
-        const l = 0.2126 * data[o] + 0.7152 * data[o + 1] + 0.0722 * data[o + 2];
-        sum += l;
-        sum2 += l * l;
-        n++;
-      }
-    }
-    const mean = n ? sum / n : NaN;
-    return { mean, deviation: n ? Math.sqrt(Math.max(0, sum2 / n - mean * mean)) : NaN };
-  };
-  // Area-average an RGBA image to w by h (RGB plus a coverage flag per pixel, 1 when every source pixel was opaque).
-  const scaleTo = (img, w, h) => {
-    const out = new Float32Array(w * h * 4);
-    for (let y = 0; y < h; y++) {
-      for (let x = 0; x < w; x++) {
-        const sx0 = Math.floor((x * img.width) / w);
-        const sx1 = Math.max(sx0 + 1, Math.floor(((x + 1) * img.width) / w));
-        const sy0 = Math.floor((y * img.height) / h);
-        const sy1 = Math.max(sy0 + 1, Math.floor(((y + 1) * img.height) / h));
-        let r = 0;
-        let g = 0;
-        let b = 0;
-        let n = 0;
-        let opaque = 1;
-        for (let sy = sy0; sy < sy1; sy++) {
-          for (let sx = sx0; sx < sx1; sx++) {
-            const o = (sy * img.width + sx) * 4;
-            r += img.data[o];
-            g += img.data[o + 1];
-            b += img.data[o + 2];
-            if (img.data[o + 3] !== 255) opaque = 0;
-            n++;
-          }
-        }
-        const q = (y * w + x) * 4;
-        out[q] = r / n;
-        out[q + 1] = g / n;
-        out[q + 2] = b / n;
-        out[q + 3] = opaque;
-      }
-    }
-    return out;
-  };
+  // The box filter and the zone measurement are the shared ones in scripts/lib/png.mjs, so the figures the
+  // rasters check, the branded lock and the contact-sheet composer produce come from one implementation.
+  const scaleTo = (img, w, h) => scaleArea(img, w, h, { enlarge: true });
   // Mean absolute difference between a scaled input placed at (x, y) and the target, over the input's opaque pixels.
   const placementDifference = (target, input, place) => {
     const scaled = scaleTo(input, place.width, place.height);
@@ -626,7 +581,7 @@ checks.rasters = () => {
         const zone = a.safeZone;
         if (!zone || [zone.x, zone.y, zone.width, zone.height].some((v) => typeof v !== "number" || v < 0 || v > 1) || zone.x + zone.width > 1.0001 || zone.y + zone.height > 1.0001) fail("must declare a safeZone as fractions x, y, width, height within the image");
         else {
-          const { mean, deviation } = luminance(img, zone);
+          const { mean, deviation } = zoneLuminance(img, zone);
           if (a.register === "light" && c.lightRegister?.minSafeZoneLuminance !== undefined && mean < c.lightRegister.minSafeZoneLuminance) fail(`safe zone mean luminance ${mean.toFixed(1)} is below ${c.lightRegister.minSafeZoneLuminance} for a light register`);
           if (a.register === "dark" && c.darkRegister?.maxSafeZoneLuminance !== undefined && mean > c.darkRegister.maxSafeZoneLuminance) fail(`safe zone mean luminance ${mean.toFixed(1)} is above ${c.darkRegister.maxSafeZoneLuminance} for a dark register`);
           if (c.maxSafeZoneDeviation !== undefined && deviation > c.maxSafeZoneDeviation) fail(`safe zone luminance deviation ${deviation.toFixed(1)} exceeds ${c.maxSafeZoneDeviation}; the copy area is not quiet`);
@@ -690,6 +645,39 @@ checks.rasters = () => {
     }
   }
   return { errors, info: `${measured} rasters measured against their contracts, ${compositions} composition inputs matched` };
+};
+
+/**
+ * The branded-backgrounds lock (decision 0012): the twelve slides-v2 files, their prompts, generation ids,
+ * reference input, safe zones and measurements, the slide contract, the two contact sheets (recomposed
+ * pixel for pixel), the decision record, the source register and the public trademark and licence
+ * wording are compared with the pinned selection in scripts/validate/branded-backgrounds.json, so none of
+ * them can drift silently. The logic lives in scripts/validate/branded.mjs and is unit-tested there.
+ */
+checks.branded = () => {
+  const fixture = readJson(join(ROOT, "scripts", "validate", "branded-backgrounds.json"));
+  const decoded = new Map();
+  const image = (relPath) => {
+    if (!decoded.has(relPath)) decoded.set(relPath, decodePng(readFileSync(join(ROOT, relPath))));
+    return decoded.get(relPath);
+  };
+  const io = {
+    readText: (relPath) => (existsSync(join(ROOT, relPath)) ? read(join(ROOT, relPath)) : null),
+    sha256: (relPath) => (existsSync(join(ROOT, relPath)) ? sha256(readFileSync(join(ROOT, relPath))) : null),
+    listDir: (relPath) => (existsSync(join(ROOT, relPath)) ? readdirSync(join(ROOT, relPath)) : []),
+    measureZone: (relPath, zone) => zoneLuminance(image(relPath), zone),
+    recompose: () => {
+      try {
+        return composeAll(ROOT, { encode: false }).map(({ entry, image: composed }) => {
+          const abs = join(ROOT, PREVIEWS_DIR, entry.path);
+          return { path: entry.path, problem: existsSync(abs) ? compareSheet(composed, readFileSync(abs)) : "does not exist" };
+        });
+      } catch (e) {
+        return [{ path: "contact sheets", problem: `cannot be recomposed: ${e.message}` }];
+      }
+    },
+  };
+  return checkBranded(fixture, io);
 };
 
 checks.forbidden = () => {

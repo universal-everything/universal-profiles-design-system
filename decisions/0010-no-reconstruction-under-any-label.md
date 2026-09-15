@@ -1,6 +1,6 @@
 # 0010 No reconstruction of a mark under any label
 
-Status: accepted; supersedes the "unless explicitly marked reconstructed" clause of 0007
+Status: accepted; supersedes the "unless explicitly marked reconstructed" clause of 0007; remains the default rule: the one owner-authorized exception, the official UP! box depicted inside the twelve pinned slide backgrounds and their contact sheets, is recorded in 0012 and covers those files only
 Date: 2026-09-15
 
 ## Context

@@ -29,7 +29,7 @@ No clear-space or minimum-size rule has been drawn by the owners. Until masters 
 
 ## What this repository does not do
 
-- It does not ship the badge, wordmark, cube or Powered by LUKSO files. The folder `../assets/logos/` explains how to obtain official files.
+- It does not ship the badge, wordmark, cube or Powered by LUKSO files. The folder `../assets/logos/` explains how to obtain official files. The cube is depicted inside the twelve generated slide backgrounds under `../assets/generated/backgrounds/slides-v2/`, rendered from board node 1131:25142 at the owner's request (decision 0012, `../decisions/0012-branded-slide-backgrounds.md`); those are scenes, not mark files, and the boxes may not be extracted from them.
 - It does not reconstruct a vector from the specification above, under any label (`../decisions/0010-no-reconstruction-under-any-label.md`); the validator rejects a provenance record marked `reconstructed`.
 - It does not include the board's raster wordmarks, private renders or the app bundle's rasters.
 

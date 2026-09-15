@@ -24,7 +24,7 @@ Use `../../assets/generated/backgrounds/title-dark.png` (or the light variant) a
 
 ## Section and closing slides
 
-Pick a family from `../../assets/generated/backgrounds/slides-v2/` (six families, each `-light.png` and `-dark.png`) and keep copy inside the family's measured safe zone from `../../assets/generated/backgrounds/README.md`; for example identity orbits keeps the left half free, glass profile stack the right half, iridescent horizon the upper left. Use one family per section and the same register throughout a deck; light files take ink copy, dark files white copy. Contact sheets for choosing: `../../assets/slides/previews/backgrounds-light-overview.png` and the dark sheet.
+Pick a family from `../../assets/generated/backgrounds/slides-v2/` (six families, each `-light.png` and `-dark.png`, each showing one or more official UP! boxes) and keep copy inside the family's measured safe zone from `../../assets/generated/backgrounds/README.md`; for example identity orbits keeps the left half free, glass profile stack the right half, iridescent horizon the upper left. Use one family per section and the same register throughout a deck; light files take ink copy, dark files white copy. Use the files whole: the boxes are part of the scene and may not be cropped out to serve as the mark (`../../decisions/0012-branded-slide-backgrounds.md`). Contact sheets for choosing: `../../assets/slides/previews/backgrounds-light-overview.png` and the dark sheet.
 
 ## Product slide
 

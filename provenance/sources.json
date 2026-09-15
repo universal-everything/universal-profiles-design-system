@@ -65,13 +65,13 @@
     "SRC-FIGMA-UP-BOARD": {
       "title": "Universal Profile Board (Figma)",
       "category": "design-file",
-      "identifiers": { "fileKey": "pAffzgmq6sjbWkyWAjnYmM", "rootNode": "1131:22728", "readDate": "2026-09-14" },
+      "identifiers": { "fileKey": "pAffzgmq6sjbWkyWAjnYmM", "rootNode": "1131:22728", "readDate": "2026-09-14", "readNodes": ["1131:25142"] },
       "authority": "pattern",
       "publication": "internal",
-      "currency": "2026-09-14",
-      "inspected": "Brand intro (1131:26000), colour palette (1131:25993), guidelines and type slides (1131:25147, 1131:25959), logos and lockups (1131:25138, 2988:1594, 1565:466), imagery (1131:22764), social highlight templates (1131:27437, 1131:27544, 1131:22735), app-icon exploration (2850:1587), create-profile frame (1737:1009).",
-      "notes": "A working brand and campaign board, not a component library. Supplies observed values (three periwinkle swatches, badge typography, partner-lockup tones, deck type scale, social template geometry) and open decisions. Nothing on it is bound to variables or marked approved. Where it disagrees with shipped code, code wins.",
-      "excluded": "Renders, exports, screenshots, temporary asset URLs, image assets of unknown rights, pasted draft copy."
+      "currency": "2026-09-15",
+      "inspected": "Brand intro (1131:26000), colour palette (1131:25993), guidelines and type slides (1131:25147, 1131:25959), logos and lockups (1131:25138, 2988:1594, 1565:466), imagery (1131:22764), social highlight templates (1131:27437, 1131:27544, 1131:22735), app-icon exploration (2850:1587), create-profile frame (1737:1009). On 2026-09-15 the owner pointed to node 1131:25142 (Box 5a, the official 3D UP! box) as the reference for the branded slide backgrounds; its export was used as a private generation input, verified by SHA-256, and is not published (assets/generated/PROVENANCE.json records the citation and hash).",
+      "notes": "A working brand and campaign board, not a component library. Supplies observed values (three periwinkle swatches, badge typography, partner-lockup tones, deck type scale, social template geometry) and open decisions. Nothing on it is bound to variables or marked approved. Where it disagrees with shipped code, code wins. Node 1131:25142 is the observed reference behind the UP! boxes depicted in the twelve branded slide backgrounds (decision 0012); the depiction is owner-authorized for those files only, and the board export itself stays excluded.",
+      "excluded": "Renders, exports, screenshots, temporary asset URLs, image assets of unknown rights, pasted draft copy; the UP! box export of node 1131:25142 is cited by node id and hash only."
     },
     "SRC-FIGMA-MOBILE-UPDATES": {
       "title": "Mobile app Updates (Figma)",
@@ -189,9 +189,9 @@
       "identifiers": { "provenance": "assets/generated/PROVENANCE.json" },
       "authority": "rule",
       "publication": "public",
-      "currency": "2026-09-14",
-      "inspected": "Hashes, dimensions, prompts, embedded content credentials, measured text-safe zones.",
-      "notes": "Sixteen images produced for this system with recorded prompts: the hero pair and the title pair (2026-09-14) and the twelve-file slides-v2 presentation set in six families (2026-09-15, brief IB-12); integrated by the imagery guide and assets/generated/backgrounds/README.md."
+      "currency": "2026-09-15",
+      "inspected": "Hashes, dimensions, prompts, generation ids, reference inputs, embedded content credentials, measured text-safe zones, embedded-mark counts by visual review.",
+      "notes": "Sixteen images produced for this system with recorded prompts: the hero pair and the title pair (2026-09-14) and the twelve-file slides-v2 presentation set in six families (brief IB-12). The slides-v2 files were replaced on 2026-09-15 by branded versions that depict the official 3D UP! box from the owner's reference (SRC-FIGMA-UP-BOARD node 1131:25142) under decision 0012; each entry records the former file's hash as its edit target, the pinned selection lives in scripts/validate/branded-backgrounds.json, and the depicted mark stays its owner's trademark. Integrated by the imagery guide and assets/generated/backgrounds/README.md."
     }
   }
 }

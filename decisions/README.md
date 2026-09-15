@@ -13,8 +13,9 @@ Architecture-decision records for choices that shape the system. One file per de
 | [0007-no-mark-reconstruction.md](0007-no-mark-reconstruction.md) | No logo files until masters and rights arrive | accepted; reconstruction clause superseded by 0010 |
 | [0008-validation-without-dependencies.md](0008-validation-without-dependencies.md) | All builds and checks run on Node alone | accepted |
 | [0009-status-follows-the-alias-chain.md](0009-status-follows-the-alias-chain.md) | A token's status never outranks the weakest status in its alias chain; theme metadata wins over base metadata | accepted |
-| [0010-no-reconstruction-under-any-label.md](0010-no-reconstruction-under-any-label.md) | No reconstruction of a mark under any label; supersedes the escape hatch in 0007 | accepted |
+| [0010-no-reconstruction-under-any-label.md](0010-no-reconstruction-under-any-label.md) | No reconstruction of a mark under any label; supersedes the escape hatch in 0007 | accepted; remains the default, with one owner-authorized depiction inside the twelve pinned slide backgrounds recorded in 0012 |
 | [0011-owner-authorized-product-visuals.md](0011-owner-authorized-product-visuals.md) | Five app screens and the four onboarding illustrations admitted as named, owner-authorized exceptions to the publication boundary; twelve slide backgrounds added as proposed assets; the validator proves the boundary | accepted |
+| [0012-branded-slide-backgrounds.md](0012-branded-slide-backgrounds.md) | The twelve slide backgrounds replaced by owner-requested scenes that depict the official UP! box from the owner's reference; a publication and use decision for these files only, not brand approval; the mark stays unlicensed and the standalone reference unpublished; the validator pins the selection | accepted |
 
 Template:
 

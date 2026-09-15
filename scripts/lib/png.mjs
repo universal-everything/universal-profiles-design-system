@@ -10,11 +10,21 @@
  * - `alphaStats(image)` measures transparency: how many pixels are transparent, whether the
  *   corners and edges are, and the bounding box of the visible pixels (a tight crop touches all
  *   four edges).
+ * - `zoneLuminance(image, zone)` measures the mean and standard deviation of the luminance inside a
+ *   fractional zone (the safe-zone figures the validator records and re-measures).
+ * - `scaleArea(image, w, h)` area-averages a decoded image to a smaller size (the box filter the
+ *   validator uses to compare a preview with its inputs); with `{ enlarge: true }` it also maps a
+ *   smaller image onto a larger grid, one source pixel per output pixel.
+ * - `encodeRgbPng(image)` writes 8-bit RGB samples as a plain PNG (IHDR, one IDAT with adaptive
+ *   scanline filters, IEND). Its pixels are deterministic, so a composed preview can be regenerated
+ *   and compared pixel for pixel; its bytes are not stable across Node versions, because the deflate
+ *   stream comes from the zlib each Node bundles.
  *
  * Nothing here is an image library; it exists so the gate can prove facts about committed rasters
- * (real alpha channel, transparent exterior, tight crop, content-credentials chunk) on Node alone.
+ * (real alpha channel, transparent exterior, tight crop, content-credentials chunk) on Node alone,
+ * and so the contact sheets under assets/slides/previews can be composed without a dependency.
  */
-import { inflateSync } from "node:zlib";
+import { deflateSync, inflateSync } from "node:zlib";
 
 const SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
 const CRC_TABLE = new Int32Array(256).map((_, n) => {
@@ -337,4 +347,140 @@ export function alphaStats(image, threshold = 0) {
     // A tight crop leaves no fully transparent row or column at any edge.
     tight: visible !== null && visible.x === 0 && visible.y === 0 && visible.width === width && visible.height === height,
   };
+}
+
+/**
+ * Luminance statistics of a fractional zone (`x`, `y`, `width`, `height` as fractions of the image):
+ * the mean and the population standard deviation of Rec. 709 luma over the zone's pixels; both NaN
+ * when the zone covers no pixel. This is the measurement behind every recorded safe-zone figure.
+ */
+export function zoneLuminance(image, zone) {
+  const { width, height, data } = image;
+  let sum = 0;
+  let sum2 = 0;
+  let n = 0;
+  for (let y = Math.floor(zone.y * height); y < Math.floor((zone.y + zone.height) * height); y++) {
+    for (let x = Math.floor(zone.x * width); x < Math.floor((zone.x + zone.width) * width); x++) {
+      const o = (y * width + x) * 4;
+      const l = 0.2126 * data[o] + 0.7152 * data[o + 1] + 0.0722 * data[o + 2];
+      sum += l;
+      sum2 += l * l;
+      n++;
+    }
+  }
+  const mean = n ? sum / n : NaN;
+  return { mean, deviation: n ? Math.sqrt(Math.max(0, sum2 / n - mean * mean)) : NaN };
+}
+
+/**
+ * Area-average a decoded RGBA image to `w` by `h` (both no larger than the source unless `enlarge`
+ * is set). Returns a Float32Array of RGB plus a coverage flag per pixel (1 when every source pixel in
+ * the box was opaque). The box of an output pixel spans the source columns floor(x * W / w) to
+ * floor((x + 1) * W / w), at least one column wide, and the same for rows; every source pixel lands
+ * in exactly one box. With `enlarge: true` an output larger than the source is allowed: each output
+ * pixel then takes the one source pixel its box lands on (the rasters check scales a showcase's base
+ * image up to the preview size this way); the contact-sheet composer keeps the default and rejects it.
+ */
+export function scaleArea(image, w, h, { enlarge = false } = {}) {
+  if (!Number.isInteger(w) || !Number.isInteger(h) || w < 1 || h < 1 || (!enlarge && (w > image.width || h > image.height))) throw new Error(`cannot area-average ${image.width}x${image.height} to ${w}x${h}`);
+  const out = new Float32Array(w * h * 4);
+  for (let y = 0; y < h; y++) {
+    const sy0 = Math.floor((y * image.height) / h);
+    const sy1 = Math.max(sy0 + 1, Math.floor(((y + 1) * image.height) / h));
+    for (let x = 0; x < w; x++) {
+      const sx0 = Math.floor((x * image.width) / w);
+      const sx1 = Math.max(sx0 + 1, Math.floor(((x + 1) * image.width) / w));
+      let r = 0;
+      let g = 0;
+      let b = 0;
+      let n = 0;
+      let opaque = 1;
+      for (let sy = sy0; sy < sy1; sy++) {
+        for (let sx = sx0; sx < sx1; sx++) {
+          const o = (sy * image.width + sx) * 4;
+          r += image.data[o];
+          g += image.data[o + 1];
+          b += image.data[o + 2];
+          if (image.data[o + 3] !== 255) opaque = 0;
+          n++;
+        }
+      }
+      const q = (y * w + x) * 4;
+      out[q] = r / n;
+      out[q + 1] = g / n;
+      out[q + 2] = b / n;
+      out[q + 3] = opaque;
+    }
+  }
+  return out;
+}
+
+const pngChunk = (type, data) => {
+  const out = Buffer.alloc(12 + data.length);
+  out.writeUInt32BE(data.length, 0);
+  out.write(type, 4, "latin1");
+  data.copy(out, 8);
+  out.writeUInt32BE(crc32(out.subarray(4, 8 + data.length)), 8 + data.length);
+  return out;
+};
+
+/**
+ * Encode an image as an 8-bit RGB PNG without alpha. `data` holds RGB or RGBA samples row by row
+ * (`channels` 3 or 4; alpha is dropped). Each scanline takes the filter (none, sub, up, average or
+ * Paeth) whose output has the smallest sum of absolute values, the usual heuristic; the file has
+ * exactly one IHDR, one IDAT (zlib level 9) and IEND, no ancillary chunks and no timestamp, so the
+ * same samples always give the same bytes on the same zlib. Different Node versions bundle different
+ * zlib releases whose deflate output differs, so the bytes (and the file hash) are stable only per
+ * zlib; the decoded pixels are stable everywhere, which is what the gate compares.
+ */
+export function encodeRgbPng({ width, height, data, channels = 4 }) {
+  if (!Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1) throw new Error("width and height must be positive integers");
+  if (channels !== 3 && channels !== 4) throw new Error("channels must be 3 or 4");
+  if (data.length < width * height * channels) throw new Error(`need ${width * height * channels} samples, got ${data.length}`);
+  const stride = width * 3;
+  const raw = Buffer.alloc((stride + 1) * height);
+  const line = Buffer.alloc(stride);
+  let prev = Buffer.alloc(stride);
+  const candidate = Buffer.alloc(stride);
+  const best = Buffer.alloc(stride);
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const s = (y * width + x) * channels;
+      line[x * 3] = data[s];
+      line[x * 3 + 1] = data[s + 1];
+      line[x * 3 + 2] = data[s + 2];
+    }
+    let bestType = 0;
+    let bestScore = Infinity;
+    for (let type = 0; type <= 4; type++) {
+      let score = 0;
+      for (let i = 0; i < stride; i++) {
+        const a = i >= 3 ? line[i - 3] : 0;
+        const b = prev[i];
+        const c = i >= 3 ? prev[i - 3] : 0;
+        const pred = type === 0 ? 0 : type === 1 ? a : type === 2 ? b : type === 3 ? (a + b) >> 1 : paeth(a, b, c);
+        const v = (line[i] - pred) & 0xff;
+        candidate[i] = v;
+        score += v < 128 ? v : 256 - v;
+        if (score >= bestScore) break;
+      }
+      if (score < bestScore) {
+        bestScore = score;
+        bestType = type;
+        candidate.copy(best);
+      }
+    }
+    raw[y * (stride + 1)] = bestType;
+    best.copy(raw, y * (stride + 1) + 1);
+    line.copy(prev);
+  }
+  const ihdr = Buffer.alloc(13);
+  ihdr.writeUInt32BE(width, 0);
+  ihdr.writeUInt32BE(height, 4);
+  ihdr[8] = 8;
+  ihdr[9] = 2;
+  ihdr[10] = 0;
+  ihdr[11] = 0;
+  ihdr[12] = 0;
+  return Buffer.concat([SIGNATURE, pngChunk("IHDR", ihdr), pngChunk("IDAT", deflateSync(raw, { level: 9 })), pngChunk("IEND", Buffer.alloc(0))]);
 }
