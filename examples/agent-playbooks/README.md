@@ -37,3 +37,15 @@ Expected outcome: a proposal in `tokens/src/semantic/color.json` adding a pendin
 Prompt: "Check this page for design-system compliance."
 
 Expected outcome: a list of literal colours, sizes and fonts replaced by tokens; contrast checked against the report; names shown as `@name#XXXX`; accent used only for links and marketing calls to action; magenta only on LYX and network roles; missing labels and focus rings reported; the accessibility checklist filled in.
+
+## 7. Build a deck slide
+
+Prompt: "Make a 16:9 section slide about multichain profiles with a dark background and a product screenshot."
+
+Expected outcome: a background from `assets/generated/backgrounds/slides-v2/` in the dark register (one family per section; `identity-network-dark.png` or `identity-orbits-dark.png` for this topic), copy inside the family's measured safe zone from `assets/generated/backgrounds/README.md` in `type.deck.h2` and `type.deck.body` with one accent phrase, a transparent screen from `assets/screenshots/mobile-app/` placed at 299 by 634 outside the safe zone (never an old capture, never the exploratory screens without a label), alt text per file, no counts or prices, and no new raster committed without a provenance entry.
+
+## 8. Add background variations
+
+Prompt: "Generate two more slide backgrounds in the identity-orbits family."
+
+Expected outcome: prompts derived from the family's entry in `assets/generated/backgrounds/slides-v2/PROMPTS.source.json` inside the IB-12 frame (background only, no text, no logos, no people, no devices, both registers), the native files added to `slides-v2/` as `<family>-light.png` and `<family>-dark.png`, `node scripts/inspect-png.mjs <file> --zone x,y,w,h` used to record the hash, dimensions, content-credentials time stamp and a safe zone that measures light or dark enough and quiet, entries added to `assets/generated/PROVENANCE.json` and to the prompt file with `status: "proposed"`, the set's count and family list raised, the contact sheets updated with their placements, and `node scripts/validate.mjs --only assets`, `--only rasters` and `npm test` passing.

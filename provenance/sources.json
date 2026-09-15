@@ -36,7 +36,7 @@
       "identifiers": { "repository": "lukso-network/universalprofile-mobile-app", "branch": "main", "commit": "8d8f9f8c", "version": "1.29.0", "snapshotDate": "2026-09-14" },
       "authority": "rule",
       "publication": "internal",
-      "currency": "2026-09-14",
+      "currency": "2026-09-15",
       "inspected": "Theme and palette modules, glass constants, shadows, address gradient helper, typography variants, fonts, icon registry, forty shared components, navigation, profile view, onboarding, QR, backup and permissions flows, translations, app configuration, platform notes.",
       "notes": "Highest authority for product rules. Includes the September 2026 redesign (glass panels, five-slot bar with a raised Browse action). Code is referenced by path, never copied.",
       "excluded": "Environment files, secrets, private tickets, pull-request screenshots."
@@ -76,12 +76,12 @@
     "SRC-FIGMA-MOBILE-UPDATES": {
       "title": "Mobile app Updates (Figma)",
       "category": "design-file",
-      "identifiers": { "fileKey": "gKNmK9MxvHWhewBvYe99Vo", "canvas": "669:10173", "section": "672:30131", "readNode": "672:29373", "lastEdited": "2026-06-29" },
+      "identifiers": { "fileKey": "gKNmK9MxvHWhewBvYe99Vo", "canvas": "669:10173", "section": "672:30131", "readNode": "672:29373", "readNodes": ["841:17486", "841:17668", "672:24756", "672:29382", "672:30132"], "lastEdited": "2026-06-29" },
       "authority": "pattern",
       "publication": "internal",
       "currency": "2026-06-29",
-      "inspected": "One in-app-purchase exploration: modal geometry, Inter 14/22 and 12/20, ink #243542, 48 px actions, 24 px icons.",
-      "notes": "Corroborates shipped mobile values; predates the September 2026 redesign, so flows and navigation in it are not authoritative."
+      "inspected": "One in-app-purchase exploration: modal geometry, Inter 14/22 and 12/20, ink #243542, 48 px actions, 24 px icons. On 2026-09-15 five frames were exported as transparent PNGs at the owner's request: app home 841:17486, in-app browser 841:17668, paywall 672:24756, deployment preparing 672:29382, deployment success 672:30132 (assets/screenshots/mobile-app/PROVENANCE.json).",
+      "notes": "Corroborates shipped mobile values; predates the September 2026 redesign, so flows and navigation in it are not authoritative. The five exported frames are published under decision 0011: the home and browser screens as observed current design-file screens, the paywall and deployment screens as observed but exploratory. No other export from this file is published."
     },
     "SRC-FIGMA-UE-BRAND-DISCOVERY": {
       "title": "UE Brand Discovery (Figma)",
@@ -131,7 +131,7 @@
       "publication": "internal",
       "currency": "2025",
       "inspected": "Object vocabulary, material and lighting, accent bleed.",
-      "notes": "Establishes the soft-plastic periwinkle object family. Rights and generator are unrecorded, so the files are not republished; the family is regenerated under documented provenance."
+      "notes": "Establishes the soft-plastic periwinkle object family. The four get-started illustrations are republished at the product owner's request (decision 0011) as observed shipped product art, byte-identical to the mobile bundle at commit 8d8f9f8c (assets/slides/onboarding/PROVENANCE.json); their illustrator or generator is still unrecorded, so they are not the source for new work, which is regenerated under documented provenance (IB-04). The error illustration and lock-screen mark remain unpublished."
     },
     "SRC-LUKSO-DOCS": {
       "title": "LUKSO technical documentation (docs.lukso.tech)",
@@ -190,8 +190,8 @@
       "authority": "rule",
       "publication": "public",
       "currency": "2026-09-14",
-      "inspected": "Hashes, dimensions, prompts.",
-      "notes": "Four hero and title backgrounds produced for this system with recorded prompts; integrated by the imagery guide."
+      "inspected": "Hashes, dimensions, prompts, embedded content credentials, measured text-safe zones.",
+      "notes": "Sixteen images produced for this system with recorded prompts: the hero pair and the title pair (2026-09-14) and the twelve-file slides-v2 presentation set in six families (2026-09-15, brief IB-12); integrated by the imagery guide and assets/generated/backgrounds/README.md."
     }
   }
 }

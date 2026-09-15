@@ -1,10 +1,10 @@
 # Image briefs
 
-Status: proposed (production briefs; IB-01 is implemented procedurally, IB-02 and IB-10 have delivered assets under `../assets/generated/`)
+Status: proposed (production briefs; IB-01 is implemented procedurally, IB-02, IB-10 and IB-12 have delivered assets under `../assets/generated/`)
 
 Global rules for every brief: no neon rim light, no circuit-board or hex-grid textures, no lens flares, no invented logos or wordmarks, no readable interface text (blank bars instead), no faces or people, no magenta except where the LUKSO mark is explicitly requested, no dreamscape landscapes. Every output ships with a provenance record (method, tool or model, verbatim prompt, seed if available, date, operator, post-processing, licence) and light and dark variants. Colour anchors: key `accent.brand` (`#6981EC`), highlight `color.up.82` (`#ADBAF5`), shadow `color.up.50` (`#1C41E3`); canvases `#F8FAFB` light and `#121B21` dark; ink `#243542`. The delivered IB-02 and IB-10 assets were produced with the earlier proposal anchors (`#7B83EA`, `#C2C5F5`, `#5862E4`), which sit in the same band; they remain valid.
 
-Priority: IB-01, IB-02, IB-05, IB-03, IB-06, IB-04, IB-07, IB-08, IB-09, IB-10, IB-11.
+Priority: IB-01, IB-02, IB-05, IB-03, IB-06, IB-04, IB-07, IB-08, IB-09, IB-10, IB-11, IB-12 (further variations on request).
 
 ## IB-01 Address-gradient background set (procedural)
 
@@ -77,6 +77,15 @@ Priority: IB-01, IB-02, IB-05, IB-03, IB-06, IB-04, IB-07, IB-08, IB-09, IB-10, 
 - **Why:** the token vocabulary (fan token, proof of attendance, ticket, membership, badge, voting) appears on the brand board only as renders and AI tiles without provenance (OPEN-20); the objects are worth having under recorded rights.
 - **Prompt:** six periwinkle glass objects on the light canvas, one per subject: a fan token disc, a proof-of-attendance stamp, a ticket stub, a membership card, a badge, a voting slip; camera three-quarter top; the same materials as the cube family; no neon; no text.
 - **Formats:** 1200 by 1200 each, transparent, dark variants. Descriptive reference only; do not trace the board renders.
+
+## IB-12 Presentation background family (slides-v2)
+
+- **Why:** the title pair (IB-10) is one quiet background; decks need a family of abstract backgrounds with room for copy, in both registers, produced under recorded provenance. The product owner asked on 2026-09-15 for the first twelve to be visible in the repository and for many more variations (`../decisions/0011-owner-authorized-product-visuals.md`).
+- **Shared prompt frame:** "Use case: productivity-visual. Asset type: 16:9 Universal Profiles presentation background." Premium modern 3D editorial abstraction, restrained and spatial; translucent glass, frosted or smoked acrylic, soft volumetric haze, extremely subtle fine grain. Light register: white, cool mist, pale periwinkle, `#A4B5FF`, `#8494EE`, tiny cool slate accents. Dark register: near-black `#0B1015`, cool slate `#121B21`, deep indigo, `#6981EC`, `#8494EE`, restrained cool-white highlights. No dominant pink.
+- **Families delivered (light and dark each):** identity orbits (concentric orbits and one portal ring, cluster on the right third, left 52 percent quiet); glass profile stack (layered blank card planes on the left third, right 50 percent clean); address ribbons (translucent ribbons inspired by address-derived colour signatures, lower left to upper right, calm central zone); modular constellation (blank rounded cubes, spheres and tiles along the lower-right edge, upper-left 58 percent quiet); identity network (sparse nodes, orbital paths and halos near the corners, centre calm); iridescent horizon (mist and low wave forms across the bottom quarter, upper 65 percent calm).
+- **Constraints (verbatim in every prompt):** background only; no words, letters, numbers or hexadecimal strings; no logos, UI screenshots, people, hands, devices, coins, blockchain symbols, maps, grids or watermarks; all cards and tiles blank; preserve large usable negative space; 16:9 landscape.
+- **Formats:** the generator's native 16:9 (1672 by 941 delivered; two files at 1671 by 941); 1920 by 1080, 1080 by 1080 and 1080 by 1920 not yet produced. Every file must meet the slide contract in `../assets/generated/PROVENANCE.json` (aspect, minimum size, 8-bit RGB, intact content credentials, a declared and measured text-safe zone, a light and a dark file per family), which `node scripts/validate.mjs --only rasters` checks.
+- **Status:** delivered (twelve files) under `../assets/generated/backgrounds/slides-v2/` with the verbatim prompts in `PROMPTS.source.json` there and in the provenance record; proposed, not approved brand imagery. New variations: copy a family prompt or write a new family inside the shared frame, generate both registers, record provenance, measure the safe zone, update the contact sheets; see `../assets/generated/backgrounds/README.md`.
 
 ## Not recommended
 

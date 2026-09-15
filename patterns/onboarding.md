@@ -33,4 +33,4 @@ Flow observed in the shipped app; illustration refresh proposed. The two-button 
 
 ## Evidence
 
-SRC-MOBILE-APP onboarding strings, get-started carousel, choose-identicon screen and form, deployment steps; SRC-FIGMA-UP-BOARD create-profile frame 1737:1009 (superseded flow; corroborates neutral tokens and the cube hero).
+SRC-MOBILE-APP onboarding strings, get-started carousel (its four illustrations are republished under `../assets/slides/onboarding/`, decision 0011), choose-identicon screen and form, deployment steps; SRC-FIGMA-UP-BOARD create-profile frame 1737:1009 (superseded flow; corroborates neutral tokens and the cube hero); SRC-FIGMA-MOBILE-UPDATES deployment screens 672:29382 and 672:30132 (an exploration, exported under `../assets/screenshots/mobile-app/`; not the shipped gasless flow).

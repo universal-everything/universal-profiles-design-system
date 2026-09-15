@@ -18,7 +18,7 @@ They exist for every profile that exists, they need no rights clearance, and the
 
 Premium soft-plastic pastel periwinkle objects inside frosted glass: the profile card, the badge cube, an envelope, a lock, a music note, a game controller, a picture frame, a chat bubble, cultural-token objects. Calm studio lighting, matte materials, no neon rims, no readable text, no faces, no logos. Light register on `surface.canvas`, dark register on neutral 10 or the near-black title canvas.
 
-The four images under `../assets/generated/` are the first members of this family produced under recorded provenance:
+The sixteen images under `../assets/generated/` are the members of this family produced under recorded provenance:
 
 | File | Brief | Use |
 |---|---|---|
@@ -26,8 +26,11 @@ The four images under `../assets/generated/` are the first members of this famil
 | `heroes/profile-passport-dark.png` | IB-02 | Dark hero, deck opener |
 | `backgrounds/title-light.png` | IB-10 | Light title slides and social titles |
 | `backgrounds/title-dark.png` | IB-10 | Dark title slides and social titles |
+| `backgrounds/slides-v2/*-light.png` and `*-dark.png` (six families: identity orbits, glass profile stack, address ribbons, modular constellation, identity network, iridescent horizon) | IB-12 | Presentation backgrounds with measured text-safe zones; see `../assets/generated/backgrounds/README.md` |
 
-Every raster records its method, prompt, hashes and dimensions in `PROVENANCE.json`; the validator checks them. The shipped posters, onboarding art and app icon belong to the same family but have no recorded author or licence, so they are not republished; new members are produced from `briefs.md`.
+Every raster records its method, prompt, hashes, dimensions, register and safe zone in `PROVENANCE.json`; the validator checks them against the slide contract. New members are produced from `briefs.md`.
+
+The shipped posters and the app icon belong to the same family but have no recorded author or licence, so they are not republished. The four shipped onboarding illustrations are the exception: they are republished under `../assets/slides/onboarding/` at the product owner's request (`../decisions/0011-owner-authorized-product-visuals.md`) as observed shipped product art, byte-identical to the mobile bundle, with the rights position recorded; they show the app as it is and are not the source for new illustration (IB-04 proposes their refresh). Five app screens exported from the mobile design file are published under `../assets/screenshots/mobile-app/` on the same authorization; they are product screens, not imagery.
 
 Partner app icons (for example the Proof of Presence icon explored on the brand board) belong to their apps; their final exports and colour roles are not recorded here (OPEN-16).
 
@@ -45,4 +48,4 @@ Neon and cyberpunk key art, circuit textures, pink dreamscape landscapes, dot-ma
 
 ## Evidence
 
-SRC-POSTER-2025, SRC-NFTNYC-2026, SRC-ONBOARDING-ART, SRC-APP-ICON, SRC-FIGMA-UP-BOARD imagery section (object family corroborated; board assets excluded for rights), SRC-GENERATED-IMAGES.
+SRC-POSTER-2025, SRC-NFTNYC-2026, SRC-ONBOARDING-ART (republished under decision 0011, R-37), SRC-APP-ICON, SRC-FIGMA-UP-BOARD imagery section (object family corroborated; board assets excluded for rights), SRC-FIGMA-MOBILE-UPDATES (five exported screens, R-38), SRC-GENERATED-IMAGES (sixteen files, IB-02, IB-10, IB-12).

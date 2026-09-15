@@ -5,8 +5,8 @@
  *
  *   node scripts/validate.mjs             # run every check
  *   node scripts/validate.mjs --only docs # run one check (json, tokens, generated, contrast, docs,
- *                                         # assets, forbidden, mutation, sources, icons, examples,
- *                                         # package, tests)
+ *                                         # assets, rasters, forbidden, mutation, sources, icons,
+ *                                         # examples, package, tests)
  *   node scripts/validate.mjs --list      # list checks
  *
  * Exit code 1 when any check reports an error. Warnings never fail the run.
@@ -25,6 +25,7 @@ import * as nodeModule from "node:module";
 import { STATUS_RANK, aliasChain, buildTheme, effectiveStatus, readJson } from "./lib/tokens.mjs";
 import { computePairs } from "./contrast-report.mjs";
 import { valueToJs } from "./lib/format.mjs";
+import { alphaStats, decodePng, pngInfo } from "./lib/png.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
@@ -275,14 +276,14 @@ const REQUIRED_FILES = [
   "patterns/README.md", "patterns/onboarding.md", "patterns/profile-creation-and-recovery.md", "patterns/permissions-and-controllers.md", "patterns/signing-and-confirmation.md", "patterns/network-context.md", "patterns/wallet-and-assets.md", "patterns/dapp-and-browser-surfaces.md", "patterns/discovery-and-browse.md", "patterns/empty-error-offline.md", "patterns/marketing-layouts.md", "patterns/content-voice.md", "patterns/obsolete.md",
   "icons/README.md", "icons/manifest.json",
   "imagery/README.md", "imagery/briefs.md", "imagery/framing-and-safe-zones.md",
-  "assets/generated/PROVENANCE.json", "assets/backgrounds/address-gradient/PROVENANCE.json", "assets/backgrounds/address-gradient/recipes.json", "assets/logos/README.md",
+  "assets/README.md", "assets/generated/PROVENANCE.json", "assets/generated/backgrounds/README.md", "assets/generated/backgrounds/slides-v2/PROMPTS.source.json", "assets/screenshots/mobile-app/PROVENANCE.json", "assets/screenshots/mobile-app/README.md", "assets/slides/README.md", "assets/slides/onboarding/PROVENANCE.json", "assets/slides/previews/PROVENANCE.json", "assets/backgrounds/address-gradient/PROVENANCE.json", "assets/backgrounds/address-gradient/recipes.json", "assets/logos/README.md",
   "accessibility/README.md", "accessibility/contrast-report.md", "accessibility/checklist.md",
   "adoption/web.md", "adoption/react-native.md", "adoption/migration-checklist.md", "adoption/gap-register.md",
   "provenance/README.md", "provenance/sources.json", "provenance/open-items.md", "provenance/reconciliation.md", "provenance/provenance.schema.json",
-  "decisions/README.md",
+  "decisions/README.md", "decisions/0011-owner-authorized-product-visuals.md",
   "packages/address-signature/package.json", "packages/address-signature/src/index.mjs", "packages/address-signature/src/index.d.ts", "packages/address-signature/README.md",
   "examples/README.md", "examples/web/profile-card.html", "examples/web/profile-card.css", "examples/react-native/ProfileCard.tsx", "examples/react-native/GlassPanel.tsx", "examples/react-native/TabBar.tsx", "examples/marketing/README.md", "examples/agent-playbooks/README.md",
-  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs",
+  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs", "scripts/inspect-png.mjs", "scripts/lib/png.mjs",
 ];
 
 const HEADING_RULES = {
@@ -356,27 +357,62 @@ function pngDimensions(buf) {
   return `${buf.readUInt32BE(16)}x${buf.readUInt32BE(20)}`;
 }
 
-checks.assets = () => {
+/**
+ * Provenance methods and what each one must record. Generated rasters need a verbatim prompt; design-file
+ * exports the node they were exported from; shipped-asset copies the path in the product bundle; compositions
+ * the files they were composed from. Records of the last three also need a status from the vocabulary, since
+ * they carry observed material rather than new work.
+ */
+const PROVENANCE_METHODS = {
+  "ai-generated": { generated: true },
+  "OpenAI built-in image generation": { generated: true },
+  "3d-render": { generated: true },
+  vector: {},
+  photo: {},
+  procedural: { procedural: true },
+  "design-file export": { source: true, assetFields: ["node", "status"], nodeField: "node" },
+  "shipped-asset copy": { source: true, recordFields: ["sourceRepository"], assetFields: ["sourcePath", "status"] },
+  composition: { assetFields: ["composition"] },
+};
+/** Files under assets/ that are records or documentation rather than assets. */
+const ASSET_SIDECARS = new Set(["PROVENANCE.json", "README.md", "recipes.json", "PROMPTS.source.json"]);
+
+/** Every PROVENANCE.json under assets/, parsed, with its directory; parse errors are reported by the caller. */
+function provenanceRecords() {
+  const records = [];
   const errors = [];
-  const briefsText = existsSync(join(ROOT, "imagery", "briefs.md")) ? read(join(ROOT, "imagery", "briefs.md")) : "";
-  const briefIds = new Set([...briefsText.matchAll(/^##+\s+(IB-[A-Z0-9-]+)/gm)].map((m) => m[1]));
-  const assetsRoot = join(ROOT, "assets");
-  const files = walk(assetsRoot);
-  const provFiles = files.filter((f) => f.endsWith("PROVENANCE.json"));
-  const covered = new Set();
-  let checked = 0;
-  for (const pf of provFiles) {
-    const dir = dirname(pf);
-    let prov;
+  for (const pf of walk(join(ROOT, "assets")).filter((f) => f.endsWith("PROVENANCE.json"))) {
     try {
-      prov = readJson(pf);
+      records.push({ file: pf, dir: dirname(pf), prov: readJson(pf) });
     } catch (e) {
       errors.push(`${rel(pf)}: ${e.message}`);
-      continue;
     }
+  }
+  return { records, errors };
+}
+
+checks.assets = () => {
+  const briefsText = existsSync(join(ROOT, "imagery", "briefs.md")) ? read(join(ROOT, "imagery", "briefs.md")) : "";
+  const briefIds = new Set([...briefsText.matchAll(/^##+\s+(IB-[A-Z0-9-]+)/gm)].map((m) => m[1]));
+  const sources = readJson(join(ROOT, "provenance", "sources.json")).sources;
+  const files = walk(join(ROOT, "assets"));
+  const { records, errors } = provenanceRecords();
+  const covered = new Set();
+  let checked = 0;
+  for (const { file: pf, dir, prov } of records) {
+    const method = PROVENANCE_METHODS[prov.method];
     if (!prov.method) errors.push(`${rel(pf)}: missing method`);
+    else if (!method) errors.push(`${rel(pf)}: method "${prov.method}" is not one of ${Object.keys(PROVENANCE_METHODS).join(", ")}`);
     if (typeof prov.license !== "string" || !prov.license.trim()) errors.push(`${rel(pf)}: missing license (every provenance record states the licence of its files)`);
-    if (prov.method !== "procedural" && !prov.model && !prov.tool) errors.push(`${rel(pf)}: generated assets must record the tool or model`);
+    if (method?.generated && !prov.model && !prov.tool) errors.push(`${rel(pf)}: generated assets must record the tool or model`);
+    if (method?.source) {
+      if (!prov.source) errors.push(`${rel(pf)}: ${prov.method} records must cite the source they come from (an SRC- key)`);
+      else if (!sources[prov.source]) errors.push(`${rel(pf)}: source ${prov.source} is not registered in provenance/sources.json`);
+      if (!STATUS_VOCAB.includes(prov.status)) errors.push(`${rel(pf)}: ${prov.method} records must carry a status from the vocabulary`);
+      if (!prov.authorization) errors.push(`${rel(pf)}: ${prov.method} records must state the authorization that admits the files past the publication boundary`);
+    }
+    for (const field of method?.recordFields ?? []) if (!prov[field]) errors.push(`${rel(pf)}: ${prov.method} records must carry ${field}`);
+    if (prov.status !== undefined && !STATUS_VOCAB.includes(prov.status)) errors.push(`${rel(pf)}: status "${prov.status}" is not in ${STATUS_VOCAB.join("|")}`);
     if (!Array.isArray(prov.assets) || prov.assets.length === 0) {
       errors.push(`${rel(pf)}: assets must be a non-empty array`);
       continue;
@@ -396,20 +432,264 @@ checks.assets = () => {
         const dims = pngDimensions(buf);
         if (!dims) errors.push(`${rel(pf)}: ${a.path} is not a PNG`);
         else if (a.dimensions !== dims) errors.push(`${rel(pf)}: ${a.path} dimensions ${dims} differ from recorded ${a.dimensions}`);
-        if (prov.method !== "procedural" && !a.prompt) errors.push(`${rel(pf)}: ${a.path} generated raster without a recorded prompt`);
+        if (method?.generated && !a.prompt) errors.push(`${rel(pf)}: ${a.path} generated raster without a recorded prompt`);
+      }
+      for (const field of method?.assetFields ?? []) if (a[field] === undefined) errors.push(`${rel(pf)}: ${a.path} lacks ${field}, required for ${prov.method}`);
+      if (a.status !== undefined && !STATUS_VOCAB.includes(a.status)) errors.push(`${rel(pf)}: ${a.path} status "${a.status}" is not in ${STATUS_VOCAB.join("|")}`);
+      if (method?.nodeField && a[method.nodeField] !== undefined && !/^\d+:\d+$/.test(String(a[method.nodeField]))) errors.push(`${rel(pf)}: ${a.path} node id ${a[method.nodeField]} is malformed`);
+      if (a.composition) {
+        const inputs = [...(a.composition.placements ?? []), ...(a.composition.base ? [a.composition.base] : [])];
+        if (!inputs.length) errors.push(`${rel(pf)}: ${a.path} composition lists no inputs`);
+        for (const input of inputs) {
+          if (!input.path || !existsSync(join(dir, input.path))) errors.push(`${rel(pf)}: ${a.path} composition input ${input.path} does not exist`);
+          else if (!posix(relative(ROOT, resolve(dir, input.path))).startsWith("assets/")) errors.push(`${rel(pf)}: ${a.path} composition input ${input.path} is outside assets/`);
+        }
       }
       if (a.reconstructed === true) errors.push(`${rel(pf)}: ${a.path} is marked reconstructed; the repository ships no reconstruction of a mark (decision 0010)`);
       const briefId = a.brief ? String(a.brief).match(/^IB-[A-Z0-9-]+/)?.[0] : null;
       if (a.brief && (!briefId || !briefIds.has(briefId))) errors.push(`${rel(pf)}: ${a.path} cites brief ${a.brief}, which is not in imagery/briefs.md`);
     }
   }
+  // Composition inputs must themselves be recorded assets, so a preview can never show an unprovenanced file.
+  for (const { file: pf, dir, prov } of records) {
+    for (const a of prov.assets ?? []) {
+      for (const input of [...(a.composition?.placements ?? []), ...(a.composition?.base ? [a.composition.base] : [])]) {
+        if (input.path && existsSync(join(dir, input.path)) && !covered.has(resolve(dir, input.path))) errors.push(`${rel(pf)}: ${a.path} composition input ${input.path} is not listed in any PROVENANCE.json`);
+      }
+    }
+  }
+  // A staged prompt file beside generated images is the verbatim source of their prompts: every entry must
+  // match a recorded asset in the same directory byte for byte, and every PNG there must have an entry.
+  let promptEntries = 0;
+  for (const promptFile of files.filter((f) => f.endsWith("PROMPTS.source.json"))) {
+    const dir = dirname(promptFile);
+    let entries;
+    try {
+      entries = readJson(promptFile).assets ?? [];
+    } catch (e) {
+      errors.push(`${rel(promptFile)}: ${e.message}`);
+      continue;
+    }
+    const recorded = new Map();
+    for (const r of records) for (const a of r.prov.assets ?? []) if (a.path && dirname(resolve(r.dir, a.path)) === dir) recorded.set(a.path.split("/").pop(), a);
+    for (const e of entries) {
+      promptEntries++;
+      const a = recorded.get(e.name);
+      if (!a) errors.push(`${rel(promptFile)}: ${e.name} has a prompt but no provenance entry`);
+      else if (a.prompt !== e.prompt) errors.push(`${rel(promptFile)}: the prompt of ${e.name} differs from its provenance entry`);
+    }
+    const named = new Set(entries.map((e) => e.name));
+    for (const f of files) if (dirname(f) === dir && extname(f) === ".png" && !named.has(f.split(sep).pop())) errors.push(`${rel(promptFile)}: no prompt entry for ${f.split(sep).pop()}`);
+  }
   for (const f of files) {
     const name = f.split(sep).pop();
-    if (name === "PROVENANCE.json" || name === "README.md" || name === "recipes.json") continue;
+    if (ASSET_SIDECARS.has(name)) continue;
     if (!covered.has(f)) errors.push(`${rel(f)}: not listed in any PROVENANCE.json`);
     if (![".png", ".svg"].includes(extname(f))) errors.push(`${rel(f)}: only .png and .svg assets are allowed under assets/`);
   }
-  return { errors, info: `${provFiles.length} provenance records, ${checked} assets verified` };
+  return { errors, info: `${records.length} provenance records, ${checked} assets verified, ${promptEntries} staged prompts match their entries` };
+};
+
+/**
+ * Pixel-level contracts, read from the `contract` block of each provenance record and measured with the
+ * dependency-free PNG reader: generated backgrounds meet the slide contract (16:9, minimum size, 8-bit RGB
+ * without alpha, intact content credentials, a light and a dark file per family, a declared text-safe zone
+ * that measures light or dark enough and quiet); design-file screens carry a real alpha channel with a
+ * transparent exterior and no empty margin; shipped illustrations keep their transparent background; and
+ * every preview matches the repository files it declares as inputs, so a picture can never drift from the
+ * assets it shows.
+ */
+checks.rasters = () => {
+  const { records, errors } = provenanceRecords();
+  const decoded = new Map();
+  const image = (abs) => {
+    if (!decoded.has(abs)) decoded.set(abs, decodePng(readFileSync(abs)));
+    return decoded.get(abs);
+  };
+  const luminance = (img, zone) => {
+    const { width, height, data } = img;
+    let sum = 0;
+    let sum2 = 0;
+    let n = 0;
+    for (let y = Math.floor(zone.y * height); y < Math.floor((zone.y + zone.height) * height); y++) {
+      for (let x = Math.floor(zone.x * width); x < Math.floor((zone.x + zone.width) * width); x++) {
+        const o = (y * width + x) * 4;
+        const l = 0.2126 * data[o] + 0.7152 * data[o + 1] + 0.0722 * data[o + 2];
+        sum += l;
+        sum2 += l * l;
+        n++;
+      }
+    }
+    const mean = n ? sum / n : NaN;
+    return { mean, deviation: n ? Math.sqrt(Math.max(0, sum2 / n - mean * mean)) : NaN };
+  };
+  // Area-average an RGBA image to w by h (RGB plus a coverage flag per pixel, 1 when every source pixel was opaque).
+  const scaleTo = (img, w, h) => {
+    const out = new Float32Array(w * h * 4);
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const sx0 = Math.floor((x * img.width) / w);
+        const sx1 = Math.max(sx0 + 1, Math.floor(((x + 1) * img.width) / w));
+        const sy0 = Math.floor((y * img.height) / h);
+        const sy1 = Math.max(sy0 + 1, Math.floor(((y + 1) * img.height) / h));
+        let r = 0;
+        let g = 0;
+        let b = 0;
+        let n = 0;
+        let opaque = 1;
+        for (let sy = sy0; sy < sy1; sy++) {
+          for (let sx = sx0; sx < sx1; sx++) {
+            const o = (sy * img.width + sx) * 4;
+            r += img.data[o];
+            g += img.data[o + 1];
+            b += img.data[o + 2];
+            if (img.data[o + 3] !== 255) opaque = 0;
+            n++;
+          }
+        }
+        const q = (y * w + x) * 4;
+        out[q] = r / n;
+        out[q + 1] = g / n;
+        out[q + 2] = b / n;
+        out[q + 3] = opaque;
+      }
+    }
+    return out;
+  };
+  // Mean absolute difference between a scaled input placed at (x, y) and the target, over the input's opaque pixels.
+  const placementDifference = (target, input, place) => {
+    const scaled = scaleTo(input, place.width, place.height);
+    let sum = 0;
+    let n = 0;
+    for (let y = 0; y < place.height; y++) {
+      for (let x = 0; x < place.width; x++) {
+        const q = (y * place.width + x) * 4;
+        if (!scaled[q + 3]) continue;
+        const tx = place.x + x;
+        const ty = place.y + y;
+        if (tx < 0 || ty < 0 || tx >= target.width || ty >= target.height) return Infinity;
+        const o = (ty * target.width + tx) * 4;
+        sum += Math.abs(target.data[o] - scaled[q]) + Math.abs(target.data[o + 1] - scaled[q + 1]) + Math.abs(target.data[o + 2] - scaled[q + 2]);
+        n += 3;
+      }
+    }
+    return n ? sum / n : Infinity;
+  };
+  let measured = 0;
+  let compositions = 0;
+  for (const { file: pf, dir, prov } of records) {
+    const c = prov.contract;
+    if (!c) continue;
+    const label = rel(pf);
+    const families = new Map();
+    const setCounts = new Map();
+    for (const a of prov.assets ?? []) {
+      const abs = join(dir, a.path ?? "");
+      if (!a.path || !existsSync(abs) || extname(abs) !== ".png") continue;
+      let img;
+      try {
+        img = image(abs);
+      } catch (e) {
+        errors.push(`${label}: ${a.path} cannot be decoded: ${e.message}`);
+        continue;
+      }
+      measured++;
+      const info = img.info;
+      const fail = (msg) => errors.push(`${label}: ${a.path} ${msg}`);
+      if (c.bitDepth !== undefined && info.bitDepth !== c.bitDepth) fail(`is ${info.bitDepth}-bit, the contract requires ${c.bitDepth}-bit`);
+      if (c.colourType !== undefined && info.colourTypeName !== c.colourType) fail(`is ${info.colourTypeName}, the contract requires ${c.colourType}`);
+      if (c.alphaChannel === false && info.canBeTransparent) fail("carries transparency, the contract requires an opaque file");
+      if (c.dimensions !== undefined && `${info.width}x${info.height}` !== c.dimensions) fail(`is ${info.width}x${info.height}, the contract requires ${c.dimensions}`);
+      if (c.aspectRatio !== undefined) {
+        const [aw, ah] = String(c.aspectRatio).split(":").map(Number);
+        const tolerance = c.aspectTolerance ?? 0.01;
+        if (Math.abs(info.width / info.height / (aw / ah) - 1) > tolerance) fail(`aspect ratio ${(info.width / info.height).toFixed(4)} is not ${c.aspectRatio} within ${tolerance * 100} percent`);
+      }
+      if (c.minWidth !== undefined && info.width < c.minWidth) fail(`is ${info.width} wide, the contract requires at least ${c.minWidth}`);
+      if (c.minHeight !== undefined && info.height < c.minHeight) fail(`is ${info.height} high, the contract requires at least ${c.minHeight}`);
+      if (c.contentCredentials !== undefined) {
+        const cc = info.contentCredentials;
+        if (!cc?.c2pa) fail("has no C2PA content-credentials manifest (caBX chunk)");
+        else {
+          const want = prov.contentCredentials?.softwareAgent;
+          if (want && cc.softwareAgent !== want) fail(`manifest names the software agent "${cc.softwareAgent}", the record says "${want}"`);
+          if (!cc.actions.includes("c2pa.created")) fail("manifest records no c2pa.created action");
+          if (a.contentCredentials?.timestamp && cc.timestamp !== a.contentCredentials.timestamp) fail(`manifest time stamp ${cc.timestamp} differs from the recorded ${a.contentCredentials.timestamp}`);
+        }
+      }
+      if (c.lightRegister || c.darkRegister || c.pairs || c.safeZone) {
+        const suffix = a.path.match(/-(light|dark)\.png$/)?.[1];
+        if (!a.register || !["light", "dark"].includes(a.register)) fail("must declare register light or dark");
+        else if (suffix !== a.register) fail(`declares register ${a.register} but its file name says ${suffix ?? "neither light nor dark"}`);
+        if (!a.family) fail("must declare its family");
+        else families.set(a.family, new Set([...(families.get(a.family) ?? []), a.register]));
+        const zone = a.safeZone;
+        if (!zone || [zone.x, zone.y, zone.width, zone.height].some((v) => typeof v !== "number" || v < 0 || v > 1) || zone.x + zone.width > 1.0001 || zone.y + zone.height > 1.0001) fail("must declare a safeZone as fractions x, y, width, height within the image");
+        else {
+          const { mean, deviation } = luminance(img, zone);
+          if (a.register === "light" && c.lightRegister?.minSafeZoneLuminance !== undefined && mean < c.lightRegister.minSafeZoneLuminance) fail(`safe zone mean luminance ${mean.toFixed(1)} is below ${c.lightRegister.minSafeZoneLuminance} for a light register`);
+          if (a.register === "dark" && c.darkRegister?.maxSafeZoneLuminance !== undefined && mean > c.darkRegister.maxSafeZoneLuminance) fail(`safe zone mean luminance ${mean.toFixed(1)} is above ${c.darkRegister.maxSafeZoneLuminance} for a dark register`);
+          if (c.maxSafeZoneDeviation !== undefined && deviation > c.maxSafeZoneDeviation) fail(`safe zone luminance deviation ${deviation.toFixed(1)} exceeds ${c.maxSafeZoneDeviation}; the copy area is not quiet`);
+        }
+        if (prov.sets) {
+          if (!a.set || !prov.sets[a.set]) fail(`declares set "${a.set}", which is not in the record's sets`);
+          else setCounts.set(a.set, (setCounts.get(a.set) ?? 0) + 1);
+        }
+      }
+      if (c.alphaChannel === true) {
+        if (!info.hasAlphaChannel) fail(`has no alpha channel (${info.colourTypeName}); the contract requires a real alpha channel`);
+        else {
+          const st = alphaStats(img);
+          if (st.transparent === 0) fail("has an alpha channel but no transparent pixel; the exterior must be transparent");
+          if (c.cornersTransparent && !st.cornersTransparent) fail("has an opaque corner; the exterior must be transparent");
+          if (c.tight === true && !st.tight) fail(`is not tightly cropped (visible pixels span ${st.visible.width}x${st.visible.height} at ${st.visible.x},${st.visible.y})`);
+          if (c.maxTransparentFraction !== undefined && st.transparentFraction > c.maxTransparentFraction) fail(`is ${(st.transparentFraction * 100).toFixed(1)} percent transparent, above the ${c.maxTransparentFraction * 100} percent the contract allows`);
+        }
+      }
+      if (a.composition) {
+        const tolerance = c.maxMeanAbsoluteDifference ?? 6;
+        const { base, placements = [] } = a.composition;
+        if (base?.path && existsSync(join(dir, base.path))) {
+          compositions++;
+          const baseImg = image(join(dir, base.path));
+          const w = Math.round(img.width * 0.05);
+          const h = Math.round(img.height * 0.05);
+          const scaledData = scaleTo(baseImg, img.width, img.height);
+          for (const [cx, cy] of [[0, 0], [img.width - w, 0], [0, img.height - h], [img.width - w, img.height - h]]) {
+            let sum = 0;
+            for (let y = cy; y < cy + h; y++) for (let x = cx; x < cx + w; x++) {
+              const o = (y * img.width + x) * 4;
+              sum += Math.abs(img.data[o] - scaledData[o]) + Math.abs(img.data[o + 1] - scaledData[o + 1]) + Math.abs(img.data[o + 2] - scaledData[o + 2]);
+            }
+            const diff = sum / (w * h * 3);
+            if (diff > tolerance) fail(`corner at ${cx},${cy} differs from the declared base ${base.path} by ${diff.toFixed(1)} (tolerance ${tolerance})`);
+          }
+        }
+        for (const p of placements) {
+          if (!p.path || !existsSync(join(dir, p.path))) continue;
+          compositions++;
+          if ([p.x, p.y, p.width, p.height].some((v) => !Number.isInteger(v) || v < 0)) {
+            fail(`placement of ${p.path} needs integer x, y, width and height`);
+            continue;
+          }
+          const diff = placementDifference(img, image(join(dir, p.path)), p);
+          if (diff > tolerance) fail(`placement of ${p.path} at ${p.x},${p.y} (${p.width}x${p.height}) differs from the input by ${diff === Infinity ? "an out-of-bounds placement" : diff.toFixed(1)} (tolerance ${tolerance})`);
+        }
+      }
+    }
+    if (c.pairs) for (const [family, registers] of families) if (!registers.has("light") || !registers.has("dark")) errors.push(`${label}: family ${family} lacks a ${registers.has("light") ? "dark" : "light"} file; every family ships both registers`);
+    if (prov.sets) {
+      for (const [set, meta] of Object.entries(prov.sets)) {
+        if (meta.count !== undefined && meta.count !== (setCounts.get(set) ?? 0)) errors.push(`${label}: set ${set} declares ${meta.count} files but ${setCounts.get(set) ?? 0} entries carry it`);
+        if (Array.isArray(meta.families)) {
+          const have = new Set((prov.assets ?? []).filter((a) => a.set === set).map((a) => a.family));
+          for (const f of meta.families) if (!have.has(f)) errors.push(`${label}: set ${set} lists family ${f}, which has no entry`);
+          for (const f of have) if (!meta.families.includes(f)) errors.push(`${label}: set ${set} has entries for family ${f}, which its family list omits`);
+        }
+      }
+    }
+  }
+  return { errors, info: `${measured} rasters measured against their contracts, ${compositions} composition inputs matched` };
 };
 
 checks.forbidden = () => {
@@ -641,12 +921,12 @@ checks.package = () => {
 checks.tests = () => {
   const errors = [];
   try {
-    const testFiles = walk(join(ROOT, "packages")).filter((f) => f.endsWith(".test.mjs"));
+    const testFiles = [...walk(join(ROOT, "packages")), ...walk(join(ROOT, "scripts"))].filter((f) => f.endsWith(".test.mjs"));
     const out = execFileSync(process.execPath, ["--test", "--test-reporter=tap", ...testFiles], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
     const pass = out.match(/^# pass (\d+)/m)?.[1] ?? "?";
     const fail = out.match(/^# fail (\d+)/m)?.[1] ?? "?";
     if (fail !== "0") errors.push(`package tests: ${fail} failing`);
-    return { errors, info: `address-signature tests: ${pass} pass, ${fail} fail` };
+    return { errors, info: `address-signature and script tests: ${pass} pass, ${fail} fail` };
   } catch (e) {
     errors.push(`package tests failed:\n${String(e.stdout ?? "")}${String(e.stderr ?? "")}`.trim());
     return { errors, info: "" };

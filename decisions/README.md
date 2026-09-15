@@ -14,6 +14,7 @@ Architecture-decision records for choices that shape the system. One file per de
 | [0008-validation-without-dependencies.md](0008-validation-without-dependencies.md) | All builds and checks run on Node alone | accepted |
 | [0009-status-follows-the-alias-chain.md](0009-status-follows-the-alias-chain.md) | A token's status never outranks the weakest status in its alias chain; theme metadata wins over base metadata | accepted |
 | [0010-no-reconstruction-under-any-label.md](0010-no-reconstruction-under-any-label.md) | No reconstruction of a mark under any label; supersedes the escape hatch in 0007 | accepted |
+| [0011-owner-authorized-product-visuals.md](0011-owner-authorized-product-visuals.md) | Five app screens and the four onboarding illustrations admitted as named, owner-authorized exceptions to the publication boundary; twelve slide backgrounds added as proposed assets; the validator proves the boundary | accepted |
 
 Template:
 

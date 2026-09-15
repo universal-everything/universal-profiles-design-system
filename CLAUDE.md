@@ -20,7 +20,7 @@ Every token and guideline carries one of: observed, normalized, proposed, obsole
 - Every profile representation uses the Address Signature from `packages/address-signature`: identicon badge at 24 px and above (a system rule with status proposed, `identicon.min-badge-size`), the checksummed suffix, the address gradient fallback. Never hand-pick a profile colour or replace the identicon.
 - No neon, glow, cyberpunk, generic glassmorphism outside the glass tier, mascots, dreamscapes, stock people, AI-invented logos or parent-brand-only motifs on Universal Profiles surfaces.
 - Voice: clear, direct, second person, sentence case, culture over finance, "an account, not an address". Never call the product a wallet (Wallet is the assets tab). Never quote prices, market figures or counts.
-- Assets: every file under `assets/` needs a `PROVENANCE.json` entry (method, tool or model, prompt, hash, dimensions, licence). Never commit private documents, screenshots of private files, temporary design-tool URLs, or rasters with unrecorded rights.
+- Assets: every file under `assets/` needs a `PROVENANCE.json` entry (method, tool or model, prompt, hash, dimensions, licence; for observed material the source, node id or bundle path, status and the recorded owner authorization). Never commit private documents, screenshots of private files, temporary design-tool URLs, or rasters with unrecorded rights; the only admitted product visuals are the owner-authorized files listed in `decisions/0011-owner-authorized-product-visuals.md`, and a new export or bundle copy needs its own recorded authorization.
 
 ## Component selection
 
@@ -57,7 +57,7 @@ Text 4.5:1 and indicators 3:1 on the pairs in `tokens/contrast-pairs.json` (chec
 
 1. Read the relevant `foundations/`, `components/` or `patterns/` document.
 2. Change tokens only in `tokens/src`; run `node scripts/build-tokens.mjs && node scripts/contrast-report.mjs`.
-3. For images, follow `imagery/briefs.md`, record provenance, run `node scripts/validate.mjs --only assets`.
+3. For images, follow `imagery/briefs.md` (slide backgrounds: IB-12), record provenance (`node scripts/inspect-png.mjs <file>` prints the facts), run `node scripts/validate.mjs --only assets` and `--only rasters`. Pick backgrounds and screens from `assets/README.md`; keep copy inside the safe zone recorded for the file; generated backgrounds are proposed, app screens observed (the paywall and deployment screens exploratory), onboarding art observed shipped product art.
 4. Keep web and React Native guidance in sync; a change to one requires the other or a line in `adoption/gap-register.md`.
 5. Do not install packages, add dependencies or use the network; the gate must keep running on Node alone.
 6. Before finishing: `npm test` must pass with zero errors; report the exact commands and results.
@@ -69,12 +69,14 @@ npm test                                        # full gate
 node scripts/validate.mjs --only tokens         # metadata, aliases, tiers, naming
 node scripts/validate.mjs --only contrast       # designated pairs and report drift
 node scripts/validate.mjs --only docs           # required files, links, headings, status lines
-node scripts/validate.mjs --only assets         # provenance hashes, dimensions, briefs
+node scripts/validate.mjs --only assets         # provenance hashes, dimensions, briefs, per-method fields, staged prompts
+node scripts/validate.mjs --only rasters        # slide contract, alpha and crop facts, preview compositions (pixels decoded on Node alone)
 node scripts/validate.mjs --only forbidden      # private paths, URLs, identifiers, credentials
 node scripts/validate.mjs --only icons          # grid, stroke, colour, manifest
 node --test "packages/**/*.test.mjs"            # address-signature tests
+node --test "scripts/**/*.test.mjs"             # PNG reader tests (decoder, alpha facts, content credentials)
 ```
 
 ## Where things are
 
-Tokens `tokens/src` to `tokens/build/{css,ts,react-native,json,tailwind,figma}`; signature helpers `packages/address-signature`; icons `icons/src` with `icons/manifest.json`; imagery `imagery/` and `assets/`; rules `foundations/`, `brand/`, `components/`, `patterns/`; accessibility `accessibility/`; adoption `adoption/`; evidence `provenance/`; decisions `decisions/`; examples `examples/`.
+Tokens `tokens/src` to `tokens/build/{css,ts,react-native,json,tailwind,figma}`; signature helpers `packages/address-signature`; icons `icons/src` with `icons/manifest.json`; imagery `imagery/` and the asset library `assets/` (index `assets/README.md`; slide backgrounds `assets/generated/backgrounds/` with its README; app screens `assets/screenshots/mobile-app/`; onboarding art and previews `assets/slides/`); rules `foundations/`, `brand/`, `components/`, `patterns/`; accessibility `accessibility/`; adoption `adoption/`; evidence `provenance/`; decisions `decisions/`; examples `examples/`.

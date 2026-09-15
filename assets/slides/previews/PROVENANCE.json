@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../provenance/provenance.schema.json",
+  "directory": "assets/slides/previews",
+  "method": "composition",
+  "tool": "Raster composition of files that live in this repository (a scriptable image tool; the outputs carry cHRM, bKGD and date text chunks from the re-encoder and nothing else). No new imagery was generated; every pixel derives from the listed inputs and the flat canvas colour.",
+  "composedAt": "2026-09-15T19:20:43Z (tIME chunks of the app showcases); the contact sheets carry no timestamp",
+  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
+  "license": "The two background-overview contact sheets contain only generated-background pixels and follow the Apache-2.0 terms in LICENSES/GENERATED-IMAGES.md. The two app-showcase previews are mixed compositions: their generated-background pixels follow those generated-image terms, while their embedded app-screen pixels retain the owner-rights, documentation-and-presentation-use-only terms in assets/screenshots/mobile-app/PROVENANCE.json. The app-showcase files are therefore not wholly covered by this repository's Apache-2.0 grant. All four previews are for the README gallery and for choosing files; they are not delivery masters.",
+  "rightsNote": "Derived previews. Regenerate from the inputs rather than editing; the validator measures every preview against its declared inputs so the pictures can never drift from the files they show.",
+  "publication": "public",
+  "status": "proposed",
+  "postProcessing": "None beyond the composition itself: backgrounds scaled to fit, screens scaled to about 299 by 634 (the measured best fit of a 300 by 636 target) with a soft shadow, contact-sheet thumbnails scaled to 600 by 338 on a #121B21 canvas (the dark canvas token surface.canvas). The contact sheets were saved at 16 bits per channel by the tool; the showcases at 8.",
+  "contract": {
+    "description": "Checked by node scripts/validate.mjs --only rasters: every declared input exists and is listed in its own PROVENANCE.json, and every declared placement matches the input within a mean absolute difference of 6 of 255 after scaling",
+    "maxMeanAbsoluteDifference": 6
+  },
+  "assets": [
+    {
+      "path": "app-showcase-light.png",
+      "sha256": "1b5accb5894c4f0f8a46a2388a4576a7da9a69b4652889ac52808c913859fabb",
+      "dimensions": "1920x1080",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "description": "Three app screens over the light title background at 1920 by 1080: home at the left, the in-app browser raised in the middle, the deployment success screen at the right (measured: it matches the success file more closely than the preparing file); the left half is free for copy.",
+      "composition": {
+        "base": { "path": "../../generated/backgrounds/title-light.png", "fit": "scaled to 1920x1080" },
+        "placements": [
+          { "path": "../../screenshots/mobile-app/app-home.png", "x": 980, "y": 219, "width": 299, "height": 634 },
+          { "path": "../../screenshots/mobile-app/in-app-browser.png", "x": 1290, "y": 179, "width": 299, "height": 634 },
+          { "path": "../../screenshots/mobile-app/deployment-success.png", "x": 1600, "y": 219, "width": 299, "height": 634 }
+        ]
+      }
+    },
+    {
+      "path": "app-showcase-dark.png",
+      "sha256": "ab5e1e5f8228f46f2b441cb840e3b4716fbac0790ffdedd358875a8331a1e784",
+      "dimensions": "1920x1080",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "description": "The same three screens over the dark title background at 1920 by 1080; the left half is free for white copy.",
+      "composition": {
+        "base": { "path": "../../generated/backgrounds/title-dark.png", "fit": "scaled to 1920x1080" },
+        "placements": [
+          { "path": "../../screenshots/mobile-app/app-home.png", "x": 980, "y": 219, "width": 299, "height": 634 },
+          { "path": "../../screenshots/mobile-app/in-app-browser.png", "x": 1290, "y": 179, "width": 299, "height": 634 },
+          { "path": "../../screenshots/mobile-app/deployment-success.png", "x": 1600, "y": 219, "width": 299, "height": 634 }
+        ]
+      }
+    },
+    {
+      "path": "backgrounds-light-overview.png",
+      "sha256": "6b21a1d804e7b802a4eaf25d7fbef8f2c0adbed4e0e665289e51c33b4e2dbf8b",
+      "dimensions": "1296x1158",
+      "status": "proposed",
+      "colour": "16-bit RGB, no alpha channel",
+      "description": "Contact sheet of the six light slides-v2 backgrounds in alphabetical order, two columns by three rows of 600 by 338 thumbnails, 24 pixel margins and 48 pixel gutters on the dark canvas.",
+      "composition": {
+        "canvas": "#121B21",
+        "placements": [
+          { "path": "../../generated/backgrounds/slides-v2/address-ribbons-light.png", "x": 24, "y": 24, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/glass-profile-stack-light.png", "x": 672, "y": 24, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/identity-network-light.png", "x": 24, "y": 410, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/identity-orbits-light.png", "x": 672, "y": 410, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/iridescent-horizon-light.png", "x": 24, "y": 796, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/modular-constellation-light.png", "x": 672, "y": 796, "width": 600, "height": 338 }
+        ]
+      }
+    },
+    {
+      "path": "backgrounds-dark-overview.png",
+      "sha256": "d8e8a9071605668f1115b9503ccf98864857e088b461621d4f63824dc4bd4794",
+      "dimensions": "1296x1158",
+      "status": "proposed",
+      "colour": "16-bit RGB, no alpha channel",
+      "description": "Contact sheet of the six dark slides-v2 backgrounds in the same grid.",
+      "composition": {
+        "canvas": "#121B21",
+        "placements": [
+          { "path": "../../generated/backgrounds/slides-v2/address-ribbons-dark.png", "x": 24, "y": 24, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/glass-profile-stack-dark.png", "x": 672, "y": 24, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/identity-network-dark.png", "x": 24, "y": 410, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/identity-orbits-dark.png", "x": 672, "y": 410, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/iridescent-horizon-dark.png", "x": 24, "y": 796, "width": 600, "height": 338 },
+          { "path": "../../generated/backgrounds/slides-v2/modular-constellation-dark.png", "x": 672, "y": 796, "width": 600, "height": 338 }
+        ]
+      }
+    }
+  ]
+}

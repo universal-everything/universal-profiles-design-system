@@ -1,6 +1,6 @@
 # Security
 
-This repository contains design tokens, documentation, small dependency-free scripts and SVG assets. It runs no services and stores no secrets.
+This repository contains design tokens, documentation, small dependency-free scripts, SVG assets and PNG images with provenance records. It runs no services and stores no secrets.
 
 ## Reporting
 
@@ -14,5 +14,5 @@ In scope: the scripts under `scripts/` and `packages/`, the generated outputs, a
 
 - No dependencies, no network access, no install step; scripts read and write only inside the repository.
 - Generated files are deterministic and checked for drift.
-- Assets carry hashes that the validator verifies.
+- Assets carry hashes that the validator verifies; PNGs are decoded by the gate's own reader, so a file that is not a well-formed PNG (bad signature, chunk length or CRC) fails validation.
 - Private evidence never enters the repository; the validator scans every text file for private paths, URLs, identifiers and credentials.

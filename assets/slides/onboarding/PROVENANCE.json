@@ -1,0 +1,68 @@
+{
+  "$schema": "../../../provenance/provenance.schema.json",
+  "directory": "assets/slides/onboarding",
+  "method": "shipped-asset copy",
+  "tool": "Byte-for-byte copies of the illustration files bundled in the shipped mobile app; nothing generated, edited, scaled or re-encoded here",
+  "source": "SRC-MOBILE-APP",
+  "sourceRepository": {
+    "repository": "lukso-network/universalprofile-mobile-app",
+    "commit": "8d8f9f8c",
+    "version": "1.29.0",
+    "path": "assets/image/",
+    "usedBy": "the onboarding get-started carousel (patterns/onboarding.md)"
+  },
+  "copiedAt": "2026-09-15",
+  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
+  "authorization": "The product owner asked on 2026-09-15, in an authenticated private Discord conversation, for this art to be visible in the public repository; recorded in decisions/0011-owner-authorized-product-visuals.md. Until then the files were deliberately not republished (imagery/README.md, reconciliation R-37).",
+  "license": "Third-party project assets. The mobile application repository they are copied from carries the Apache License 2.0 with the notice 'Copyright 2023 LUKSO Blockchain GmbH'; the illustration files carry no separate notice, and the illustrator or generator of the images is not recorded there. They are republished here at the product owner's request as observed shipped product art; this repository adds no licence of its own and gives no warranty about the images' origin (OPEN-04 remains open for the rights statement).",
+  "rightsNote": "Observed shipped product art, not new work of this repository. Use it to show the shipped app as it is (decks, documentation, store-style frames). It is not the source for new illustration: new members of the soft-object family follow imagery/briefs.md (IB-04 proposes the refreshed set that replaces these slides).",
+  "publication": "public",
+  "status": "observed",
+  "postProcessing": "None. 8-bit RGBA with transparent backgrounds and the margins the bundle ships (the objects do not touch the edges); pHYs 11339 pixels per metre (288 dpi), sRGB and gAMA chunks as exported by the original tool. Sizes differ per slide as shipped.",
+  "contract": {
+    "description": "Checked by node scripts/validate.mjs --only rasters: the hash must match the file the mobile bundle ships, the file must carry an alpha channel with transparent corners, and no size or content change is allowed",
+    "bitDepth": 8,
+    "colourType": "RGBA",
+    "alphaChannel": true,
+    "cornersTransparent": true,
+    "tight": false
+  },
+  "assets": [
+    {
+      "path": "get-started-1.png",
+      "sha256": "96e8d1fdab09025136ad00ca9f5b2362e839940f6dd84aa821d7f888226216a9",
+      "dimensions": "1080x838",
+      "sourcePath": "assets/image/get-started-1.png",
+      "status": "observed",
+      "colour": "8-bit RGBA, transparent background",
+      "description": "First get-started slide illustration as bundled at commit 8d8f9f8c (byte-identical, verified by hash)."
+    },
+    {
+      "path": "get-started-2.png",
+      "sha256": "3bfb7b9e4677c0caf1567d93d7cf47f468266b4a63648bf8de904dd33434d911",
+      "dimensions": "1000x996",
+      "sourcePath": "assets/image/get-started-2.png",
+      "status": "observed",
+      "colour": "8-bit RGBA, transparent background",
+      "description": "Second get-started slide illustration as bundled at commit 8d8f9f8c (byte-identical, verified by hash)."
+    },
+    {
+      "path": "get-started-3.png",
+      "sha256": "d12fc0ef848cce3453caeed4ced50ece1ace4b952f9d381c3b94b2dfd3af56f3",
+      "dimensions": "1000x1000",
+      "sourcePath": "assets/image/get-started-3.png",
+      "status": "observed",
+      "colour": "8-bit RGBA, transparent background",
+      "description": "Third get-started slide illustration as bundled at commit 8d8f9f8c (byte-identical, verified by hash)."
+    },
+    {
+      "path": "get-started-4.png",
+      "sha256": "27ce8393a4d68044de59c520f5a7208191d57200176492df0187ec1b6d0d817a",
+      "dimensions": "1000x1000",
+      "sourcePath": "assets/image/get-started-4.png",
+      "status": "observed",
+      "colour": "8-bit RGBA, transparent background",
+      "description": "Fourth get-started slide illustration as bundled at commit 8d8f9f8c (byte-identical, verified by hash)."
+    }
+  ]
+}

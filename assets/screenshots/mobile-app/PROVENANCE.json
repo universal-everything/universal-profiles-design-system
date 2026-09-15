@@ -1,0 +1,89 @@
+{
+  "$schema": "../../../provenance/provenance.schema.json",
+  "directory": "assets/screenshots/mobile-app",
+  "method": "design-file export",
+  "tool": "Figma PNG export at 1x (the files carry a Software=Figma text chunk); re-encoded once after export, which added the cHRM, bKGD, pHYs, tIME and date text chunks. No retouching, scaling or content change.",
+  "source": "SRC-FIGMA-MOBILE-UPDATES",
+  "sourceFile": {
+    "title": "Mobile app Updates",
+    "fileKey": "gKNmK9MxvHWhewBvYe99Vo",
+    "note": "Cited by file key and node id only; no design-file URL, temporary asset URL, account or raw metadata is recorded"
+  },
+  "exportedAt": "2026-09-15T19:09:08Z to 2026-09-15T19:09:09Z (date:create text chunks); re-encoded 2026-09-15T19:12:12Z (tIME chunk)",
+  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
+  "authorization": "The product owner asked on 2026-09-15, in an authenticated private Discord conversation, for these screens to be visible in the public repository; recorded in decisions/0011-owner-authorized-product-visuals.md. This is the only design-file export exception to the publication boundary in provenance/README.md.",
+  "license": "Product screen exports published at the product owner's explicit request for documentation and presentation of the Universal Profiles app. Rights stay with the product owner; the files are not part of this repository's Apache-2.0 grant for code, tokens and generated imagery, and no licence to the design file or to any mark shown in the screens is implied (TRADEMARKS.md; the formal statement is pending under OPEN-04).",
+  "rightsNote": "Use the screens to show the app in decks, documentation and store-style frames. Do not present them as photographs of a device, do not crop a mark out of them for reuse, and do not quote any name, figure, balance or address drawn in the design file as product data.",
+  "publication": "public",
+  "status": "observed",
+  "postProcessing": "Each file is the export of one design-file frame at 1x: 391 by 828 pixels, 8-bit RGBA, the exterior of the rounded device shape fully transparent (all four corners and about 10 percent of the edge pixels), no semi-transparent pixels, no transparent row or column at any edge (a tight crop). Nothing was drawn, removed or scaled.",
+  "contract": {
+    "description": "Checked by node scripts/validate.mjs --only rasters and documented in assets/screenshots/mobile-app/README.md",
+    "dimensions": "391x828",
+    "aspectRatio": "391:828 (the design-file frame; 9:19.06)",
+    "bitDepth": 8,
+    "colourType": "RGBA",
+    "alphaChannel": true,
+    "cornersTransparent": true,
+    "tight": true,
+    "maxTransparentFraction": 0.05,
+    "note": "A real alpha channel with transparent exterior pixels and no empty margin, so the screens compose over any background without a halo"
+  },
+  "assets": [
+    {
+      "path": "app-home.png",
+      "sha256": "3f6553d4e0050fc57ed48f9dbe507940d24bcde767e27912e9bb9c562463cde4",
+      "dimensions": "391x828",
+      "node": "841:17486",
+      "title": "App home",
+      "status": "observed",
+      "classification": "current design-file screen",
+      "colour": "8-bit RGBA, transparent exterior",
+      "description": "The app home frame of the design file. Rules for the shipped home panel: components/profile-card.md and components/navigation.md."
+    },
+    {
+      "path": "in-app-browser.png",
+      "sha256": "461a9dbf2cef1bff0639fe4b3426c4198a7069a241e01ee460db442591199dc2",
+      "dimensions": "391x828",
+      "node": "841:17668",
+      "title": "In-app browser",
+      "status": "observed",
+      "classification": "current design-file screen",
+      "colour": "8-bit RGBA, transparent exterior",
+      "description": "The in-app browser frame of the design file. Rules for the shipped surface: patterns/dapp-and-browser-surfaces.md."
+    },
+    {
+      "path": "gas-paywall.png",
+      "sha256": "c2d6e9b151301f37269cec4e669711126e7e5309e0621d3e6c31ec38aef20dfe",
+      "dimensions": "391x828",
+      "node": "672:24756",
+      "title": "Paywall",
+      "status": "observed",
+      "classification": "exploratory design-file screen",
+      "colour": "8-bit RGBA, transparent exterior",
+      "description": "The paywall step of the in-app-purchase exploration. Exploratory: observed in the design file, not production authority; the shipped deployment is gasless through the relayer (patterns/onboarding.md)."
+    },
+    {
+      "path": "deployment-preparing.png",
+      "sha256": "dfe9d4d2b4c793604a45453859f58565242d0387579acd12c782906acd0914e3",
+      "dimensions": "391x828",
+      "node": "672:29382",
+      "title": "Deployment, preparing",
+      "status": "observed",
+      "classification": "exploratory design-file screen",
+      "colour": "8-bit RGBA, transparent exterior",
+      "description": "The preparing step of the deployment sequence in the same exploration. Exploratory: observed, not production authority."
+    },
+    {
+      "path": "deployment-success.png",
+      "sha256": "f24e118c259340178d850d628b91df11b0db226afe197a8b8b4bb705923f54c3",
+      "dimensions": "391x828",
+      "node": "672:30132",
+      "title": "Deployment, success",
+      "status": "observed",
+      "classification": "exploratory design-file screen",
+      "colour": "8-bit RGBA, transparent exterior",
+      "description": "The success step of the deployment sequence in the same exploration. Measured against the preparing step, the two files differ only between rows 122 and 777; the top and bottom of the frame are identical. Exploratory: observed, not production authority."
+    }
+  ]
+}

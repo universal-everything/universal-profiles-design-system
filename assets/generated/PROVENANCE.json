@@ -1,8 +1,6 @@
 {
   "$schema": "../../provenance/provenance.schema.json",
   "directory": "assets/generated",
-  "generatedAt": "2026-09-14T21:36:00-07:00",
-  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
   "method": "OpenAI built-in image generation",
   "tool": "OpenAI image generation product; every PNG carries a C2PA content-credentials manifest (PNG caBX chunk) signed by OpenAI",
   "model": "gpt-image 2.0 (softwareAgent name and version read from the embedded C2PA manifest; claim generator OpenAI Media Service API)",
@@ -17,19 +15,101 @@
       "c2pa.watermarked.unbound (invisible watermark)"
     ],
     "signer": "OpenAI OpCo, LLC (OpenAI Media Service certificate)",
-    "verified": "Chunk structure, agent name, version, actions and timestamps inspected on 2026-09-14; the manifest timestamps (2026-09-15 04:36 to 04:37 UTC) match generatedAt"
+    "verified": "Chunk structure, agent name and version, claim generator, actions, signer and time-stamp authority tokens read from every file by scripts/lib/png.mjs and checked by the rasters validator at every run; the first set was countersigned on 2026-09-15 between 04:36 and 04:37 UTC, the slides-v2 set on 2026-09-15 between 19:13 and 19:19 UTC (the per-file timestamp is recorded on each entry)"
   },
+  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
+  "generatedAt": "2026-09-14T21:36:00-07:00 (heroes and title pair, set 1); 2026-09-15T12:13:10-07:00 to 12:19:17-07:00 (slides-v2, set 2); the time-stamp authority token of each file is recorded on its entry",
   "seed": null,
   "license": "Apache-2.0 with the repository, to the extent copyright subsists in machine-generated images (see LICENSES/GENERATED-IMAGES.md); use remains subject to the generation product's terms; no warranty of exclusivity",
   "rightsNote": "Original AI-generated project output. Use remains subject to the repository license, trademark guidance, and applicable OpenAI terms.",
   "publication": "public",
-  "postProcessing": "None. Files are the generator's native output at 1672x941; the briefs list larger delivery formats (IB-02: a 16:9 master with 2560x1440, 1440x2560 and 1200x630 crops; IB-10: 1920x1080, 1080x1080 and 1080x1920), which have not been produced yet and are recorded as such in imagery/briefs.md.",
+  "status": "proposed",
+  "postProcessing": "None. Files are the generator's native output (1672x941, with two slides-v2 files at 1671x941), 8-bit RGB without an alpha channel, with the C2PA manifest left intact. The briefs list larger delivery formats (IB-02: a 16:9 master with 2560x1440, 1440x2560 and 1200x630 crops; IB-10 and IB-12: 1920x1080, 1080x1080 and 1080x1920), which have not been produced and are recorded as such in imagery/briefs.md.",
+  "sets": {
+    "heroes": {
+      "directory": "heroes",
+      "brief": "IB-02",
+      "count": 2,
+      "generatedAt": "2026-09-14T21:36:00-07:00",
+      "use": "README and website hero, deck opener"
+    },
+    "title": {
+      "directory": "backgrounds",
+      "brief": "IB-10",
+      "count": 2,
+      "generatedAt": "2026-09-14T21:36:00-07:00",
+      "use": "Title slides and social titles; the base of the app-showcase previews"
+    },
+    "slides-v2": {
+      "directory": "backgrounds/slides-v2",
+      "brief": "IB-12",
+      "count": 12,
+      "families": [
+        "identity-orbits",
+        "glass-profile-stack",
+        "address-ribbons",
+        "modular-constellation",
+        "identity-network",
+        "iridescent-horizon"
+      ],
+      "familyNotes": {
+        "identity-orbits": "Concentric identity orbits and one portal ring, cluster on the right third.",
+        "glass-profile-stack": "Layered translucent profile-card planes in perspective, stack on the left third.",
+        "address-ribbons": "Flowing translucent ribbons inspired by address-derived colour signatures, sweeping from lower left to upper right.",
+        "modular-constellation": "Modular rounded cubes, spheres and blank identity tiles gathered along the lower-right edge.",
+        "identity-network": "Sparse glowing nodes, orbital paths and translucent halos, clusters near the corners.",
+        "iridescent-horizon": "Iridescent mist and low translucent wave forms across the bottom quarter, for section dividers and closing slides."
+      },
+      "generatedAt": "2026-09-15T19:13:10Z to 2026-09-15T19:19:17Z (time-stamp authority tokens)",
+      "promptSource": "backgrounds/slides-v2/PROMPTS.source.json (the staged prompt file; every prompt below is byte-identical to it and the validator checks the two against each other)",
+      "use": "Presentation backgrounds in six families, each in a light and a dark register; contact sheets in assets/slides/previews",
+      "requestedBy": "The product owner asked on 2026-09-15 for these backgrounds to be visible in the repository and for further variations (decision 0011)"
+    }
+  },
+  "contract": {
+    "description": "The slide contract every generated background and hero must meet; checked by node scripts/validate.mjs --only rasters and documented in assets/generated/backgrounds/README.md",
+    "aspectRatio": "16:9",
+    "aspectTolerance": 0.01,
+    "minWidth": 1600,
+    "minHeight": 900,
+    "bitDepth": 8,
+    "colourType": "RGB",
+    "alphaChannel": false,
+    "contentCredentials": "C2PA manifest (PNG caBX chunk) naming the software agent, present and intact",
+    "pairs": "every family has a -light and a -dark file",
+    "safeZone": "declared per file as fractions of the width and height; the validator measures it",
+    "lightRegister": {
+      "minSafeZoneLuminance": 200,
+      "note": "mean luminance of the safe zone, 0 to 255; ink text stays legible"
+    },
+    "darkRegister": {
+      "maxSafeZoneLuminance": 64,
+      "note": "mean luminance of the safe zone, 0 to 255; white text stays legible"
+    },
+    "maxSafeZoneDeviation": 20,
+    "maxSafeZoneDeviationNote": "standard deviation of the safe-zone luminance; keeps the copy area quiet"
+  },
   "assets": [
     {
       "path": "heroes/profile-passport-light.png",
       "sha256": "46f891c1d0bd227cdf3f8c00e6591e83dc87d0e9d22860a9ff300e3189869db8",
       "dimensions": "1672x941",
       "brief": "IB-02 light-register profile-card hero",
+      "set": "heroes",
+      "family": "profile-passport",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T04:36:13Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.42,
+        "height": 1,
+        "note": "Left 42 percent, full height: copy area of the README and website hero (prompt: left 42 percent mostly empty)."
+      },
       "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles design-system repository hero background, landscape 16:9\nPrimary request: Create an original polished 3D hero image expressing a self-owned digital profile that travels across apps and chains.\nScene/backdrop: seamless calm near-white canvas #F8FAFB with abundant negative space on the left for documentation copy.\nSubject: on the right, a frosted glass profile card standing at a subtle 12-degree tilt. The card has a rounded cover area with softly tumbling abstract objects: a blank rounded cube, lock, envelope, music note, small game controller, picture frame, and chat bubble. A large blank white circular avatar breaks the lower edge of the cover, with a smaller white satellite badge circle at its lower right. Below are three blank pill tabs and three rows represented only by blank bars. Behind the main card, five ghosted translucent cards fan backward at small increments.\nStyle/medium: premium soft-plastic and frosted-glass 3D render, modern product illustration, restrained and calm, original design.\nLighting/mood: soft overhead studio key light, gentle contact shadow, clean optimistic atmosphere.\nColor palette: periwinkle #7B83EA key, #C2C5F5 highlights, #5862E4 shadows; neutral canvas #F8FAFB; white and cool blue-grey glass.\nMaterials/textures: matte soft plastic, etched/frosted translucent glass, subtle refraction, no chrome.\nConstraints: no readable text; no actual logos or wordmarks; no faces or people; composition must remain clean at README hero scale; left 42 percent mostly empty.\nAvoid: neon glow, circuit boards, hex grids, lens flare, magenta, pink dreamscapes, cryptocurrency symbols, chain logos, watermarks."
     },
     {
@@ -37,6 +117,21 @@
       "sha256": "8daa7c62f063cca3216ab95e3bfe1e90e6cbe3d30a4b08a57395eee1155c91a4",
       "dimensions": "1672x941",
       "brief": "IB-02 dark-register profile-card hero",
+      "set": "heroes",
+      "family": "profile-passport",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T04:36:44Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.42,
+        "height": 1,
+        "note": "Left 42 percent, full height: copy area of the README and website hero (prompt: left 42 percent mostly empty)."
+      },
       "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles design-system repository hero background, dark variant, landscape 16:9\nPrimary request: Create an original polished 3D dark-register hero image expressing a self-owned digital profile that travels across apps and chains.\nScene/backdrop: seamless near-black blue-grey canvas #121B21 with abundant quiet negative space on the left for documentation copy.\nSubject: on the right, a frosted dark-glass profile card standing at a subtle 12-degree tilt. The card has a rounded cover area with softly tumbling abstract objects: a blank rounded cube, lock, envelope, music note, small game controller, picture frame, and chat bubble. A large blank circular avatar breaks the lower edge of the cover, with a smaller satellite badge circle at its lower right. Below are three blank pill tabs and three rows represented only by blank bars. Behind the main card, five ghosted translucent cards fan backward at small increments.\nStyle/medium: premium soft-plastic and frosted-glass 3D render, modern product illustration, restrained and calm, original design.\nLighting/mood: soft overhead studio key light, controlled low-key atmosphere, subtle contact shadow, no bright bloom.\nColor palette: periwinkle #7B83EA key, #C2C5F5 highlights, #5862E4 shadows; canvas #121B21; dark blue-grey glass and warm-white highlights.\nMaterials/textures: matte soft plastic, etched/frosted translucent glass, subtle refraction, no chrome.\nConstraints: no readable text; no actual logos or wordmarks; no faces or people; composition must remain clean at README hero scale; left 42 percent mostly empty.\nAvoid: neon glow, glow outlines, circuit boards, hex grids, lens flare, magenta, pink dreamscapes, cryptocurrency symbols, chain logos, watermarks."
     },
     {
@@ -44,6 +139,21 @@
       "sha256": "f2808abee3d31c2830f784772addedd86850839fe843be14134c6fc0fd730b67",
       "dimensions": "1672x941",
       "brief": "IB-10 dark title background",
+      "set": "title",
+      "family": "title",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T04:37:07Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.55,
+        "height": 1,
+        "note": "Left 55 percent, full height: the title-slide text area (prompt: left 55 percent quiet and text-safe)."
+      },
       "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles dark presentation and social-title background, landscape 16:9\nPrimary request: Create a minimal, sophisticated near-black background that supports white text and Universal Profiles imagery without competing with it.\nScene/backdrop: flat #08080A canvas with one extremely soft, diffuse periwinkle atmospheric bloom #7B83EA at about 12 percent perceived opacity, offset into the upper-right quadrant and fading across roughly 60 percent of the image height.\nStyle/medium: premium abstract digital background, restrained editorial art direction, almost flat with subtle depth.\nComposition/framing: no objects; no focal icon; keep the left 55 percent especially quiet and text-safe.\nLighting/mood: calm, deep, precise, contemporary.\nColor palette: #08080A, #121B21, #7B83EA, tiny traces of #C2C5F5 only in the bloom core.\nMaterials/textures: very subtle 2 percent monochrome film grain to prevent banding.\nConstraints: no text, no logo, no shapes, no lines, no gradients with hard edges, no visible UI, no watermark.\nAvoid: neon, cyberpunk, lens flares, stars, galaxies, circuit boards, hex grids, magenta, pink, blue laser effects."
     },
     {
@@ -51,7 +161,286 @@
       "sha256": "72335153f2e12dc95c599179741e14c50a7c0703f0431fcb7548760be7f7c3c7",
       "dimensions": "1672x941",
       "brief": "IB-10 light title background",
+      "set": "title",
+      "family": "title",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T04:37:29Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.55,
+        "height": 1,
+        "note": "Left 55 percent, full height: the title-slide text area (prompt: left 55 percent quiet and text-safe)."
+      },
       "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles light presentation and social-title background, landscape 16:9\nPrimary request: Create a minimal, sophisticated near-white background that supports dark text and Universal Profiles imagery without competing with it.\nScene/backdrop: calm #F8FAFB canvas with one extremely soft, diffuse periwinkle atmospheric bloom #7B83EA at about 18 percent perceived opacity, offset into the upper-right quadrant and fading across roughly 60 percent of the image height.\nStyle/medium: premium abstract digital background, restrained editorial art direction, almost flat with subtle depth.\nComposition/framing: no objects; no focal icon; keep the left 55 percent especially quiet and text-safe.\nLighting/mood: airy, precise, contemporary, optimistic.\nColor palette: #F8FAFB, white, #C2C5F5, #7B83EA; tiny traces of #5862E4 only near the bloom core.\nMaterials/textures: very subtle 1.5 percent monochrome grain to prevent banding.\nConstraints: no text, no logo, no shapes, no lines, no gradients with hard edges, no visible UI, no watermark.\nAvoid: neon, cyberpunk, lens flares, stars, galaxies, circuit boards, hex grids, magenta, pink, blue laser effects."
+    },
+    {
+      "path": "backgrounds/slides-v2/identity-orbits-light.png",
+      "sha256": "7cfa196af8ed83347ae1a59dc62c0ab4e5ebdf496c7b9b9eb24c5352254e8ba2",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register identity-orbits slide background",
+      "set": "slides-v2",
+      "family": "identity-orbits",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:13:10Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.5,
+        "height": 1,
+        "note": "Left half, full height; the orbit cluster sits in the right third (prompt: left 52 percent quiet; measured quiet to 50 percent)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Create a new light-mode abstract background variation built around elegant concentric identity orbits and one softly glowing portal ring.\nStyle/medium: premium modern 3D editorial abstraction, restrained and spatial, consistent with the supplied Universal Profiles references.\nComposition/framing: wide landscape; visual cluster anchored on the right third; keep the entire left 52 percent quiet and low-contrast for slide titles and body copy; subtle depth toward the edges.\nLighting/mood: soft luminous studio atmosphere, optimistic, intelligent, calm.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF, #8494EE, tiny cool slate accents; no dominant pink.\nMaterials/textures: translucent glass, frosted acrylic, soft volumetric haze, extremely subtle fine grain.\nConstraints: background only; no words, no letters, no logos, no UI screenshots, no people, no devices, no watermarks; preserve large usable negative space; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/identity-orbits-dark.png",
+      "sha256": "3d68794c040a9d254d540a9f8fa94088e320987586af8fe0e98eb903264cb364",
+      "dimensions": "1671x941",
+      "brief": "IB-12 dark-register identity-orbits slide background",
+      "set": "slides-v2",
+      "family": "identity-orbits",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:14:02Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.5,
+        "height": 1,
+        "note": "Left half, full height; the orbit cluster sits in the right third (prompt: left 52 percent quiet; measured quiet to 50 percent)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Create the dark-mode companion to the supplied light identity-orbits background: elegant concentric identity orbits and one softly glowing portal ring.\nStyle/medium: premium modern 3D editorial abstraction, restrained and spatial, clearly the same family as the references.\nComposition/framing: wide landscape; visual cluster anchored on the right third; keep the entire left 52 percent dark, quiet, and low-detail for white slide titles and body copy.\nLighting/mood: deep midnight studio atmosphere with controlled periwinkle luminosity, intelligent and calm.\nColor palette: near-black #0B1015, cool slate #121B21, deep indigo, #6981EC, #8494EE, restrained cool-white highlights; no dominant pink.\nMaterials/textures: translucent glass, smoked acrylic, soft volumetric light, extremely subtle fine grain.\nConstraints: background only; no words, no letters, no logos, no UI screenshots, no people, no devices, no watermarks; preserve large usable negative space; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/glass-profile-stack-light.png",
+      "sha256": "15a2a4fdabeeaafeb7f60063961f1ecfe591787c4fcd53f0dff0e9d6a09c7754",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register glass-profile-stack slide background",
+      "set": "slides-v2",
+      "family": "glass-profile-stack",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:15:19Z"
+      },
+      "safeZone": {
+        "x": 0.5,
+        "y": 0,
+        "width": 0.5,
+        "height": 1,
+        "note": "Right half, full height; the card stack sits in the left third (prompt: right 50 percent clean)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Light-mode abstract composition of layered translucent profile-card planes floating in perspective, suggesting portable digital identity without showing a literal interface.\nStyle/medium: premium modern 3D editorial design, minimal and architectural.\nComposition/framing: card stack anchored on the left third; keep the right 50 percent clean and low-contrast for slide copy.\nLighting/mood: airy soft studio light, calm and optimistic.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF and restrained #6981EC accents.\nMaterials/textures: frosted glass, satin acrylic, faint edge refraction, soft ground shadows, subtle grain.\nConstraints: abstract background only; blank cards with no text, letters, logos, avatars, icons, people, devices, UI screenshots, or watermarks; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/glass-profile-stack-dark.png",
+      "sha256": "0689cc2afdfac7d3f5cb31f0143f1b2fde4dd2e33f73a9ad385744d6ba323a66",
+      "dimensions": "1672x941",
+      "brief": "IB-12 dark-register glass-profile-stack slide background",
+      "set": "slides-v2",
+      "family": "glass-profile-stack",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:15:40Z"
+      },
+      "safeZone": {
+        "x": 0.5,
+        "y": 0,
+        "width": 0.5,
+        "height": 1,
+        "note": "Right half, full height; the card stack sits in the left third (prompt: right 50 percent clean)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Dark-mode abstract composition of layered smoked-glass profile-card planes floating in perspective, suggesting portable digital identity without a literal interface.\nStyle/medium: premium modern 3D editorial design, minimal and architectural.\nComposition/framing: card stack anchored on the left third; keep the right 50 percent dark, clean and low-detail for white slide copy.\nLighting/mood: deep midnight studio light with controlled periwinkle edge glow.\nColor palette: near-black, cool slate, deep indigo, #6981EC, #8494EE and restrained cool-white highlights.\nMaterials/textures: smoked glass, dark satin acrylic, subtle refraction and soft shadows.\nConstraints: abstract background only; blank cards with no text, letters, logos, avatars, icons, people, devices, UI screenshots, or watermarks; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/address-ribbons-light.png",
+      "sha256": "9395aeb326fbea4bdbc3fec4e427f495d3b26eac9a1bfbdb1d8a3c878a6185cd",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register address-ribbons slide background",
+      "set": "slides-v2",
+      "family": "address-ribbons",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:15:59Z"
+      },
+      "safeZone": {
+        "x": 0.15,
+        "y": 0.15,
+        "width": 0.5,
+        "height": 0.35,
+        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; the ribbons cross the lower left and the upper right (prompt: calm central text-safe zone; measured as this band)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A light abstract field of flowing translucent data ribbons and soft gradient strands, inspired by deterministic address-derived color signatures.\nStyle/medium: elegant contemporary 3D motion still, refined and minimal.\nComposition/framing: diagonal ribbons sweep gently from lower left toward upper right; maintain a calm central text-safe zone and low contrast behind copy.\nLighting/mood: luminous, fluid, intelligent, optimistic.\nColor palette: white, cool mist, periwinkle, pale cyan, subtle apricot and soft lime accents derived from varied address gradients.\nMaterials/textures: translucent silk-glass ribbons, fine grain, soft depth of field.\nConstraints: no text, numbers, hexadecimal strings, logos, icons, people, devices, UI, or watermarks; avoid rainbow overload; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/address-ribbons-dark.png",
+      "sha256": "b20a33c41170d861fe95c166089ec49589b690f6cb552da21ad5f86d2c1e1730",
+      "dimensions": "1672x941",
+      "brief": "IB-12 dark-register address-ribbons slide background",
+      "set": "slides-v2",
+      "family": "address-ribbons",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:16:19Z"
+      },
+      "safeZone": {
+        "x": 0.15,
+        "y": 0.15,
+        "width": 0.5,
+        "height": 0.35,
+        "note": "Centre-left band from 15 to 65 percent of the width and 15 to 50 percent of the height; the ribbons cross the lower left and the upper right (prompt: calm central text-safe zone; measured as this band)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A dark abstract field of flowing translucent data ribbons and controlled gradient strands, inspired by deterministic address-derived color signatures.\nStyle/medium: elegant contemporary 3D motion still, refined and minimal.\nComposition/framing: diagonal ribbons sweep gently from lower left toward upper right; maintain a dark calm central text-safe zone and low detail behind copy.\nLighting/mood: midnight, fluid, intelligent, quietly energetic.\nColor palette: near-black, cool slate, deep periwinkle, restrained cyan, muted apricot and olive accents.\nMaterials/textures: translucent glass-silk ribbons, subtle glow, fine grain, soft depth of field.\nConstraints: no text, numbers, hexadecimal strings, logos, icons, people, devices, UI, or watermarks; avoid neon rainbow overload; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/modular-constellation-light.png",
+      "sha256": "c93aca1eec523a799cae4143d00188b3d534d85195c312861368aaa1adbcc6c8",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register modular-constellation slide background",
+      "set": "slides-v2",
+      "family": "modular-constellation",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:17:19Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.58,
+        "height": 0.5,
+        "note": "Upper-left 58 percent of the width and 50 percent of the height; the objects gather along the lower-right and right edge (prompt: upper-left 58 percent quiet; measured quiet to half the height)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Light-mode constellation of modular rounded cubes, spheres and small identity tiles floating as an open ecosystem.\nStyle/medium: premium 3D editorial abstraction, playful but sophisticated, consistent with Universal Profiles.\nComposition/framing: objects gathered along the lower-right and right edge; keep the upper-left 58 percent quiet for slide titles.\nLighting/mood: bright diffused studio light, optimistic, creative and spacious.\nColor palette: white, pale periwinkle, #A4B5FF, #8494EE, cool mist, tiny restrained magenta and cyan accents.\nMaterials/textures: frosted acrylic, translucent glass, satin ceramic, soft contact shadows.\nConstraints: all tiles and cubes blank; no words, letters, logos, UI, people, hands, devices, coins, blockchain symbols or watermarks; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/modular-constellation-dark.png",
+      "sha256": "93a68b850293f5b24523ee805df5e683578c7a94a932cb425286148d6f3dc4de",
+      "dimensions": "1672x941",
+      "brief": "IB-12 dark-register modular-constellation slide background",
+      "set": "slides-v2",
+      "family": "modular-constellation",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:17:40Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.58,
+        "height": 0.5,
+        "note": "Upper-left 58 percent of the width and 50 percent of the height; the objects gather along the lower-right and right edge (prompt: upper-left 58 percent quiet; measured quiet to half the height)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: Dark-mode constellation of modular rounded cubes, spheres and small identity tiles floating as an open ecosystem.\nStyle/medium: premium 3D editorial abstraction, playful but sophisticated, consistent with Universal Profiles.\nComposition/framing: objects gathered along the lower-right and right edge; keep the upper-left 58 percent dark and quiet for white slide titles.\nLighting/mood: deep cinematic studio atmosphere with restrained periwinkle edge light.\nColor palette: near-black, cool slate, deep indigo, #6981EC, #8494EE, tiny controlled magenta and cyan accents.\nMaterials/textures: smoked glass, satin ceramic, translucent acrylic, soft contact shadows.\nConstraints: all tiles and cubes blank; no words, letters, logos, UI, people, hands, devices, coins, blockchain symbols or watermarks; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/identity-network-light.png",
+      "sha256": "a292989605c765450dd7159810b87570ffedd28d541fab2e38fcacfcf6727faa",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register identity-network slide background",
+      "set": "slides-v2",
+      "family": "identity-network",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:18:02Z"
+      },
+      "safeZone": {
+        "x": 0.3,
+        "y": 0,
+        "width": 0.4,
+        "height": 0.75,
+        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; the clusters stay near the corners (prompt: centre and upper centre calm)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A minimal light identity-network field: sparse glowing nodes, soft orbital paths and a few translucent profile halos, suggesting people, brands and agents connected through one account layer.\nStyle/medium: refined data-visualization-inspired 3D abstraction, editorial rather than technical diagram.\nComposition/framing: balanced edge-to-edge field with the center and upper center deliberately calm for a centered slide title; detail clusters stay near the corners.\nLighting/mood: luminous, open, trustworthy, intelligent.\nColor palette: white, cool mist, pale periwinkle, #6981EC, subtle cyan, faint neutral slate.\nMaterials/textures: soft glass beads, hairline luminous paths, subtle depth and grain.\nConstraints: no labels, text, letters, logos, faces, literal avatars, UI, devices, maps, grids or watermarks; sparse, not busy; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/identity-network-dark.png",
+      "sha256": "3734a9409eefc8019ef8cf7c07040a9347bc212ea5b3615c832eb79455645522",
+      "dimensions": "1671x941",
+      "brief": "IB-12 dark-register identity-network slide background",
+      "set": "slides-v2",
+      "family": "identity-network",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:18:24Z"
+      },
+      "safeZone": {
+        "x": 0.3,
+        "y": 0,
+        "width": 0.4,
+        "height": 0.75,
+        "note": "Centre column from 30 to 70 percent of the width and the upper 75 percent of the height, for a centred title; the clusters stay near the corners (prompt: centre and upper centre calm)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A minimal dark identity-network field: sparse glowing nodes, soft orbital paths and a few translucent profile halos, suggesting people, brands and agents connected through one account layer.\nStyle/medium: refined data-visualization-inspired 3D abstraction, editorial rather than technical diagram.\nComposition/framing: balanced edge-to-edge field with the center and upper center deliberately calm for a centered white slide title; detail clusters stay near the corners.\nLighting/mood: deep, trustworthy, intelligent, quietly futuristic.\nColor palette: near-black, cool slate, deep indigo, #6981EC, restrained cyan and cool-white highlights.\nMaterials/textures: glass beads, hairline luminous paths, subtle volumetric depth and fine grain.\nConstraints: no labels, text, letters, logos, faces, literal avatars, UI, devices, maps, grids or watermarks; sparse, not busy; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/iridescent-horizon-light.png",
+      "sha256": "23d5c283f0a4136afefc47d5fecec67d166cd37c3a085bb4245687862f3e35fe",
+      "dimensions": "1672x941",
+      "brief": "IB-12 light-register iridescent-horizon slide background",
+      "set": "slides-v2",
+      "family": "iridescent-horizon",
+      "register": "light",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:19:00Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.6,
+        "height": 0.5,
+        "note": "Upper-left 60 percent of the width and 50 percent of the height; the horizon fills the lower quarter and its glow lifts the upper right (prompt: upper 65 percent calm; measured calm in the upper left half)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A luminous abstract horizon made from soft iridescent mist, low translucent wave forms and distant periwinkle light, suitable for section-divider and closing slides.\nStyle/medium: premium minimal editorial atmosphere, modern and timeless.\nComposition/framing: low visual horizon across the bottom quarter; upper 65 percent nearly empty and evenly calm for centered or left-aligned slide copy.\nLighting/mood: dawn-like, expansive, optimistic, quietly visionary.\nColor palette: white, cool mist, pale periwinkle, #A4B5FF, faint cyan and a nearly imperceptible warm blush.\nMaterials/textures: volumetric haze, translucent glass waves, very subtle fine grain.\nConstraints: no objects that resemble landscapes, people, text, letters, logos, UI, devices, planets, coins or watermarks; abstract only; 16:9 landscape."
+    },
+    {
+      "path": "backgrounds/slides-v2/iridescent-horizon-dark.png",
+      "sha256": "b4c8ededc3b37aaa9946883e26f6c1e4372deb6e54bb32cc4a3e6bc90b5bbd59",
+      "dimensions": "1672x941",
+      "brief": "IB-12 dark-register iridescent-horizon slide background",
+      "set": "slides-v2",
+      "family": "iridescent-horizon",
+      "register": "dark",
+      "status": "proposed",
+      "colour": "8-bit RGB, no alpha channel",
+      "contentCredentials": {
+        "timestamp": "2026-09-15T19:19:17Z"
+      },
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.6,
+        "height": 0.5,
+        "note": "Upper-left 60 percent of the width and 50 percent of the height; the horizon fills the lower quarter and its glow lifts the upper right (prompt: upper 65 percent calm; measured calm in the upper left half)."
+      },
+      "prompt": "Use case: productivity-visual\nAsset type: 16:9 Universal Profiles presentation background\nPrimary request: A dark luminous abstract horizon made from soft iridescent mist, low translucent wave forms and distant periwinkle light, suitable for section-divider and closing slides.\nStyle/medium: premium minimal editorial atmosphere, modern and timeless.\nComposition/framing: low visual horizon across the bottom quarter; upper 65 percent dark, nearly empty and evenly calm for centered or left-aligned white slide copy.\nLighting/mood: midnight-to-dawn, expansive, intelligent, quietly visionary.\nColor palette: near-black, cool slate, deep indigo, #6981EC, restrained cyan and a faint periwinkle glow.\nMaterials/textures: volumetric haze, smoked-glass waves, very subtle fine grain.\nConstraints: no objects that resemble landscapes, people, text, letters, logos, UI, devices, planets, coins or watermarks; abstract only; 16:9 landscape."
     }
   ]
 }
