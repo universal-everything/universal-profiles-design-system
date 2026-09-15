@@ -642,9 +642,9 @@ checks.tests = () => {
   const errors = [];
   try {
     const testFiles = walk(join(ROOT, "packages")).filter((f) => f.endsWith(".test.mjs"));
-    const out = execFileSync(process.execPath, ["--test", ...testFiles], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
-    const pass = out.match(/^ℹ pass (\d+)/m)?.[1] ?? "?";
-    const fail = out.match(/^ℹ fail (\d+)/m)?.[1] ?? "?";
+    const out = execFileSync(process.execPath, ["--test", "--test-reporter=tap", ...testFiles], { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+    const pass = out.match(/^# pass (\d+)/m)?.[1] ?? "?";
+    const fail = out.match(/^# fail (\d+)/m)?.[1] ?? "?";
     if (fail !== "0") errors.push(`package tests: ${fail} failing`);
     return { errors, info: `address-signature tests: ${pass} pass, ${fail} fail` };
   } catch (e) {
