@@ -1,0 +1,29 @@
+{
+  "motion": {
+    "$description": "Durations and easings measured in the mobile app; CSS easings are the standard cubic-bezier approximations of the React Native Easing functions.",
+    "duration": {
+      "$type": "duration",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ProfileView (withTiming 600/250), ProfilesNavigation tab bar (300), LUKSOSkeleton (1200)", "confidence": "high" } },
+      "instant": { "$value": { "value": 0, "unit": "ms" }, "$description": "Reduced-motion replacement for every animated duration.", "$extensions": { "up": { "status": "proposed" } } },
+      "fast": { "$value": { "value": 250, "unit": "ms" }, "$description": "Card hide and show, fades." },
+      "base": { "$value": { "value": 300, "unit": "ms" }, "$description": "Tab bar slide, most transitions." },
+      "slow": { "$value": { "value": 500, "unit": "ms" }, "$description": "Web fade-in-up entrances.", "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:tailwind animation `fade-in-up`", "confidence": "medium" } } },
+      "panel": { "$value": { "value": 600, "unit": "ms" }, "$description": "Profile panel position changes." },
+      "shimmer": { "$value": { "value": 1200, "unit": "ms" }, "$description": "Skeleton shimmer loop." }
+    },
+    "easing": {
+      "$type": "cubicBezier",
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:Easing.out(Easing.quad|cubic|exp)", "confidence": "high", "note": "React Native uses the analytic easing functions; the bezier values are their conventional CSS approximations." } },
+      "out-quad": { "$value": [0.5, 1, 0.89, 1], "$description": "Fades." },
+      "out-cubic": { "$value": [0.33, 1, 0.68, 1], "$description": "Slides." },
+      "out-expo": { "$value": [0.16, 1, 0.3, 1], "$description": "Panel settle." },
+      "linear": { "$value": [0, 0, 1, 1], "$description": "Shimmer loops." }
+    },
+    "scale": {
+      "$type": "number",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassButton pressed scale; SRC-WEB-APP:ProfileCard avatar hover scale-[1.01]", "confidence": "high" } },
+      "press": { "$value": 0.98, "$description": "Pressed glass button." },
+      "hover-lift": { "$value": 1.01, "$description": "Web avatar hover." }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "surface": {
+    "$type": "color",
+    "$description": "Elevation tiers. Tier 0 canvas, tier 1 card, tier 2 floating glass, tier 3 sheet or panel.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ScreenContainer neutral.98; GlassPanel and glassEffect.ts; SRC-WEB-APP:assets/styles/main.scss body background", "confidence": "high" } },
+    "canvas": { "$value": "{color.neutral.98}", "$description": "Screen and page background." },
+    "card": { "$value": "{color.static.white}", "$description": "Flat card, input, toast and sheet background." },
+    "card-muted": { "$value": "{color.neutral.95}", "$description": "Secondary tag and quiet fills." },
+    "inverse": { "$value": "{color.neutral.20}", "$description": "Tooltip, primary button, dark chips." },
+    "glass": { "$value": "rgba(234, 238, 243, 0.72)", "$description": "Frosted tint over blurred content (iOS value; Android uses glass-android)." },
+    "glass-android": { "$value": "rgba(234, 238, 243, 0.60)", "$description": "Android glass tint; the blur method renders lighter so the tint is weaker." },
+    "glass-solid": { "$value": "{color.static.glass-base}", "$description": "Opaque fallback when blur is unavailable or text needs guaranteed contrast." },
+    "glass-bar": { "$value": "rgba(255, 255, 255, 0.80)", "$description": "Bottom tab bar tint. 0.80 on both platforms keeps ink above 4.5:1 over any cover.", "$extensions": { "up": { "status": "normalized", "note": "Production uses 0.60 on iOS and 0.80 on Android; over a black cover the 0.60 tint drops active labels to 4.43:1, so the Android value becomes the rule." } } },
+    "glass-bar-android": { "$value": "rgba(255, 255, 255, 0.80)" },
+    "scrim": { "$value": "rgba(36, 53, 66, 0.80)", "$description": "Backdrop behind sheets and dialogs (neutral.20 at 80 percent)." },
+    "skeleton": { "$value": "{color.neutral.90}", "$description": "Skeleton base." },
+    "skeleton-highlight": { "$value": "{color.neutral.98}", "$description": "Skeleton shimmer highlight." },
+    "avatar-fallback": { "$value": "{color.neutral.90}", "$description": "Background of the default person and token glyphs." },
+    "cover-fallback": { "$value": "{color.neutral.90}", "$description": "Behind the address gradient when no cover image exists." }
+  },
+  "text": {
+    "$type": "color",
+    "$description": "Text roles. Every role passes 4.5:1 against surface.canvas, surface.card and surface.glass-solid unless its description says otherwise.",
+    "default": { "$value": "{color.neutral.20}", "$description": "Body, titles, labels. 12.63:1 on white.", "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:Typography default colour neutral[20]; SRC-WEB-APP:main.scss", "confidence": "high" } } },
+    "muted": { "$value": "{color.neutral.40}", "$description": "Secondary text, the #XXXX suffix, counters, descriptions. 5.72:1 on white, 4.91:1 on glass-solid.", "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:suffix and secondary labels use neutral[60]; inactive top tabs neutral[45]", "confidence": "high", "note": "Observed neutral.60 reaches 2.86:1 and neutral.45 drops to 4.08:1 on glass; neutral.40 is the lightest step that passes AA on every light surface." } } },
+    "subtle": { "$value": "{color.neutral.60}", "$description": "Decorative or redundant text only (repeated information, watermarks). 2.86:1 on white: never the sole carrier of information.", "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:neutral[60] secondary labels", "confidence": "high", "note": "Kept for migration mapping; new work uses text.muted." } } },
+    "placeholder": { "$value": "{color.neutral.45}", "$description": "Input placeholders and character counters. 4.76:1 on white.", "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:LUKSOTextInput placeholder neutral[70]", "confidence": "high", "note": "Observed neutral.70 reaches 2.11:1; neutral.45 is the lightest AA-passing step on a white field." } } },
+    "inverse": { "$value": "{color.static.white}", "$description": "Text on surface.inverse, primary buttons and dark chips.", "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOButton primary, LUKSOTooltip, LUKSOTag primary", "confidence": "high" } } },
+    "link": { "$value": "{color.up.56}", "$description": "Links and accent text. 5.72:1 on white, 5.47:1 on the canvas, 4.91:1 on the opaque glass tint; never on translucent glass.", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25993; SRC-POSTER-2025; SRC-APP-ICON", "confidence": "medium", "open": "OPEN-01", "note": "Production links are ink-coloured; the accent becomes the link colour so it has a functional role." } } },
+    "on-glass-label": { "$value": "{color.neutral.20}", "$description": "Glass button labels.", "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:GlassButton label #1C2A3A", "confidence": "high", "note": "Observed #1C2A3A is an off-palette literal two units from neutral.20; the palette value replaces it." } } }
+  },
+  "border": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOTextInput, LUKSOButton secondary, LUKSOCheckbox, LUKSOToast (neutral[90]); focused input neutral[35]", "confidence": "high" } },
+    "subtle": { "$value": "{color.neutral.95}", "$description": "Dividers inside cards." },
+    "default": { "$value": "{color.neutral.90}", "$description": "Card, input, secondary button and toast borders. Decorative; components using it must also be identifiable by label, fill or shadow." },
+    "strong": { "$value": "{color.neutral.55}", "$description": "Boundary that passes 3:1 on white for controls whose border is their only affordance (outlined chips, radio rings).", "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:outlined tag border neutral[50]", "confidence": "medium", "note": "neutral.50 on white is 3.94:1; neutral.55 (3.31:1) is the lightest step that still passes 3:1 on white and canvas." } } },
+    "focus": { "$value": "{color.neutral.35}", "$description": "Focused input border and keyboard focus ring. 6.95:1 on white." },
+    "error": { "$value": "{color.red.55}", "$description": "Error input border. 4.36:1 on white passes the 3:1 component requirement." },
+    "glass-reflex": { "$value": "rgba(255, 255, 255, 0.80)", "$description": "Top and left highlight edge of glass surfaces." },
+    "glass-counter": { "$value": "rgba(255, 255, 255, 0.40)", "$description": "Bottom and right counter edge of glass surfaces." },
+    "glass-bar-dark": { "$value": "rgb(147, 149, 149)", "$description": "Hairline dark edge on top of the bottom bar." },
+    "glass-bar-bright": { "$value": "rgb(255, 255, 255)", "$description": "Bright edge below the hairline." },
+    "glass-separator-shadow": { "$value": "rgba(167, 167, 167, 0.40)" },
+    "glass-separator-light": { "$value": "rgba(255, 255, 255, 0.40)" }
+  },
+  "accent": {
+    "$type": "color",
+    "$description": "The Universal Profiles accent, used sparingly as a frame: links, selected states, primary calls to action in marketing, the brand gradient.",
+    "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25993; SRC-APP-ICON; SRC-POSTER-2025; SRC-NFTNYC-2026", "confidence": "medium", "open": "OPEN-01" } },
+    "default": { "$value": "{color.up.56}", "$description": "Accent text and icons. 5.72:1 on white." },
+    "fill": { "$value": "{color.up.56}", "$description": "Interactive accent fill that carries accent.on-fill at 5.72:1." },
+    "fill-pressed": { "$value": "{color.up.50}" },
+    "brand": { "$value": "{color.up.67}", "$description": "Key brand colour for large type, icons and decorative fills. Equal to the board swatch #6981EC. 3.53:1 on white: not for body text." },
+    "soft": { "$value": "{color.up.96}", "$description": "Tinted background for selected rows and accent chips." },
+    "soft-border": { "$value": "{color.up.86}" },
+    "on-fill": { "$value": "{color.static.white}" },
+    "gradient-start": { "$value": "{color.up.82}", "$description": "Brand gradient (top or left); mirrors the app icon top." },
+    "gradient-end": { "$value": "{color.up.67}", "$description": "Brand gradient (bottom or right); mirrors the app icon bottom." }
+  },
+  "interactive": {
+    "$type": "color",
+    "$description": "Neutral interactive fills used by product buttons and controls.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOButton, LUKSOTag, LUKSOTooltip", "confidence": "high" } },
+    "primary": { "$value": "{color.neutral.20}", "$description": "Primary button fill (ink)." },
+    "primary-pressed": { "$value": "{color.neutral.30}", "$extensions": { "up": { "status": "proposed", "note": "Production relies on the native ripple; a defined pressed tint gives web parity." } } },
+    "on-primary": { "$value": "{color.static.white}" },
+    "secondary": { "$value": "{color.static.white}", "$description": "Secondary button fill with border.default." },
+    "secondary-pressed": { "$value": "{color.neutral.95}", "$extensions": { "up": { "status": "proposed" } } },
+    "selected": { "$value": "{color.neutral.20}", "$description": "Active tab text and indicator." },
+    "unselected-on-glass": { "$value": "{color.neutral.30}", "$description": "Inactive bottom-tab icons and labels on the glass bar: 5.26:1 over a black cover at the 0.80 tint.", "$extensions": { "up": { "status": "normalized", "note": "Derived from the worst-case composite; see accessibility/contrast-report.md L-37." } } },
+    "unselected": { "$value": "{color.neutral.40}", "$description": "Inactive tab text and icons at full opacity (5.47:1 on canvas).", "$extensions": { "up": { "status": "normalized", "note": "Production renders inactive top tabs as neutral.45 at 55 percent opacity and bottom tabs as ink at 50 percent; both composite below 3:1. A solid muted colour keeps the same visual weight and passes AA." } } }
+  },
+  "status": {
+    "$type": "color",
+    "$description": "Feedback colours. Text roles pass 4.5:1 on light surfaces; fills pass 3:1 against white and carry the listed text colour.",
+    "success": {
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:green[54] checks and toggles; SRC-WEB-COMPONENTS:success button", "confidence": "high", "note": "Observed green.54 is kept as the icon colour on dark or tinted fills; text and control fills move to darker steps to pass AA." } },
+      "text": { "$value": "{color.green.30}", "$description": "5.52:1 on white." },
+      "fill": { "$value": "{color.green.30}", "$description": "Success buttons and badges that carry white text (5.52:1)." },
+      "control": { "$value": "{color.green.35}", "$description": "Switch and toggle on-state track: 4.28:1 against white as a non-text indicator." },
+      "on-fill": { "$value": "{color.static.white}" },
+      "soft": { "$value": "{color.green.95}", "$description": "Success background tint carrying status.success.text." },
+      "icon": { "$value": "{color.green.54}", "$description": "Observed check colour; decorative or on dark surfaces only.", "$extensions": { "up": { "status": "observed" } } }
+    },
+    "error": {
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:LUKSOTextInput error red[55]; LUKSOButton error red[65]", "confidence": "high", "note": "Observed red.55 text reaches 4.36:1 and red.65 reaches 3.27:1; text moves to red.45." } },
+      "text": { "$value": "{color.red.45}", "$description": "5.71:1 on white, 4.90:1 on glass-solid." },
+      "fill": { "$value": "{color.red.45}", "$description": "Destructive button fill; white text at 5.71:1." },
+      "on-fill": { "$value": "{color.static.white}" },
+      "border": { "$value": "{color.red.55}", "$description": "Error input border (observed)." , "$extensions": { "up": { "status": "observed" } } },
+      "soft": { "$value": "{color.red.95}", "$description": "Error background tint carrying status.error.text." }
+    },
+    "warning": {
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:yellow[65] badges and testnet; SRC-WEB-COMPONENTS:yellow.25", "confidence": "high" } },
+      "text": { "$value": "{color.yellow.25}", "$description": "7.05:1 on white." },
+      "fill": { "$value": "{color.yellow.65}", "$description": "Warning and testnet fill; carries text.default at 7.35:1." },
+      "on-fill": { "$value": "{color.neutral.20}" },
+      "icon": { "$value": "{color.yellow.35}", "$description": "Standalone warning glyphs and dots on light surfaces (4.18:1 on white). Warning fills carry text; icons that stand alone use this." },
+      "soft": { "$value": "{color.yellow.95}" }
+    },
+    "info": {
+      "$extensions": { "up": { "status": "proposed", "source": "SRC-WEB-COMPONENTS:blue family", "confidence": "medium", "note": "Production has no info state; defined so alerts have a complete set." } },
+      "text": { "$value": "{color.blue.40}", "$description": "6.89:1 on white." },
+      "fill": { "$value": "{color.blue.50}", "$description": "White text at 4.85:1." },
+      "on-fill": { "$value": "{color.static.white}" },
+      "soft": { "$value": "{color.blue.95}" }
+    }
+  },
+  "network": {
+    "$type": "color",
+    "$description": "Semantic network identity used by network tags and dots. Text next to a network colour is always text.default or text.muted.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:networkLogo.ts; NetworksList; TokenLogo", "confidence": "high" } },
+    "lukso-mainnet": { "$value": "{color.network.lukso-mainnet}" },
+    "lukso-testnet": { "$value": "{color.network.lukso-testnet}", "$extensions": { "up": { "status": "normalized", "note": "Follows color.network.lukso-testnet: the palette step replaces the hard-coded literal (R-04)." } } },
+    "base": { "$value": "{color.network.base}" },
+    "ethereum": { "$value": "{color.network.ethereum}", "$extensions": { "up": { "status": "open", "open": "OPEN-05" } } }
+  },
+  "avatar": {
+    "$type": "color",
+    "$description": "Avatar ring and badge ring: always the surface colour so the avatar reads as breaking the cover edge.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOProfileIdenticon white ring; SRC-WEB-APP:ProfileCard.vue outline neutral-100", "confidence": "high" } },
+    "ring": { "$value": "{color.static.white}" },
+    "badge-ring": { "$value": "{color.static.white}" }
+  },
+  "gradient": {
+    "$type": "color",
+    "$description": "Named gradient stops. The address gradient itself is computed from the profile address and has no fixed tokens; these are its fallbacks.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:backgroundGradient.ts defaults; colorPalette.ts `gradient-neutral`", "confidence": "high" } },
+    "username-start": { "$value": "{color.neutral.40}", "$description": "Hero username gradient text, start." },
+    "username-end": { "$value": "{color.neutral.20}", "$description": "Hero username gradient text, end." },
+    "address-fallback-start": { "$value": "#24354210", "$description": "Cover fallback when no valid address exists (neutral.20 at 6 percent)." },
+    "address-fallback-end": { "$value": "#24354220", "$description": "Cover fallback end stop (neutral.20 at 12 percent)." }
+  },
+  "glass": {
+    "$type": "color",
+    "$description": "Glass tint gradients and button states, listed as colour stops. Left-to-right for cards; top-to-bottom for buttons.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:glassEffect.ts GLASS_CARD_GRADIENT_COLORS; GlassButton tint states", "confidence": "high" } },
+    "card-tint-start": { "$value": "rgba(245, 250, 255, 0.50)" },
+    "card-tint-mid": { "$value": "rgba(218, 225, 235, 0.50)" },
+    "card-tint-end": { "$value": "rgba(208, 217, 228, 0.50)" },
+    "button-light-start": { "$value": "rgba(255, 255, 255, 0.80)" },
+    "button-light-end": { "$value": "rgba(255, 255, 255, 0.50)" },
+    "button-light-pressed-start": { "$value": "rgba(255, 255, 255, 0.40)" },
+    "button-light-pressed-end": { "$value": "rgba(255, 255, 255, 0.24)" },
+    "button-light-disabled-start": { "$value": "rgba(255, 255, 255, 0.28)" },
+    "button-light-disabled-end": { "$value": "rgba(255, 255, 255, 0.16)" },
+    "button-dark-start": { "$value": "rgba(40, 65, 90, 0.90)" },
+    "button-dark-end": { "$value": "rgba(15, 28, 42, 0.95)" },
+    "button-dark-label": { "$value": "rgba(255, 255, 255, 0.92)" },
+    "toggle-off": { "$value": "rgba(255, 255, 255, 0.45)", "$description": "Glass toggle track, off." },
+    "toggle-on": { "$value": "{status.success.control}", "$description": "Glass toggle track, on. Replaces the platform system green so the state colour belongs to the palette and passes 3:1.", "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:GlassToggle on-state rgba(52,199,89,0.75)", "confidence": "high" } } },
+    "android-overlay": { "$value": "rgba(234, 238, 243, 0.65)", "$description": "Overlay above the blurred cover copy on Android full-screen glass." }
+  }
+}

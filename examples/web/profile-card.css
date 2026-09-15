@@ -1,0 +1,249 @@
+/* Universal Profiles example styles. Every value comes from the generated custom properties. */
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  padding: var(--up-space-8) var(--up-space-4);
+  background: var(--up-surface-canvas);
+  color: var(--up-text-default);
+  font: var(--up-type-body-l);
+  -webkit-font-smoothing: antialiased;
+}
+
+.up-page {
+  max-width: var(--up-size-content-max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: var(--up-space-6);
+}
+
+/* Focus ring rule shared by every interactive element (button.focus-ring-*). */
+:where(button, a, input, [tabindex]):focus-visible {
+  outline: var(--up-button-focus-ring-width) solid var(--up-border-focus);
+  outline-offset: var(--up-button-focus-ring-offset);
+}
+
+/* Profile card (the UP Box) */
+.up-profile-card {
+  position: relative;
+  background: var(--up-card-fill);
+  border-radius: var(--up-card-radius);
+  box-shadow: var(--up-card-shadow);
+  overflow: hidden;
+}
+
+.up-profile-card__cover {
+  height: var(--up-profile-card-cover-height-web);
+  background-color: var(--up-profile-card-cover-fallback);
+  background-image: var(--up-cover-gradient, linear-gradient(90deg, var(--up-gradient-address-fallback-start), var(--up-gradient-address-fallback-end)));
+  background-size: cover;
+}
+
+.up-profile-card__body {
+  padding: 0 var(--up-space-6) var(--up-space-6);
+}
+
+.up-avatar {
+  --avatar-size: var(--up-profile-card-avatar-size-web);
+  --ring: var(--up-profile-card-avatar-ring-web);
+  position: relative;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  margin-top: calc(var(--avatar-size) / -2 - var(--ring));
+  border-radius: 50%;
+  background: var(--up-identicon-fallback-fill);
+  box-shadow: 0 0 0 var(--ring) var(--up-avatar-ring), var(--up-profile-card-avatar-shadow);
+  display: grid;
+  place-items: center;
+}
+
+.up-avatar__glyph {
+  width: 50%;
+  height: 50%;
+  color: var(--up-identicon-fallback-glyph);
+}
+
+.up-avatar__badge {
+  position: absolute;
+  right: var(--up-identicon-badge-offset);
+  bottom: var(--up-identicon-badge-offset);
+  width: var(--up-identicon-2xl-badge);
+  height: var(--up-identicon-2xl-badge);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 var(--up-identicon-2xl-ring) var(--up-avatar-badge-ring);
+  background: var(--up-identicon-fallback-fill);
+}
+
+.up-avatar__badge svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.up-username {
+  margin: var(--up-space-3) 0 0;
+  font: var(--up-profile-card-username);
+  color: var(--up-profile-card-username-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.up-username__suffix {
+  color: var(--up-profile-card-suffix-color);
+}
+
+.up-counters {
+  margin: var(--up-space-1) 0 0;
+  font: var(--up-profile-card-counters);
+  color: var(--up-profile-card-counters-color);
+}
+
+.up-address {
+  margin: var(--up-space-2) 0 0;
+  font: var(--up-type-mono-s);
+  color: var(--up-text-muted);
+}
+
+.up-actions {
+  display: flex;
+  gap: var(--up-button-icon-gap);
+  margin-top: var(--up-space-4);
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.up-button {
+  min-height: var(--up-button-height-m);
+  padding: 0 var(--up-button-padding-x-m);
+  border-radius: var(--up-button-radius-m);
+  border: 1px solid transparent;
+  font: var(--up-button-label);
+  cursor: pointer;
+  transition: background-color var(--up-motion-duration-fast) var(--up-motion-easing-out-quad);
+}
+
+.up-button--primary {
+  background: var(--up-button-primary-fill);
+  color: var(--up-button-primary-label);
+}
+
+.up-button--primary:active {
+  background: var(--up-button-primary-fill-pressed);
+}
+
+.up-button--secondary {
+  background: var(--up-button-secondary-fill);
+  color: var(--up-button-secondary-label);
+  border-color: var(--up-button-secondary-border);
+}
+
+.up-button--secondary:active {
+  background: var(--up-button-secondary-fill-pressed);
+}
+
+.up-button--accent {
+  background: var(--up-button-accent-fill);
+  color: var(--up-button-accent-label);
+}
+
+.up-button--accent:active {
+  background: var(--up-button-accent-fill-pressed);
+}
+
+.up-button:disabled {
+  opacity: var(--up-button-disabled-opacity);
+  cursor: not-allowed;
+}
+
+/* Tags */
+.up-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--up-space-1);
+  padding: var(--up-tag-padding-y) var(--up-tag-padding-x);
+  border-radius: var(--up-tag-radius);
+  font: var(--up-tag-label);
+  background: var(--up-tag-soft-fill);
+  color: var(--up-tag-soft-label);
+}
+
+.up-tag--network {
+  border-radius: var(--up-network-tag-radius);
+  padding: var(--up-network-tag-padding-y) var(--up-network-tag-padding-x);
+  background: var(--up-network-tag-fill);
+  color: var(--up-network-tag-label-color);
+  box-shadow: 0 0 0 1px var(--up-border-default);
+}
+
+.up-tag--testnet {
+  background: var(--up-network-tag-fill-testnet);
+  box-shadow: 0 0 0 1px var(--up-network-tag-border-testnet);
+}
+
+.up-tag__dot {
+  width: var(--up-tag-network-dot-size);
+  height: var(--up-tag-network-dot-size);
+  border-radius: 50%;
+  background: var(--dot, var(--up-network-lukso-mainnet));
+}
+
+/* Token row */
+.up-row {
+  display: flex;
+  align-items: center;
+  gap: var(--up-list-item-gap);
+  min-height: var(--up-list-item-min-height);
+  padding: var(--up-list-item-padding-y) var(--up-list-item-padding-x);
+  background: var(--up-surface-card);
+  border-radius: var(--up-card-radius);
+  box-shadow: var(--up-shadow-drop);
+}
+
+.up-row__logo {
+  width: var(--up-list-item-leading-size);
+  height: var(--up-list-item-leading-size);
+  border-radius: 50%;
+  background: var(--up-network-lukso-mainnet);
+  flex: none;
+}
+
+.up-row__title {
+  font: var(--up-list-item-title);
+  color: var(--up-list-item-title-color);
+}
+
+.up-row__subtitle {
+  font: var(--up-list-item-subtitle);
+  color: var(--up-list-item-subtitle-color);
+}
+
+.up-row__value {
+  margin-left: auto;
+  text-align: right;
+  font: var(--up-list-item-value-mono);
+  color: var(--up-text-default);
+}
+
+.up-row__fiat {
+  font: var(--up-list-item-value-secondary);
+  color: var(--up-text-muted);
+}
+
+.up-link {
+  color: var(--up-text-link);
+}
+
+.up-theme-toggle {
+  justify-self: end;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .up-button {
+    transition-duration: var(--up-motion-duration-instant);
+  }
+}

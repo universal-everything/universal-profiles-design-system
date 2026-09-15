@@ -1,0 +1,71 @@
+{
+  "font": {
+    "$description": "Font primitives. Inter carries interface text; PT Mono carries anything that belongs to the chain: names, the #XXXX suffix, addresses, balances.",
+    "family": {
+      "$type": "fontFamily",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:tailwind `fontFamily`; SRC-MOBILE-APP:src/shared/ui/constants/fonts.ts", "confidence": "high" } },
+      "sans": { "$value": ["Inter", "sans-serif"], "$description": "Interface text." },
+      "mono": { "$value": ["PT Mono", "monospace"], "$description": "Chain data: names, suffixes, addresses, balances." }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:src/shared/ui/components/typography/TypographyStyles.ts", "confidence": "high", "note": "Interface roles use 400/500/600/700. The UP badge glyph uses 800 and is governed by the logo rules." } },
+      "regular": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 },
+      "extrabold": { "$value": 800 }
+    },
+    "size": {
+      "$type": "dimension",
+      "$description": "Font sizes that appear in production. Web exposes the full list; mobile uses the subset up to 24.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:tailwind `fontSize`; SRC-MOBILE-APP:TypographyStyles.ts", "confidence": "high" } },
+      "10": { "$value": { "value": 10, "unit": "px" } },
+      "11": { "$value": { "value": 11, "unit": "px" } },
+      "12": { "$value": { "value": 12, "unit": "px" } },
+      "13": { "$value": { "value": 13, "unit": "px" } },
+      "14": { "$value": { "value": 14, "unit": "px" } },
+      "16": { "$value": { "value": 16, "unit": "px" } },
+      "17": { "$value": { "value": 17, "unit": "px" } },
+      "20": { "$value": { "value": 20, "unit": "px" } },
+      "21": { "$value": { "value": 21, "unit": "px" } },
+      "23": { "$value": { "value": 23, "unit": "px" } },
+      "24": { "$value": { "value": 24, "unit": "px" } },
+      "26": { "$value": { "value": 26, "unit": "px" } },
+      "32": { "$value": { "value": 32, "unit": "px" } },
+      "40": { "$value": { "value": 40, "unit": "px" } },
+      "48": { "$value": { "value": 48, "unit": "px" } },
+      "60": { "$value": { "value": 60, "unit": "px" }, "$description": "Deck headline size.", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25959", "confidence": "medium", "open": "OPEN-13", "note": "Nominal size read from the board's type hierarchy slide (rendered at 1.2 times)." } } }
+    },
+    "line-height": {
+      "$type": "dimension",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:tailwind `lineHeight`; SRC-MOBILE-APP:TypographyStyles.ts", "confidence": "high", "note": "Mobile line heights 12.1 and 13.21 are rounded to 12 and 13." } },
+      "12": { "$value": { "value": 12, "unit": "px" } },
+      "13": { "$value": { "value": 13, "unit": "px" } },
+      "14": { "$value": { "value": 14, "unit": "px" } },
+      "15": { "$value": { "value": 15, "unit": "px" } },
+      "17": { "$value": { "value": 17, "unit": "px" } },
+      "18": { "$value": { "value": 18, "unit": "px" } },
+      "20": { "$value": { "value": 20, "unit": "px" } },
+      "22": { "$value": { "value": 22, "unit": "px" } },
+      "24": { "$value": { "value": 24, "unit": "px" } },
+      "26": { "$value": { "value": 26, "unit": "px" } },
+      "28": { "$value": { "value": 28, "unit": "px" } },
+      "32": { "$value": { "value": 32, "unit": "px" } },
+      "38": { "$value": { "value": 38, "unit": "px" } },
+      "48": { "$value": { "value": 48, "unit": "px" } },
+      "58": { "$value": { "value": 58, "unit": "px" } },
+      "72": { "$value": { "value": 72, "unit": "px" }, "$description": "Deck headline line height (1.2 times 60).", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25959", "confidence": "medium", "open": "OPEN-13" } } }
+    },
+    "letter-spacing": {
+      "$type": "dimension",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:TypographyStyles.ts", "confidence": "high" } },
+      "none": { "$value": { "value": 0, "unit": "px" } },
+      "caps": { "$value": { "value": 0.02, "unit": "px" }, "$description": "Uppercase labels." },
+      "nav": { "$value": { "value": 0.08, "unit": "px" }, "$description": "Tab-bar labels." },
+      "deck-h1": { "$value": { "value": -3, "unit": "px" }, "$description": "Minus 5 percent of 60.", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25969", "confidence": "medium", "open": "OPEN-13" } } },
+      "deck-h2": { "$value": { "value": -1.44, "unit": "px" }, "$description": "Minus 3 percent of 48.", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25974", "confidence": "medium", "open": "OPEN-13" } } },
+      "deck-h3": { "$value": { "value": -0.8, "unit": "px" }, "$description": "Minus 2 percent of 40.", "$extensions": { "up": { "status": "proposed", "source": "SRC-FIGMA-UP-BOARD:1131:25979", "confidence": "medium", "open": "OPEN-13" } } }
+    }
+  }
+}

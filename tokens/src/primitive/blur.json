@@ -1,0 +1,17 @@
+{
+  "blur": {
+    "$type": "number",
+    "$description": "Blur intensities for the glass tier. React Native BlurView intensities are unitless 0-100 and differ per platform because Android renders through a different method; the web value is a CSS backdrop-filter length in pixels.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:src/shared/ui/theme/glassEffect.ts", "confidence": "high" } },
+    "panel-ios": { "$value": 60 },
+    "panel-android": { "$value": 80 },
+    "card-ios": { "$value": 80 },
+    "card-android": { "$value": 100 },
+    "bar-ios": { "$value": 20 },
+    "bar-android": { "$value": 60 },
+    "button-light": { "$value": 60 },
+    "button-dark": { "$value": 40 },
+    "screen-android-image": { "$value": 25, "$description": "blurRadius applied to the cover copy behind full-screen glass on Android." },
+    "web": { "$value": 24, "$description": "backdrop-filter blur in pixels for web glass.", "$extensions": { "up": { "status": "proposed", "open": "OPEN-08" } } }
+  }
+}

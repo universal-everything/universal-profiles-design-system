@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Universal Profiles: profile card example</title>
+  <link rel="stylesheet" href="../../tokens/build/css/variables.css">
+  <link rel="stylesheet" href="profile-card.css">
+</head>
+<body>
+  <main class="up-page">
+    <button class="up-button up-button--secondary up-theme-toggle" type="button" id="theme-toggle" aria-pressed="false">Toggle dark theme</button>
+
+    <article class="up-profile-card" id="profile-card" aria-label="@sample-one#5aAe">
+      <div class="up-profile-card__cover" id="cover" role="presentation"></div>
+      <div class="up-profile-card__body">
+        <div class="up-avatar" role="img" aria-label="Default profile image">
+          <svg class="up-avatar__glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M6.5 27a9.5 9.5 0 0 1 19 0"/></svg>
+          <span class="up-avatar__badge" id="badge" aria-hidden="true"></span>
+        </div>
+        <h1 class="up-username">@sample-one<span class="up-username__suffix" id="suffix">#5aAe</span></h1>
+        <p class="up-counters">12 Following · 48 Followers</p>
+        <p class="up-address" id="address">0x5aAeb6053F...Ef1BeAed</p>
+        <div class="up-actions">
+          <button class="up-button up-button--primary" type="button">Follow</button>
+          <button class="up-button up-button--secondary" type="button">Send</button>
+          <span class="up-tag up-tag--network"><span class="up-tag__dot" aria-hidden="true"></span>LUKSO Mainnet</span>
+          <span class="up-tag up-tag--network up-tag--testnet" style="--dot: var(--up-network-lukso-testnet)"><span class="up-tag__dot" aria-hidden="true"></span>LUKSO Testnet</span>
+        </div>
+      </div>
+    </article>
+
+    <section class="up-row" aria-label="LYX balance">
+      <span class="up-row__logo" aria-hidden="true"></span>
+      <span>
+        <span class="up-row__title">LYX</span><br>
+        <span class="up-row__subtitle">LUKSO</span>
+      </span>
+      <span class="up-row__value">128.40 LYX<br><span class="up-row__fiat">Fiat value shown here</span></span>
+    </section>
+
+    <p>Read the <a class="up-link" href="../../components/profile-card.md">profile card specification</a>. The cover gradient, the suffix, the identicon badge and the truncated address are computed from the address by the address-signature package.</p>
+  </main>
+
+  <script type="module">
+    import { gradientCss, identiconSvg, nameSuffix, sliceAddress } from "../../packages/address-signature/src/index.mjs";
+
+    const address = "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed";
+    document.getElementById("cover").style.setProperty("--up-cover-gradient", gradientCss(address));
+    document.getElementById("badge").innerHTML = identiconSvg(address, { scale: 4 });
+    document.getElementById("suffix").textContent = nameSuffix(address);
+    document.getElementById("address").textContent = sliceAddress(address, { leading: 10, trailing: 8 });
+
+    const root = document.documentElement;
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      const dark = root.getAttribute("data-theme") !== "dark";
+      root.setAttribute("data-theme", dark ? "dark" : "light");
+      toggle.setAttribute("aria-pressed", String(dark));
+    });
+  </script>
+</body>
+</html>

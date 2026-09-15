@@ -1,0 +1,26 @@
+# Dependencies (none are required; kept for consumers who add tooling locally)
+node_modules/
+
+# Local agent and planning state; never published
+.planning/
+.swarm/
+*.rvf
+*.rvf.lock
+ruvector.db
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local scratch
+tmp/
+*.log
+
+# Private material that must never be published (the validator rejects these file types too)
+*.jsonl
+*.pdf
+.env
+.env.*

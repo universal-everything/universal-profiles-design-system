@@ -1,0 +1,24 @@
+{
+  "card": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:lukso-card; SRC-MOBILE-APP:GlassPanel radius 16; ProfileQRCode card", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.l}" },
+    "radius-s": { "$type": "dimension", "$value": "{radius.m}" },
+    "radius-l": { "$type": "dimension", "$value": "{radius.xl}", "$description": "QR card and share cards." },
+    "padding": { "$type": "dimension", "$value": "{space.4}" },
+    "padding-l": { "$type": "dimension", "$value": "{space.6}" },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "border": { "$type": "color", "$value": "{border.default}" },
+    "shadow": { "$type": "shadow", "$value": "{shadow.card}" },
+    "shadow-hover": { "$type": "shadow", "$value": "{shadow.floating}", "$extensions": { "up": { "status": "proposed", "note": "Web hover lift for hoverable cards." } } },
+    "gap": { "$type": "dimension", "$value": "{space.3}" }
+  },
+  "screen": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ScreenContainer.tsx; ScreenHeader.tsx", "confidence": "high" } },
+    "gutter": { "$type": "dimension", "$value": "{space.4}" },
+    "header-gap": { "$type": "dimension", "$value": "{space.6}", "$description": "Header to content." },
+    "section-gap": { "$type": "dimension", "$value": "{space.6}" },
+    "back-button-size": { "$type": "dimension", "$value": "{size.touch-target}", "$extensions": { "up": { "status": "proposed", "note": "Follows size.touch-target: a platform guidance value, not read from production." } } },
+    "back-button-radius": { "$type": "dimension", "$value": { "value": 22, "unit": "px" } },
+    "fill": { "$type": "color", "$value": "{surface.canvas}" }
+  }
+}

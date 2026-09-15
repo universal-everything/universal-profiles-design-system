@@ -1,0 +1,72 @@
+{
+  "glass-panel": {
+    "$description": "Tier 3 floating panel (profile panel) and tier 2 glass card.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:src/shared/ui/theme/glassEffect.ts; GlassPanel.tsx", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.2xl}", "$description": "Top corners of the profile panel." },
+    "card-radius": { "$type": "dimension", "$value": "{radius.l}", "$description": "Glass card (settings groups, notices)." },
+    "padding": { "$type": "dimension", "$value": "{space.4}" },
+    "reflex-width": { "$type": "dimension", "$value": { "value": 1, "unit": "px" }, "$description": "Top and left highlight border on the panel." },
+    "card-reflex-width": { "$type": "dimension", "$value": { "value": 1.5, "unit": "px" }, "$description": "Highlight border on glass cards and buttons." },
+    "tint": { "$type": "color", "$value": "{surface.glass}" },
+    "tint-android": { "$type": "color", "$value": "{surface.glass-android}" },
+    "tint-solid": { "$type": "color", "$value": "{surface.glass-solid}" },
+    "reflex": { "$type": "color", "$value": "{border.glass-reflex}" },
+    "counter-edge": { "$type": "color", "$value": "{border.glass-counter}" },
+    "blur-ios": { "$type": "number", "$value": "{blur.panel-ios}" },
+    "blur-android": { "$type": "number", "$value": "{blur.panel-android}" },
+    "card-blur-ios": { "$type": "number", "$value": "{blur.card-ios}" },
+    "card-blur-android": { "$type": "number", "$value": "{blur.card-android}" },
+    "shadow": { "$type": "shadow", "$value": "{shadow.glass-panel}" },
+    "ambient-shadow": { "$type": "shadow", "$value": "{shadow.panel}" }
+  },
+  "glass-button": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassButton.tsx", "confidence": "high" } },
+    "height": { "$type": "dimension", "$value": "{size.control-l}" },
+    "height-s": { "$type": "dimension", "$value": "{size.control-s}" },
+    "radius": { "$type": "dimension", "$value": { "value": 18, "unit": "px" }, "$description": "Default glass button; between radius.l and radius.xl and kept as its own value." },
+    "radius-s": { "$type": "dimension", "$value": "{radius.s}" },
+    "radius-pill": { "$type": "dimension", "$value": "{radius.pill}", "$description": "Small pill variant in token rows (Buy, Send)." },
+    "padding-x-s": { "$type": "dimension", "$value": "{space.3}" },
+    "label": { "$type": "typography", "$value": "{type.action.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.action.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "label-color": { "$type": "color", "$value": "{text.on-glass-label}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.on-glass-label: neutral.20 replaces the off-palette #1C2A3A (R-10)." } } },
+    "label-color-dark": { "$type": "color", "$value": "{glass.button-dark-label}" },
+    "blur-light": { "$type": "number", "$value": "{blur.button-light}" },
+    "blur-dark": { "$type": "number", "$value": "{blur.button-dark}" },
+    "press-scale": { "$type": "number", "$value": "{motion.scale.press}" },
+    "shadow": { "$type": "shadow", "$value": "{shadow.glass-button}" },
+    "highlight-opacity": { "$type": "number", "$value": 1, "$description": "Top and left highlight alpha at rest (white)." },
+    "highlight-opacity-pressed": { "$type": "number", "$value": 0.5 },
+    "highlight-opacity-disabled": { "$type": "number", "$value": 0.28 },
+    "counter-opacity": { "$type": "number", "$value": 0.3, "$description": "Bottom and right edge alpha at rest." },
+    "counter-opacity-pressed": { "$type": "number", "$value": 0.15 },
+    "counter-opacity-disabled": { "$type": "number", "$value": 0.1 }
+  },
+  "glass-toggle": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassToggle.tsx", "confidence": "high" } },
+    "track-width": { "$type": "dimension", "$value": { "value": 56, "unit": "px" } },
+    "track-height": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+    "track-radius": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+    "thumb-size": { "$type": "dimension", "$value": { "value": 26, "unit": "px" } },
+    "thumb-color": { "$type": "color", "$value": "{color.static.white}" },
+    "track-off": { "$type": "color", "$value": "{glass.toggle-off}" },
+    "track-on": { "$type": "color", "$value": "{glass.toggle-on}", "$extensions": { "up": { "status": "normalized", "note": "Follows glass.toggle-on: status.success.control replaces the platform system green (R-11)." } } },
+    "disabled-opacity": { "$type": "number", "$value": "{opacity.disabled-glass}" }
+  },
+  "glass-bar": {
+    "$description": "Bottom tab bar and browser control bar shell.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassBottomBarShell.tsx; glassEffect.ts", "confidence": "high" } },
+    "tint": { "$type": "color", "$value": "{surface.glass-bar}", "$extensions": { "up": { "status": "normalized", "note": "Follows surface.glass-bar: 0.80 on both platforms replaces the iOS 0.60 (R-06)." } } },
+    "tint-android": { "$type": "color", "$value": "{surface.glass-bar-android}" },
+    "edge-dark": { "$type": "color", "$value": "{border.glass-bar-dark}" },
+    "edge-bright": { "$type": "color", "$value": "{border.glass-bar-bright}" },
+    "blur-ios": { "$type": "number", "$value": "{blur.bar-ios}" },
+    "blur-android": { "$type": "number", "$value": "{blur.bar-android}" },
+    "padding-x-ios": { "$type": "dimension", "$value": "{space.3}", "$description": "Horizontal inset on iOS only." }
+  },
+  "glass-separator": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassSeparator.tsx", "confidence": "high" } },
+    "shadow-line": { "$type": "color", "$value": "{border.glass-separator-shadow}" },
+    "light-line": { "$type": "color", "$value": "{border.glass-separator-light}" },
+    "line-width": { "$type": "dimension", "$value": { "value": 1, "unit": "px" }, "$description": "Each of the two lines; 2 px total." }
+  }
+}

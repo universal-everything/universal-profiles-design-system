@@ -1,0 +1,201 @@
+{
+  "$schema": "../../../provenance/provenance.schema.json",
+  "directory": "assets/backgrounds/address-gradient",
+  "method": "procedural",
+  "tool": "scripts/generate-address-backgrounds.mjs using packages/address-signature (dependency-free)",
+  "author": "Universal Profiles design system",
+  "license": "Apache-2.0 (same as the generator); the outputs contain no third-party material",
+  "rightsNote": "Deterministic outputs of the Address Signature algorithm for public EIP-55 test-vector addresses; not real profiles. Regenerate with the script; do not edit by hand.",
+  "publication": "public",
+  "assets": [
+    {
+      "path": "examples/sample-1-linear-1200x630-light.svg",
+      "sha256": "bfe22d3dfdd8e5a2429e4265a61a47009a5ebb66524fc1fd54584f6a4ae31539",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-1-linear-1200x630-dark.svg",
+      "sha256": "536716d80ad615e579bd416b433e5f7166271fb8bbcf96d87c2e0c52ec9f8353",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-1-aura-1600x900-light.svg",
+      "sha256": "ecbf4d11f69dc773460943cb12f33aebe2d10ff51b552a410cc64cd1fccd9fd0",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-1-aura-1600x900-dark.svg",
+      "sha256": "5c4ba5aac8fab44b3b744baf19dd44f9e8b0204d4a4cedea7419916468d3352d",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-1-share-card-1200-light.svg",
+      "sha256": "98bb888be9cca64bfe0b16ccff00bf5b2b2e99529384bf2a92c15edada13f67f",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-1-share-card-1200-dark.svg",
+      "sha256": "c9a1dfa2221a774409dc1fc23615e5cafdf919b891e0b796916789bea8ec8690",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-1-identicon-64.svg",
+      "sha256": "cb7642589229dd4ad3bcecca6f4bb4f9298484bb1badb1fd59c31576b2ea0d5a",
+      "method": "procedural",
+      "inputs": {
+        "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-2-linear-1200x630-light.svg",
+      "sha256": "a917f6afc7a4abba9ed66b4ec8780de4b29399513fb0da30b9c1e8123fb51ef5",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-2-linear-1200x630-dark.svg",
+      "sha256": "a7e41aee5e7ad40e291c65be074c429f63baddd6a3ec59cf3fe11c49a074d778",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-2-aura-1600x900-light.svg",
+      "sha256": "57f6e2ffcfedc0c4ddaaba2d5a8ca1219a79a0a56122f5a415c78794fb4ecd81",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-2-aura-1600x900-dark.svg",
+      "sha256": "d4ed91032e23c8b24b45bb6fc48f94d988e65306fb82697910c47ff743c6c855",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-2-share-card-1200-light.svg",
+      "sha256": "d5c2b937c508875c012a0752cb97edf1623acecdbeb6a16a9c37d125b200443b",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-2-share-card-1200-dark.svg",
+      "sha256": "44f144c03fd3f09255ffa227727f5d18ca424545bb8e27356c2bb3d1d60cd8af",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-2-identicon-64.svg",
+      "sha256": "ab234c8f7c9645e36be2d0bfb1f358d6516b189a3f600e5cf4e7ed4af3bd3975",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-3-linear-1200x630-light.svg",
+      "sha256": "c8460fd83154e24870d19b1fd4dbafbf56f483037e82e047358b11d9912e1e7e",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-3-linear-1200x630-dark.svg",
+      "sha256": "4f2494f46ad778e068cca75bae9ddd6f38042dfcb65a5592310744c032571493",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-3-aura-1600x900-light.svg",
+      "sha256": "43b1cfcc14e6d28201d9c578c6ca1d6c1b8c42bbb5e6bce67902dffe60f7dfd8",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-3-aura-1600x900-dark.svg",
+      "sha256": "0f197e6e51dacf64ef966c741ee100b7ebd62110bd38c4d24d41ec38fddf3bd0",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-01"
+    },
+    {
+      "path": "examples/sample-3-share-card-1200-light.svg",
+      "sha256": "bd078aef24afad1ccb7fde1c51dbf9e1cbcabfa0355b4465d50453372e38fa6b",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-3-share-card-1200-dark.svg",
+      "sha256": "2a23397264d29e225807f09e8d907fcb8df20e59972d9161db1f4a4ca4610668",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-03"
+    },
+    {
+      "path": "examples/sample-3-identicon-64.svg",
+      "sha256": "f30f5bf686ea67c6536c6e3c48ce655e85ddc0432f46f0afe9f81b63d3d2fe6b",
+      "method": "procedural",
+      "inputs": {
+        "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB"
+      },
+      "brief": "IB-01"
+    }
+  ]
+}

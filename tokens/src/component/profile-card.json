@@ -1,0 +1,30 @@
+{
+  "profile-card": {
+    "$description": "The UP Box: cover, floating avatar with ring and identicon badge, username with suffix. Numbers are exact for the two production hero contexts; other contexts derive from the identicon size table.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ProfileView.tsx (avatarFloating), ProfileQRCode.tsx; SRC-WEB-APP:components/ProfileCard.vue", "confidence": "high" } },
+    "cover-height-web": { "$type": "dimension", "$value": { "value": 170, "unit": "px" } },
+    "cover-fallback": { "$type": "color", "$value": "{surface.cover-fallback}" },
+    "avatar-size-mobile": { "$type": "dimension", "$value": "{size.identicon-xl}", "$description": "Home panel hero: 96." },
+    "avatar-ring-mobile": { "$type": "dimension", "$value": { "value": 7, "unit": "px" } },
+    "avatar-offset-mobile": { "$type": "dimension", "$value": { "value": -55, "unit": "px" }, "$description": "Top offset of the avatar relative to the panel edge so the avatar centre sits on the edge (half of 96 plus 7, minus 0; production uses -(56-1))." },
+    "avatar-size-web": { "$type": "dimension", "$value": "{size.identicon-2xl}", "$description": "Web hero: 120." },
+    "avatar-ring-web": { "$type": "dimension", "$value": { "value": 4, "unit": "px" } },
+    "avatar-offset-web": { "$type": "dimension", "$value": { "value": -103, "unit": "px" } },
+    "avatar-size-qr": { "$type": "dimension", "$value": "{size.identicon-l}", "$description": "Avatar floating above the QR card: 80." },
+    "avatar-shadow": { "$type": "shadow", "$value": "{shadow.avatar}" },
+    "ring-color": { "$type": "color", "$value": "{avatar.ring}" },
+    "username": { "$type": "typography", "$value": "{type.mono.xl}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.mono.xl: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "username-row": { "$type": "typography", "$value": "{type.mono.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.mono.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "username-color": { "$type": "color", "$value": "{text.default}" },
+    "username-gradient-start": { "$type": "color", "$value": "{gradient.username-start}" },
+    "username-gradient-end": { "$type": "color", "$value": "{gradient.username-end}" },
+    "suffix-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "counters": { "$type": "typography", "$value": "{type.body.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "counters-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "content-gap": { "$type": "dimension", "$value": "{space.2}" },
+    "section-gap": { "$type": "dimension", "$value": "{space.4}" },
+    "collapsed-height": { "$type": "dimension", "$value": { "value": 56, "unit": "px" }, "$description": "Collapsed panel strip height." },
+    "collapsed-avatar": { "$type": "dimension", "$value": "{size.identicon-xs}" },
+    "drag-threshold": { "$type": "dimension", "$value": { "value": 200, "unit": "px" }, "$description": "Vertical drag distance that commits a panel position change." }
+  }
+}

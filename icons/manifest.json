@@ -1,0 +1,687 @@
+{
+  "$description": "Starter icon set drawn for this design system on the 32-unit grid with a 1.5 stroke in currentColor. Original work; not exported from any product or third-party set. Product icon sets remain in their repositories (see README.md).",
+  "grid": 32,
+  "stroke": 1.5,
+  "categories": {
+    "navigation": "Wayfinding and dismissal",
+    "actions": "Verbs on content",
+    "status": "Feedback states",
+    "product": "Universal Profiles concepts and app sections"
+  },
+  "icons": [
+    {
+      "name": "chevron-left",
+      "file": "src/chevron-left.svg",
+      "category": "navigation",
+      "label": "Previous",
+      "keywords": [
+        "previous",
+        "back"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "chevron-right",
+      "file": "src/chevron-right.svg",
+      "category": "navigation",
+      "label": "Open",
+      "keywords": [
+        "forward",
+        "next",
+        "disclosure"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "chevron-up",
+      "file": "src/chevron-up.svg",
+      "category": "navigation",
+      "label": "Collapse",
+      "keywords": [
+        "collapse",
+        "expand"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "chevron-down",
+      "file": "src/chevron-down.svg",
+      "category": "navigation",
+      "label": "Expand",
+      "keywords": [
+        "expand",
+        "select",
+        "dropdown"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "arrow-left",
+      "file": "src/arrow-left.svg",
+      "category": "navigation",
+      "label": "Back",
+      "keywords": [
+        "back"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "arrow-right",
+      "file": "src/arrow-right.svg",
+      "category": "navigation",
+      "label": "Continue",
+      "keywords": [
+        "forward",
+        "continue"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "arrow-up-right",
+      "file": "src/arrow-up-right.svg",
+      "category": "navigation",
+      "label": "Opens in a new context",
+      "keywords": [
+        "external",
+        "open",
+        "outbound"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "close",
+      "file": "src/close.svg",
+      "category": "navigation",
+      "label": "Close",
+      "keywords": [
+        "dismiss",
+        "cancel",
+        "x"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "more-horizontal",
+      "file": "src/more-horizontal.svg",
+      "category": "navigation",
+      "label": "More options",
+      "keywords": [
+        "menu",
+        "options",
+        "ellipsis"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "drag-handle",
+      "file": "src/drag-handle.svg",
+      "category": "navigation",
+      "label": "Drag to move",
+      "keywords": [
+        "reorder",
+        "sheet",
+        "grabber"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "check",
+      "file": "src/check.svg",
+      "category": "actions",
+      "label": "Done",
+      "keywords": [
+        "done",
+        "confirm",
+        "selected"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "plus",
+      "file": "src/plus.svg",
+      "category": "actions",
+      "label": "Add",
+      "keywords": [
+        "add",
+        "create",
+        "new"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "minus",
+      "file": "src/minus.svg",
+      "category": "actions",
+      "label": "Remove",
+      "keywords": [
+        "remove",
+        "collapse"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "search",
+      "file": "src/search.svg",
+      "category": "actions",
+      "label": "Search",
+      "keywords": [
+        "find",
+        "filter"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "copy",
+      "file": "src/copy.svg",
+      "category": "actions",
+      "label": "Copy",
+      "keywords": [
+        "duplicate",
+        "clipboard",
+        "address"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "share",
+      "file": "src/share.svg",
+      "category": "actions",
+      "label": "Share",
+      "keywords": [
+        "export",
+        "send to"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "edit",
+      "file": "src/edit.svg",
+      "category": "actions",
+      "label": "Edit",
+      "keywords": [
+        "pencil",
+        "rename",
+        "change"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "refresh",
+      "file": "src/refresh.svg",
+      "category": "actions",
+      "label": "Refresh",
+      "keywords": [
+        "reload",
+        "retry",
+        "sync"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "filter",
+      "file": "src/filter.svg",
+      "category": "actions",
+      "label": "Filter",
+      "keywords": [
+        "sort",
+        "funnel",
+        "refine"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "trash",
+      "file": "src/trash.svg",
+      "category": "actions",
+      "label": "Delete",
+      "keywords": [
+        "delete",
+        "remove"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "download",
+      "file": "src/download.svg",
+      "category": "actions",
+      "label": "Download",
+      "keywords": [
+        "save",
+        "backup",
+        "export"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "upload",
+      "file": "src/upload.svg",
+      "category": "actions",
+      "label": "Upload",
+      "keywords": [
+        "import",
+        "restore"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "info",
+      "file": "src/info.svg",
+      "category": "status",
+      "label": "Information",
+      "keywords": [
+        "information",
+        "help"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "warning",
+      "file": "src/warning.svg",
+      "category": "status",
+      "label": "Warning",
+      "keywords": [
+        "caution",
+        "testnet",
+        "alert"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "error",
+      "file": "src/error.svg",
+      "category": "status",
+      "label": "Error",
+      "keywords": [
+        "failed",
+        "danger",
+        "invalid"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "success",
+      "file": "src/success.svg",
+      "category": "status",
+      "label": "Success",
+      "keywords": [
+        "complete",
+        "verified",
+        "ok"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "offline",
+      "file": "src/offline.svg",
+      "category": "status",
+      "label": "Offline",
+      "keywords": [
+        "disconnected",
+        "no connection"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "profile",
+      "file": "src/profile.svg",
+      "category": "product",
+      "label": "Profile",
+      "keywords": [
+        "person",
+        "account",
+        "avatar"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "wallet",
+      "file": "src/wallet.svg",
+      "category": "product",
+      "label": "Wallet",
+      "keywords": [
+        "assets",
+        "tokens",
+        "balance"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "activity",
+      "file": "src/activity.svg",
+      "category": "product",
+      "label": "Activity",
+      "keywords": [
+        "pulse",
+        "feed",
+        "history"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "browse",
+      "file": "src/browse.svg",
+      "category": "product",
+      "label": "Browse",
+      "keywords": [
+        "compass",
+        "discover",
+        "explore",
+        "apps"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "qr-code",
+      "file": "src/qr-code.svg",
+      "category": "product",
+      "label": "QR code",
+      "keywords": [
+        "scan",
+        "share profile",
+        "code"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "scan",
+      "file": "src/scan.svg",
+      "category": "product",
+      "label": "Scan",
+      "keywords": [
+        "camera",
+        "qr scanner",
+        "frame"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "settings",
+      "file": "src/settings.svg",
+      "category": "product",
+      "label": "Settings",
+      "keywords": [
+        "preferences",
+        "sliders",
+        "options"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "lock",
+      "file": "src/lock.svg",
+      "category": "product",
+      "label": "Locked",
+      "keywords": [
+        "permissions",
+        "secure",
+        "private"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "unlock",
+      "file": "src/unlock.svg",
+      "category": "product",
+      "label": "Unlocked",
+      "keywords": [
+        "permissions",
+        "open",
+        "granted"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "key",
+      "file": "src/key.svg",
+      "category": "product",
+      "label": "Controller key",
+      "keywords": [
+        "controller",
+        "device",
+        "access"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "link",
+      "file": "src/link.svg",
+      "category": "product",
+      "label": "Link",
+      "keywords": [
+        "url",
+        "website",
+        "chain"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "globe",
+      "file": "src/globe.svg",
+      "category": "product",
+      "label": "Web",
+      "keywords": [
+        "web",
+        "website",
+        "internet",
+        "external"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "network",
+      "file": "src/network.svg",
+      "category": "product",
+      "label": "Networks",
+      "keywords": [
+        "nodes",
+        "cross-chain",
+        "deploy"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "image",
+      "file": "src/image.svg",
+      "category": "product",
+      "label": "Image",
+      "keywords": [
+        "picture",
+        "cover",
+        "photo"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "grid",
+      "file": "src/grid.svg",
+      "category": "product",
+      "label": "Grid",
+      "keywords": [
+        "apps",
+        "tiles",
+        "layout"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "list",
+      "file": "src/list.svg",
+      "category": "product",
+      "label": "List",
+      "keywords": [
+        "rows",
+        "table"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "bell",
+      "file": "src/bell.svg",
+      "category": "product",
+      "label": "Notifications",
+      "keywords": [
+        "notification",
+        "alert"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "send",
+      "file": "src/send.svg",
+      "category": "product",
+      "label": "Send",
+      "keywords": [
+        "transfer",
+        "pay"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "receive",
+      "file": "src/receive.svg",
+      "category": "product",
+      "label": "Receive",
+      "keywords": [
+        "deposit",
+        "incoming"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "swap",
+      "file": "src/swap.svg",
+      "category": "product",
+      "label": "Swap",
+      "keywords": [
+        "exchange",
+        "bridge",
+        "switch"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "device",
+      "file": "src/device.svg",
+      "category": "product",
+      "label": "Device",
+      "keywords": [
+        "phone",
+        "mobile",
+        "controller"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "eye",
+      "file": "src/eye.svg",
+      "category": "product",
+      "label": "Show",
+      "keywords": [
+        "show",
+        "reveal",
+        "visible"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "eye-off",
+      "file": "src/eye-off.svg",
+      "category": "product",
+      "label": "Hide",
+      "keywords": [
+        "hide",
+        "hidden",
+        "conceal"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "external-link",
+      "file": "src/external-link.svg",
+      "category": "product",
+      "label": "Open external link",
+      "keywords": [
+        "open in browser",
+        "website"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "clock",
+      "file": "src/clock.svg",
+      "category": "product",
+      "label": "Pending",
+      "keywords": [
+        "pending",
+        "time",
+        "history"
+      ],
+      "status": "proposed",
+      "filled": false
+    },
+    {
+      "name": "spinner",
+      "file": "src/spinner.svg",
+      "category": "product",
+      "label": "Loading",
+      "keywords": [
+        "loading",
+        "progress",
+        "busy"
+      ],
+      "status": "proposed",
+      "filled": false
+    }
+  ]
+}

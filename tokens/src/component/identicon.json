@@ -1,0 +1,23 @@
+{
+  "identicon": {
+    "$description": "Avatar, badge and ring sizes shared by web and mobile. One table, seven sizes. The `small` badge is 16 on the web and 14 on mobile today; the table carries the web value.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:lukso-profile size map; SRC-MOBILE-APP:LUKSOProfileIdenticon.tsx SIZE_CONSTANTS", "confidence": "high" } },
+    "2xs": { "avatar": { "$type": "dimension", "$value": { "value": 16, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 8, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 1, "unit": "px" } } },
+    "xs": { "avatar": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 12, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 1, "unit": "px" } } },
+    "s": {
+      "avatar": { "$type": "dimension", "$value": { "value": 40, "unit": "px" } },
+      "badge": { "$type": "dimension", "$value": { "value": 16, "unit": "px" }, "$extensions": { "up": { "status": "normalized", "open": "OPEN-06", "note": "Web renders 16, mobile 14. 16 keeps the badge on the 4-point grid and legible; mobile should align." } } },
+      "ring": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } }
+    },
+    "m": { "avatar": { "$type": "dimension", "$value": { "value": 56, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 20, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } } },
+    "l": { "avatar": { "$type": "dimension", "$value": { "value": 80, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 24, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 2.5, "unit": "px" } } },
+    "xl": { "avatar": { "$type": "dimension", "$value": { "value": 96, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 28, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 3, "unit": "px" } } },
+    "2xl": { "avatar": { "$type": "dimension", "$value": { "value": 120, "unit": "px" } }, "badge": { "$type": "dimension", "$value": { "value": 36, "unit": "px" } }, "ring": { "$type": "dimension", "$value": { "value": 3.5, "unit": "px" } } },
+    "badge-offset": { "$type": "dimension", "$value": { "value": -1, "unit": "px" }, "$description": "Badge sits at the avatar's lower right, inset by one unit." },
+    "badge-ring-color": { "$type": "color", "$value": "{avatar.badge-ring}" },
+    "ring-color": { "$type": "color", "$value": "{avatar.ring}" },
+    "fallback-fill": { "$type": "color", "$value": "{surface.avatar-fallback}" },
+    "fallback-glyph": { "$type": "color", "$value": "{color.static.white}", "$description": "Person and token glyphs are white 1.5 strokes on the fallback fill." },
+    "min-badge-size": { "$type": "dimension", "$value": { "value": 24, "unit": "px" }, "$description": "Avatar size from which the badge is mandatory.", "$extensions": { "up": { "status": "proposed" } } }
+  }
+}

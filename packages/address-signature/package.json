@@ -1,0 +1,20 @@
+{
+  "name": "@universal-profiles/address-signature",
+  "version": "0.1.0",
+  "description": "Deterministic helpers for the Universal Profiles Address Signature: identicon badge, #XXXX suffix and address-derived gradient. Dependency-free.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": { "types": "./src/index.d.ts", "import": "./src/index.mjs" }
+  },
+  "files": ["src", "README.md"],
+  "sideEffects": false,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "publishConfig": { "access": "public" }
+}

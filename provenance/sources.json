@@ -1,0 +1,197 @@
+{
+  "$description": "Public register of every evidence source behind this design system. Tokens and documents cite sources by key (SRC-...), optionally followed by a colon and a locator inside the source. Private material is described by category and identifier only; no private file, render, export, screenshot or temporary URL is part of this repository.",
+  "authorityVocabulary": {
+    "rule": "Currently shipped or formally approved; may be written as a rule.",
+    "pattern": "Recurring and observed but not codified anywhere before this system.",
+    "lineage": "Historical or exploratory material used to understand where the identity comes from; never the sole basis for a rule.",
+    "obsolete": "Superseded by newer shipped behaviour or explicitly marked not for use."
+  },
+  "publicationVocabulary": {
+    "public": "Already published; may be cited and quoted.",
+    "internal": "Private working material; conclusions and values may be restated, the material itself is excluded.",
+    "confidential": "Only high-level, non-sensitive conclusions are carried forward."
+  },
+  "precedence": [
+    "SRC-MOBILE-APP",
+    "SRC-WEB-APP",
+    "SRC-WEB-COMPONENTS",
+    "SRC-FIGMA-UP-BOARD",
+    "SRC-FIGMA-MOBILE-UPDATES",
+    "SRC-POSTER-2025",
+    "SRC-NFTNYC-2026",
+    "SRC-APP-ICON",
+    "SRC-ONBOARDING-ART",
+    "SRC-LUKSO-DOCS",
+    "SRC-ECOSYSTEM-REPORT-H2-2025",
+    "SRC-CAMPAIGN-BRIEFS",
+    "SRC-NARRATIVE-DECKS-2026",
+    "SRC-BRAND-DNA-2024",
+    "SRC-FIGMA-UE-BRAND-DISCOVERY",
+    "SRC-GENERATED-IMAGES"
+  ],
+  "sources": {
+    "SRC-MOBILE-APP": {
+      "title": "Universal Profiles mobile app, shipped source",
+      "category": "production-code",
+      "identifiers": { "repository": "lukso-network/universalprofile-mobile-app", "branch": "main", "commit": "8d8f9f8c", "version": "1.29.0", "snapshotDate": "2026-09-14" },
+      "authority": "rule",
+      "publication": "internal",
+      "currency": "2026-09-14",
+      "inspected": "Theme and palette modules, glass constants, shadows, address gradient helper, typography variants, fonts, icon registry, forty shared components, navigation, profile view, onboarding, QR, backup and permissions flows, translations, app configuration, platform notes.",
+      "notes": "Highest authority for product rules. Includes the September 2026 redesign (glass panels, five-slot bar with a raised Browse action). Code is referenced by path, never copied.",
+      "excluded": "Environment files, secrets, private tickets, pull-request screenshots."
+    },
+    "SRC-WEB-APP": {
+      "title": "universaleverything.io, shipped source",
+      "category": "production-code",
+      "identifiers": { "repository": "universal-everything/universaleverything.io", "branch": "main", "commit": "aa2e7cd8", "snapshotDate": "2026-09-03" },
+      "authority": "rule",
+      "publication": "internal",
+      "currency": "2026-09-03",
+      "inspected": "Tailwind configuration, global styles, profile card composition, page and component inventory, public image assets, site metadata.",
+      "notes": "Confirms the cross-product profile model (cover, floating avatar, identicon badge, username with suffix) and the flat card surface language on the web.",
+      "excluded": "Nothing copied; marks in the public folder are referenced by name only pending trademark guidance."
+    },
+    "SRC-WEB-COMPONENTS": {
+      "title": "@lukso/web-components (LUKSO base layer)",
+      "category": "published-package",
+      "identifiers": { "package": "@lukso/web-components", "versionInspected": "1.187.0", "versionPinnedByWebApp": "1.207.0", "repository": "lukso-network/tools-web-components" },
+      "authority": "rule",
+      "publication": "public",
+      "currency": "2026-09-14",
+      "inspected": "Tailwind preset (palette generator, font sizes, line heights, radii, spacing extras, shadows, animations, dark-mode class), component typings for profile, username, button, card, tag, input and modal, the address gradient and address slicing helpers, bundled font list, CSS variables.",
+      "notes": "Canonical source of the neutral palette and the identicon size table. The package declares no licence field; treat as all rights reserved until confirmed (OPEN-04). Values should be re-verified against 1.207.0 (OPEN-09)."
+    },
+    "SRC-FIGMA-UP-BOARD": {
+      "title": "Universal Profile Board (Figma)",
+      "category": "design-file",
+      "identifiers": { "fileKey": "pAffzgmq6sjbWkyWAjnYmM", "rootNode": "1131:22728", "readDate": "2026-09-14" },
+      "authority": "pattern",
+      "publication": "internal",
+      "currency": "2026-09-14",
+      "inspected": "Brand intro (1131:26000), colour palette (1131:25993), guidelines and type slides (1131:25147, 1131:25959), logos and lockups (1131:25138, 2988:1594, 1565:466), imagery (1131:22764), social highlight templates (1131:27437, 1131:27544, 1131:22735), app-icon exploration (2850:1587), create-profile frame (1737:1009).",
+      "notes": "A working brand and campaign board, not a component library. Supplies observed values (three periwinkle swatches, badge typography, partner-lockup tones, deck type scale, social template geometry) and open decisions. Nothing on it is bound to variables or marked approved. Where it disagrees with shipped code, code wins.",
+      "excluded": "Renders, exports, screenshots, temporary asset URLs, image assets of unknown rights, pasted draft copy."
+    },
+    "SRC-FIGMA-MOBILE-UPDATES": {
+      "title": "Mobile app Updates (Figma)",
+      "category": "design-file",
+      "identifiers": { "fileKey": "gKNmK9MxvHWhewBvYe99Vo", "canvas": "669:10173", "section": "672:30131", "readNode": "672:29373", "lastEdited": "2026-06-29" },
+      "authority": "pattern",
+      "publication": "internal",
+      "currency": "2026-06-29",
+      "inspected": "One in-app-purchase exploration: modal geometry, Inter 14/22 and 12/20, ink #243542, 48 px actions, 24 px icons.",
+      "notes": "Corroborates shipped mobile values; predates the September 2026 redesign, so flows and navigation in it are not authoritative."
+    },
+    "SRC-FIGMA-UE-BRAND-DISCOVERY": {
+      "title": "UE Brand Discovery (Figma)",
+      "category": "design-file",
+      "identifiers": { "fileKey": "gFwJHxeMMap73cQ9Y1a7iq", "rootNode": "1:2", "frames": ["466:350", "466:378", "466:392", "471:7412"], "readNodes": ["467:4922", "471:8757"] },
+      "authority": "lineage",
+      "publication": "internal",
+      "currency": "2026-09-14",
+      "inspected": "Research, ideation and wordmark-exploration frames; two exact type reads (SF Compact Display Bold 50, SF Mono Bold 40); no variables bound.",
+      "notes": "Parent-brand ideation for Universal Everything. Establishes the shared two-weight wordmark construction as a family trait; fixes no Universal Profiles accent, lockup or component rule."
+    },
+    "SRC-POSTER-2025": {
+      "title": "UP!Mobile 2025 posters (black and white variants)",
+      "category": "collateral",
+      "identifiers": { "format": "portrait 3:4, 6144 by 8192 px", "year": "2025" },
+      "authority": "rule",
+      "publication": "internal",
+      "currency": "2025",
+      "inspected": "Composition, headline structure, hero render, lockup, sampled colours.",
+      "notes": "The de-facto marketing identity: headline with the accent phrase, frosted-glass profile-card hero with periwinkle 3D objects, UP! badge plus two-line wordmark plus Powered by LUKSO. Colours are sampled from rasters and therefore approximate. No vector master and no licence record were found (OPEN-03, OPEN-04)."
+    },
+    "SRC-NFTNYC-2026": {
+      "title": "NFT.NYC 2026 stage deck (public talk)",
+      "category": "collateral",
+      "identifiers": { "date": "2026-08-25", "slides": 11 },
+      "authority": "rule",
+      "publication": "public",
+      "currency": "2026-08-25",
+      "inspected": "Visual register (near-black canvas, white headlines, single periwinkle-violet accent, tracked uppercase labels), reused poster hero, redesigned-home screenshot, closing lockup, narrative lines.",
+      "notes": "Newest approved public collateral. Establishes the dark register and the lines quoted in brand/narrative.md. Slide images are not republished."
+    },
+    "SRC-APP-ICON": {
+      "title": "Shipped app icon and cube marks (mobile bundle)",
+      "category": "shipped-asset",
+      "identifiers": { "files": ["app-icon-ios.png", "app-icon-android", "up-icon.png", "up-cube.png"], "lastChanged": "2025-02" },
+      "authority": "rule",
+      "publication": "internal",
+      "currency": "2025-02",
+      "inspected": "Gradient sampled top and bottom, glyph construction, corner radius estimate.",
+      "notes": "Sampled values are approximate. The vector or 3D source is not in the repository (OPEN-03); the raster is not republished here."
+    },
+    "SRC-ONBOARDING-ART": {
+      "title": "Shipped onboarding and error illustrations (mobile bundle)",
+      "category": "shipped-asset",
+      "identifiers": { "files": ["get-started-1..4.png", "up-error-2x.png", "up_logo_lock_screen.svg"] },
+      "authority": "pattern",
+      "publication": "internal",
+      "currency": "2025",
+      "inspected": "Object vocabulary, material and lighting, accent bleed.",
+      "notes": "Establishes the soft-plastic periwinkle object family. Rights and generator are unrecorded, so the files are not republished; the family is regenerated under documented provenance."
+    },
+    "SRC-LUKSO-DOCS": {
+      "title": "LUKSO technical documentation (docs.lukso.tech)",
+      "category": "public-documentation",
+      "identifiers": { "pages": ["standards/accounts/introduction", "standards/introduction", "learn/benefits-lukso-standards", "standards/metadata/lsp3-profile-metadata"] },
+      "authority": "rule",
+      "publication": "public",
+      "currency": "2026-06",
+      "inspected": "Standards vocabulary: LSP0, LSP1, LSP3, LSP5, LSP6, LSP7, LSP8, LSP12, LSP26; field names of profile metadata.",
+      "notes": "Source of the builder-register terminology."
+    },
+    "SRC-ECOSYSTEM-REPORT-H2-2025": {
+      "title": "LUKSO ecosystem report, second half of 2025",
+      "category": "report",
+      "identifiers": { "published": "2026-02" },
+      "authority": "rule",
+      "publication": "public",
+      "currency": "2025-12-31",
+      "inspected": "Product milestones, outlook wording, the Token Creator product visual.",
+      "notes": "Its own visual style is the foundation's report design, not Universal Profiles. Metrics are never hard-coded in this system."
+    },
+    "SRC-CAMPAIGN-BRIEFS": {
+      "title": "Campaign briefs and one-pagers, 2024 to 2026",
+      "category": "internal-document",
+      "identifiers": { "campaigns": ["Token Creator", "LSP Lab", "Proof of Presence", "Solve This", "unrealised 2024 explainer campaign", "unrealised mascot contest"] },
+      "authority": "pattern",
+      "publication": "internal",
+      "currency": "2026-02",
+      "inspected": "Key messages, audience terms, stated art direction.",
+      "notes": "Sanctioned message lines are carried into brand/narrative.md. Stated neon or editorial art directions from 2024 and 2025 are superseded by the 2026 collateral and the shipped app. Owner names and budgets are excluded."
+    },
+    "SRC-NARRATIVE-DECKS-2026": {
+      "title": "Internal narrative decks, 2026",
+      "category": "internal-document",
+      "identifiers": { "period": "2026-02 to 2026-04" },
+      "authority": "lineage",
+      "publication": "confidential",
+      "currency": "2026-04",
+      "inspected": "Narrative structure and positioning lines only.",
+      "notes": "Authoritative for what is said (four pillars, account-not-wallet framing), not for how it looks: their templates include neon-glow restyles and a fabricated mark that are explicitly obsolete. No figures, pricing or partner details are carried forward."
+    },
+    "SRC-BRAND-DNA-2024": {
+      "title": "LUKSO brand foundations and strategy decks, 2024",
+      "category": "internal-document",
+      "identifiers": { "period": "2024-05 to 2024-09" },
+      "authority": "lineage",
+      "publication": "confidential",
+      "currency": "2024-09",
+      "inspected": "Values, vision, mission, positioning lines, theme colours and fonts.",
+      "notes": "Parent-brand words; explicitly leaves brand voice and visual identity undefined. Its magenta and pale-pink theme belongs to the parent brand and the foundation."
+    },
+    "SRC-GENERATED-IMAGES": {
+      "title": "Original generated imagery in this repository",
+      "category": "generated-asset",
+      "identifiers": { "provenance": "assets/generated/PROVENANCE.json" },
+      "authority": "rule",
+      "publication": "public",
+      "currency": "2026-09-14",
+      "inspected": "Hashes, dimensions, prompts.",
+      "notes": "Four hero and title backgrounds produced for this system with recorded prompts; integrated by the imagery guide."
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "../../provenance/provenance.schema.json",
+  "directory": "assets/generated",
+  "generatedAt": "2026-09-14T21:36:00-07:00",
+  "operator": "Universal Profiles design-system maintainer (role; no personal name is recorded)",
+  "method": "OpenAI built-in image generation",
+  "tool": "OpenAI image generation product; every PNG carries a C2PA content-credentials manifest (PNG caBX chunk) signed by OpenAI",
+  "model": "gpt-image 2.0 (softwareAgent name and version read from the embedded C2PA manifest; claim generator OpenAI Media Service API)",
+  "contentCredentials": {
+    "standard": "C2PA 2.2 manifest embedded in each file (PNG caBX chunk)",
+    "softwareAgent": "gpt-image 2.0",
+    "claimGenerator": "OpenAI Media Service API",
+    "digitalSourceType": "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+    "actions": [
+      "c2pa.created",
+      "c2pa.converted",
+      "c2pa.watermarked.unbound (invisible watermark)"
+    ],
+    "signer": "OpenAI OpCo, LLC (OpenAI Media Service certificate)",
+    "verified": "Chunk structure, agent name, version, actions and timestamps inspected on 2026-09-14; the manifest timestamps (2026-09-15 04:36 to 04:37 UTC) match generatedAt"
+  },
+  "seed": null,
+  "license": "Apache-2.0 with the repository, to the extent copyright subsists in machine-generated images (see LICENSES/GENERATED-IMAGES.md); use remains subject to the generation product's terms; no warranty of exclusivity",
+  "rightsNote": "Original AI-generated project output. Use remains subject to the repository license, trademark guidance, and applicable OpenAI terms.",
+  "publication": "public",
+  "postProcessing": "None. Files are the generator's native output at 1672x941; the briefs list larger delivery formats (IB-02: a 16:9 master with 2560x1440, 1440x2560 and 1200x630 crops; IB-10: 1920x1080, 1080x1080 and 1080x1920), which have not been produced yet and are recorded as such in imagery/briefs.md.",
+  "assets": [
+    {
+      "path": "heroes/profile-passport-light.png",
+      "sha256": "46f891c1d0bd227cdf3f8c00e6591e83dc87d0e9d22860a9ff300e3189869db8",
+      "dimensions": "1672x941",
+      "brief": "IB-02 light-register profile-card hero",
+      "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles design-system repository hero background, landscape 16:9\nPrimary request: Create an original polished 3D hero image expressing a self-owned digital profile that travels across apps and chains.\nScene/backdrop: seamless calm near-white canvas #F8FAFB with abundant negative space on the left for documentation copy.\nSubject: on the right, a frosted glass profile card standing at a subtle 12-degree tilt. The card has a rounded cover area with softly tumbling abstract objects: a blank rounded cube, lock, envelope, music note, small game controller, picture frame, and chat bubble. A large blank white circular avatar breaks the lower edge of the cover, with a smaller white satellite badge circle at its lower right. Below are three blank pill tabs and three rows represented only by blank bars. Behind the main card, five ghosted translucent cards fan backward at small increments.\nStyle/medium: premium soft-plastic and frosted-glass 3D render, modern product illustration, restrained and calm, original design.\nLighting/mood: soft overhead studio key light, gentle contact shadow, clean optimistic atmosphere.\nColor palette: periwinkle #7B83EA key, #C2C5F5 highlights, #5862E4 shadows; neutral canvas #F8FAFB; white and cool blue-grey glass.\nMaterials/textures: matte soft plastic, etched/frosted translucent glass, subtle refraction, no chrome.\nConstraints: no readable text; no actual logos or wordmarks; no faces or people; composition must remain clean at README hero scale; left 42 percent mostly empty.\nAvoid: neon glow, circuit boards, hex grids, lens flare, magenta, pink dreamscapes, cryptocurrency symbols, chain logos, watermarks."
+    },
+    {
+      "path": "heroes/profile-passport-dark.png",
+      "sha256": "8daa7c62f063cca3216ab95e3bfe1e90e6cbe3d30a4b08a57395eee1155c91a4",
+      "dimensions": "1672x941",
+      "brief": "IB-02 dark-register profile-card hero",
+      "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles design-system repository hero background, dark variant, landscape 16:9\nPrimary request: Create an original polished 3D dark-register hero image expressing a self-owned digital profile that travels across apps and chains.\nScene/backdrop: seamless near-black blue-grey canvas #121B21 with abundant quiet negative space on the left for documentation copy.\nSubject: on the right, a frosted dark-glass profile card standing at a subtle 12-degree tilt. The card has a rounded cover area with softly tumbling abstract objects: a blank rounded cube, lock, envelope, music note, small game controller, picture frame, and chat bubble. A large blank circular avatar breaks the lower edge of the cover, with a smaller satellite badge circle at its lower right. Below are three blank pill tabs and three rows represented only by blank bars. Behind the main card, five ghosted translucent cards fan backward at small increments.\nStyle/medium: premium soft-plastic and frosted-glass 3D render, modern product illustration, restrained and calm, original design.\nLighting/mood: soft overhead studio key light, controlled low-key atmosphere, subtle contact shadow, no bright bloom.\nColor palette: periwinkle #7B83EA key, #C2C5F5 highlights, #5862E4 shadows; canvas #121B21; dark blue-grey glass and warm-white highlights.\nMaterials/textures: matte soft plastic, etched/frosted translucent glass, subtle refraction, no chrome.\nConstraints: no readable text; no actual logos or wordmarks; no faces or people; composition must remain clean at README hero scale; left 42 percent mostly empty.\nAvoid: neon glow, glow outlines, circuit boards, hex grids, lens flare, magenta, pink dreamscapes, cryptocurrency symbols, chain logos, watermarks."
+    },
+    {
+      "path": "backgrounds/title-dark.png",
+      "sha256": "f2808abee3d31c2830f784772addedd86850839fe843be14134c6fc0fd730b67",
+      "dimensions": "1672x941",
+      "brief": "IB-10 dark title background",
+      "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles dark presentation and social-title background, landscape 16:9\nPrimary request: Create a minimal, sophisticated near-black background that supports white text and Universal Profiles imagery without competing with it.\nScene/backdrop: flat #08080A canvas with one extremely soft, diffuse periwinkle atmospheric bloom #7B83EA at about 12 percent perceived opacity, offset into the upper-right quadrant and fading across roughly 60 percent of the image height.\nStyle/medium: premium abstract digital background, restrained editorial art direction, almost flat with subtle depth.\nComposition/framing: no objects; no focal icon; keep the left 55 percent especially quiet and text-safe.\nLighting/mood: calm, deep, precise, contemporary.\nColor palette: #08080A, #121B21, #7B83EA, tiny traces of #C2C5F5 only in the bloom core.\nMaterials/textures: very subtle 2 percent monochrome film grain to prevent banding.\nConstraints: no text, no logo, no shapes, no lines, no gradients with hard edges, no visible UI, no watermark.\nAvoid: neon, cyberpunk, lens flares, stars, galaxies, circuit boards, hex grids, magenta, pink, blue laser effects."
+    },
+    {
+      "path": "backgrounds/title-light.png",
+      "sha256": "72335153f2e12dc95c599179741e14c50a7c0703f0431fcb7548760be7f7c3c7",
+      "dimensions": "1672x941",
+      "brief": "IB-10 light title background",
+      "prompt": "Use case: stylized-concept\nAsset type: Universal Profiles light presentation and social-title background, landscape 16:9\nPrimary request: Create a minimal, sophisticated near-white background that supports dark text and Universal Profiles imagery without competing with it.\nScene/backdrop: calm #F8FAFB canvas with one extremely soft, diffuse periwinkle atmospheric bloom #7B83EA at about 18 percent perceived opacity, offset into the upper-right quadrant and fading across roughly 60 percent of the image height.\nStyle/medium: premium abstract digital background, restrained editorial art direction, almost flat with subtle depth.\nComposition/framing: no objects; no focal icon; keep the left 55 percent especially quiet and text-safe.\nLighting/mood: airy, precise, contemporary, optimistic.\nColor palette: #F8FAFB, white, #C2C5F5, #7B83EA; tiny traces of #5862E4 only near the bloom core.\nMaterials/textures: very subtle 1.5 percent monochrome grain to prevent banding.\nConstraints: no text, no logo, no shapes, no lines, no gradients with hard edges, no visible UI, no watermark.\nAvoid: neon, cyberpunk, lens flares, stars, galaxies, circuit boards, hex grids, magenta, pink, blue laser effects."
+    }
+  ]
+}

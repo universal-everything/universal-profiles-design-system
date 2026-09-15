@@ -1,0 +1,43 @@
+{
+  "checkbox": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOCheckbox.tsx", "confidence": "high" } },
+    "size": { "$type": "dimension", "$value": "{size.control-s}" },
+    "radius": { "$type": "dimension", "$value": "{radius.s}" },
+    "padding": { "$type": "dimension", "$value": "{space.1}" },
+    "border": { "$type": "color", "$value": "{border.strong}", "$extensions": { "up": { "status": "normalized", "note": "Observed border.default (1.25:1) is not perceivable as a control boundary; border.strong passes 3:1." } } },
+    "fill-checked": { "$type": "color", "$value": "{interactive.primary}" },
+    "mark": { "$type": "color", "$value": "{interactive.on-primary}" }
+  },
+  "radio": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSORadio.tsx", "confidence": "high" } },
+    "size": { "$type": "dimension", "$value": { "value": 20, "unit": "px" } },
+    "dot-size": { "$type": "dimension", "$value": { "value": 10, "unit": "px" }, "$extensions": { "up": { "status": "proposed" } } },
+    "border": { "$type": "color", "$value": "{border.strong}", "$extensions": { "up": { "status": "normalized" } } },
+    "fill-selected": { "$type": "color", "$value": "{interactive.primary}" }
+  },
+  "switch": {
+    "$description": "Flat switch (web `lukso-switch`, mobile `LUKSOToggle`). The glass toggle has its own tokens.",
+    "$extensions": { "up": { "status": "normalized", "source": "SRC-WEB-COMPONENTS:lukso-switch; SRC-MOBILE-APP:LUKSOToggle.tsx", "confidence": "medium" } },
+    "track-width": { "$type": "dimension", "$value": { "value": 56, "unit": "px" } },
+    "track-height": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+    "thumb-size": { "$type": "dimension", "$value": { "value": 26, "unit": "px" } },
+    "track-off": { "$type": "color", "$value": "{color.neutral.80}" },
+    "track-on": { "$type": "color", "$value": "{status.success.control}" },
+    "thumb": { "$type": "color", "$value": "{color.static.white}" }
+  },
+  "slider-confirm": {
+    "$description": "Slide-to-confirm control for irreversible actions.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOSliderButton.tsx", "confidence": "high" } },
+    "track-radius": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "track-height": { "$type": "dimension", "$value": { "value": 56, "unit": "px" }, "$extensions": { "up": { "status": "normalized", "note": "Knob 48 plus 4 inset on each side." } } },
+    "knob-size": { "$type": "dimension", "$value": { "value": 48, "unit": "px" } },
+    "knob-radius": { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+    "knob-fill": { "$type": "color", "$value": "{interactive.primary}" },
+    "knob-icon": { "$type": "color", "$value": "{interactive.on-primary}" },
+    "track-fill": { "$type": "color", "$value": "{surface.card-muted}" },
+    "track-fill-complete": { "$type": "color", "$value": "{status.success.control}", "$extensions": { "up": { "status": "normalized", "note": "Follows status.success.control: the darker green step replaces the observed green.54 for fills (R-12)." } } },
+    "label": { "$type": "typography", "$value": "{type.action.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.action.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "label-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "disabled-opacity": { "$type": "number", "$value": "{opacity.disabled}" }
+  }
+}

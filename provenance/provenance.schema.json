@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "provenance.schema.json",
+  "title": "Asset provenance record",
+  "description": "One PROVENANCE.json per asset directory. Every file in the directory must be listed. Validated by scripts/validate.mjs (hash, dimensions, required fields, licence).",
+  "type": "object",
+  "required": ["method", "license", "assets"],
+  "properties": {
+    "method": { "type": "string", "enum": ["ai-generated", "procedural", "vector", "3d-render", "photo", "OpenAI built-in image generation"] },
+    "tool": { "type": "string" },
+    "model": { "type": "string", "description": "Model or software agent as exposed by the tool or by credentials embedded in the files" },
+    "contentCredentials": { "type": "object", "description": "Provenance embedded in the files themselves (for example a C2PA manifest): standard, software agent, claim generator, actions and signer as read from the file" },
+    "operator": { "type": "string", "description": "A role label (for example 'design-system maintainer'), never a personal name" },
+    "author": { "type": "string" },
+    "generatedAt": { "type": "string" },
+    "seed": { "type": ["integer", "string", "null"] },
+    "license": { "type": "string", "description": "Licence statement for the files in the directory; required and checked by the validator" },
+    "rightsNote": { "type": "string" },
+    "publication": { "type": "string", "enum": ["public", "internal"] },
+    "postProcessing": { "type": "string", "description": "Edits after generation, or a statement that there were none, including delivered versus requested dimensions" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string", "description": "Relative to the directory of the PROVENANCE.json" },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "dimensions": { "type": "string", "pattern": "^[0-9]+x[0-9]+$", "description": "Required for raster files; checked against the file header" },
+          "brief": { "type": "string", "description": "Brief identifier from imagery/briefs.md, for example IB-02" },
+          "prompt": { "type": "string", "description": "Verbatim prompt for generated images" },
+          "method": { "type": "string" },
+          "inputs": { "type": "object" },
+          "postProcessing": { "type": "string" },
+          "reconstructed": { "type": "boolean", "const": false, "description": "Reserved. The repository ships no reconstruction of a mark under any label (decisions 0007 and 0010); the validator rejects an entry that sets this to true" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+# Reconciliation register
+
+Status: normalized (every entry records a conflict and the choice; nothing is averaged)
+
+| # | Topic | Sources in conflict | Choice | Where applied |
+|---|---|---|---|---|
+| R-01 | Accent value | Board swatches #6981EC, #8494EE, #A4B5FF (no roles); app icon #A7ACF9 to #6E7BE6; posters about #5A77E2 and #8494EE; stage deck about #8B7FFF; internal deck #7C6CF0; earlier proposal hue 236 | Ramp re-anchored on the board's labelled swatch: hue 229, saturation 78, step 67 equals #6981EC; roles proposed; approval not claimed | `color.up.*`, `accent.*`, OPEN-01 |
+| R-02 | Accent text step | Step 58 reached exactly 4.50:1 on the opaque glass tint (rounding risk) | Step 56 (4.91:1 on glass, 5.72:1 on white) for text, links and fills; step 50 pressed | `text.link`, `accent.default`, `accent.fill` |
+| R-03 | Dark accent button | A mid-blue fill fails 3:1 against dark cards | The dark accent fill inverts like the primary button: `color.up.73` with neutral 10 text | `accent.fill`, `accent.on-fill` (dark) |
+| R-04 | Testnet colour | Production literal #FFB84C in five files versus palette yellow 65 #FFB84D | Palette step wins (one unit, invisible) | `color.network.lukso-testnet` |
+| R-05 | Testnet label colour | Orange label text (1.72:1) | Ink text with a coloured dot | `network-tag.*`, `tag.network-dot-size` |
+| R-06 | Bottom bar tint | iOS 0.60, Android 0.80; active labels 4.43:1 over black at 0.60 | 0.80 on both platforms | `surface.glass-bar` |
+| R-07 | Inactive tab items | Opacity 0.5 and 0.55 composite below 3:1 | Solid muted colours at full opacity | `interactive.unselected`, `interactive.unselected-on-glass`, `tab-bar.inactive-opacity` |
+| R-08 | Secondary text | Neutral 60 (2.86:1) for suffix and secondary labels; neutral 45 for inactive top tabs (4.08:1 on glass) | Neutral 40 as `text.muted`; neutral 60 kept as decorative `text.subtle` | `text.muted`, `text.subtle` |
+| R-09 | Placeholder | Neutral 70 (2.11:1) | Neutral 45 | `text.placeholder` |
+| R-10 | Glass button label | Off-palette #1C2A3A | Neutral 20 | `text.on-glass-label` |
+| R-11 | Glass toggle on-state | Platform system green | `status.success.control` (green 35, 3:1) | `glass.toggle-on`, `switch.track-on` |
+| R-12 | Success and error text | Observed green 54 and red 55 and 65 fail 4.5:1 as text | Darker steps green 30, red 45 added to the scales; observed steps kept for icons and borders | `status.success.*`, `status.error.*`, `button.danger.*` |
+| R-13 | Add-tile dashed border | Off-palette #E5E5E5 (1.2:1) | `border.strong` | `app-tile.add-border` |
+| R-14 | Control boundaries | Neutral 90 borders on checkbox and radio (1.25:1) | `border.strong` | `checkbox.border`, `radio.border` |
+| R-15 | Identicon small badge | Web 16 versus mobile 14 | 16 (grid-aligned, legible); mobile aligns | `identicon.s.badge`, OPEN-06 |
+| R-16 | Identicon size tables | Older profile image component (24 / 10, 48 / 16) versus identicon component and web | Web and identicon component table | `identicon.*` |
+| R-17 | Address truncation | Web 6 and 6; mobile 6 and 4 and 10 and 8; mobile address formatter 5 and 6 | Two presets: compact 6 and 4, full 10 and 8 | `sliceAddress()` |
+| R-18 | Identicon seed casing | Unknown before verification | Both products use the same library, which lower-cases the seed; verified | `identiconSeed()`, OPEN-18 closed |
+| R-19 | Title typography | `h1` (regular file, weight 500) and `h1-medium` (medium file) | One role `type.title.l` at 500 | `type-alias.h1`, `type-alias.h1-medium` |
+| R-20 | Tab label weight | Style sheet regular; every call site semibold | Semibold is the rule | `type.label.nav` |
+| R-21 | 17 pt action variants | Button text 17 / 17, link 17 without line height, paragraph 17 / 22 | One role `type.action.l` at 17 / 22 | `type-alias.*` |
+| R-22 | Line heights 12.1 and 13.21 | Fractional values in the mobile style sheet | Rounded to 12 and 13 | `font.line-height.12`, `font.line-height.13` |
+| R-23 | Sheet radius | Library-drawn corners without a token; QR card 24 | 24 | `sheet.radius` |
+| R-24 | Navigation naming | "Discover" (older mobile, web sidebar) versus "Browse" (shipped mobile) | Browse | `patterns/discovery-and-browse.md` |
+| R-25 | LUKSO mark component name | Mobile names the LUKSO hexagon as a UP logo | Rename; the UP mark is the badge glyph | `brand/misuse.md`, migration checklist |
+| R-26 | Marketing hero | Poster render (rights and masters unavailable) versus generated set | Generated set with provenance; posters not republished | `imagery/README.md` |
+| R-27 | Deck type scale | Board 60 / 48 / 40 / 20 / 16 versus product scale | Deck roles for presentations only; product scale unchanged | `type.deck.*`, OPEN-13 |
+| R-28 | Social canvas | Board template #F7F9FB versus canvas #F8FAFB | Canvas token (one unit) | `patterns/marketing-layouts.md`, OPEN-14 |
+| R-29 | Product name | "Universal Profile app", "UP!Mobile", display name "Universal Profiles" | Universal Profiles; UP! only as the badge nickname | `foundations/voice-and-copy.md` |
+| R-30 | Art direction | 2024 to 2025 brief clauses for dark neon and neon gradients versus 2026 collateral and the shipped app | Calm, neutral, single accent; neon retired | `brand/misuse.md`, `patterns/obsolete.md` |
+| R-31 | Voice source | Board voice card versus shipped strings and sanctioned lines | Shipped strings and sanctioned lines; card not cited | `foundations/voice-and-copy.md`, OPEN-15 |
+| R-32 | Base-layer version | Installed 1.187.0 versus pinned 1.207.0 | Values from 1.187.0; re-verify | OPEN-09 |
+| R-33 | Ethereum network colour | No constant in code | Placeholder with status open | `color.network.ethereum`, OPEN-05 |
+| R-34 | Badge corner radius | About 12 percent (app icon, tile) versus 17.3 percent (board badge) | Undecided | OPEN-02 |
+| R-35 | Icon drawing grid | Mobile icon components drawn on mixed boxes (mostly 24; also 20, 16 and a few 32) and rendered at 16, 24, 32 and 48; base-layer icons on 24; an earlier research note stated a 32-unit box | New icons are drawn on a 32-unit box at 1.5 stroke (the largest render size, scaling down to 24 and 16); the shipped sets are not redrawn; the grid is normalized, not observed | `icons/README.md`, `icons/manifest.json` |
+| R-36 | Externally-owned-account row truncation | The mobile username component's EOA variant slices the checksummed address directly: `0x` plus 4 characters, dots, the last 4, followed by the `#EOA` label; its row and detail variants use the shared helper at 6 and 4 and 10 and 8 (R-17) | Recorded as an observed variant; the compact preset (6 and 4) stays the normalized default for rows and EOA labels, no 4 and 4 preset is added, and the `#EOA` label is kept | `sliceAddress()`, `foundations/address-signature.md`, `adoption/gap-register.md` |

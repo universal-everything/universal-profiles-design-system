@@ -1,0 +1,30 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "universal-profiles-tokens",
+  "version": "0.1.0",
+  "description": "Universal Profiles design tokens. Primitive values are the LUKSO base layer plus the Universal Profiles product layer; semantic tokens resolve per theme; component tokens reference semantic or primitive tokens only.",
+  "tierOrder": ["primitive", "semantic", "component"],
+  "themes": {
+    "light": { "default": true, "overrides": [] },
+    "dark": { "default": false, "overrides": ["themes/dark.json"] }
+  },
+  "statusVocabulary": {
+    "observed": "Value read from current production code, approved collateral or a cited design file, unchanged.",
+    "normalized": "Derived from observed values by reconciling, rounding, renaming, or extending an existing scale; the derivation is recorded in the token note.",
+    "proposed": "New value or structure introduced by this design system; not yet in production and not formally approved.",
+    "obsolete": "Exists in production or older collateral but must not be used in new work; kept only so migrations can map from it.",
+    "open": "Placeholder value awaiting an owner decision or missing evidence; the value itself is not evidence-backed and carries an OPEN item."
+  },
+  "openItemsRegister": "provenance/open-items.md",
+  "sourcesRegister": "provenance/sources.json",
+  "extensionNamespace": "up",
+  "extensionFields": {
+    "status": "observed | normalized | proposed | obsolete | open",
+    "source": "Source key from provenance/sources.json, optionally followed by a colon and a locator inside that source",
+    "confidence": "high | medium | low",
+    "open": "Optional OPEN-nn identifier from provenance/open-items.md when a later audit may change the value",
+    "note": "Free text: derivation, usage limits, contrast results",
+    "deprecated": "Optional true when the token exists only for migration"
+  },
+  "inheritance": "A group-level $extensions.up object supplies defaults for every token beneath it; a token-level object overrides individual fields."
+}

@@ -1,0 +1,35 @@
+{
+  "tag": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOTag.tsx; wallet filter chips; SRC-WEB-COMPONENTS:lukso-tag", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.s}" },
+    "radius-chip": { "$type": "dimension", "$value": "{radius.pill}", "$description": "Filter chips." },
+    "padding-x": { "$type": "dimension", "$value": "{space.2}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.1}" },
+    "label": { "$type": "typography", "$value": "{type.body.s-strong}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.s-strong: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "solid": {
+      "$type": "color",
+      "fill": { "$value": "{surface.inverse}" },
+      "label": { "$value": "{text.inverse}" }
+    },
+    "soft": {
+      "$type": "color",
+      "fill": { "$value": "{surface.card-muted}" },
+      "label": { "$value": "{text.default}" }
+    },
+    "outlined": {
+      "$type": "color",
+      "$extensions": { "up": { "status": "normalized", "note": "Observed border and label neutral.50; the label moves to text.muted for 4.5:1 and the border to border.strong for 3:1." } },
+      "fill": { "$value": "transparent" },
+      "border": { "$value": "{border.strong}" },
+      "label": { "$value": "{text.muted}" }
+    },
+    "accent": {
+      "$type": "color",
+      "$extensions": { "up": { "status": "proposed", "open": "OPEN-01" } },
+      "fill": { "$value": "{accent.soft}" },
+      "border": { "$value": "{accent.soft-border}" },
+      "label": { "$value": "{accent.default}", "$description": "5.04:1 on accent.soft." }
+    },
+    "network-dot-size": { "$type": "dimension", "$value": { "value": 8, "unit": "px" }, "$description": "Network tags show the network colour as a dot beside ink text so colour is never the only signal.", "$extensions": { "up": { "status": "proposed", "note": "Production sets the testnet label itself in orange (1.72:1 on white)." } } }
+  }
+}

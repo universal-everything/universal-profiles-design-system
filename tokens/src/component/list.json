@@ -1,0 +1,34 @@
+{
+  "list-item": {
+    "$description": "Token, collectible, activity, controller and settings rows.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:TokenListItem.tsx; SettingsList.tsx; PermissionItem.tsx", "confidence": "high" } },
+    "min-height": { "$type": "dimension", "$value": { "value": 56, "unit": "px" }, "$extensions": { "up": { "status": "normalized", "note": "A 40 leading visual plus 8 vertical padding." } } },
+    "padding-x": { "$type": "dimension", "$value": "{space.4}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.2}" },
+    "gap": { "$type": "dimension", "$value": "{space.3}" },
+    "leading-size": { "$type": "dimension", "$value": "{size.identicon-s}", "$description": "Token logo or identicon: 40." },
+    "leading-icon-size": { "$type": "dimension", "$value": "{size.icon-m}", "$description": "Settings row icons: 24." },
+    "title": { "$type": "typography", "$value": "{type.title.s}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.title.s: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "title-color": { "$type": "color", "$value": "{text.default}" },
+    "subtitle": { "$type": "typography", "$value": "{type.body.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "subtitle-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "value": { "$type": "typography", "$value": "{type.body.m-strong}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m-strong: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "value-secondary": { "$type": "typography", "$value": "{type.body.s}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.s: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "value-mono": { "$type": "typography", "$value": "{type.mono.l}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.mono.l: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "chevron-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "chevron-opacity": { "$type": "number", "$value": "{opacity.hint}" },
+    "divider": { "$type": "color", "$value": "{border.subtle}" }
+  },
+  "network-tag": {
+    "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:home network pill; NetworksList.tsx", "confidence": "medium" } },
+    "radius": { "$type": "dimension", "$value": "{radius.pill}" },
+    "padding-x": { "$type": "dimension", "$value": "{space.3}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.1}" },
+    "label": { "$type": "typography", "$value": "{type.body.s-strong}" },
+    "label-color": { "$type": "color", "$value": "{text.default}" },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "fill-testnet": { "$type": "color", "$value": "{status.warning.soft}" },
+    "border-testnet": { "$type": "color", "$value": "{status.warning.fill}" },
+    "dot-size": { "$type": "dimension", "$value": "{tag.network-dot-size}", "$extensions": { "up": { "status": "proposed", "note": "Follows tag.network-dot-size: the coloured dot beside ink text replaces the orange testnet label (R-05)." } } }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "space": {
+    "$type": "dimension",
+    "$description": "Spacing scale. Steps 1-12 are the measured mobile scale (4-point base); the web extras are the additional Tailwind spacing values the base layer adds.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:padding and gap literals across src/ (16 and 8 dominate); SRC-WEB-COMPONENTS:tailwind `spacing` extras", "confidence": "high" } },
+    "0": { "$value": { "value": 0, "unit": "px" } },
+    "1": { "$value": { "value": 4, "unit": "px" } },
+    "2": { "$value": { "value": 8, "unit": "px" }, "$description": "Default gap between related elements." },
+    "3": { "$value": { "value": 12, "unit": "px" } },
+    "4": { "$value": { "value": 16, "unit": "px" }, "$description": "Screen gutter and default padding." },
+    "5": { "$value": { "value": 20, "unit": "px" } },
+    "6": { "$value": { "value": 24, "unit": "px" }, "$description": "Section spacing, modal padding." },
+    "8": { "$value": { "value": 32, "unit": "px" } },
+    "10": { "$value": { "value": 40, "unit": "px" }, "$extensions": { "up": { "status": "normalized", "note": "Fills the 4-point scale between the observed 32 and 48." } } },
+    "12": { "$value": { "value": 48, "unit": "px" } },
+    "16": { "$value": { "value": 64, "unit": "px" }, "$extensions": { "up": { "status": "normalized", "note": "Web section spacing; completes the scale." } } },
+    "17": { "$value": { "value": 68, "unit": "px" } },
+    "18": { "$value": { "value": 72, "unit": "px" } },
+    "22": { "$value": { "value": 88, "unit": "px" } },
+    "30": { "$value": { "value": 120, "unit": "px" } }
+  },
+  "size": {
+    "$type": "dimension",
+    "$description": "Fixed control and asset sizes that recur across components.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:shared components; SRC-WEB-COMPONENTS:lukso-profile sizes", "confidence": "high" } },
+    "icon-s": { "$value": { "value": 16, "unit": "px" } },
+    "icon-m": { "$value": { "value": 24, "unit": "px" } },
+    "icon-l": { "$value": { "value": 32, "unit": "px" } },
+    "icon-xl": { "$value": { "value": 48, "unit": "px" } },
+    "touch-target": { "$value": { "value": 44, "unit": "px" }, "$description": "Minimum interactive target on both platforms.", "$extensions": { "up": { "status": "proposed", "note": "Platform guidance value; production tab items are 60 tall and buttons 48." } } },
+    "control-s": { "$value": { "value": 28, "unit": "px" }, "$description": "Small button, checkbox." },
+    "control-m": { "$value": { "value": 48, "unit": "px" }, "$description": "Medium button height." },
+    "control-l": { "$value": { "value": 54, "unit": "px" }, "$description": "Default glass button height." },
+    "identicon-2xs": { "$value": { "value": 16, "unit": "px" } },
+    "identicon-xs": { "$value": { "value": 24, "unit": "px" } },
+    "identicon-s": { "$value": { "value": 40, "unit": "px" } },
+    "identicon-m": { "$value": { "value": 56, "unit": "px" } },
+    "identicon-l": { "$value": { "value": 80, "unit": "px" } },
+    "identicon-xl": { "$value": { "value": 96, "unit": "px" } },
+    "identicon-2xl": { "$value": { "value": 120, "unit": "px" } },
+    "content-max-width": { "$value": { "value": 880, "unit": "px" }, "$description": "Web content column.", "$extensions": { "up": { "source": "SRC-WEB-APP:tailwind.config.js `maxWidth.content`" } } }
+  },
+  "breakpoint": {
+    "$type": "dimension",
+    "$description": "Web breakpoints: the base-layer Tailwind defaults plus the product override for xl.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-APP:tailwind.config.js `screens.xl`; Tailwind defaults for the rest", "confidence": "medium" } },
+    "sm": { "$value": { "value": 640, "unit": "px" } },
+    "md": { "$value": { "value": 768, "unit": "px" } },
+    "lg": { "$value": { "value": 1024, "unit": "px" } },
+    "xl": { "$value": { "value": 1270, "unit": "px" } }
+  }
+}

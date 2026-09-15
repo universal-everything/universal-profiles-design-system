@@ -1,0 +1,29 @@
+{
+  "name": "universal-profiles-design-system",
+  "version": "0.1.0",
+  "description": "Universal Profiles design system: tokens, foundations, components, patterns, the Address Signature package and validation. Dependency-free.",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "build": "npm run build:tokens && npm run build:contrast && npm run build:backgrounds",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:contrast": "node scripts/contrast-report.mjs",
+    "build:backgrounds": "node scripts/generate-address-backgrounds.mjs",
+    "check:build": "node scripts/build-tokens.mjs --check && node scripts/contrast-report.mjs --check && node scripts/generate-address-backgrounds.mjs --check",
+    "validate": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs",
+    "test:package": "node --test \"packages/**/*.test.mjs\"",
+    "test:contrast": "node scripts/contrast-report.mjs --check"
+  },
+  "workspaces": ["packages/*"],
+  "exports": {
+    "./tokens": "./tokens/build/ts/tokens.ts",
+    "./tokens/css": "./tokens/build/css/variables.css",
+    "./tokens/react-native": "./tokens/build/react-native/theme.ts",
+    "./tokens/tailwind": "./tokens/build/tailwind/preset.cjs",
+    "./tokens/json": "./tokens/build/json/tokens.nested.json",
+    "./address-signature": "./packages/address-signature/src/index.mjs"
+  }
+}

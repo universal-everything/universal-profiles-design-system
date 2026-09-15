@@ -1,0 +1,41 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "$description": "Elevation shadows. Ink is neutral.35 at low alpha so shadows read as tinted air, not grey smoke. React Native consumers use the distance presets in tokens/build/react-native/theme.ts; these CSS-shaped values are the web equivalents.",
+    "drop": {
+      "$value": { "color": "#3F5D741A", "offsetX": "0px", "offsetY": "1px", "blur": "2px", "spread": "0px" },
+      "$description": "Hairline lift for rows and chips.",
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:src/shared/ui/theme/LUKSOShadows.ts `dropShadow` (distance 2, offset 0/1)", "confidence": "medium", "note": "CSS translation of the React Native distance preset." } }
+    },
+    "card": {
+      "$value": { "color": "#BDCEDB66", "offsetX": "0px", "offsetY": "0px", "blur": "16px", "spread": "0px" },
+      "$description": "Resting card shadow on the web.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-WEB-COMPONENTS:tailwind `boxShadow.1xl` = 0 0 16px rgba(189,206,219,.4)", "confidence": "high" } }
+    },
+    "floating": {
+      "$value": { "color": "#3F5D741A", "offsetX": "0px", "offsetY": "0px", "blur": "24px", "spread": "0px" },
+      "$description": "Floating elements: menus, popovers, raised tiles.",
+      "$extensions": { "up": { "status": "normalized", "source": "SRC-MOBILE-APP:LUKSOShadows.ts `neutral-above-2xl` (distance 24, #3F5D741A)", "confidence": "medium" } }
+    },
+    "panel": {
+      "$value": { "color": "#3F5D742E", "offsetX": "0px", "offsetY": "0px", "blur": "32px", "spread": "0px" },
+      "$description": "Ambient shadow under the profile panel.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ProfileView panel shadow rgba(63,93,116) opacity .18 radius 32; LUKSOShadows.ts `neutral-above-1xl`", "confidence": "high" } }
+    },
+    "avatar": {
+      "$value": { "color": "#00000026", "offsetX": "0px", "offsetY": "4px", "blur": "12px", "spread": "0px" },
+      "$description": "Drop shadow under the floating avatar.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:ProfileView floating avatar shadow 0/4, opacity .15, radius 12", "confidence": "high" } }
+    },
+    "glass-panel": {
+      "$value": { "color": "#00000014", "offsetX": "0px", "offsetY": "2px", "blur": "8px", "spread": "0px" },
+      "$description": "iOS shadow under glass panels; Android draws none.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassPanel iOS shadow opacity .08 radius 8 offset 0/2", "confidence": "high" } }
+    },
+    "glass-button": {
+      "$value": { "color": "#0000001F", "offsetX": "0px", "offsetY": "2px", "blur": "6px", "spread": "0px" },
+      "$description": "iOS shadow under glass buttons; Android draws none.",
+      "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:GlassButton iOS shadow #000 opacity .12 radius 6 offset 0/2", "confidence": "high" } }
+    }
+  }
+}

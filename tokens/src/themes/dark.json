@@ -1,0 +1,131 @@
+{
+  "$description": "Dark theme overrides for semantic tokens. Only tokens that change are listed; everything else resolves to its light value. The base layer exposes dark mode as a class and a theme mixin, but no product ships it yet, so every value here is proposed. Metadata declared here wins over the metadata of the light token it overrides; component tokens are not listed, and the build reports their dark status as the weakest status along their dark alias chain.",
+  "$extensions": { "up": { "status": "proposed", "source": "SRC-NFTNYC-2026:dark stage register; SRC-WEB-COMPONENTS:darkMode class and theme mixin", "confidence": "medium" } },
+  "surface": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "source": "SRC-NFTNYC-2026:dark stage register; SRC-WEB-COMPONENTS:darkMode class", "confidence": "medium" } },
+    "canvas": { "$value": "{color.neutral.10}" },
+    "card": { "$value": "{color.neutral.15}" },
+    "card-muted": { "$value": "{color.neutral.20}" },
+    "inverse": { "$value": "{color.neutral.98}" },
+    "glass": { "$value": "rgba(18, 27, 33, 0.72)", "$extensions": { "up": { "open": "OPEN-07", "note": "neutral.10 at the light tint's alpha; no dark glass exists in production." } } },
+    "glass-android": { "$value": "rgba(18, 27, 33, 0.60)", "$extensions": { "up": { "open": "OPEN-07" } } },
+    "glass-solid": { "$value": "{color.neutral.15}" },
+    "glass-bar": { "$value": "rgba(18, 27, 33, 0.80)", "$extensions": { "up": { "open": "OPEN-07" } } },
+    "glass-bar-android": { "$value": "rgba(18, 27, 33, 0.80)", "$extensions": { "up": { "open": "OPEN-07" } } },
+    "scrim": { "$value": "rgba(0, 0, 0, 0.80)" },
+    "skeleton": { "$value": "{color.neutral.20}" },
+    "skeleton-highlight": { "$value": "{color.neutral.25}" },
+    "avatar-fallback": { "$value": "{color.neutral.25}" },
+    "cover-fallback": { "$value": "{color.neutral.15}" }
+  },
+  "text": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium" } },
+    "default": { "$value": "{color.neutral.98}", "$description": "16.65:1 on neutral.10." },
+    "muted": { "$value": "{color.neutral.65}", "$description": "7.09:1 on neutral.10, 6.12:1 on neutral.15." },
+    "subtle": { "$value": "{color.neutral.55}" },
+    "placeholder": { "$value": "{color.neutral.60}", "$description": "5.25:1 on neutral.15." },
+    "inverse": { "$value": "{color.neutral.20}" },
+    "link": { "$value": "{color.up.78}", "$description": "7.90:1 on neutral.10.", "$extensions": { "up": { "open": "OPEN-01" } } },
+    "on-glass-label": { "$value": "{color.neutral.98}" }
+  },
+  "border": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium" } },
+    "subtle": { "$value": "{color.neutral.20}" },
+    "default": { "$value": "{color.neutral.25}" },
+    "strong": { "$value": "{color.neutral.50}", "$description": "3.94:1 against neutral.10." },
+    "focus": { "$value": "{color.neutral.75}", "$description": "9.47:1 on neutral.10." },
+    "error": { "$value": "{color.red.65}" },
+    "glass-reflex": { "$value": "rgba(255, 255, 255, 0.16)", "$extensions": { "up": { "open": "OPEN-07" } } },
+    "glass-counter": { "$value": "rgba(255, 255, 255, 0.06)", "$extensions": { "up": { "open": "OPEN-07" } } },
+    "glass-bar-dark": { "$value": "rgb(0, 0, 0)" },
+    "glass-bar-bright": { "$value": "rgba(255, 255, 255, 0.16)" },
+    "glass-separator-shadow": { "$value": "rgba(0, 0, 0, 0.40)" },
+    "glass-separator-light": { "$value": "rgba(255, 255, 255, 0.10)" }
+  },
+  "accent": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium", "open": "OPEN-01" } },
+    "default": { "$value": "{color.up.78}", "$description": "7.90:1 on neutral.10." },
+    "fill": { "$value": "{color.up.73}", "$description": "Dark accent fill inverts like the primary button: a light periwinkle fill (5.54:1 against neutral.15 as a shape) carrying dark text." },
+    "fill-pressed": { "$value": "{color.up.78}", "$description": "Pressed state lightens, as the dark primary button does." },
+    "on-fill": { "$value": "{color.neutral.10}", "$description": "6.42:1 on the dark accent fill." },
+    "brand": { "$value": "{color.up.73}", "$description": "Nearest ramp step to the board and poster lockup tint; 6.42:1 on neutral.10." },
+    "soft": { "$value": "{color.up.22}" },
+    "soft-border": { "$value": "{color.up.38}" }
+  },
+  "interactive": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium" } },
+    "primary": { "$value": "{color.neutral.98}" },
+    "primary-pressed": { "$value": "{color.neutral.85}" },
+    "on-primary": { "$value": "{color.neutral.20}" },
+    "secondary": { "$value": "{color.neutral.15}" },
+    "secondary-pressed": { "$value": "{color.neutral.20}" },
+    "selected": { "$value": "{color.neutral.98}" },
+    "unselected": { "$value": "{color.neutral.65}" },
+    "unselected-on-glass": { "$value": "{color.neutral.75}", "$description": "5.09:1 over a white cover at the 0.80 tint." }
+  },
+  "status": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium" } },
+    "success": {
+      "text": { "$value": "{color.green.63}", "$description": "9.62:1 on neutral.10." },
+      "control": { "$value": "{color.green.45}" },
+      "soft": { "$value": "#1A3A24", "$description": "Dark success tint (green hue at low lightness)." }
+    },
+    "error": {
+      "text": { "$value": "{color.red.65}", "$description": "5.34:1 on neutral.10." },
+      "border": { "$value": "{color.red.65}" },
+      "soft": { "$value": "#3A1C1C" }
+    },
+    "warning": {
+      "text": { "$value": "{color.yellow.65}", "$description": "10.14:1 on neutral.10." },
+      "icon": { "$value": "{color.yellow.65}" },
+      "soft": { "$value": "#3A2A10" }
+    },
+    "info": {
+      "text": { "$value": "{color.blue.75}", "$description": "8.14:1 on neutral.10." },
+      "soft": { "$value": "#14243A" }
+    }
+  },
+  "tag": {
+    "accent": {
+      "$type": "color",
+      "$extensions": { "up": { "status": "proposed", "confidence": "medium", "open": "OPEN-01" } },
+      "label": { "$value": "{color.up.86}", "$description": "9.52:1 on the dark accent tint." }
+    }
+  },
+  "avatar": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium", "note": "The ring is the surface colour so the edge-breaking moment reads on any cover." } },
+    "ring": { "$value": "{color.neutral.10}" },
+    "badge-ring": { "$value": "{color.neutral.10}" }
+  },
+  "gradient": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "medium" } },
+    "username-start": { "$value": "{color.neutral.90}" },
+    "username-end": { "$value": "{color.neutral.100}" },
+    "address-fallback-start": { "$value": "#F8FAFB10" },
+    "address-fallback-end": { "$value": "#F8FAFB20" }
+  },
+  "glass": {
+    "$type": "color",
+    "$extensions": { "up": { "status": "proposed", "confidence": "low", "open": "OPEN-07" } },
+    "card-tint-start": { "$value": "rgba(36, 53, 66, 0.50)" },
+    "card-tint-mid": { "$value": "rgba(27, 40, 50, 0.50)" },
+    "card-tint-end": { "$value": "rgba(18, 27, 33, 0.50)" },
+    "button-light-start": { "$value": "rgba(255, 255, 255, 0.16)" },
+    "button-light-end": { "$value": "rgba(255, 255, 255, 0.08)" },
+    "button-light-pressed-start": { "$value": "rgba(255, 255, 255, 0.10)" },
+    "button-light-pressed-end": { "$value": "rgba(255, 255, 255, 0.04)" },
+    "button-light-disabled-start": { "$value": "rgba(255, 255, 255, 0.06)" },
+    "button-light-disabled-end": { "$value": "rgba(255, 255, 255, 0.03)" },
+    "toggle-off": { "$value": "rgba(255, 255, 255, 0.20)" },
+    "toggle-on": { "$value": "{status.success.control}", "$description": "3:1 or better against neutral.15 with a dark thumb." },
+    "android-overlay": { "$value": "rgba(18, 27, 33, 0.65)" }
+  }
+}

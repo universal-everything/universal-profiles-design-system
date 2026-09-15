@@ -1,0 +1,57 @@
+{
+  "sheet": {
+    "$description": "Bottom sheet for actions and forms.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOBottomSheet.tsx; Backdrop.tsx", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.xl}", "$extensions": { "up": { "status": "normalized", "note": "The sheet library draws the top corners; 24 matches the QR card and the redesign screens." } } },
+    "padding-x": { "$type": "dimension", "$value": "{space.4}" },
+    "handle-width": { "$type": "dimension", "$value": { "value": 40, "unit": "px" } },
+    "handle-height": { "$type": "dimension", "$value": { "value": 4, "unit": "px" }, "$extensions": { "up": { "status": "proposed" } } },
+    "handle-padding-y": { "$type": "dimension", "$value": "{space.6}" },
+    "handle-color": { "$type": "color", "$value": "{border.strong}", "$extensions": { "up": { "status": "normalized", "note": "Follows border.strong: the lightest neutral step that passes 3:1 on white and canvas." } } },
+    "title": { "$type": "typography", "$value": "{type.title.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.title.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "title-gap": { "$type": "dimension", "$value": "{space.6}" },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "scrim": { "$type": "color", "$value": "{surface.scrim}" }
+  },
+  "dialog": {
+    "$description": "Centred modal for confirmations, loading and fatal errors.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOCentralModal.tsx; LUKSODialogModal.tsx; LUKSOLoadingModal.tsx; SRC-WEB-COMPONENTS:lukso-modal", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.l}", "$extensions": { "up": { "status": "normalized" } } },
+    "padding": { "$type": "dimension", "$value": "{space.6}" },
+    "gap": { "$type": "dimension", "$value": "{space.3}" },
+    "gap-l": { "$type": "dimension", "$value": "{space.4}" },
+    "max-width-web": { "$type": "dimension", "$value": { "value": 480, "unit": "px" }, "$extensions": { "up": { "status": "proposed" } } },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "scrim": { "$type": "color", "$value": "{surface.scrim}" },
+    "title": { "$type": "typography", "$value": "{type.title.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.title.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "body": { "$type": "typography", "$value": "{type.body.l}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.l: sizes and line heights are observed, the grouping into roles is the normalization." } } }
+  },
+  "toast": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOToast.tsx; LUKSOConfirmationToast.tsx", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.m}" },
+    "padding": { "$type": "dimension", "$value": "{space.6}" },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "border": { "$type": "color", "$value": "{border.default}" },
+    "shadow": { "$type": "shadow", "$value": "{shadow.floating}", "$extensions": { "up": { "status": "normalized", "note": "Follows shadow.floating (the normalized shadow presets)." } } },
+    "title": { "$type": "typography", "$value": "{type.body.l-strong}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.l-strong: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "body": { "$type": "typography", "$value": "{type.body.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "duration": { "$type": "duration", "$value": { "value": 4000, "unit": "ms" }, "$description": "Auto-dismiss for informational toasts.", "$extensions": { "up": { "status": "proposed" } } }
+  },
+  "tooltip": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOTooltip.tsx; SRC-WEB-COMPONENTS:lukso-tooltip", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.s}" },
+    "padding-x": { "$type": "dimension", "$value": "{space.3}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.2}" },
+    "fill": { "$type": "color", "$value": "{surface.inverse}" },
+    "text-color": { "$type": "color", "$value": "{text.inverse}" },
+    "text": { "$type": "typography", "$value": "{type.body.s}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.s: sizes and line heights are observed, the grouping into roles is the normalization." } } }
+  },
+  "skeleton": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOSkeleton.tsx", "confidence": "high" } },
+    "base": { "$type": "color", "$value": "{surface.skeleton}" },
+    "highlight": { "$type": "color", "$value": "{surface.skeleton-highlight}" },
+    "radius": { "$type": "dimension", "$value": "{radius.xs}" },
+    "duration": { "$type": "duration", "$value": "{motion.duration.shimmer}" },
+    "easing": { "$type": "cubicBezier", "$value": "{motion.easing.linear}", "$extensions": { "up": { "status": "normalized", "note": "Follows the motion easing tokens: CSS bezier approximations of the analytic React Native easing functions." } } }
+  }
+}

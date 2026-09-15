@@ -1,0 +1,14 @@
+{
+  "qr": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:QRCode.tsx; ProfileQRCode.tsx", "confidence": "high" } },
+    "dot-style": { "$type": "string", "$value": "extra-rounded", "$description": "Dot and corner-square style." },
+    "ink": { "$type": "color", "$value": "{color.neutral.10}" },
+    "background": { "$type": "color", "$value": "transparent" },
+    "margin": { "$type": "dimension", "$value": "{space.1}", "$description": "Quiet zone in modules." },
+    "card-radius": { "$type": "dimension", "$value": "{radius.xl}" },
+    "card-fill": { "$type": "color", "$value": "{color.static.white}", "$description": "Always white so scanners read the code in dark mode too." },
+    "card-padding": { "$type": "dimension", "$value": "{space.6}" },
+    "avatar-size": { "$type": "dimension", "$value": "{size.identicon-l}" },
+    "min-size": { "$type": "dimension", "$value": { "value": 160, "unit": "px" }, "$extensions": { "up": { "status": "proposed" } } }
+  }
+}

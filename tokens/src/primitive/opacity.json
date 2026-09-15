@@ -1,0 +1,11 @@
+{
+  "opacity": {
+    "$type": "number",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOButton disabled .5; LUKSOBottomTabBarItem inactive .5; LUKSOTopTabBarItem inactive .55; ProfilePanelHeader chevron .4; GlassToggle disabled .4", "confidence": "high" } },
+    "disabled": { "$value": 0.5 },
+    "disabled-glass": { "$value": 0.4 },
+    "inactive": { "$value": 0.5, "$description": "Inactive bottom-tab items." },
+    "inactive-top-tab": { "$value": 0.55 },
+    "hint": { "$value": 0.4, "$description": "Chevrons and affordance glyphs." }
+  }
+}

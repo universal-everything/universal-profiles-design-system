@@ -1,0 +1,27 @@
+{
+  "input": {
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:LUKSOTextInput.tsx; SRC-WEB-COMPONENTS:lukso-input", "confidence": "high" } },
+    "radius": { "$type": "dimension", "$value": "{radius.m}" },
+    "padding-x": { "$type": "dimension", "$value": "{space.4}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.3}", "$extensions": { "up": { "status": "normalized", "note": "Derived: a 48 field height with a 24 line height." } } },
+    "min-height": { "$type": "dimension", "$value": "{size.control-m}" },
+    "multiline-min-height": { "$type": "dimension", "$value": { "value": 104, "unit": "px" } },
+    "border-width": { "$type": "dimension", "$value": { "value": 1, "unit": "px" } },
+    "fill": { "$type": "color", "$value": "{surface.card}" },
+    "border": { "$type": "color", "$value": "{border.default}" },
+    "border-focus": { "$type": "color", "$value": "{border.focus}" },
+    "border-error": { "$type": "color", "$value": "{status.error.border}" },
+    "text": { "$type": "color", "$value": "{text.default}" },
+    "placeholder": { "$type": "color", "$value": "{text.placeholder}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.placeholder: neutral.45 replaces the observed neutral.70 (R-09)." } } },
+    "label": { "$type": "typography", "$value": "{type.body.l-strong}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.l-strong: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "label-color": { "$type": "color", "$value": "{text.default}" },
+    "value": { "$type": "typography", "$value": "{type.body.l}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.l: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "value-mono": { "$type": "typography", "$value": "{type.mono.l}", "$description": "Amount and address fields.", "$extensions": { "up": { "status": "normalized", "note": "Follows type.mono.l: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "helper": { "$type": "typography", "$value": "{type.body.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "helper-color": { "$type": "color", "$value": "{text.muted}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.muted: neutral.40 replaces the observed neutral.60 (R-08)." } } },
+    "error-text": { "$type": "typography", "$value": "{type.body.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.body.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "error-color": { "$type": "color", "$value": "{status.error.text}", "$extensions": { "up": { "status": "normalized", "note": "Follows status.error.text: red.45 replaces the observed red.55 for text (R-12)." } } },
+    "counter-color": { "$type": "color", "$value": "{text.placeholder}", "$extensions": { "up": { "status": "normalized", "note": "Follows text.placeholder: neutral.45 replaces the observed neutral.70 (R-09)." } } },
+    "gap": { "$type": "dimension", "$value": "{space.2}", "$description": "Label to field, field to helper." }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "button": {
+    "$description": "Product button (flat). Web variants map onto the same names; the glass button has its own tokens in component/glass.json.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:src/shared/ui/components/LUKSOButton.tsx; SRC-WEB-COMPONENTS:lukso-button", "confidence": "high" } },
+    "height-s": { "$type": "dimension", "$value": "{size.control-s}" },
+    "height-m": { "$type": "dimension", "$value": "{size.control-m}" },
+    "radius-s": { "$type": "dimension", "$value": "{radius.s}" },
+    "radius-m": { "$type": "dimension", "$value": "{radius.m}" },
+    "padding-x-s": { "$type": "dimension", "$value": "{space.3}" },
+    "padding-x-m": { "$type": "dimension", "$value": "{space.4}", "$extensions": { "up": { "status": "normalized", "note": "Medium buttons use 16 horizontal padding in the redesign screens; the component itself sizes to content." } } },
+    "icon-gap": { "$type": "dimension", "$value": "{space.2}" },
+    "label": { "$type": "typography", "$value": "{type.action.m}", "$extensions": { "up": { "status": "normalized", "note": "Follows type.action.m: sizes and line heights are observed, the grouping into roles is the normalization." } } },
+    "focus-ring-width": { "$type": "dimension", "$value": { "value": 2, "unit": "px" }, "$extensions": { "up": { "status": "proposed", "note": "Keyboard focus is not handled on the touch platform; the web needs a visible ring." } } },
+    "focus-ring-offset": { "$type": "dimension", "$value": { "value": 2, "unit": "px" }, "$extensions": { "up": { "status": "proposed" } } },
+    "primary": {
+      "$type": "color",
+      "fill": { "$value": "{interactive.primary}" },
+      "fill-pressed": { "$value": "{interactive.primary-pressed}", "$extensions": { "up": { "status": "proposed", "note": "Follows interactive.primary-pressed: production relies on the native ripple; the pressed tint is a proposal." } } },
+      "label": { "$value": "{interactive.on-primary}" }
+    },
+    "secondary": {
+      "$type": "color",
+      "fill": { "$value": "{interactive.secondary}" },
+      "fill-pressed": { "$value": "{interactive.secondary-pressed}", "$extensions": { "up": { "status": "proposed", "note": "Follows interactive.secondary-pressed: production relies on the native ripple; the pressed tint is a proposal." } } },
+      "border": { "$value": "{border.default}" },
+      "label": { "$value": "{text.default}" }
+    },
+    "ghost": {
+      "$type": "color",
+      "$description": "Text-only button (mobile `text`, web `text`).",
+      "fill": { "$value": "transparent" },
+      "label": { "$value": "{text.default}" }
+    },
+    "accent": {
+      "$type": "color",
+      "$description": "Marketing and web primary call to action in the accent; not used in the mobile app today.",
+      "$extensions": { "up": { "status": "proposed", "open": "OPEN-01" } },
+      "fill": { "$value": "{accent.fill}" },
+      "fill-pressed": { "$value": "{accent.fill-pressed}" },
+      "label": { "$value": "{accent.on-fill}" }
+    },
+    "danger": {
+      "$type": "color",
+      "$description": "Outlined destructive button (mobile `error`).",
+      "$extensions": { "up": { "status": "normalized", "note": "Observed border and label red.65 reach 3.27:1; both move to status.error.text." } },
+      "fill": { "$value": "transparent" },
+      "border": { "$value": "{status.error.text}" },
+      "label": { "$value": "{status.error.text}" }
+    },
+    "disabled-opacity": { "$type": "number", "$value": "{opacity.disabled}" }
+  }
+}

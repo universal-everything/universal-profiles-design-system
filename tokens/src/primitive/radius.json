@@ -1,0 +1,15 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "$description": "Corner radius scale measured from production: 12 and 8 dominate, 16 is the glass card, 24 the QR card, 32 the glass panel.",
+    "$extensions": { "up": { "status": "observed", "source": "SRC-MOBILE-APP:borderRadius literals across src/; src/shared/ui/theme/glassEffect.ts", "confidence": "high" } },
+    "none": { "$value": { "value": 0, "unit": "px" } },
+    "xs": { "$value": { "value": 4, "unit": "px" } },
+    "s": { "$value": { "value": 8, "unit": "px" }, "$description": "Small button, tag, tooltip, checkbox, app tile." },
+    "m": { "$value": { "value": 12, "unit": "px" }, "$description": "Medium button, input, toast." },
+    "l": { "$value": { "value": 16, "unit": "px" }, "$description": "Card and glass card." },
+    "xl": { "$value": { "value": 24, "unit": "px" }, "$description": "QR card, large sheets." },
+    "2xl": { "$value": { "value": 32, "unit": "px" }, "$description": "Glass panel top corners." },
+    "pill": { "$value": { "value": 999, "unit": "px" }, "$description": "Chips, pill headers, small glass buttons." }
+  }
+}

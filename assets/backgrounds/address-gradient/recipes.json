@@ -1,0 +1,392 @@
+{
+  "$description": "PNG-independent recipes for the example addresses: gradient stops, CSS and React Native props, aura blob positions (fractions of the canvas), identicon colours and grid. Any renderer can reproduce the backgrounds from these numbers without rasters.",
+  "generator": "scripts/generate-address-backgrounds.mjs (packages/address-signature)",
+  "fallback": {
+    "light": {
+      "start": "#24354210",
+      "end": "#24354220",
+      "valid": false,
+      "address": null
+    },
+    "dark": {
+      "start": "#F8FAFB10",
+      "end": "#F8FAFB20",
+      "valid": false,
+      "address": null
+    }
+  },
+  "samples": [
+    {
+      "slug": "sample-1",
+      "address": "0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed",
+      "normalized": "0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed",
+      "displayName": "@sample-one#5aAe",
+      "suffix": "#5aAe",
+      "truncated": {
+        "compact": "0x5aAeb6...eAed",
+        "full": "0x5aAeb6053F...Ef1BeAed"
+      },
+      "gradient": {
+        "light": {
+          "stops": {
+            "start": "#5AAEB680",
+            "end": "#1BEAED80",
+            "valid": true,
+            "address": "0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed"
+          },
+          "css": "linear-gradient(90deg, #5AAEB680, #1BEAED80)",
+          "reactNative": {
+            "colors": [
+              "#5AAEB680",
+              "#1BEAED80"
+            ],
+            "start": {
+              "x": 0,
+              "y": 0.5
+            },
+            "end": {
+              "x": 1,
+              "y": 0.5
+            }
+          }
+        },
+        "dark": {
+          "stops": {
+            "start": "#5AAEB680",
+            "end": "#1BEAED80",
+            "valid": true,
+            "address": "0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed"
+          },
+          "css": "linear-gradient(90deg, #5AAEB680, #1BEAED80)"
+        }
+      },
+      "aura": {
+        "light": {
+          "theme": "light",
+          "canvas": "#F8FAFB",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#5AAEB6",
+              "alpha": 0.3
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#1BEAED",
+              "alpha": 0.3
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        },
+        "dark": {
+          "theme": "dark",
+          "canvas": "#121B21",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#5AAEB6",
+              "alpha": 0.45
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#1BEAED",
+              "alpha": 0.45
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        }
+      },
+      "identicon": {
+        "colors": {
+          "background": "#0EFEAE",
+          "foreground": "#1341AE",
+          "spot": "#416D99"
+        },
+        "grid": [
+          "22111122",
+          "01022010",
+          "01100110",
+          "00111100",
+          "00000000",
+          "01211210",
+          "00122100",
+          "10100101"
+        ]
+      }
+    },
+    {
+      "slug": "sample-2",
+      "address": "0xfB6916095ca1df60bB79Ce92cE3Ea74c37c5d359",
+      "normalized": "0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359",
+      "displayName": "@sample-two#fB69",
+      "suffix": "#fB69",
+      "truncated": {
+        "compact": "0xfB6916...d359",
+        "full": "0xfB6916095c...37c5d359"
+      },
+      "gradient": {
+        "light": {
+          "stops": {
+            "start": "#FB691680",
+            "end": "#C5D35980",
+            "valid": true,
+            "address": "0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359"
+          },
+          "css": "linear-gradient(90deg, #FB691680, #C5D35980)",
+          "reactNative": {
+            "colors": [
+              "#FB691680",
+              "#C5D35980"
+            ],
+            "start": {
+              "x": 0,
+              "y": 0.5
+            },
+            "end": {
+              "x": 1,
+              "y": 0.5
+            }
+          }
+        },
+        "dark": {
+          "stops": {
+            "start": "#FB691680",
+            "end": "#C5D35980",
+            "valid": true,
+            "address": "0xfb6916095ca1df60bb79ce92ce3ea74c37c5d359"
+          },
+          "css": "linear-gradient(90deg, #FB691680, #C5D35980)"
+        }
+      },
+      "aura": {
+        "light": {
+          "theme": "light",
+          "canvas": "#F8FAFB",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#FB6916",
+              "alpha": 0.3
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#C5D359",
+              "alpha": 0.3
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        },
+        "dark": {
+          "theme": "dark",
+          "canvas": "#121B21",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#FB6916",
+              "alpha": 0.45
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#C5D359",
+              "alpha": 0.45
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        }
+      },
+      "identicon": {
+        "colors": {
+          "background": "#E7ED33",
+          "foreground": "#FAAD15",
+          "spot": "#7369F8"
+        },
+        "grid": [
+          "10000001",
+          "00000000",
+          "11000011",
+          "12111121",
+          "01011010",
+          "02122120",
+          "02000020",
+          "10211201"
+        ]
+      }
+    },
+    {
+      "slug": "sample-3",
+      "address": "0xdbF03B407c01E7cD3CBea99509d93f8DDDC8C6FB",
+      "normalized": "0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb",
+      "displayName": "anonymous-profile#dbF0",
+      "suffix": "#dbF0",
+      "truncated": {
+        "compact": "0xdbF03B...C6FB",
+        "full": "0xdbF03B407c...DDC8C6FB"
+      },
+      "gradient": {
+        "light": {
+          "stops": {
+            "start": "#DBF03B80",
+            "end": "#C8C6FB80",
+            "valid": true,
+            "address": "0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb"
+          },
+          "css": "linear-gradient(90deg, #DBF03B80, #C8C6FB80)",
+          "reactNative": {
+            "colors": [
+              "#DBF03B80",
+              "#C8C6FB80"
+            ],
+            "start": {
+              "x": 0,
+              "y": 0.5
+            },
+            "end": {
+              "x": 1,
+              "y": 0.5
+            }
+          }
+        },
+        "dark": {
+          "stops": {
+            "start": "#DBF03B80",
+            "end": "#C8C6FB80",
+            "valid": true,
+            "address": "0xdbf03b407c01e7cd3cbea99509d93f8dddc8c6fb"
+          },
+          "css": "linear-gradient(90deg, #DBF03B80, #C8C6FB80)"
+        }
+      },
+      "aura": {
+        "light": {
+          "theme": "light",
+          "canvas": "#F8FAFB",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#DBF03B",
+              "alpha": 0.3
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#C8C6FB",
+              "alpha": 0.3
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        },
+        "dark": {
+          "theme": "dark",
+          "canvas": "#121B21",
+          "valid": true,
+          "blobs": [
+            {
+              "cx": 0.22,
+              "cy": 0.3,
+              "radius": 0.55,
+              "color": "#DBF03B",
+              "alpha": 0.45
+            },
+            {
+              "cx": 0.78,
+              "cy": 0.72,
+              "radius": 0.55,
+              "color": "#C8C6FB",
+              "alpha": 0.45
+            }
+          ],
+          "blur": 0.12,
+          "grain": {
+            "frequency": 0.9,
+            "opacity": 0.04
+          },
+          "safeZone": {
+            "text": "left 40 percent",
+            "lockup": "bottom right 25 percent; keep the darker blob away from it"
+          }
+        }
+      },
+      "identicon": {
+        "colors": {
+          "background": "#8F3280",
+          "foreground": "#093068",
+          "spot": "#7523DA"
+        },
+        "grid": [
+          "10200201",
+          "01111110",
+          "01122110",
+          "01022010",
+          "21200212",
+          "01211210",
+          "10111101",
+          "11011011"
+        ]
+      }
+    }
+  ]
+}
