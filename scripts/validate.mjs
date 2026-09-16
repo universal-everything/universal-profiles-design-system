@@ -5,7 +5,7 @@
  *
  *   node scripts/validate.mjs             # run every check
  *   node scripts/validate.mjs --only docs # run one check (json, tokens, generated, contrast, docs,
- *                                         # assets, rasters, branded, forbidden, mutation, sources,
+ *                                         # assets, rasters, branded, ambient, forbidden, mutation, sources,
  *                                         # icons, examples, package, tests)
  *   node scripts/validate.mjs --list      # list checks
  *
@@ -27,6 +27,7 @@ import { computePairs } from "./contrast-report.mjs";
 import { valueToJs } from "./lib/format.mjs";
 import { alphaStats, decodePng, pngInfo, scaleArea, zoneLuminance } from "./lib/png.mjs";
 import { checkBranded } from "./validate/branded.mjs";
+import { checkAmbient } from "./validate/ambient.mjs";
 import { PREVIEWS_DIR, compareSheet, composeAll } from "./compose-previews.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -278,14 +279,14 @@ const REQUIRED_FILES = [
   "patterns/README.md", "patterns/onboarding.md", "patterns/profile-creation-and-recovery.md", "patterns/permissions-and-controllers.md", "patterns/signing-and-confirmation.md", "patterns/network-context.md", "patterns/wallet-and-assets.md", "patterns/dapp-and-browser-surfaces.md", "patterns/discovery-and-browse.md", "patterns/empty-error-offline.md", "patterns/marketing-layouts.md", "patterns/content-voice.md", "patterns/obsolete.md",
   "icons/README.md", "icons/manifest.json",
   "imagery/README.md", "imagery/briefs.md", "imagery/framing-and-safe-zones.md",
-  "assets/README.md", "assets/generated/PROVENANCE.json", "assets/generated/backgrounds/README.md", "assets/generated/backgrounds/slides-v2/PROMPTS.source.json", "assets/screenshots/mobile-app/PROVENANCE.json", "assets/screenshots/mobile-app/README.md", "assets/slides/README.md", "assets/slides/onboarding/PROVENANCE.json", "assets/slides/previews/PROVENANCE.json", "assets/backgrounds/address-gradient/PROVENANCE.json", "assets/backgrounds/address-gradient/recipes.json", "assets/logos/README.md",
+  "assets/README.md", "assets/generated/PROVENANCE.json", "assets/generated/backgrounds/README.md", "assets/generated/backgrounds/slides-v2/PROMPTS.source.json", "assets/generated/backgrounds/slides-v3-ambient/PROMPTS.source.json", "assets/screenshots/mobile-app/PROVENANCE.json", "assets/screenshots/mobile-app/README.md", "assets/slides/README.md", "assets/slides/onboarding/PROVENANCE.json", "assets/slides/previews/PROVENANCE.json", "assets/backgrounds/address-gradient/PROVENANCE.json", "assets/backgrounds/address-gradient/recipes.json", "assets/logos/README.md",
   "accessibility/README.md", "accessibility/contrast-report.md", "accessibility/checklist.md",
   "adoption/web.md", "adoption/react-native.md", "adoption/migration-checklist.md", "adoption/gap-register.md",
   "provenance/README.md", "provenance/sources.json", "provenance/open-items.md", "provenance/reconciliation.md", "provenance/provenance.schema.json",
-  "decisions/README.md", "decisions/0011-owner-authorized-product-visuals.md", "decisions/0012-branded-slide-backgrounds.md",
+  "decisions/README.md", "decisions/0011-owner-authorized-product-visuals.md", "decisions/0012-branded-slide-backgrounds.md", "decisions/0013-container-cube-slide-backgrounds.md", "decisions/0014-ambient-slide-backgrounds.md",
   "packages/address-signature/package.json", "packages/address-signature/src/index.mjs", "packages/address-signature/src/index.d.ts", "packages/address-signature/README.md",
   "examples/README.md", "examples/web/profile-card.html", "examples/web/profile-card.css", "examples/react-native/ProfileCard.tsx", "examples/react-native/GlassPanel.tsx", "examples/react-native/TabBar.tsx", "examples/marketing/README.md", "examples/agent-playbooks/README.md",
-  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs", "scripts/compose-previews.mjs", "scripts/inspect-png.mjs", "scripts/lib/png.mjs", "scripts/validate/forbidden.json", "scripts/validate/branded.mjs", "scripts/validate/branded-backgrounds.json",
+  "scripts/validate.mjs", "scripts/build-tokens.mjs", "scripts/contrast-report.mjs", "scripts/generate-address-backgrounds.mjs", "scripts/compose-previews.mjs", "scripts/inspect-png.mjs", "scripts/lib/png.mjs", "scripts/validate/forbidden.json", "scripts/validate/branded.mjs", "scripts/validate/branded-backgrounds.json", "scripts/validate/ambient.mjs", "scripts/validate/ambient-backgrounds.json", "scripts/validate/ambient.test.mjs",
 ];
 
 const HEADING_RULES = {
@@ -648,11 +649,15 @@ checks.rasters = () => {
 };
 
 /**
- * The branded-backgrounds lock (decision 0012): the twelve slides-v2 files, their prompts, generation ids,
- * reference input, safe zones and measurements, the slide contract, the two contact sheets (recomposed
- * pixel for pixel), the decision record, the source register and the public trademark and licence
- * wording are compared with the pinned selection in scripts/validate/branded-backgrounds.json, so none of
- * them can drift silently. The logic lives in scripts/validate/branded.mjs and is unit-tested there.
+ * The branded-backgrounds lock (decisions 0012 and 0013): the twelve slides-v2 files (hash, header facts,
+ * opacity), their prompts, generation ids, the public onboarding illustrations they were generated from
+ * (pinned by hash), safe zones and measurements, the slide contract, the two contact sheets (recomposed
+ * pixel for pixel), the galleries, the decision record and its predecessor, the source register, the
+ * public trademark and licence wording and the closed-cube geometry contract (required of every pinned
+ * prompt in the positive and of the listed documents; openings, inserts, the flat-badge form and the
+ * superseded board exports rejected) are compared with the pinned selection in
+ * scripts/validate/branded-backgrounds.json, so none of them can drift silently. The logic lives in
+ * scripts/validate/branded.mjs and is unit-tested there.
  */
 checks.branded = () => {
   const fixture = readJson(join(ROOT, "scripts", "validate", "branded-backgrounds.json"));
@@ -665,10 +670,19 @@ checks.branded = () => {
     readText: (relPath) => (existsSync(join(ROOT, relPath)) ? read(join(ROOT, relPath)) : null),
     sha256: (relPath) => (existsSync(join(ROOT, relPath)) ? sha256(readFileSync(join(ROOT, relPath))) : null),
     listDir: (relPath) => (existsSync(join(ROOT, relPath)) ? readdirSync(join(ROOT, relPath)) : []),
+    inspect: (relPath) => {
+      try {
+        const { width, height, bitDepth, colourTypeName, canBeTransparent } = pngInfo(readFileSync(join(ROOT, relPath)));
+        return { dimensions: `${width}x${height}`, bitDepth, colourType: colourTypeName, canBeTransparent };
+      } catch {
+        return null;
+      }
+    },
     measureZone: (relPath, zone) => zoneLuminance(image(relPath), zone),
     recompose: () => {
       try {
-        return composeAll(ROOT, { encode: false }).map(({ entry, image: composed }) => {
+        const wanted = new Set(Object.keys(fixture.previews.sheets));
+        return composeAll(ROOT, { encode: false }).filter(({ entry }) => wanted.has(entry.path)).map(({ entry, image: composed }) => {
           const abs = join(ROOT, PREVIEWS_DIR, entry.path);
           return { path: entry.path, problem: existsSync(abs) ? compareSheet(composed, readFileSync(abs)) : "does not exist" };
         });
@@ -678,6 +692,69 @@ checks.branded = () => {
     },
   };
   return checkBranded(fixture, io);
+};
+
+/**
+ * The independent slides-v3-ambient lock (decision 0014): twelve additive, subordinate light/dark
+ * backgrounds are pinned by bytes, prompt, generation id, reference lineage, C2PA facts, cube count,
+ * strict safe-zone measurements and human-reviewed density bounds. Its two overview sheets are
+ * recomposed and compared pixel for pixel. The separate module and fixture deliberately leave the
+ * expressive slides-v2 branded contract untouched.
+ */
+checks.ambient = () => {
+  const fixture = readJson(join(ROOT, "scripts", "validate", "ambient-backgrounds.json"));
+  const decoded = new Map();
+  const image = (relPath) => {
+    if (!decoded.has(relPath)) decoded.set(relPath, decodePng(readFileSync(join(ROOT, relPath))));
+    return decoded.get(relPath);
+  };
+  const rgbPixelSha256 = (composed) => {
+    const rgb = Buffer.alloc(composed.width * composed.height * 3);
+    for (let source = 0, target = 0; source < composed.data.length; source += 4) {
+      rgb[target++] = composed.data[source];
+      rgb[target++] = composed.data[source + 1];
+      rgb[target++] = composed.data[source + 2];
+    }
+    return sha256(rgb);
+  };
+  const io = {
+    readText: (relPath) => (existsSync(join(ROOT, relPath)) ? read(join(ROOT, relPath)) : null),
+    sha256: (relPath) => (existsSync(join(ROOT, relPath)) ? sha256(readFileSync(join(ROOT, relPath))) : null),
+    listDir: (relPath) => (existsSync(join(ROOT, relPath)) ? readdirSync(join(ROOT, relPath)) : []),
+    inspect: (relPath) => {
+      try {
+        const info = pngInfo(readFileSync(join(ROOT, relPath)));
+        return {
+          dimensions: `${info.width}x${info.height}`,
+          bitDepth: info.bitDepth,
+          colourType: info.colourTypeName,
+          canBeTransparent: info.canBeTransparent,
+          contentCredentials: info.contentCredentials,
+        };
+      } catch {
+        return null;
+      }
+    },
+    measureZone: (relPath, zone) => zoneLuminance(image(relPath), zone),
+    recompose: (paths) => {
+      try {
+        const wanted = new Set(paths);
+        return composeAll(ROOT, { encode: false })
+          .filter(({ entry }) => wanted.has(entry.path))
+          .map(({ entry, image: composed }) => {
+            const abs = join(ROOT, PREVIEWS_DIR, entry.path);
+            return {
+              path: entry.path,
+              problem: existsSync(abs) ? compareSheet(composed, readFileSync(abs)) : "does not exist",
+              pixelSha256: rgbPixelSha256(composed),
+            };
+          });
+      } catch (e) {
+        return [{ path: "ambient contact sheets", problem: `cannot be recomposed: ${e.message}`, pixelSha256: null }];
+      }
+    },
+  };
+  return checkAmbient(fixture, io);
 };
 
 checks.forbidden = () => {

@@ -1,20 +1,71 @@
 {
-  "$description": "The pinned selection of the twelve branded slides-v2 backgrounds (decision 0012). node scripts/validate.mjs --only branded compares this file with the provenance records, the staged prompt file, the files on disk, the contact sheets, the decision record, the source register and the public wording, so that a replaced file, a changed prompt, a loosened contract, a re-ordered contact sheet or a licence sentence that drifts fails the gate. Changing a pinned value here is a deliberate, reviewable act.",
+  "$description": "The pinned selection of the twelve branded slides-v2 backgrounds (decisions 0012 and 0013: the closed-cube set of 2026-09-16, four of its files replaced the same day by precise-object edits of their own generation output, two of them through a chain of two edits). node scripts/validate.mjs --only branded compares this file with the provenance records, the staged prompt file, the files on disk (hash, dimensions, opacity, safe-zone luminance), the public onboarding illustrations the generator received as references, the pinned edits (generation id, kind, verbatim edit prompt, edit target by hash, and every earlier edit of a chain as superseded lineage), the contact sheets, the decision record, the source register, the galleries and the public wording, so that a replaced file, a changed prompt, an unpinned edit or lineage entry, a loosened contract, a re-ordered contact sheet, a licence sentence that drifts, a prompt that drops the closed-cube geometry or asks for an opening, or a document that falls back to the flat-badge or open-receptacle form fails the gate. The geometry check is a keyword and pattern gate over the prompt text, not a proof of what the pixels show. Changing a pinned value here is a deliberate, reviewable act.",
   "decision": {
-    "path": "decisions/0012-branded-slide-backgrounds.md",
-    "id": "0012",
+    "path": "decisions/0013-container-cube-slide-backgrounds.md",
+    "id": "0013",
     "status": "accepted",
-    "index": "decisions/README.md"
+    "index": "decisions/README.md",
+    "predecessor": {
+      "path": "decisions/0012-branded-slide-backgrounds.md",
+      "id": "0012"
+    }
   },
-  "reference": {
-    "source": "SRC-FIGMA-UP-BOARD",
-    "locator": "SRC-FIGMA-UP-BOARD:1131:25142",
-    "fileKey": "pAffzgmq6sjbWkyWAjnYmM",
-    "node": "1131:25142",
-    "label": "Box 5a, the official 3D UP! box",
-    "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+  "references": {
+    "$description": "The style and composition references every generation received: two or three of the repository's already-public shipped onboarding illustrations (decision 0011), pinned by hash. The files on disk, their entries in the onboarding record, the set block, every asset entry's generation inputs and the staged prompt file must all agree with these hashes, and no other input may appear.",
+    "source": "SRC-ONBOARDING-ART",
+    "record": "assets/slides/onboarding/PROVENANCE.json",
+    "directory": "assets/slides/onboarding",
+    "role": "style and composition reference",
     "status": "observed",
-    "published": false
+    "published": true,
+    "files": {
+      "get-started-2.png": "3bfb7b9e4677c0caf1567d93d7cf47f468266b4a63648bf8de904dd33434d911",
+      "get-started-3.png": "d12fc0ef848cce3453caeed4ced50ece1ace4b952f9d381c3b94b2dfd3af56f3",
+      "get-started-4.png": "27ce8393a4d68044de59c520f5a7208191d57200176492df0187ec1b6d0d817a"
+    }
+  },
+  "supersededReferences": {
+    "$description": "The private board exports behind the two earlier depictions, superseded for generation geometry by decision 0013: the front-facing badge render behind the flat-badge set of decision 0012, and the open-receptacle raw image behind the rejected, never published container-cube draft. Each may be cited only as superseded: every line of the listed documents that names the node must say so, no prompt or generation input may cite the node or the hash, and the set block and the staged prompt file must record them as superseded.",
+    "word": "superseded",
+    "nodes": [
+      {
+        "node": "1131:25142",
+        "inputSha256": "0ecc60b31b4826b752fc618bd242a1a557e54721be3e19abea2b7c8c35c2b73f",
+        "label": "Box 5a, a front-facing rounded badge render (the reference of the flat-badge set, decision 0012)"
+      },
+      {
+        "node": "1737:1014",
+        "frame": "1737:1009",
+        "inputSha256": "b6be2e25c3eeab60b947642033cdcb879a126efbc96fe31c1d351d00bc7c9997",
+        "label": "the create-profile raw image, an open-receptacle illustration (the reference of the rejected, never published draft)"
+      }
+    ],
+    "files": [
+      "README.md",
+      "assets/README.md",
+      "assets/generated/backgrounds/README.md",
+      "assets/slides/README.md",
+      "assets/logos/README.md",
+      "imagery/README.md",
+      "imagery/briefs.md",
+      "brand/lockups.md",
+      "brand/misuse.md",
+      "LICENSES/GENERATED-IMAGES.md",
+      "LICENSES/README.md",
+      "TRADEMARKS.md",
+      "SECURITY.md",
+      "provenance/README.md",
+      "provenance/reconciliation.md",
+      "CLAUDE.md",
+      "AGENTS.md",
+      "CONTRIBUTING.md",
+      "patterns/marketing-layouts.md",
+      "examples/marketing/README.md",
+      "examples/agent-playbooks/README.md",
+      "CHANGELOG.md",
+      "decisions/README.md",
+      "decisions/0013-container-cube-slide-backgrounds.md"
+    ]
   },
   "record": "assets/generated/PROVENANCE.json",
   "promptFile": "assets/generated/backgrounds/slides-v2/PROMPTS.source.json",
@@ -34,209 +85,861 @@
     "maxSafeZoneDeviation": 20,
     "measurementTolerance": 0.15
   },
+  "geometry": {
+    "$description": "The closed-cube contract (decision 0013): the Universal Profile is a container, but the UP! object that stands for it is a solid, closed, sealed cube, a monolithic rounded die with smooth, continuous top and side planes and the white UP! once on the front face; never a hole, slot, lid, rim, cavity or insert, never a flat badge or tile. The check is a keyword and pattern gate over the prompt text, polarity-aware: it matches the listed words and phrases, it cannot read the pixels, and it is not a proof of what a file shows. promptRequirements must match every pinned generation prompt (record and staged file) whatever its hash. avoidRequirements must match the prompt's Avoid lines, so every prompt rejects the openings, the inserts and the protrusions. promptNegations may match nowhere in their scope: scope 'prompt' is the whole prompt (the closed geometry stated in the negative); scope 'affirmative' is the prompt without its Avoid lines and, in every clause (split at full stops and semicolons), without the text from the first negation or removal word on, so an Avoid clause, a 'no lid' clause or a 'Remove any inset' clause never trips a guard while a positively requested opening, insert, object entering or emerging, or flat form does, even when a negation follows it in the same clause. editPromptRequirements and editAvoidRequirements are the core contract of every pinned precise-object edit prompt, final or lineage (a precise-object edit, the closed geometry and the closed or sealed cube tops as invariants, the UP! cubes named and their lettering preserved, only the named region edited, no new text, no watermark, and an Avoid line that rejects an opening and an insert on or from a cube); editKinds adds the rules of each kind of edit, and every final pinned edit names its kind (object-replacement: the object replaced by brand-neutral shapes without text, logo or branding, the cubes not moved or reshaped, footwear, swooshes, stripes, logos, emblems, words, letters and monograms rejected; top-plane-cleanup: only the top planes edited into smooth continuous convex surfaces that read as sealed solid dice, the front faces unchanged, no object added or removed, insets, recesses, seams, receptacles and anything entering or emerging rejected; occlusion-removal: only the named sculpture removed, clear separation and visible background around the cube top, nothing emerging from or touching it, the cubes not moved or reshaped, cones, bells, objects touching or behind the cube top, protrusions and anything entering or emerging rejected); the promptNegations apply to edit prompts too. The rules stay distinct (the tests pin them literally), the listed documents state the contract in the listed words, and no listed document may describe the object in the superseded flat-badge or the rejected open-receptacle form.",
+    "promptRequirements": [
+      {
+        "label": "a solid, sealed cube",
+        "pattern": "\\bsolid\\b[^.;\\n]*\\bsealed\\b|\\bsealed\\b[^.;\\n]*\\bsolid\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "closed",
+        "pattern": "\\bclosed\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "monolithic",
+        "pattern": "\\bmonolithic\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a smooth, unbroken or uninterrupted top",
+        "pattern": "\\b(smooth|unbroken|uninterrupted|continuous)\\b[^.;\\n]*\\btops?\\b|\\btops?\\b[^.;\\n]*\\b(smooth|unbroken|uninterrupted|continuous)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "rounded",
+        "pattern": "\\brounded\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the white UP! on the front face",
+        "pattern": "\\bwhite\\b[^.;\\n]*UP![^.;\\n]*\\bfront\\b|\\bfront\\b[^.;\\n]*\\bwhite\\b[^.;\\n]*UP!",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the UP! cube named",
+        "pattern": "UP! cubes?\\b",
+        "scope": "affirmative"
+      },
+      {
+        "label": "no other readable text",
+        "pattern": "no other readable text",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "opaque",
+        "pattern": "\\bopaque\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a layered or dense composition",
+        "pattern": "\\b(layered|dense)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "an Avoid line",
+        "pattern": "^Avoid:",
+        "flags": "m",
+        "scope": "prompt"
+      }
+    ],
+    "avoidRequirements": [
+      {
+        "label": "holes, openings, slots, lids, rims or cavities rejected",
+        "pattern": "\\b(holes?|openings?|slots?|lids?|rims?|cavit(y|ies))\\b",
+        "flags": "i"
+      },
+      {
+        "label": "documents, cards or objects entering or emerging from a cube rejected",
+        "pattern": "\\b(documents?|cards?|papers?|objects?)\\b[^\\n]*\\b(entering|emerging)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "handles, tabs or protrusions rejected",
+        "pattern": "\\b(handles?|tabs?|protrusions?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "transparency rejected",
+        "pattern": "\\btransparen(cy|t)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a watermark rejected",
+        "pattern": "\\bwatermarks?\\b",
+        "flags": "i"
+      }
+    ],
+    "promptNegations": [
+      {
+        "label": "the closed geometry stated in the negative",
+        "scope": "prompt",
+        "pattern": "\\b(not|never|no|nor|without|instead of)\\s+(a |an |the |any |fully |completely |entirely |truly )?(closed|sealed|solid|monolithic|unbroken|uninterrupted)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an opening, aperture, lid, slot, hole, cavity, rim or receptacle requested",
+        "scope": "affirmative",
+        "pattern": "\\b(openings?|apertures?|lids?|lidded|lid seams?|slots?|slotted|holes?|cavit(y|ies)|rims?|receptacles?|hatch(es)?|hinged?|hinges|recess(ed|es)?|indent(ed|ation|ations)?|dimples?|sunken|concave|hollow(ed)?|unsealed|openable|open-top(ped)?)\\b|\\bopen\\s+(top|cube|cubes|box|container|die|dice)s?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an object entering or emerging from a cube, or a cube that opens",
+        "scope": "affirmative",
+        "pattern": "\\b(insert\\w*|enter\\w*|emerg\\w*|spill\\w*|pour\\w*|protrud\\w*|stick\\w*\\s+out|pok\\w*\\s+out|peek\\w*\\s+out|com(e|es|ing)\\s+out\\s+of|ris\\w*\\s+out\\s+of|float\\w*\\s+out\\s+of|tumbl\\w*\\s+out|slid\\w*\\s+(into|out)|slot\\w*\\s+into|drop\\w*\\s+into|plac\\w*\\s+(inside|into)|tuck\\w*\\s+(inside|into)|inside)\\b[^.;\\n]*\\bcubes?\\b|\\bcubes?\\b[^.;\\n]*\\b(insert\\w*|enter\\w*|emerg\\w*|open(s|ed|ing|able)?|unfold\\w*|inside|hold\\w*\\s+(a|an|cards?|documents?|objects?|papers?))\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a flat badge, tile or slab requested",
+        "scope": "affirmative",
+        "pattern": "\\b(flat|shallow|thin)\\s+(rounded )?(badge|tile|slab|square|rectangle|extrusion|app.icon)s?\\b",
+        "flags": "i"
+      }
+    ],
+    "editPromptRequirements": [
+      {
+        "label": "a precise-object edit",
+        "pattern": "^Use case: precise-object-edit$",
+        "flags": "m",
+        "scope": "affirmative"
+      },
+      {
+        "label": "closed",
+        "pattern": "\\bclosed\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a smooth, unbroken or uninterrupted top",
+        "pattern": "\\b(smooth|unbroken|uninterrupted|continuous)\\b[^.;\\n]*\\btops?\\b|\\btops?\\b[^.;\\n]*\\b(smooth|unbroken|uninterrupted|continuous)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the closed or sealed cube tops as an invariant",
+        "pattern": "\\b(closed|sealed)\\b[^.;\\n]*\\b(tops?|top planes?|surfaces?)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the UP! cube named",
+        "pattern": "UP! cubes?\\b",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the UP! lettering preserved",
+        "pattern": "\\bpreserv\\w*\\b[^\\n]*UP!|UP![^\\n]*\\bpreserv\\w*\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "only the named region edited",
+        "pattern": "\\b(edit|change) only\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "no new text",
+        "pattern": "\\bno (new|other|added) (readable )?text\\b",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "no watermark",
+        "pattern": "\\bno watermarks?\\b",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "an Avoid line",
+        "pattern": "^Avoid:",
+        "flags": "m",
+        "scope": "prompt"
+      }
+    ],
+    "editAvoidRequirements": [
+      {
+        "label": "an opening, hole, slot, lid or rim on or from a cube rejected",
+        "pattern": "\\b(openings?|holes?|slots?|lids?|rims?)\\b[^\\n]*\\bcubes?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an insert on or from a cube rejected",
+        "pattern": "\\binserts?\\b[^\\n]*\\bcubes?\\b",
+        "flags": "i"
+      }
+    ],
+    "documentPhrases": {
+      "brand/lockups.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "smooth, continuous top and side planes",
+        "the Universal Profile is a container",
+        "no hole, slot, lid, rim, cavity or insert",
+        "not a flat badge"
+      ],
+      "brand/misuse.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "hole, slot, lid, rim, cavity or insert",
+        "flat badge"
+      ],
+      "imagery/briefs.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "smooth, continuous top and side planes",
+        "the Universal Profile is a container",
+        "no hole, slot, lid, rim, cavity or insert",
+        "layered",
+        "flat badge"
+      ],
+      "assets/generated/backgrounds/README.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "smooth, continuous top and side planes",
+        "the Universal Profile is a container",
+        "no hole, slot, lid, rim, cavity or insert",
+        "layered",
+        "flat badge"
+      ],
+      "CLAUDE.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "smooth, continuous top and side planes",
+        "the Universal Profile is a container",
+        "no hole, slot, lid, rim, cavity or insert",
+        "flat badge"
+      ],
+      "AGENTS.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "README.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "assets/README.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "assets/slides/README.md": [
+        "container cube"
+      ],
+      "assets/logos/README.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "imagery/README.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "layered"
+      ],
+      "TRADEMARKS.md": [
+        "container cube"
+      ],
+      "LICENSES/GENERATED-IMAGES.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "LICENSES/README.md": [
+        "container cube"
+      ],
+      "CHANGELOG.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "the Universal Profile is a container",
+        "open-receptacle"
+      ],
+      "CONTRIBUTING.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "patterns/marketing-layouts.md": [
+        "container cube",
+        "solid, closed"
+      ],
+      "examples/marketing/README.md": [
+        "container cube"
+      ],
+      "examples/agent-playbooks/README.md": [
+        "container cube",
+        "solid, closed and sealed"
+      ],
+      "provenance/README.md": [
+        "container cube"
+      ],
+      "provenance/reconciliation.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "open-receptacle"
+      ],
+      "decisions/0013-container-cube-slide-backgrounds.md": [
+        "container cube",
+        "solid, closed and sealed",
+        "smooth, continuous top and side planes",
+        "the Universal Profile is a container",
+        "no hole, slot, lid, rim, cavity or insert",
+        "monolithic",
+        "layered",
+        "flat badge",
+        "open-receptacle",
+        "never published",
+        "1131:25142",
+        "1737:1014"
+      ],
+      "decisions/0012-branded-slide-backgrounds.md": [
+        "superseded",
+        "0013"
+      ]
+    },
+    "contradictions": [
+      {
+        "label": "the superseded flat-badge form",
+        "$description": "Lines in these files may not describe the depicted UP! object in the flat-badge form of the decision 0012 prompts and documents; decision 0012 itself is history and is not scanned.",
+        "pattern": "rounded-square periwinkle|rounded periwinkle 3D form|cube (mark )?with the badge face|badge cube|\\bflat (rounded )?(badge|tile)s? (is|are) (the )?(official|current|correct) ",
+        "flags": "i",
+        "files": [
+          "README.md",
+          "assets/README.md",
+          "assets/generated/backgrounds/README.md",
+          "assets/slides/README.md",
+          "assets/logos/README.md",
+          "imagery/README.md",
+          "imagery/briefs.md",
+          "brand/lockups.md",
+          "brand/misuse.md",
+          "LICENSES/GENERATED-IMAGES.md",
+          "LICENSES/README.md",
+          "TRADEMARKS.md",
+          "SECURITY.md",
+          "provenance/README.md",
+          "provenance/reconciliation.md",
+          "CLAUDE.md",
+          "AGENTS.md",
+          "CONTRIBUTING.md",
+          "patterns/marketing-layouts.md",
+          "examples/marketing/README.md",
+          "examples/agent-playbooks/README.md",
+          "CHANGELOG.md",
+          "decisions/README.md",
+          "decisions/0013-container-cube-slide-backgrounds.md",
+          "assets/generated/backgrounds/slides-v2/PROMPTS.source.json",
+          "assets/generated/PROVENANCE.json",
+          "assets/slides/previews/PROVENANCE.json",
+          "provenance/sources.json"
+        ]
+      },
+      {
+        "label": "the rejected open-receptacle form",
+        "$description": "Lines in these files may not describe the depicted UP! object as something that opens: an opening, aperture, lid or receptacle attributed to it, a cube one can open, a top face with an opening, or an object that reads as a container. Negative statements (no lid, never a top opening) and the hyphenated 'open-receptacle' name of the rejected draft are not matched.",
+        "pattern": "(?<!\\b(?:never|not|no|nor|without|or)\\s)\\b(a|an|the|its|their|subtle|small|visible|open)\\s+(top\\s+)?(opening|aperture|lid seam|lid|receptacle)\\b|\\bcan be opened\\b|\\bone can open\\b|\\btop face with the (container )?opening\\b|\\bopen(s|ed)? into\\b|\\breads? as a container\\b|\\bcontainer opening\\b",
+        "flags": "i",
+        "files": [
+          "README.md",
+          "assets/README.md",
+          "assets/generated/backgrounds/README.md",
+          "assets/slides/README.md",
+          "assets/logos/README.md",
+          "imagery/README.md",
+          "imagery/briefs.md",
+          "brand/lockups.md",
+          "brand/misuse.md",
+          "LICENSES/GENERATED-IMAGES.md",
+          "LICENSES/README.md",
+          "TRADEMARKS.md",
+          "SECURITY.md",
+          "provenance/README.md",
+          "provenance/reconciliation.md",
+          "CLAUDE.md",
+          "AGENTS.md",
+          "CONTRIBUTING.md",
+          "patterns/marketing-layouts.md",
+          "examples/marketing/README.md",
+          "examples/agent-playbooks/README.md",
+          "CHANGELOG.md",
+          "decisions/README.md",
+          "decisions/0013-container-cube-slide-backgrounds.md",
+          "assets/generated/backgrounds/slides-v2/PROMPTS.source.json",
+          "assets/generated/PROVENANCE.json",
+          "assets/slides/previews/PROVENANCE.json",
+          "provenance/sources.json"
+        ]
+      }
+    ],
+    "editKinds": {
+      "$description": "The kinds of precise-object edit a pinned file may carry, each adding its requirements (over the whole edit prompt) and Avoid requirements (over its Avoid lines) to the core edit contract. A final pinned edit names one of these kinds in the record, the staged file and the pin; a lineage edit (superseded history) is held to the core contract only.",
+      "object-replacement": {
+        "$description": "A scene object (the sneaker, the blank cube) replaced by brand-neutral rounded shapes: the replacement carries no text, logo or branding, the UP! cubes are not moved or reshaped, and footwear, swooshes, stripes, logos, emblems, words, letters and monograms are rejected.",
+        "promptRequirements": [
+          {
+            "label": "the object replaced",
+            "pattern": "\\breplace\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "brand-neutral replacements",
+            "pattern": "\\bbrand-neutral\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "no text, logo or branding on the replacements",
+            "pattern": "\\b(no|neither)\\b[^.;\\n]*\\b(text|logo|branding)\\b",
+            "flags": "i",
+            "scope": "prompt"
+          },
+          {
+            "label": "the UP! cubes not moved or reshaped",
+            "pattern": "\\bdo not move or reshape\\b[^.;\\n]*\\bUP! cubes?\\b",
+            "flags": "i",
+            "scope": "prompt"
+          }
+        ],
+        "avoidRequirements": [
+          {
+            "label": "footwear, a shoe or a sneaker rejected",
+            "pattern": "\\b(footwear|shoes?|sneakers?)\\b",
+            "flags": "i"
+          },
+          {
+            "label": "a swoosh, stripe, logo or emblem rejected",
+            "pattern": "\\b(swoosh(es)?|stripes?|logos?|emblems?)\\b",
+            "flags": "i"
+          },
+          {
+            "label": "a word, letter or monogram rejected",
+            "pattern": "\\b(words?|letters?|monograms?)\\b",
+            "flags": "i"
+          }
+        ]
+      },
+      "top-plane-cleanup": {
+        "$description": "The visible top planes of the UP! cubes made smooth, continuous and gently convex so the cubes read as sealed solid dice at any size: only the top planes are edited, the front faces are unchanged, no object is added or removed, and insets, recesses, seams, receptacles and anything entering or emerging from a cube are rejected.",
+        "promptRequirements": [
+          {
+            "label": "only the top planes edited",
+            "pattern": "\\b(edit|change) only\\b[^.;\\n]*\\btop planes?\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "a smooth, continuous, convex top surface",
+            "pattern": "\\b(smooth|continuous|convex)\\b[^.;\\n]*\\b(surface|plane)s?\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "the cubes read as sealed solid dice",
+            "pattern": "\\bread\\b[^.;\\n]*\\bsealed solid\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "the front faces unchanged",
+            "pattern": "\\bdo not change front faces\\b",
+            "flags": "i",
+            "scope": "prompt"
+          },
+          {
+            "label": "no object added or removed",
+            "pattern": "\\badd/remove objects\\b|\\badd or remove objects\\b",
+            "flags": "i",
+            "scope": "prompt"
+          }
+        ],
+        "avoidRequirements": [
+          {
+            "label": "an inset or recess rejected",
+            "pattern": "\\b(insets?|recess\\w*)\\b",
+            "flags": "i"
+          },
+          {
+            "label": "a seam or receptacle rejected",
+            "pattern": "\\b(seams?|receptacles?)\\b",
+            "flags": "i"
+          },
+          {
+            "label": "anything entering or emerging from a cube rejected",
+            "pattern": "\\b(entering|emerging)\\b[^\\n]*\\bcubes?\\b",
+            "flags": "i"
+          }
+        ]
+      },
+      "occlusion-removal": {
+        "$description": "A background object that a cube's top edge cut off (the cone-shaped sculpture) removed so that nothing touches or appears to emerge from the cube top: only the named sculpture is removed, visible background separates the cube top from every object, the UP! cubes are not moved or reshaped, and cones, bells, objects touching or behind the cube top, protrusions and anything entering or emerging from a cube are rejected.",
+        "promptRequirements": [
+          {
+            "label": "only the named sculpture removed",
+            "pattern": "\\bremove only\\b",
+            "flags": "i",
+            "scope": "prompt"
+          },
+          {
+            "label": "clear separation between the cube and its surroundings",
+            "pattern": "\\bseparat\\w*\\b[^.;\\n]*\\bcubes?\\b|\\bcubes?\\b[^.;\\n]*\\bseparat\\w*\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "visible background between the cube top and every object",
+            "pattern": "\\bvisible background\\b[^.;\\n]*\\bcube top\\b",
+            "flags": "i",
+            "scope": "affirmative"
+          },
+          {
+            "label": "nothing emerging from or touching the cube top",
+            "pattern": "\\bnothing may\\b[^.;\\n]*\\b(emerge|touch)\\w*\\b",
+            "flags": "i",
+            "scope": "prompt"
+          },
+          {
+            "label": "the UP! cubes not moved or reshaped",
+            "pattern": "\\bdo not move or reshape\\b[^.;\\n]*\\bUP! cubes?\\b",
+            "flags": "i",
+            "scope": "prompt"
+          }
+        ],
+        "avoidRequirements": [
+          {
+            "label": "a cone or bell rejected",
+            "pattern": "\\b(cones?|bells?)\\b",
+            "flags": "i"
+          },
+          {
+            "label": "an object touching or behind the cube top rejected",
+            "pattern": "\\b(touching|behind)\\b[^\\n]*\\bcube top\\b",
+            "flags": "i"
+          },
+          {
+            "label": "a protrusion rejected",
+            "pattern": "\\bprotrusions?\\b",
+            "flags": "i"
+          },
+          {
+            "label": "anything entering or emerging from a cube rejected",
+            "pattern": "\\b(entering|emerging)\\b[^\\n]*\\bcubes?\\b",
+            "flags": "i"
+          }
+        ]
+      }
+    }
+  },
+  "edits": {
+    "$description": "A file entry may carry an edit block only when it is pinned here: the generation id and kind of the final precise-object edit that produced the file on disk, the SHA-256 of its verbatim edit prompt, and its edit target by hash, generation id and time stamp (superseded and not in the repository). When the target is itself the output of an earlier edit, that edit and every one before it are pinned in lineage, newest first (id, method, prompt hash, output by hash and time stamp, target by hash, generation id and time stamp), and the chain must end at the entry's own generation output. The record entry (edit: id, method, kind, target, lineage, prompt), the staged prompt file (edit: generationId, kind, targetSha256, targetGenerationId, lineage, prompt) and the set's edits block must agree; no target or output may be a pinned file or a reference; the final edit prompt must meet the core edit contract, the rules of its kind and none of the promptNegations, and a lineage prompt the core edit contract; a file without a pinned edit may not record one, and a chain may not record more or fewer earlier edits than pinned. The entry's generationId stays the generation that produced the scene, and its prompt stays that generation prompt."
+  },
   "files": {
     "identity-orbits-light.png": {
-      "sha256": "d6ee45e590a6e0a7ab5ca19e5068ecac46bbe0e3db653d31d59ae4f292d01d92",
+      "sha256": "5a38c98c457e79d27354edc5a26c35deb756cdb4e1ade7ea5697e6058f805f97",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:05:04Z",
-      "generationId": "exec-4bb4e424-f3dc-4fcf-9484-13f995069aa6",
-      "promptSha256": "e5806d4096e082e2e6daaaa8ea8d784acc58541858a972fb6874954b4620b917",
-      "editTargetSha256": "7cfa196af8ed83347ae1a59dc62c0ab4e5ebdf496c7b9b9eb24c5352254e8ba2",
-      "upBoxes": 3,
+      "contentCredentialsTimestamp": "2026-09-16T06:44:37Z",
+      "generationId": "exec-590f8a51-39be-4db8-b3ec-d1cfdca48fb9",
+      "promptSha256": "9b61686b7b9121ddc529e43aa96fef5fa6a7d808363d47f5a07fe0d3a61c77f3",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
+      "upBoxes": 4,
       "safeZone": {
         "x": 0,
         "y": 0,
-        "width": 0.5,
-        "height": 1,
-        "meanLuminance": 249.9,
-        "deviation": 4.1
+        "width": 0.28,
+        "height": 0.75,
+        "meanLuminance": 247.7,
+        "deviation": 6.1
       }
     },
     "identity-orbits-dark.png": {
-      "sha256": "3c5d992a02d8b2621c6d6381b932bf5483e58ab849073008c7f775ac6490577b",
-      "dimensions": "1671x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:05:49Z",
-      "generationId": "exec-e25c5d91-2c90-4312-8109-cac30c5c4777",
-      "promptSha256": "eed628900e816628662cf528c540a82d876678c51cd5eb4d0a8472f33e56d173",
-      "editTargetSha256": "3d68794c040a9d254d540a9f8fa94088e320987586af8fe0e98eb903264cb364",
-      "upBoxes": 3,
+      "sha256": "ed2860dbe0fa882e10b6fefa6bb81af5254ded433b24db098822e13ada84ea24",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T08:44:53Z",
+      "generationId": "exec-b93afabd-f430-4ba2-889c-90e5827cc978",
+      "promptSha256": "89e0594e176b79bc4edcde3c83875cb9c5332d38193b60807885cb16aab2caa6",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
+      "upBoxes": 4,
       "safeZone": {
         "x": 0,
         "y": 0,
-        "width": 0.5,
-        "height": 1,
-        "meanLuminance": 7.6,
-        "deviation": 5.1
+        "width": 0.28,
+        "height": 0.75,
+        "meanLuminance": 21.4,
+        "deviation": 9.1
+      },
+      "edit": {
+        "method": "precise-object-edit",
+        "kind": "top-plane-cleanup",
+        "generationId": "exec-8b54b8f5-1796-43d8-8027-6fb0ca1afdff",
+        "promptSha256": "fd3c7a6167c0c0c6c3ce229c52a7c84a75622f82f38c309edbefe70db103d941",
+        "targetSha256": "24f92fa12e51e1e0a877682757228799c3eb9886b3e38e32d6b00ed02fbd77e4",
+        "targetGenerationId": "exec-b93afabd-f430-4ba2-889c-90e5827cc978",
+        "targetContentCredentialsTimestamp": "2026-09-16T06:43:40Z"
       }
     },
     "glass-profile-stack-light.png": {
-      "sha256": "8eb91eb066f29dba0dd10a70d5e95f44b55ff589e85423e15560cd439319ac92",
+      "sha256": "aeec6e84bbfeb27a678d497441787010f7b1b97c86747c976cbcc3febdadf51f",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:07:09Z",
-      "generationId": "exec-5ab13a0a-94c7-456b-8fee-223c988359b4",
-      "promptSha256": "43141a8d028186b038ea1dc5cedc7abb9e7d384de8c0e38b42394e6dbb3cedcf",
-      "editTargetSha256": "15a2a4fdabeeaafeb7f60063961f1ecfe591787c4fcd53f0dff0e9d6a09c7754",
-      "upBoxes": 3,
+      "contentCredentialsTimestamp": "2026-09-16T08:42:59Z",
+      "generationId": "exec-bb4931b6-a3ff-472a-bd3f-bbaedd087b92",
+      "promptSha256": "7673c35096aef5b48a1fd86446952c87cfc6b72f6ee480f2ea26463d556658a4",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png"
+      ],
+      "upBoxes": 5,
       "safeZone": {
-        "x": 0.5,
+        "x": 0.66,
         "y": 0,
-        "width": 0.5,
+        "width": 0.34,
         "height": 1,
-        "meanLuminance": 240.6,
-        "deviation": 8.2
+        "meanLuminance": 238.7,
+        "deviation": 8.4
+      },
+      "edit": {
+        "method": "precise-object-edit",
+        "kind": "object-replacement",
+        "generationId": "exec-23ec22a4-a981-40cf-8e9e-4b157684c014",
+        "promptSha256": "5e585a61ae90def934aac65ffedba590ea87fa278dd102098ee30df7db6022e3",
+        "targetSha256": "010a93c5ca87ffb8c901f0bd4c83a009380c594192184cefa0976bb5b05025c1",
+        "targetGenerationId": "exec-89119ef5-fd56-4cce-a7a0-c753c00fe313",
+        "targetContentCredentialsTimestamp": "2026-09-16T08:09:42Z",
+        "lineage": [
+          {
+            "method": "precise-object-edit",
+            "generationId": "exec-89119ef5-fd56-4cce-a7a0-c753c00fe313",
+            "promptSha256": "b2df478f8abf51ae2803e49261b12571ae62bbcb8170b60852065dfff5649ce8",
+            "outputSha256": "010a93c5ca87ffb8c901f0bd4c83a009380c594192184cefa0976bb5b05025c1",
+            "contentCredentialsTimestamp": "2026-09-16T08:09:42Z",
+            "targetSha256": "2b8fb284b0286151531253b5a459c4e2b4e38560cf3ce5bea51c7eded28fa9ef",
+            "targetGenerationId": "exec-bb4931b6-a3ff-472a-bd3f-bbaedd087b92",
+            "targetContentCredentialsTimestamp": "2026-09-16T06:45:56Z"
+          }
+        ]
       }
     },
     "glass-profile-stack-dark.png": {
-      "sha256": "dce642861f54595f0ce2f4b1b757b8d957cf4c1ed5bdadc41af020dfeb7e04c6",
+      "sha256": "4b549a44b28c29f44c75af4821a0828c6273b6de1d17002aa1709d5852bf6e32",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:07:48Z",
-      "generationId": "exec-c4ea649e-b0c9-4f47-981c-9662db861936",
-      "promptSha256": "7564a598d8823b73a8a06a306c43f1a438e7f73bd819f44e847620106b5977ef",
-      "editTargetSha256": "0689cc2afdfac7d3f5cb31f0143f1b2fde4dd2e33f73a9ad385744d6ba323a66",
-      "upBoxes": 3,
+      "contentCredentialsTimestamp": "2026-09-16T06:46:52Z",
+      "generationId": "exec-4b273f4e-558b-4d5a-b880-672d1ea33996",
+      "promptSha256": "771161959679ffae6756297d3b8d693d47252aa5d8843cea713fbcae06fc1594",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png"
+      ],
+      "upBoxes": 5,
       "safeZone": {
-        "x": 0.5,
+        "x": 0.66,
         "y": 0,
-        "width": 0.5,
+        "width": 0.34,
         "height": 1,
-        "meanLuminance": 18.7,
-        "deviation": 5.9
+        "meanLuminance": 33.6,
+        "deviation": 9.5
       }
     },
     "address-ribbons-light.png": {
-      "sha256": "0c140f19d9ec407b7f8f2be460a1ee3e5527f97d093db0ee0c6c90642baa00fa",
+      "sha256": "bc75b45ff36b34b98089e0e2817329613ca885bc4fc350b6f8f87dcddf9896d8",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:08:25Z",
-      "generationId": "exec-feb5a774-a86c-415a-85a0-8fb03d7999ad",
-      "promptSha256": "60799e8a17952db419b93b208e28c23ad3e62d959ef436a53989e93050ad4c8b",
-      "editTargetSha256": "9395aeb326fbea4bdbc3fec4e427f495d3b26eac9a1bfbdb1d8a3c878a6185cd",
-      "upBoxes": 4,
+      "contentCredentialsTimestamp": "2026-09-16T06:48:01Z",
+      "generationId": "exec-4effe421-18d6-4dcd-84ff-3f3210a66070",
+      "promptSha256": "6eb92802522037524f3a860a3b464bfaeda0bb480c17234d31eeb75503d140b8",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
+      "upBoxes": 5,
       "safeZone": {
         "x": 0.15,
-        "y": 0.15,
-        "width": 0.5,
-        "height": 0.35,
-        "meanLuminance": 245.3,
-        "deviation": 7.6
+        "y": 0.05,
+        "width": 0.35,
+        "height": 0.25,
+        "meanLuminance": 250.1,
+        "deviation": 4.1
       }
     },
     "address-ribbons-dark.png": {
-      "sha256": "c9c8abfdf5efb2a4123b8ce3301bbbe5b017b684aafe8ce231274a19c308f472",
+      "sha256": "7c601a20ddff517f0df8d5e2b50b25c2837dfe0bdec5adcad3c0cc976880d466",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:09:04Z",
-      "generationId": "exec-bad476f5-eb70-4ec2-adc6-6f86904de27c",
-      "promptSha256": "6a0d69eddbbb54392f439117dc183f34c74606e091f8c8e955fa9d2dae7c25b8",
-      "editTargetSha256": "b20a33c41170d861fe95c166089ec49589b690f6cb552da21ad5f86d2c1e1730",
+      "contentCredentialsTimestamp": "2026-09-16T08:43:59Z",
+      "generationId": "exec-c8a501ff-35b1-43e3-9779-4f164b6a693e",
+      "promptSha256": "8a7723c67145980928f2b34a5cedbc93a1e39779d1fe1145b1581908873f8920",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
       "upBoxes": 4,
       "safeZone": {
         "x": 0.15,
-        "y": 0.15,
-        "width": 0.5,
-        "height": 0.35,
-        "meanLuminance": 21.9,
-        "deviation": 11.4
+        "y": 0.05,
+        "width": 0.35,
+        "height": 0.25,
+        "meanLuminance": 36.1,
+        "deviation": 5.4
+      },
+      "edit": {
+        "method": "precise-object-edit",
+        "kind": "object-replacement",
+        "generationId": "exec-330a18dd-e4a5-4924-a76d-393697f30eba",
+        "promptSha256": "0d97b94503b366ac5d1a3fea13ef25887196dcf659ac748a8a6236c1de4a63fd",
+        "targetSha256": "c3dd6adbc20a91fa83b2347950c2bc8819cea8bc2ee23d94497c3793d6f79e86",
+        "targetGenerationId": "exec-a3aeecd9-5fd2-4f88-940a-2bbba5d2674d",
+        "targetContentCredentialsTimestamp": "2026-09-16T08:10:52Z",
+        "lineage": [
+          {
+            "method": "precise-object-edit",
+            "generationId": "exec-a3aeecd9-5fd2-4f88-940a-2bbba5d2674d",
+            "promptSha256": "1579af185f5e451e0c1937d9d9e6115384a328e0af28478422acc0dbd103fc47",
+            "outputSha256": "c3dd6adbc20a91fa83b2347950c2bc8819cea8bc2ee23d94497c3793d6f79e86",
+            "contentCredentialsTimestamp": "2026-09-16T08:10:52Z",
+            "targetSha256": "ba6ab15b7bd2e275c8a3064cd1aedde4f792fc9e99bbb5deb42ed0b22dbe6677",
+            "targetGenerationId": "exec-c8a501ff-35b1-43e3-9779-4f164b6a693e",
+            "targetContentCredentialsTimestamp": "2026-09-16T06:49:01Z"
+          }
+        ]
       }
     },
     "modular-constellation-light.png": {
-      "sha256": "5dff00004a05f704681cefab46c226e4ad0b91942489d8831b69527ee68dbcc0",
+      "sha256": "cddb1e2d6dc31df6ee11dd915c3410f66c15c224eb8321dafe9deaf951687896",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:09:44Z",
-      "generationId": "exec-51592fd0-4f57-40a9-a1c3-d96b98180a91",
-      "promptSha256": "f2120e00b6899ccaa0d88d3fe500c47a52caba6a2d110f4095b9b98c87c3316d",
-      "editTargetSha256": "c93aca1eec523a799cae4143d00188b3d534d85195c312861368aaa1adbcc6c8",
+      "contentCredentialsTimestamp": "2026-09-16T06:50:11Z",
+      "generationId": "exec-192a3c35-0445-4f39-bf4c-178c599ef55a",
+      "promptSha256": "6626b0ac34584fa2a6944e9f03c6f4fe80397f3a4ddd3d1c068fd5b1844b7bec",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png",
+        "get-started-4.png"
+      ],
       "upBoxes": 5,
       "safeZone": {
-        "x": 0,
-        "y": 0,
-        "width": 0.58,
-        "height": 0.5,
-        "meanLuminance": 247.8,
-        "deviation": 1.3
+        "x": 0.4,
+        "y": 0.2,
+        "width": 0.22,
+        "height": 0.55,
+        "meanLuminance": 248.4,
+        "deviation": 5.9
       }
     },
     "modular-constellation-dark.png": {
-      "sha256": "61abd21c00cea23072e53c34739cb6272af13f04c86b97aff3f3b574edce3df5",
+      "sha256": "e9525f7ae246a3d2baae27a53a0610f610c7546a939660ccb02c4b2335d2f01e",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:10:19Z",
-      "generationId": "exec-3619a12f-b45e-457b-b9ad-1c91805703ca",
-      "promptSha256": "fb0397577c4f0f4096a433c246564322426b43e74b133ed82add9e906286e5dd",
-      "editTargetSha256": "93a68b850293f5b24523ee805df5e683578c7a94a932cb425286148d6f3dc4de",
+      "contentCredentialsTimestamp": "2026-09-16T06:51:10Z",
+      "generationId": "exec-4509d0b9-6bd8-4427-abe9-30db009c2fc8",
+      "promptSha256": "00c4faa9bd65c8cc3832c058451e348a955fd592c328c056bf8977c85a4755cc",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png",
+        "get-started-4.png"
+      ],
       "upBoxes": 5,
       "safeZone": {
-        "x": 0,
-        "y": 0,
-        "width": 0.58,
-        "height": 0.5,
-        "meanLuminance": 23.8,
-        "deviation": 8
+        "x": 0.4,
+        "y": 0.2,
+        "width": 0.22,
+        "height": 0.55,
+        "meanLuminance": 39.3,
+        "deviation": 9.9
       }
     },
     "identity-network-light.png": {
-      "sha256": "39b24a229b2967080b924340fb686ef1e55817e5b327577d66003ad70cff399a",
+      "sha256": "0d840881b71fb83c09cfa33c672385981cbdc22d92aa0a2f78fe765d864dd0ed",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:10:54Z",
-      "generationId": "exec-db8f78e4-f6be-436f-aac1-4e86f8a87bab",
-      "promptSha256": "1cdbc90ef5ee48a157c4c1fc72573c2fee6a8aedf1a60aae34adf421abd03a60",
-      "editTargetSha256": "a292989605c765450dd7159810b87570ffedd28d541fab2e38fcacfcf6727faa",
-      "upBoxes": 5,
+      "contentCredentialsTimestamp": "2026-09-16T08:45:51Z",
+      "generationId": "exec-41e38e52-c05a-4056-8ded-6770367953c9",
+      "promptSha256": "75fc3464c4edbb553327b9d45a4c381dc547e8f2068cef7519dcafd55697f24c",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png"
+      ],
+      "upBoxes": 3,
       "safeZone": {
-        "x": 0.3,
+        "x": 0,
         "y": 0,
-        "width": 0.4,
-        "height": 0.75,
-        "meanLuminance": 242.9,
-        "deviation": 9.7
+        "width": 0.3,
+        "height": 1,
+        "meanLuminance": 238.6,
+        "deviation": 7.2
+      },
+      "edit": {
+        "method": "precise-object-edit",
+        "kind": "occlusion-removal",
+        "generationId": "exec-6497707f-a512-4177-8d2c-e67863711d47",
+        "promptSha256": "6e87a4f51530b8a1d0ea8ec53860818eb5c745da3f844cb7425e0c50c005cefc",
+        "targetSha256": "faadc82ea42aa1ee75bb6a6d2792fdb172f1a724a93ba5f747b1f522c5c66e1e",
+        "targetGenerationId": "exec-41e38e52-c05a-4056-8ded-6770367953c9",
+        "targetContentCredentialsTimestamp": "2026-09-16T06:53:16Z"
       }
     },
     "identity-network-dark.png": {
-      "sha256": "abff75b57774a2d7cb08a44c60d1b3f97eed8ba923eb707a25870881f09d61d5",
-      "dimensions": "1671x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:11:30Z",
-      "generationId": "exec-3dcda807-2963-4cae-90d8-b532af989213",
-      "promptSha256": "e6bda5793f6d26a29803c43f05af0cffc8b9bb66cb2b3706c7cafd6d7ae66062",
-      "editTargetSha256": "3734a9409eefc8019ef8cf7c07040a9347bc212ea5b3615c832eb79455645522",
-      "upBoxes": 5,
+      "sha256": "0f86bd23b7d4e285ad29275ba2843e739e9803aa37f53f6c3b66cb7ba80e1eda",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T06:55:34Z",
+      "generationId": "exec-71ec7850-d29f-4339-baa9-d5ced8d412a2",
+      "promptSha256": "ec3b6f9c189e48436a09b276709156573edfba4dd869bffc9a31e27888985885",
+      "references": [
+        "get-started-2.png",
+        "get-started-3.png"
+      ],
+      "upBoxes": 3,
       "safeZone": {
-        "x": 0.3,
+        "x": 0,
         "y": 0,
-        "width": 0.4,
-        "height": 0.75,
-        "meanLuminance": 17.6,
-        "deviation": 6.6
+        "width": 0.3,
+        "height": 1,
+        "meanLuminance": 14,
+        "deviation": 6.1
       }
     },
     "iridescent-horizon-light.png": {
-      "sha256": "3d41400518ac2cf825dfbcb469f7f697fbce15b280a36b7f4e13af861056f065",
+      "sha256": "82c40e591843bfd74673dc1c908d3d42abf2f1605746605068e67af34bd2f659",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:12:09Z",
-      "generationId": "exec-f1aa4d2d-3d69-4489-9f84-c4bf5ffd3eb0",
-      "promptSha256": "b207a384307730badde593e72f38239058564a98e1d5683910109c0be4f58f30",
-      "editTargetSha256": "23d5c283f0a4136afefc47d5fecec67d166cd37c3a085bb4245687862f3e35fe",
+      "contentCredentialsTimestamp": "2026-09-16T06:57:11Z",
+      "generationId": "exec-1dd3b9a1-5b67-4cf2-895d-4d97fc1cb80a",
+      "promptSha256": "a7403421471e3a3ff7a02cbe61d46530e8a932f839ca3e6ae3f7bb896c9e4257",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
       "upBoxes": 3,
       "safeZone": {
         "x": 0,
         "y": 0,
-        "width": 0.6,
-        "height": 0.5,
-        "meanLuminance": 245.9,
-        "deviation": 6.7
+        "width": 0.5,
+        "height": 0.42,
+        "meanLuminance": 229.6,
+        "deviation": 11
       }
     },
     "iridescent-horizon-dark.png": {
-      "sha256": "a41f26303d144106cc5b7151e0d59a8f0286efe1a362f21a9d76db36d470826e",
+      "sha256": "c7f104b2f680ad53717acc32718899774364bfcd2ff1269339b5ae7c7d5c6846",
       "dimensions": "1672x941",
-      "contentCredentialsTimestamp": "2026-09-15T21:13:26Z",
-      "generationId": "exec-7ab9027d-be8b-42c0-b509-cee3b9cd86bd",
-      "promptSha256": "b05b5bd10a167ed64fffabc93798e58b6fdd4b545c98f8033806b43ae7c8bfae",
-      "editTargetSha256": "b4c8ededc3b37aaa9946883e26f6c1e4372deb6e54bb32cc4a3e6bc90b5bbd59",
+      "contentCredentialsTimestamp": "2026-09-16T06:58:43Z",
+      "generationId": "exec-6babe3e3-755a-46fc-b021-9cf318d2e428",
+      "promptSha256": "536037c4002f67de824bde74ef27099f15959a7fd27caa6131a4b5032442e26b",
+      "references": [
+        "get-started-2.png",
+        "get-started-4.png"
+      ],
       "upBoxes": 3,
       "safeZone": {
         "x": 0,
         "y": 0,
-        "width": 0.6,
-        "height": 0.5,
-        "meanLuminance": 10.9,
-        "deviation": 6.6
+        "width": 0.5,
+        "height": 0.42,
+        "meanLuminance": 21.9,
+        "deviation": 4.7
       }
     }
   },
@@ -285,12 +988,12 @@
     "sheets": {
       "backgrounds-light-overview.png": {
         "register": "light",
-        "sha256": "159deda24382e43f5608cb7a2f8874291c2b9ccbf1d790eb02767ac4e2ebfdd2",
+        "sha256": "9e90640dc329826ceb6d66ddea8c9e812f8013ca0b7ca6eaabc83983573859f3",
         "dimensions": "1296x1158"
       },
       "backgrounds-dark-overview.png": {
         "register": "dark",
-        "sha256": "c58633bf4df66989d03859cee75074bf8306a5ff25e45d74024a3014ea00d3c3",
+        "sha256": "753449628e70dcf81c73bad7757f392a70a343c5b2dfc730522d616e854afdab",
         "dimensions": "1296x1158"
       }
     },
@@ -299,53 +1002,88 @@
       "app-showcase-dark.png": "ab5e1e5f8228f46f2b441cb840e3b4716fbac0790ffdedd358875a8331a1e784"
     }
   },
+  "galleries": {
+    "$description": "Where the twelve files and the two contact sheets are shown; every listed image reference must be present in the file.",
+    "README.md": [
+      "assets/slides/previews/backgrounds-dark-overview.png",
+      "assets/slides/previews/backgrounds-light-overview.png"
+    ],
+    "assets/generated/backgrounds/README.md": [
+      "../../slides/previews/backgrounds-dark-overview.png",
+      "../../slides/previews/backgrounds-light-overview.png",
+      "slides-v2/identity-orbits-light.png",
+      "slides-v2/identity-orbits-dark.png",
+      "slides-v2/glass-profile-stack-light.png",
+      "slides-v2/glass-profile-stack-dark.png",
+      "slides-v2/address-ribbons-light.png",
+      "slides-v2/address-ribbons-dark.png",
+      "slides-v2/modular-constellation-light.png",
+      "slides-v2/modular-constellation-dark.png",
+      "slides-v2/identity-network-light.png",
+      "slides-v2/identity-network-dark.png",
+      "slides-v2/iridescent-horizon-light.png",
+      "slides-v2/iridescent-horizon-dark.png"
+    ]
+  },
   "sources": {
     "register": "provenance/sources.json",
     "boardKey": "SRC-FIGMA-UP-BOARD",
-    "generatedKey": "SRC-GENERATED-IMAGES"
+    "generatedKey": "SRC-GENERATED-IMAGES",
+    "referenceKey": "SRC-ONBOARDING-ART"
   },
   "logosDirectory": "assets/logos",
   "readmeTable": "assets/generated/backgrounds/README.md",
   "wording": {
     "README.md": [
-      "one or more official UP! boxes",
-      "the UP! mark remains a trademark of its owner"
+      "one or more official UP! container cubes",
+      "the UP! mark remains a trademark of its owner",
+      "decision 0013"
     ],
     "assets/README.md": [
-      "one or more official UP! boxes",
+      "one or more official UP! container cubes",
       "not licensed for extraction or standalone reuse",
-      "0012-branded-slide-backgrounds.md"
+      "0012-branded-slide-backgrounds.md",
+      "0013-container-cube-slide-backgrounds.md"
     ],
     "assets/generated/backgrounds/README.md": [
-      "one or more official UP! boxes",
+      "one or more official UP! container cubes",
       "the UP! mark remains a trademark of its owner",
       "not licensed for extraction or standalone reuse",
       "0012-branded-slide-backgrounds.md",
-      "the standalone reference is not published"
+      "0013-container-cube-slide-backgrounds.md",
+      "already-public onboarding illustrations",
+      "not published"
     ],
     "assets/slides/README.md": [
       "inherit the same restriction",
-      "0012-branded-slide-backgrounds.md"
+      "0012-branded-slide-backgrounds.md",
+      "0013-container-cube-slide-backgrounds.md"
     ],
     "assets/logos/README.md": [
       "decision 0012",
-      "not licensed for extraction or standalone reuse"
+      "not licensed for extraction or standalone reuse",
+      "decision 0013"
     ],
     "imagery/README.md": [
-      "one or more official UP! boxes",
-      "0012-branded-slide-backgrounds.md"
+      "one or more official UP! container cubes",
+      "0012-branded-slide-backgrounds.md",
+      "0013-container-cube-slide-backgrounds.md"
     ],
     "imagery/briefs.md": [
-      "one or more official UP! boxes",
+      "one or more official UP! container cubes",
       "0012-branded-slide-backgrounds.md",
-      "the only permitted text or mark is the UP! mark on the official 3D UP! boxes"
+      "the only permitted text or mark is the UP! mark on the official UP! container cubes",
+      "0013-container-cube-slide-backgrounds.md",
+      "already-public onboarding illustrations"
     ],
     "LICENSES/GENERATED-IMAGES.md": [
       "the UP! mark remains a trademark of its owner",
       "not licensed for extraction or standalone reuse",
       "inherit the same restriction",
       "0012-branded-slide-backgrounds.md",
-      "the standalone reference is not published"
+      "0013-container-cube-slide-backgrounds.md",
+      "already-public onboarding illustrations",
+      "not published"
     ],
     "LICENSES/README.md": [
       "the UP! mark remains a trademark of its owner",
@@ -354,52 +1092,77 @@
     "TRADEMARKS.md": [
       "the UP! mark remains a trademark of its owner",
       "not licensed for extraction or standalone reuse",
-      "0012-branded-slide-backgrounds.md"
+      "0012-branded-slide-backgrounds.md",
+      "0013-container-cube-slide-backgrounds.md",
+      "already-public onboarding illustrations"
     ],
     "provenance/README.md": [
       "0012-branded-slide-backgrounds.md",
-      "the standalone reference is not published"
+      "0013-container-cube-slide-backgrounds.md",
+      "already-public onboarding illustrations",
+      "not published"
     ],
     "provenance/reconciliation.md": [
       "R-39",
-      "decision 0012"
+      "decision 0012",
+      "R-40",
+      "decision 0013"
     ],
     "decisions/README.md": [
-      "0012-branded-slide-backgrounds.md"
+      "0012-branded-slide-backgrounds.md",
+      "0013-container-cube-slide-backgrounds.md"
     ],
     "CLAUDE.md": [
       "decision 0012",
-      "never extract, crop out or reuse"
+      "never extract, crop out or reuse",
+      "decision 0013"
     ],
     "AGENTS.md": [
-      "decision 0012"
+      "decision 0012",
+      "decision 0013"
     ],
     "CHANGELOG.md": [
       "decision 0012",
-      "one or more official UP! boxes"
+      "one or more official UP! container cubes",
+      "decision 0013"
     ],
     "brand/lockups.md": [
-      "decision 0012"
+      "decision 0012",
+      "decision 0013"
     ],
     "brand/misuse.md": [
-      "decision 0012"
+      "decision 0012",
+      "decision 0013"
     ],
     "patterns/marketing-layouts.md": [
-      "one or more official UP! boxes"
+      "one or more official UP! container cubes"
     ],
     "examples/marketing/README.md": [
-      "one or more official UP! boxes"
+      "one or more official UP! container cubes"
     ],
     "examples/agent-playbooks/README.md": [
-      "decision 0012"
+      "decision 0012",
+      "decision 0013"
+    ],
+    "CONTRIBUTING.md": [
+      "container cube"
+    ],
+    "SECURITY.md": [
+      "cited by file key, node id and SHA-256 only"
     ]
   },
   "decisionWording": [
     "Status: accepted",
     "not granted",
-    "the standalone reference is not published",
+    "not published",
     "not brand approval",
-    "0010"
+    "0010",
+    "0011",
+    "0012",
+    "the Universal Profile is a container",
+    "solid, closed and sealed",
+    "never published",
+    "already-public onboarding illustrations"
   ],
   "contradictions": {
     "$description": "Lines in these files may not claim that the branded backgrounds carry no words, letters, marks or text; the accurate wording is 'no other words, letters or marks' or a statement about the heroes and title pair that does not use these forms. imagery/briefs.md is scanned in its IB-12 section only, since other briefs legitimately ask for no text.",

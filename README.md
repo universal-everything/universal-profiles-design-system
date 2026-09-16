@@ -13,11 +13,18 @@ Universal Profiles look like a calm, precise passport for the new web: a neutral
 
 Backgrounds for decks and titles, transparent app screens, the shipped onboarding art and ready-made previews, every file with a verified provenance record; the index is `assets/README.md`.
 
-**Slide backgrounds** (proposed; six families, light and dark, plus the title pair; safe zones, crops and usage in [assets/generated/backgrounds/README.md](assets/generated/backgrounds/README.md)). Each of the twelve family files shows one or more official UP! boxes, rendered from the owner's reference at the owner's request ([decision 0012](decisions/0012-branded-slide-backgrounds.md)); the UP! mark remains a trademark of its owner and may not be cropped out or reused as a mark ([LICENSES/GENERATED-IMAGES.md](LICENSES/GENERATED-IMAGES.md)):
+**Slide backgrounds** (proposed; two six-family light/dark sets plus the title pair; safe zones, crops and usage in [assets/generated/backgrounds/README.md](assets/generated/backgrounds/README.md)). Use the expressive `slides-v2` scenes for campaign, hero, section-divider and closing slides; use the quieter `slides-v3-ambient` scenes behind body copy, charts and transparent product screens. All twenty-four family files show one or more official UP! container cubes under the set-specific owner authorizations ([decision 0012](decisions/0012-branded-slide-backgrounds.md), corrected by [decision 0013](decisions/0013-container-cube-slide-backgrounds.md), for the twelve expressive files and their two overview sheets; [decision 0014](decisions/0014-ambient-slide-backgrounds.md) for exactly the twelve ambient files and their two overview sheets). The Universal Profile is a container, but the cube that stands for it is solid, closed and sealed, never a flat badge and never something that opens; the UP! mark remains a trademark of its owner and may not be cropped out or reused as a mark ([LICENSES/GENERATED-IMAGES.md](LICENSES/GENERATED-IMAGES.md)). Expressive set:
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/slides/previews/backgrounds-dark-overview.png">
-  <img alt="Contact sheet of the six branded slide backgrounds, each with one or more 3D UP! boxes: address ribbons, glass profile stack, identity network, identity orbits, iridescent horizon and modular constellation" src="assets/slides/previews/backgrounds-light-overview.png" width="100%">
+  <img alt="Contact sheet of the six branded slide backgrounds, each a layered identity collage with one or more solid closed UP! container cubes: address ribbons, glass profile stack, identity network, identity orbits, iridescent horizon and modular constellation" src="assets/slides/previews/backgrounds-light-overview.png" width="100%">
+</picture>
+
+Ambient set:
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/slides/previews/ambient-backgrounds-dark-overview.png">
+  <img alt="Contact sheet of the six ambient slide backgrounds, each a quiet edge-biased scene with one or two solid closed UP! container cubes: distant horizon, mist orbit left, mist orbit right, peripheral frame, quiet corner and quiet corner left" src="assets/slides/previews/ambient-backgrounds-light-overview.png" width="100%">
 </picture>
 
 **App screens** (observed design-file exports with transparent exteriors; the paywall and deployment screens are an exploration, not shipped behaviour; [assets/screenshots/mobile-app/README.md](assets/screenshots/mobile-app/README.md)):
@@ -73,11 +80,11 @@ Contradictions are never averaged; the newer authoritative source wins and the c
 Requires Node 22.13 or newer (the gate parses the generated TypeScript with the type stripper that arrived in 22.13) and git on the path (the gate reads the index so that files tracked despite `.gitignore` are validated, and proves in a throwaway repository that a forced add of a private file is rejected). Nothing to install.
 
 ```sh
-npm test                                  # the full validation gate (tokens, build drift, contrast, docs, assets and raster contracts, the branded-background lock, forbidden content and its force-add mutation, sources, icons, examples, package tests)
+npm test                                  # the full gate (tokens, build drift, contrast, docs, assets, rasters, separate branded and ambient locks, forbidden content, sources, icons, examples and package tests)
 node scripts/build-tokens.mjs             # regenerate tokens/build after editing tokens/src
 node scripts/contrast-report.mjs          # regenerate accessibility/contrast-report.md
 node scripts/generate-address-backgrounds.mjs   # regenerate the example backgrounds and share cards
-node scripts/compose-previews.mjs         # recompose the background contact sheets from the slide backgrounds (--check to compare)
+node scripts/compose-previews.mjs         # recompose the expressive and ambient contact sheets (--check to compare)
 node scripts/inspect-png.mjs assets/generated/backgrounds/title-light.png   # facts about a raster (hash, size, alpha, content credentials, safe-zone luminance)
 ```
 
@@ -95,18 +102,18 @@ Consume the tokens: `tokens/build/css/variables.css` on the web (plus `tokens/bu
 | `patterns/` | Onboarding, creation and recovery, permissions, signing, network context, wallet, apps and browser, discovery, empty and error flows, marketing layouts, content voice, the obsolete register |
 | `packages/address-signature/` | Dependency-free helpers: checksum, gradient, suffix, display name, truncation, identicon, aura and share-card SVG, with tests and parity fixtures |
 | `icons/` | The icon rules, a manifest and 53 original starter icons |
-| `imagery/` | The two imagery families, twelve production briefs, framing and safe zones |
-| `assets/` | The asset library: sixteen generated backgrounds and heroes (the twelve slide backgrounds branded with the official UP! box under decision 0012), five transparent app screens, four shipped onboarding illustrations, four previews, procedural address-gradient examples and recipes, one provenance record per directory, the logos note |
+| `imagery/` | The two imagery families, thirteen production briefs, framing and safe zones |
+| `assets/` | The asset library: twenty-eight generated images (twenty-six backgrounds including the title pair, plus two heroes), five transparent app screens, four shipped onboarding illustrations, six previews, procedural address-gradient examples and recipes, one provenance record per directory, the logos note; the twenty-four family backgrounds depict the official UP! container cube under decisions 0012, 0013 and 0014 |
 | `accessibility/` | Rules, checklist and the generated contrast report |
 | `adoption/` | Web and React Native guides, migration checklist, gap register |
 | `provenance/` | Source register, open items, reconciliation register, provenance schema |
 | `decisions/` | Decision records |
 | `examples/` | Web and React Native examples, marketing recipes, agent playbooks |
-| `scripts/` | Build, report, generator, the PNG inspector, the contact-sheet composer and the validation gate (with its dependency-free PNG reader and writer, the pinned branded-background selection and tests) |
+| `scripts/` | Build, report, generator, the PNG inspector, the contact-sheet composer and the validation gate (with its dependency-free PNG reader and writer, separate pinned expressive and ambient background selections and tests) |
 
 ## For Claude Code and other agents
 
-Read `CLAUDE.md` first. In short: change values only in `tokens/src` and rebuild; render every profile with the Address Signature helpers; keep magenta for LUKSO network and LYX roles; never invent a mark and never extract the UP! box from the branded backgrounds; meet the accessibility gates; record provenance for every asset; pick backgrounds and screens from `assets/README.md` and keep copy inside the recorded safe zones; run `npm test` before finishing. `AGENTS.md` points other agents to the same contract.
+Read `CLAUDE.md` first. In short: change values only in `tokens/src` and rebuild; render every profile with the Address Signature helpers; keep magenta for LUKSO network and LYX roles; never invent a mark or extract the UP! container cube from either background set; keep the expressive and ambient contracts separate; meet the accessibility gates; record provenance for every asset; pick backgrounds and screens from `assets/README.md` and keep copy inside the recorded safe zones; run `npm test` before finishing. `AGENTS.md` points other agents to the same contract.
 
 ## Governance
 

@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-09-16",
+  "tool": "OpenAI built-in image generation",
+  "status": "proposed",
+  "publication": "public",
+  "generation": {
+    "mode": "generation from references: each file is a new image generated from its verbatim prompt and the two references named on its entry; references are resolved below by repository-relative path and SHA-256, except the superseded mist-orbit-right dark draft, which is retained by hash only because it is not published",
+    "references": {
+      "slides-v2/identity-network-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/identity-network-light.png",
+        "sha256": "0d840881b71fb83c09cfa33c672385981cbdc22d92aa0a2f78fe765d864dd0ed",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/identity-network-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/identity-network-dark.png",
+        "sha256": "0f86bd23b7d4e285ad29275ba2843e739e9803aa37f53f6c3b66cb7ba80e1eda",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/iridescent-horizon-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/iridescent-horizon-light.png",
+        "sha256": "82c40e591843bfd74673dc1c908d3d42abf2f1605746605068e67af34bd2f659",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/iridescent-horizon-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/iridescent-horizon-dark.png",
+        "sha256": "c7f104b2f680ad53717acc32718899774364bfcd2ff1269339b5ae7c7d5c6846",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/modular-constellation-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/modular-constellation-light.png",
+        "sha256": "cddb1e2d6dc31df6ee11dd915c3410f66c15c224eb8321dafe9deaf951687896",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/modular-constellation-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/modular-constellation-dark.png",
+        "sha256": "e9525f7ae246a3d2baae27a53a0610f610c7546a939660ccb02c4b2335d2f01e",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "title-light.png": {
+        "path": "assets/generated/backgrounds/title-light.png",
+        "sha256": "72335153f2e12dc95c599179741e14c50a7c0703f0431fcb7548760be7f7c3c7",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "title-dark.png": {
+        "path": "assets/generated/backgrounds/title-dark.png",
+        "sha256": "f2808abee3d31c2830f784772addedd86850839fe843be14134c6fc0fd730b67",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/quiet-corner-light.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/quiet-corner-light.png",
+        "sha256": "2b7613c2fabb1d549c13af03ac25c02ec2e7776b60eb4c28bbd95ceb73409037",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/quiet-corner-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/quiet-corner-dark.png",
+        "sha256": "7f1d17561a24c2cea16413dbd5597744600e9f453ac38ba96cbd7ac0869b2001",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/mist-orbit-right-light.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/mist-orbit-right-light.png",
+        "sha256": "033eabb708af4802f7eceaab74f64f99feceed88f99bb860a3002f9f1e9949b5",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "superseded draft 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (hash only)": {
+        "sha256": "8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "superseded",
+        "published": false,
+        "note": "The first mist-orbit-right dark result, used as a regeneration reference and as the generation-time reference behind mist-orbit-left-dark.png; it was later replaced by the exact-size file now on disk and is retained by hash only."
+      }
+    },
+    "referenceLineage": "The frozen selection names slides-v3-ambient/mist-orbit-right-dark.png as the first reference of mist-orbit-left-dark.png. That left companion was countersigned at 2026-09-16T10:55:00Z, before the current right-dark exact-size regeneration was countersigned at 2026-09-16T10:56:17Z; the generation-time label therefore resolves to the superseded draft hash 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319, not to the newer file bytes.",
+    "authorization": "product owner, 2026-09-16; recorded in decisions/0014-ambient-slide-backgrounds.md"
+  },
+  "assets": [
+    {
+      "name": "quiet-corner-light.png",
+      "generationId": "exec-0e185c53-9d32-45c4-983a-b9ee481e6624",
+      "references": [
+        "slides-v2/identity-network-light.png",
+        "title-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create a quiet Universal Profiles ambient slide background, emphatically not hero art. Use Image 1 only as reference for the solid closed UP! cube material and Image 2 only as reference for quiet background restraint.\nSubject: One small solid sealed glossy periwinkle UP! cube resting near the lower-right edge, occupying about 8% of the frame. It is a monolithic rounded die with a smooth continuous closed top and side planes and exact white \"UP!\" once on the front face.\nScene/backdrop: near-white cool mist canvas with one faint frosted profile-card plane behind the cube, two very soft pearlescent spheres, and a thin translucent ribbon fading into atmospheric haze. Supporting objects are low contrast, partially obscured by diffusion, and visually recede behind slide content.\nComposition/framing: keep the left 68% completely calm and evenly luminous for headings, body copy, charts, and transparent app screenshots; all objects remain in the outer lower-right 28%; generous negative space; no object crosses the copy zone.\nLighting/mood: high-key diffused light, restrained periwinkle/blush/cyan reflections, no hard highlights.\nConstraints: one opaque UP! cube only; no other readable text; fully opaque edge-to-edge canvas; brand object is subordinate, not focal.\nAvoid: dense collage, central subject, high contrast, sharp clutter, people, faces, footwear, logos, hole, opening, slot, lid, rim, cavity, recess, insert, handle, tab, protrusion, object entering or emerging from a cube, watermark, transparent canvas."
+    },
+    {
+      "name": "quiet-corner-dark.png",
+      "generationId": "exec-9ddec48a-faef-4a82-b53b-117c51805a4b",
+      "references": [
+        "slides-v2/identity-network-dark.png",
+        "title-dark.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, dark register, opaque, 1672x941 target\nPrimary request: Create a quiet Universal Profiles ambient slide background, emphatically not hero art. Use Image 1 only as reference for the solid closed UP! cube material and Image 2 only as reference for quiet background restraint.\nSubject: One small solid sealed glossy periwinkle UP! cube resting near the lower-right edge, occupying about 8% of the frame. It is a monolithic rounded die with a smooth continuous closed top and side planes and exact white \"UP!\" once on the front face.\nScene/backdrop: deep ink/navy mist canvas with one faint frosted profile-card plane behind the cube, two very soft pearlescent spheres, and a thin translucent ribbon fading into atmospheric haze. Supporting objects are low contrast, partially obscured by diffusion, and visually recede behind slide content.\nComposition/framing: keep the left 68% completely calm and uniformly dark for headings, body copy, charts, and transparent app screenshots; all objects remain in the outer lower-right 28%; generous negative space; no object crosses the copy zone.\nLighting/mood: low-key diffused light, restrained periwinkle/blush/cyan reflections, cube and forms 25% less luminous than hero art; no glow halo, no neon.\nConstraints: one opaque UP! cube only; no other readable text; fully opaque edge-to-edge canvas; brand object is subordinate, not focal.\nAvoid: dense collage, central subject, high contrast, sharp clutter, people, faces, footwear, logos, hole, opening, slot, lid, rim, cavity, recess, insert, handle, tab, protrusion, object entering or emerging from a cube, bright halo, neon, cyberpunk, watermark, transparent canvas."
+    },
+    {
+      "name": "quiet-corner-left-light.png",
+      "generationId": "exec-226399d5-cc97-47fc-8263-a7be832c21b9",
+      "references": [
+        "slides-v3-ambient/quiet-corner-light.png",
+        "slides-v2/identity-network-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create the mirrored companion to Image 1: a quiet Universal Profiles ambient slide background, not hero art. Preserve its restraint and material language; use Image 2 only for the solid closed UP! cube identity.\nSubject: One small solid sealed glossy periwinkle UP! cube near the lower-left edge, occupying about 8% of frame. Monolithic rounded die, smooth continuous closed top and side planes, exact white \"UP!\" once on front.\nScene/backdrop: near-white cool mist with one faint frosted profile-card plane behind the cube, two blurred pearlescent spheres, one thin translucent ribbon dissolving into haze. All supporting forms recede and appear softly translucent.\nComposition/framing: all objects within outer left 28%; right 68% completely calm, evenly luminous and text/chart/app-screen safe; generous negative space; no object crosses the safe area.\nLighting/mood: high-key diffusion, very restrained periwinkle/blush/cyan reflections, no hard highlights.\nConstraints: one opaque UP! cube only, no other readable text, fully opaque canvas, subordinate background presence.\nAvoid: dense collage, central subject, high contrast, sharp clutter, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, handle, tab, protrusion, anything entering/emerging from cube, watermark, transparent canvas."
+    },
+    {
+      "name": "quiet-corner-left-dark.png",
+      "generationId": "exec-13cc8b85-b83d-4a92-96af-ee1bd39f5356",
+      "references": [
+        "slides-v3-ambient/quiet-corner-dark.png",
+        "slides-v2/identity-network-dark.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, dark register, opaque, 1672x941 target\nPrimary request: Create the mirrored companion to Image 1: a quiet Universal Profiles ambient slide background, not hero art. Preserve its restraint and dark material language; use Image 2 only for the solid closed UP! cube identity.\nSubject: One small solid sealed glossy periwinkle UP! cube near the lower-left edge, occupying about 8% of frame. Monolithic rounded die, smooth continuous closed top and side planes, exact white \"UP!\" once on front.\nScene/backdrop: deep ink/navy mist with one faint frosted profile-card plane behind the cube, two blurred pearlescent spheres, one thin translucent ribbon dissolving into haze. Supporting forms recede and appear softly translucent.\nComposition/framing: all objects within outer left 28%; right 68% completely calm, uniformly dark and text/chart/app-screen safe; generous negative space; no object crosses safe area.\nLighting/mood: low-key diffusion, restrained periwinkle/blush/cyan reflections, cube and forms 25% less luminous than hero art, no glow halo or neon.\nConstraints: one opaque UP! cube only, no other readable text, fully opaque canvas, subordinate background presence.\nAvoid: dense collage, central subject, high contrast, sharp clutter, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, handle, tab, protrusion, anything entering/emerging from cube, bright halo, neon, cyberpunk, watermark, transparent canvas."
+    },
+    {
+      "name": "distant-horizon-light.png",
+      "generationId": "exec-10b3f7d6-31dd-402e-94e9-0f0ad0ae5dbb",
+      "references": [
+        "slides-v2/iridescent-horizon-light.png",
+        "title-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create a minimalist Universal Profiles distant-horizon ambient background, not a landscape hero. Use Image 1 only for UP cube geometry/material and Image 2 for quiet restraint.\nSubject: One small solid sealed glossy periwinkle UP! cube on a distant frosted terrace in the lower-right, plus one tiny companion UP! cube far in the lower-left distance. Together they occupy under 9% of frame. Each is a monolithic rounded die with smooth continuous closed top and side planes and exact white \"UP!\" once on front.\nScene/backdrop: near-white mist field with a very low soft frosted horizon confined to bottom 20%, two faint pearlescent arcs and a few blurred glass spheres along the horizon only. No dramatic scenery.\nComposition/framing: upper 72% must remain uninterrupted, evenly luminous, and usable for title, chart, or transparent app screenshot; all visual elements stay below 76% of canvas height.\nLighting/mood: diffused pale periwinkle dawn haze, very low contrast, subdued depth.\nConstraints: exactly two opaque UP! cubes, no other readable text, fully opaque canvas, objects visually subordinate.\nAvoid: mountains, dramatic arches, bright sun, moon, dense collage, central subject, high contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, object entering/emerging, watermark, transparent canvas."
+    },
+    {
+      "name": "distant-horizon-dark.png",
+      "generationId": "exec-f7b77379-1e80-4cad-9aaf-4786aeb18dcd",
+      "references": [
+        "slides-v2/iridescent-horizon-dark.png",
+        "title-dark.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, dark register, opaque, 1672x941 target\nPrimary request: Create a minimalist Universal Profiles distant-horizon ambient background, not a landscape hero. Use Image 1 only for UP cube geometry/material and Image 2 for quiet restraint.\nSubject: One small solid sealed glossy periwinkle UP! cube on a distant frosted terrace in lower-right, plus one tiny companion UP! cube far in lower-left distance. Together under 9% of frame. Each is a monolithic rounded die with smooth continuous closed top and side planes and exact white \"UP!\" once on front.\nScene/backdrop: deep ink/navy mist field with very low soft frosted horizon confined to bottom 20%, two faint pearlescent arcs and a few blurred glass spheres along horizon only. No dramatic scenery.\nComposition/framing: upper 72% uninterrupted, uniformly dark, suitable for title, chart, or transparent app screenshot; all visual elements remain below 76% canvas height.\nLighting/mood: subdued moonless periwinkle haze, very low contrast, no bright pools or neon.\nConstraints: exactly two opaque UP! cubes, no other readable text, fully opaque canvas, objects visually subordinate.\nAvoid: mountains, dramatic arches, bright moon/sun, dense collage, central subject, high contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, object entering/emerging, glow halo, neon, cyberpunk, watermark, transparent canvas."
+    },
+    {
+      "name": "peripheral-frame-light.png",
+      "generationId": "exec-91f87a6a-f32b-4279-aafc-5e9e9d28c672",
+      "references": [
+        "slides-v2/modular-constellation-light.png",
+        "title-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create a quiet Universal Profiles peripheral-frame background, reducing Image 1 to an ambient edge treatment and using Image 2 for calm restraint.\nSubject: Exactly two small solid sealed glossy periwinkle UP! cubes, one fully visible near the upper-left outer edge and one fully visible near the lower-right outer edge, each under 6% of frame. Monolithic rounded dice, smooth continuous closed top/side planes, exact white \"UP!\" once on front.\nScene/backdrop: near-white cool mist. Only at the extreme edges, add two faint frosted profile-card corners, three softly blurred pearlescent spheres, and wisps of translucent ribbon. Elements should look veiled by atmosphere at approximately 20% perceived contrast.\nComposition/framing: central rectangle from 20% to 80% width and 12% to 88% height stays uniform, bright, and free for slide copy, charts, or app screens. Edge elements must not form a strong border line and no object enters centre safe zone.\nLighting/mood: high-key diffuse ambient light, low saturation, restrained periwinkle/blush/cyan.\nConstraints: exactly two opaque UP! cubes; no other readable text; fully opaque canvas; cubes subordinate and separated.\nAvoid: dense collage, central focal point, sharp border, high contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, anything entering/emerging from cubes, watermark, transparent canvas."
+    },
+    {
+      "name": "peripheral-frame-dark.png",
+      "generationId": "exec-2beb7c87-9f93-491d-9b67-8c6aca5a0ac2",
+      "references": [
+        "slides-v2/modular-constellation-dark.png",
+        "title-dark.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, dark register, opaque, 1672x941 target\nPrimary request: Create a quiet Universal Profiles peripheral-frame background, reducing Image 1 to an ambient edge treatment and using Image 2 for calm restraint.\nSubject: Exactly two small solid sealed glossy periwinkle UP! cubes, one fully visible near upper-left outer edge and one fully visible near lower-right outer edge, each under 6% of frame. Monolithic rounded dice, smooth continuous closed top/side planes, exact white \"UP!\" once on front.\nScene/backdrop: deep ink/navy mist. Only at extreme edges add two faint frosted profile-card corners, three softly blurred pearlescent spheres, and wisps of translucent ribbon. Elements veiled by atmosphere at roughly 20% perceived contrast.\nComposition/framing: central rectangle from 20% to 80% width and 12% to 88% height stays uniform, dark, and free for slide copy, charts, or app screens. Edge elements must not form a strong border line and no object enters centre safe zone.\nLighting/mood: low-key diffuse ambient light, low saturation, restrained periwinkle/blush/cyan; no neon/glow halos.\nConstraints: exactly two opaque UP! cubes; no other readable text; fully opaque canvas; cubes subordinate and separated.\nAvoid: dense collage, central focal point, sharp border, high contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, anything entering/emerging from cubes, neon, cyberpunk, watermark, transparent canvas."
+    },
+    {
+      "name": "mist-orbit-right-light.png",
+      "generationId": "exec-1d5b7617-7d23-4d15-98c5-2f769c1435df",
+      "references": [
+        "slides-v2/identity-network-light.png",
+        "slides-v3-ambient/quiet-corner-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create a restrained Universal Profiles mist-orbit background, using Image 1 only for closed cube identity and Image 2 for ambient restraint.\nSubject: One medium-small solid sealed glossy periwinkle UP! cube in far right third and one tiny companion UP! cube above/right, together under 13% of frame. Each monolithic rounded die has smooth continuous closed top/side planes and exact white \"UP!\" once on front.\nScene/backdrop: near-white cool mist with one extremely faint blurred arc connecting the two cubes, three low-contrast pearlescent spheres, and one ghosted frosted profile-card silhouette behind them. All supporting forms softened by haze and low contrast.\nComposition/framing: subjects and supporting forms confined to outer right 32%; left 64% completely calm and evenly luminous for headings, body, charts, or app screens; no network web and no object enters safe zone.\nLighting/mood: diffused pale periwinkle light, restrained blush/cyan, soft depth, no hard highlights.\nConstraints: exactly two opaque UP! cubes, no other readable text, fully opaque canvas, branded forms subordinate.\nAvoid: dense orbit network, multiple rings, many nodes, central focal point, strong contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, object entering/emerging, watermark, transparent canvas."
+    },
+    {
+      "name": "mist-orbit-right-dark.png",
+      "generationId": "exec-c67fdec9-195b-4e3b-a9b6-ceb0168f0b31",
+      "references": [
+        "superseded draft 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (hash only)",
+        "title-dark.png"
+      ],
+      "prompt": "Use case: precise re-generation of a stylized-concept background\nAsset type: subtle 16:9 presentation background, dark register, opaque\nPrimary request: Recreate the restrained mist-orbit-right composition of Image 1 on an EXACT 1672 x 941 pixel canvas. Preserve the same quiet hierarchy and right-edge placement; use Image 2 for the uniform dark background restraint.\nSubject: one medium-small solid sealed glossy periwinkle UP! cube in outer right third and one tiny companion above/right, together under 13% of frame; monolithic rounded dice with smooth continuous closed top/side planes and exact white \"UP!\" once on front.\nScene/backdrop: deep ink/navy mist, one extremely faint blurred arc, three low-contrast spheres, one ghosted profile card behind; all confined to outer right 32%.\nComposition: left 64% completely calm and uniformly dark; no object enters safe zone.\nConstraints: EXACTLY 1672 pixels wide and 941 pixels high; opaque RGB canvas; exactly two UP! cubes; no other readable text; subordinate background visual weight.\nAvoid: dense network, multiple rings, central focal point, strong contrast, people, footwear, other logos, openings, holes, slots, lids, rims, cavities, recesses, inserts, protrusions, anything entering/emerging, neon, cyberpunk, watermark, transparency."
+    },
+    {
+      "name": "mist-orbit-left-light.png",
+      "generationId": "exec-3feca9c7-52bf-403d-8068-93d3d8c8d0a1",
+      "references": [
+        "slides-v3-ambient/mist-orbit-right-light.png",
+        "slides-v2/identity-network-light.png"
+      ],
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, light register, opaque, 1672x941 target\nPrimary request: Create the left-side companion to Image 1, a restrained Universal Profiles mist-orbit background, not hero art. Preserve the ambient visual weight; use Image 2 only for closed cube identity.\nSubject: One medium-small solid sealed glossy periwinkle UP! cube in far left third and one tiny companion UP! cube below/left, together under 13% of frame. Monolithic rounded dice with smooth continuous closed top/side planes and exact white \"UP!\" once on front.\nScene/backdrop: near-white cool mist with one extremely faint blurred arc connecting cubes, three low-contrast pearlescent spheres, and one ghosted frosted profile-card silhouette behind them. Supporting forms softened by haze.\nComposition/framing: subjects/forms confined to outer left 32%; right 64% completely calm and evenly luminous for headings, body, charts, or app screens; no network web and no object enters safe zone.\nLighting/mood: diffused pale periwinkle light, restrained blush/cyan, no hard highlights.\nConstraints: exactly two opaque UP! cubes, no other readable text, fully opaque canvas, branded forms subordinate.\nAvoid: dense orbit network, multiple rings, many nodes, central focal point, strong contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, object entering/emerging, watermark, transparent canvas."
+    },
+    {
+      "name": "mist-orbit-left-dark.png",
+      "generationId": "exec-97d7e2aa-8b48-419c-9547-f9d640ea76fd",
+      "references": [
+        "slides-v3-ambient/mist-orbit-right-dark.png",
+        "slides-v2/identity-network-dark.png"
+      ],
+      "referenceResolution": {
+        "slides-v3-ambient/mist-orbit-right-dark.png": "8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (the superseded generation-time draft; the exact-size right-dark file now on disk was created later)"
+      },
+      "prompt": "Use case: stylized-concept\nAsset type: subtle 16:9 presentation background, dark register, opaque, 1672x941 target\nPrimary request: Create the left-side companion to Image 1, a restrained Universal Profiles mist-orbit background, not hero art. Preserve ambient visual weight; use Image 2 only for closed cube identity.\nSubject: One medium-small solid sealed glossy periwinkle UP! cube in far left third and one tiny companion UP! cube below/left, together under 13% of frame. Monolithic rounded dice with smooth continuous closed top/side planes and exact white \"UP!\" once on front.\nScene/backdrop: deep ink/navy mist with one extremely faint blurred arc connecting cubes, three low-contrast pearlescent spheres, and one ghosted frosted profile-card silhouette behind them. Supporting forms softened by haze.\nComposition/framing: subjects/forms confined to outer left 32%; right 64% completely calm and uniformly dark for headings, body, charts, or app screens; no network web and no object enters safe zone.\nLighting/mood: low-key periwinkle diffusion, restrained blush/cyan, no hard highlights, no glow halos or neon.\nConstraints: exactly two opaque UP! cubes, no other readable text, fully opaque canvas, branded forms subordinate.\nAvoid: dense orbit network, multiple rings, many nodes, central focal point, strong contrast, people, faces, footwear, other logos, opening, hole, slot, lid, rim, cavity, recess, insert, protrusion, object entering/emerging, neon, cyberpunk, watermark, transparent canvas."
+    }
+  ]
+}

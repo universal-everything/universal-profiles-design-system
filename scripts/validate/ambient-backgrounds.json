@@ -1,0 +1,1202 @@
+{
+  "$description": "Pinned lock for the additive slides-v3-ambient family authorized on 2026-09-16. The values here are independently reviewed facts: exact generated files, verbatim prompt hashes, generation ids, C2PA facts, reference lineage, visually counted cubes, measured safe zones, human-reviewed occupied-area and separation bounds, deterministic overview pixels and required public language. This fixture does not broaden or replace the slides-v2 branded lock.",
+  "fixturePath": "scripts/validate/ambient-backgrounds.json",
+  "record": "assets/generated/PROVENANCE.json",
+  "recordDirectory": "backgrounds/slides-v3-ambient",
+  "promptFile": "assets/generated/backgrounds/slides-v3-ambient/PROMPTS.source.json",
+  "directory": "assets/generated/backgrounds/slides-v3-ambient",
+  "directoryFiles": [
+    "PROMPTS.source.json",
+    "distant-horizon-dark.png",
+    "distant-horizon-light.png",
+    "mist-orbit-left-dark.png",
+    "mist-orbit-left-light.png",
+    "mist-orbit-right-dark.png",
+    "mist-orbit-right-light.png",
+    "peripheral-frame-dark.png",
+    "peripheral-frame-light.png",
+    "quiet-corner-dark.png",
+    "quiet-corner-left-dark.png",
+    "quiet-corner-left-light.png",
+    "quiet-corner-light.png"
+  ],
+  "set": "slides-v3-ambient",
+  "brief": "IB-13",
+  "status": "proposed",
+  "mark": "UP!",
+  "familyOrder": [
+    "quiet-corner",
+    "quiet-corner-left",
+    "distant-horizon",
+    "peripheral-frame",
+    "mist-orbit-right",
+    "mist-orbit-left"
+  ],
+  "contract": {
+    "fileCount": 12,
+    "pairCount": 6,
+    "dimensions": "1672x941",
+    "bitDepth": 8,
+    "colourType": "RGB",
+    "alphaChannel": false,
+    "contentCredentials": {
+      "specVersion": "2.2.0",
+      "softwareAgent": "gpt-image 2.0",
+      "claimGenerator": "OpenAI Media Service API",
+      "actions": [
+        "c2pa.created",
+        "c2pa.converted",
+        "c2pa.watermarked.unbound"
+      ],
+      "signer": "OpenAI OpCo, LLC"
+    },
+    "lightMinSafeZoneLuminance": 220,
+    "darkMaxSafeZoneLuminance": 36,
+    "maxSafeZoneDeviation": 12,
+    "measurementTolerance": 0.15,
+    "minSafeZoneWidth": 0.56,
+    "minSafeZoneHeight": 0.7,
+    "minCentralSafeZoneArea": 0.45,
+    "maxCubeCount": 2,
+    "maxAggregateCubeAreaFraction": 0.16,
+    "maxDecorativeAreaFraction": 0.25,
+    "minVisuallyQuietAreaFraction": 0.65,
+    "minSubjectSeparationFraction": 0.04
+  },
+  "setVisualReview": {
+    "cubeCountTotal": 20,
+    "maxAggregateCubeAreaFraction": 0.13,
+    "maxDecorativeAreaFraction": 0.25,
+    "minVisuallyQuietAreaFraction": 0.65
+  },
+  "geometry": {
+    "$description": "Ambient prompts use the same closed-cube polarity guards as slides-v2. The test suite pins promptNegations deep-equal to branded-backgrounds.json. Positive and Avoid requirements are ambient-specific because these scenes must remain sparse rather than satisfy slides-v2's dense/layered rule.",
+    "promptRequirements": [
+      {
+        "label": "a solid, sealed cube",
+        "pattern": "\\bsolid\\b[^.;\\n]*\\bsealed\\b|\\bsealed\\b[^.;\\n]*\\bsolid\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "closed",
+        "pattern": "\\bclosed\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "monolithic",
+        "pattern": "\\bmonolithic\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a smooth continuous top and side plane",
+        "pattern": "\\b(smooth|unbroken|uninterrupted|continuous)\\b[^.;\\n]*\\b(top|side|planes?|surfaces?)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "the exact white UP! once on the front",
+        "pattern": "\\bwhite\\b[^.;\\n]*UP![^.;\\n]*\\bfront\\b|\\bfront\\b[^.;\\n]*\\bwhite\\b[^.;\\n]*UP!",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "an opaque UP! cube",
+        "pattern": "\\bopaque\\b[^\\n]*UP! cubes?|UP! cubes?[^\\n]*\\bopaque\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "an opaque canvas",
+        "pattern": "\\bopaque\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "no other readable text",
+        "pattern": "no other readable text",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "an Avoid line",
+        "pattern": "^Avoid:",
+        "flags": "m",
+        "scope": "prompt"
+      }
+    ],
+    "avoidRequirements": [
+      {
+        "label": "holes, openings, slots, lids, rims or cavities",
+        "pattern": "\\b(holes?|openings?|slots?|lids?|rims?|cavit(y|ies))\\b",
+        "flags": "i"
+      },
+      {
+        "label": "recesses or inserts",
+        "pattern": "\\b(recess(es|ed)?|inserts?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "objects or anything entering or emerging",
+        "pattern": "\\b(objects?|anything)\\b[^\\n]*\\b(entering|emerging)\\b|\\b(entering|emerging)\\b[^\\n]*\\b(objects?|anything|cubes?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "handles, tabs or protrusions",
+        "pattern": "\\b(handles?|tabs?|protrusions?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a watermark",
+        "pattern": "\\bwatermarks?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "canvas transparency",
+        "pattern": "\\b(transparen(t|cy)|transparent canvas)\\b",
+        "flags": "i"
+      }
+    ],
+    "promptNegations": [
+      {
+        "label": "the closed geometry stated in the negative",
+        "scope": "prompt",
+        "pattern": "\\b(not|never|no|nor|without|instead of)\\s+(a |an |the |any |fully |completely |entirely |truly )?(closed|sealed|solid|monolithic|unbroken|uninterrupted)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an opening, aperture, lid, slot, hole, cavity, rim or receptacle requested",
+        "scope": "affirmative",
+        "pattern": "\\b(openings?|apertures?|lids?|lidded|lid seams?|slots?|slotted|holes?|cavit(y|ies)|rims?|receptacles?|hatch(es)?|hinged?|hinges|recess(ed|es)?|indent(ed|ation|ations)?|dimples?|sunken|concave|hollow(ed)?|unsealed|openable|open-top(ped)?)\\b|\\bopen\\s+(top|cube|cubes|box|container|die|dice)s?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an object entering or emerging from a cube, or a cube that opens",
+        "scope": "affirmative",
+        "pattern": "\\b(insert\\w*|enter\\w*|emerg\\w*|spill\\w*|pour\\w*|protrud\\w*|stick\\w*\\s+out|pok\\w*\\s+out|peek\\w*\\s+out|com(e|es|ing)\\s+out\\s+of|ris\\w*\\s+out\\s+of|float\\w*\\s+out\\s+of|tumbl\\w*\\s+out|slid\\w*\\s+(into|out)|slot\\w*\\s+into|drop\\w*\\s+into|plac\\w*\\s+(inside|into)|tuck\\w*\\s+(inside|into)|inside)\\b[^.;\\n]*\\bcubes?\\b|\\bcubes?\\b[^.;\\n]*\\b(insert\\w*|enter\\w*|emerg\\w*|open(s|ed|ing|able)?|unfold\\w*|inside|hold\\w*\\s+(a|an|cards?|documents?|objects?|papers?))\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a flat badge, tile or slab requested",
+        "scope": "affirmative",
+        "pattern": "\\b(flat|shallow|thin)\\s+(rounded )?(badge|tile|slab|square|rectangle|extrusion|app.icon)s?\\b",
+        "flags": "i"
+      }
+    ]
+  },
+  "ambient": {
+    "promptRequirements": [
+      {
+        "label": "ambient presentation use",
+        "pattern": "\\bambient\\b|\\bsubtle\\s+16:9\\s+presentation\\s+background\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "subordinate visual weight",
+        "pattern": "\\bsubordinate\\b|\\bnot focal\\b",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "restrained or low-contrast support",
+        "pattern": "\\b(low[ -]contrast|very low contrast|restrained|faint|quiet|minimalist)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "few explicitly enumerated supporting elements",
+        "pattern": "\\b(one|two|three|a few)\\b[^.;\\n]{0,80}\\b(profile[ -]cards?|spheres?|arcs?|ribbons?|corners?|silhouettes?|supporting (objects|forms))\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "edge-biased or low-horizon placement",
+        "pattern": "\\b(edge|edges|outer|horizon|lower-(left|right)|far (left|right) third)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a calm copy-safe area",
+        "pattern": "\\b(calm|uniform|uninterrupted|safe area|safe zone|copy zone|free for slide copy)\\b",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "a percentage-defined copy area",
+        "pattern": "\\b(60|64|68|72)\\s*%|\\b(20|32)\\s*% to \\b(80|88)\\s*%",
+        "flags": "i",
+        "scope": "affirmative"
+      },
+      {
+        "label": "subjects confined outside the copy area",
+        "pattern": "\\b(no object (crosses|enters)|all (objects|visual elements) (remain|stay)|confined to|all objects within)\\b",
+        "flags": "i",
+        "scope": "prompt"
+      },
+      {
+        "label": "one or two UP! cubes",
+        "pattern": "\\b(one|two|exactly two)\\b[^.;\\n]*UP! cubes?",
+        "flags": "i",
+        "scope": "affirmative"
+      }
+    ],
+    "avoidRequirements": [
+      {
+        "label": "dense composition",
+        "pattern": "\\bdense\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a central subject or focal point",
+        "pattern": "\\bcentral\\b[^\\n]*\\b(subject|focal|point)\\b|\\bcentral subject\\b",
+        "flags": "i"
+      },
+      {
+        "label": "people or faces",
+        "pattern": "\\b(people|faces?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "footwear",
+        "pattern": "\\b(footwear|shoes?|sneakers?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "other logos",
+        "pattern": "\\b(other )?logos?\\b",
+        "flags": "i"
+      }
+    ],
+    "promptNegations": [
+      {
+        "label": "dense ambient imagery requested",
+        "scope": "affirmative",
+        "pattern": "\\bdense\\b",
+        "flags": "i"
+      },
+      {
+        "label": "hero or campaign imagery requested",
+        "scope": "affirmative",
+        "pattern": "(?<!than )\\b(hero|campaign)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a centred subject requested",
+        "scope": "affirmative",
+        "pattern": "\\b(cent(er|re)(ed)?|central)\\b[^.;\\n]{0,30}\\b(subject|focal|composition|cube)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a transparent cube or canvas requested",
+        "scope": "affirmative",
+        "pattern": "\\b(transparent|translucent)\\b[^.;\\n]{0,40}\\b(cubes?|canvas)\\b|\\b(cubes?|canvas)\\b[^.;\\n]{0,40}\\b(transparent|translucent)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "people or faces requested",
+        "scope": "affirmative",
+        "pattern": "\\b(people|persons?)\\b|(?<!front )(?<!top )(?<!side )\\bfaces?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "footwear requested",
+        "scope": "affirmative",
+        "pattern": "\\b(footwear|shoes?|sneakers?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a third-party mark requested",
+        "scope": "affirmative",
+        "pattern": "(?<!UP! )\\b(marks?|logos?|wordmarks?|emblems?|Nike|Adidas|Apple|swoosh)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a rocket requested",
+        "scope": "affirmative",
+        "pattern": "\\brockets?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "additional readable text requested",
+        "scope": "affirmative",
+        "pattern": "\\bwrite\\b|\\b(display|add|set|render|show|place|feature|include)\\w*\\b[^.;\\n]{0,60}\\b(words?|text|lettering|letters?)\\b|\\b(readable text|captions?|labels?|wording|slogans?|headlines?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a watermark requested",
+        "scope": "affirmative",
+        "pattern": "\\bwatermarks?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "neon or cyberpunk lighting requested",
+        "scope": "affirmative",
+        "pattern": "\\b(neon|cyberpunk)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "copy outside the safe zone requested",
+        "scope": "affirmative",
+        "pattern": "\\b(copy|headings?|body( copy)?|charts?|app screens?|text)\\b[^.;\\n]{0,60}\\b(outside|beyond)\\b[^.;\\n]{0,20}\\b(safe|copy) zone\\b|\\b(outside|beyond)\\b[^.;\\n]{0,20}\\b(safe|copy) zone\\b[^.;\\n]{0,60}\\b(copy|headings?|body( copy)?|charts?|app screens?|text)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a subject inside the safe zone requested",
+        "scope": "affirmative",
+        "pattern": "\\b(place|move|put|position|allow)\\b[^.;\\n]{0,60}\\b(objects?|cubes?|subjects?|cards?|profile[ -]?cards?|ribbons?|spheres?|visual elements?|decorations?|supporting forms?)\\b[^.;\\n]{0,30}\\b(inside|in|into|across)\\b[^.;\\n]{0,20}\\b(safe|copy) zone\\b|\\b(objects?|cubes?|subjects?|cards?|profile[ -]?cards?|ribbons?|spheres?|visual elements?|decorations?|supporting forms?)\\b[^.;\\n]{0,30}\\b(inside|into|across)\\b[^.;\\n]{0,20}\\b(safe|copy) zone\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an open cube face or plane requested",
+        "scope": "affirmative",
+        "pattern": "\\b(front|top|side)\\s+(face|plane|surface)\\b[^.;\\n]{0,30}\\bopen(ed|ing)?\\b|\\bopen(ed|ing)?\\b[^.;\\n]{0,30}\\b(front|top|side)\\s+(face|plane|surface)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a window, door or cutout requested",
+        "scope": "affirmative",
+        "pattern": "\\b(windows?|doors?|cut[ -]?outs?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "an object passed through or into a cube",
+        "scope": "affirmative",
+        "pattern": "\\b(pass|push|thread|feed)\\w*\\b[^.;\\n]{0,50}\\b(cards?|documents?|papers?|objects?)\\b[^.;\\n]{0,30}\\b(through|into|inside)\\b[^.;\\n]{0,20}\\bcubes?\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a badge, tile, slab or app-icon form requested",
+        "scope": "affirmative",
+        "pattern": "\\b(badges?|tiles?|slabs?|app[ -]?icons?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a handle, tab or protrusion requested",
+        "scope": "affirmative",
+        "pattern": "\\b(handles?|tabs?|protrusions?)\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a removable cube surface requested",
+        "scope": "affirmative",
+        "pattern": "\\bremov(e|able|ably|ing|ed)\\w*\\b[^.;\\n]{0,30}\\b(tops?|lids?|caps?|panels?|faces?|planes?|surfaces?)\\b|\\b(tops?|lids?|caps?|panels?|faces?|planes?|surfaces?)\\b[^.;\\n]{0,30}\\bremov(e|able|ably|ing|ed)\\w*\\b",
+        "flags": "i"
+      },
+      {
+        "label": "a middle or focal placement requested",
+        "scope": "affirmative",
+        "pattern": "\\bmiddle\\b|\\bfocal\\s+(point|subject)\\b",
+        "flags": "i"
+      }
+    ],
+    "moreThanTwoCubes": {
+      "pattern": "\\bmore than two\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\bat least\\s+(three|four|five|six|seven|eight|nine|ten|[3-9]|[1-9][0-9]+)\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\b(three|four|five|six|seven|eight|nine|ten|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|3rd|4th|5th|6th|7th|8th|9th|10th|[3-9]|[1-9][0-9]+|several|many|multiple)\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\b(trio|quartet)\\s+of\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\b(one|two|an?)\\s+(additional|extra|more)\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\b(?:a )?pair\\s+of\\s+(additional|extra|more)\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cubes?\\b|\\b(another|additional|extra)\\s+(?:small |tiny |opaque |solid |sealed |glossy |periwinkle )*UP! cube\\b|\\bUP! cubes?\\s*[:,-]?\\s*(three|four|five|six|seven|eight|nine|ten|[3-9]|[1-9][0-9]+)\\b",
+      "flags": "i"
+    }
+  },
+  "references": {
+    "files": {
+      "slides-v2/identity-network-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/identity-network-light.png",
+        "sha256": "0d840881b71fb83c09cfa33c672385981cbdc22d92aa0a2f78fe765d864dd0ed",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/identity-network-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/identity-network-dark.png",
+        "sha256": "0f86bd23b7d4e285ad29275ba2843e739e9803aa37f53f6c3b66cb7ba80e1eda",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/iridescent-horizon-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/iridescent-horizon-light.png",
+        "sha256": "82c40e591843bfd74673dc1c908d3d42abf2f1605746605068e67af34bd2f659",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/iridescent-horizon-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/iridescent-horizon-dark.png",
+        "sha256": "c7f104b2f680ad53717acc32718899774364bfcd2ff1269339b5ae7c7d5c6846",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/modular-constellation-light.png": {
+        "path": "assets/generated/backgrounds/slides-v2/modular-constellation-light.png",
+        "sha256": "cddb1e2d6dc31df6ee11dd915c3410f66c15c224eb8321dafe9deaf951687896",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v2/modular-constellation-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v2/modular-constellation-dark.png",
+        "sha256": "e9525f7ae246a3d2baae27a53a0610f610c7546a939660ccb02c4b2335d2f01e",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "title-light.png": {
+        "path": "assets/generated/backgrounds/title-light.png",
+        "sha256": "72335153f2e12dc95c599179741e14c50a7c0703f0431fcb7548760be7f7c3c7",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "title-dark.png": {
+        "path": "assets/generated/backgrounds/title-dark.png",
+        "sha256": "f2808abee3d31c2830f784772addedd86850839fe843be14134c6fc0fd730b67",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/quiet-corner-light.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/quiet-corner-light.png",
+        "sha256": "2b7613c2fabb1d549c13af03ac25c02ec2e7776b60eb4c28bbd95ceb73409037",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/quiet-corner-dark.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/quiet-corner-dark.png",
+        "sha256": "7f1d17561a24c2cea16413dbd5597744600e9f453ac38ba96cbd7ac0869b2001",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "slides-v3-ambient/mist-orbit-right-light.png": {
+        "path": "assets/generated/backgrounds/slides-v3-ambient/mist-orbit-right-light.png",
+        "sha256": "033eabb708af4802f7eceaab74f64f99feceed88f99bb860a3002f9f1e9949b5",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "proposed",
+        "published": true
+      },
+      "superseded draft 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (hash only)": {
+        "sha256": "8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319",
+        "source": "SRC-GENERATED-IMAGES",
+        "status": "superseded",
+        "published": false
+      }
+    },
+    "lineagePhrases": [
+      "mist-orbit-left-dark.png",
+      "2026-09-16T10:55:00Z",
+      "2026-09-16T10:56:17Z",
+      "8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319",
+      "superseded draft"
+    ]
+  },
+  "authorizationPhrases": [
+    "product owner",
+    "2026-09-16",
+    "decisions/0014-ambient-slide-backgrounds.md"
+  ],
+  "files": {
+    "quiet-corner-light.png": {
+      "sha256": "2b7613c2fabb1d549c13af03ac25c02ec2e7776b60eb4c28bbd95ceb73409037",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:48:02Z",
+      "generationId": "exec-0e185c53-9d32-45c4-983a-b9ee481e6624",
+      "promptSha256": "4572d4f8424da71fb54a0ecfe7ad17288a1b81051dc0cf29be2ce2bbbbbb8f41",
+      "references": [
+        "slides-v2/identity-network-light.png",
+        "title-light.png"
+      ],
+      "cubeCount": 1,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.68,
+        "height": 1,
+        "meanLuminance": 245.3,
+        "deviation": 6.2
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.72,
+            "y": 0.55,
+            "width": 0.22,
+            "height": 0.4
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.08,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.68,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "quiet-corner-dark.png": {
+      "sha256": "7f1d17561a24c2cea16413dbd5597744600e9f453ac38ba96cbd7ac0869b2001",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:48:40Z",
+      "generationId": "exec-9ddec48a-faef-4a82-b53b-117c51805a4b",
+      "promptSha256": "9e7ca775013573d2cab0e7470afa9edbbfc4d22dc5fe58b943317d93102cf660",
+      "references": [
+        "slides-v2/identity-network-dark.png",
+        "title-dark.png"
+      ],
+      "cubeCount": 1,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.68,
+        "height": 1,
+        "meanLuminance": 13.4,
+        "deviation": 11
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.72,
+            "y": 0.55,
+            "width": 0.22,
+            "height": 0.4
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.08,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.68,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "quiet-corner-left-light.png": {
+      "sha256": "b9eb661cf4a544a609a6d7c50029b007cbd5b3e5460ed47e2b06f4dde7cb8d54",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:49:21Z",
+      "generationId": "exec-226399d5-cc97-47fc-8263-a7be832c21b9",
+      "promptSha256": "0c32fa33f0792b6b671e0a5cd0e9e2fda39f988dd08eff2c2c3e38763fb8c3c8",
+      "references": [
+        "slides-v3-ambient/quiet-corner-light.png",
+        "slides-v2/identity-network-light.png"
+      ],
+      "cubeCount": 1,
+      "safeZone": {
+        "x": 0.32,
+        "y": 0,
+        "width": 0.68,
+        "height": 1,
+        "meanLuminance": 244.4,
+        "deviation": 7.1
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.06,
+            "y": 0.55,
+            "width": 0.22,
+            "height": 0.4
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.08,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.68,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "quiet-corner-left-dark.png": {
+      "sha256": "2ba97ba3d77e9bcdda64119a23d07ea302f445e200523415a616ca070cf4f98e",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:49:56Z",
+      "generationId": "exec-13cc8b85-b83d-4a92-96af-ee1bd39f5356",
+      "promptSha256": "d36889ca87539a1c20e91e3346704fd09225ee8540c533cd6ba524454b1c541c",
+      "references": [
+        "slides-v3-ambient/quiet-corner-dark.png",
+        "slides-v2/identity-network-dark.png"
+      ],
+      "cubeCount": 1,
+      "safeZone": {
+        "x": 0.32,
+        "y": 0,
+        "width": 0.68,
+        "height": 1,
+        "meanLuminance": 12.4,
+        "deviation": 10.3
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.06,
+            "y": 0.55,
+            "width": 0.22,
+            "height": 0.4
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.08,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.68,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "distant-horizon-light.png": {
+      "sha256": "c26e304c53eb85091423f04cd56a0a7f0ba12e94c191f8bf817448b2b11e9981",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:50:36Z",
+      "generationId": "exec-10b3f7d6-31dd-402e-94e9-0f0ad0ae5dbb",
+      "promptSha256": "04e2f802b5854d909a8f1c70e0b58f5c0e2571cc9ac45706040083ce3a90a5cd",
+      "references": [
+        "slides-v2/iridescent-horizon-light.png",
+        "title-light.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 0.72,
+        "meanLuminance": 242.8,
+        "deviation": 10.6
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.04,
+            "y": 0.76,
+            "width": 0.08,
+            "height": 0.14
+          },
+          {
+            "x": 0.82,
+            "y": 0.76,
+            "width": 0.14,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.09,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.72,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "distant-horizon-dark.png": {
+      "sha256": "6d23fbfa6cb8a2142b9919735e94d4943f11ab8c6c5cb82035fb9edf6fc86e74",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:51:11Z",
+      "generationId": "exec-f7b77379-1e80-4cad-9aaf-4786aeb18dcd",
+      "promptSha256": "da674a139f7da55447084af4d448372dd91c0cfd64bcf8662543e23608fa7840",
+      "references": [
+        "slides-v2/iridescent-horizon-dark.png",
+        "title-dark.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 0.72,
+        "meanLuminance": 17.5,
+        "deviation": 8.6
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.04,
+            "y": 0.76,
+            "width": 0.08,
+            "height": 0.14
+          },
+          {
+            "x": 0.82,
+            "y": 0.76,
+            "width": 0.14,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.09,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.72,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "peripheral-frame-light.png": {
+      "sha256": "ed2ec8ef80bd67bff7a22921e447618bd0afd548306ebd8380f6423a60bae80e",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:51:51Z",
+      "generationId": "exec-91f87a6a-f32b-4279-aafc-5e9e9d28c672",
+      "promptSha256": "a182591f71e563c6757b2581daa50c31d43a32b2de1439e60620dccd52cb2ff1",
+      "references": [
+        "slides-v2/modular-constellation-light.png",
+        "title-light.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0.2,
+        "y": 0.12,
+        "width": 0.6,
+        "height": 0.76,
+        "meanLuminance": 251.9,
+        "deviation": 3
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.04,
+            "y": 0.04,
+            "width": 0.12,
+            "height": 0.2
+          },
+          {
+            "x": 0.84,
+            "y": 0.74,
+            "width": 0.12,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.12,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "peripheral-frame-dark.png": {
+      "sha256": "bdad7118fce072c1e021f4a876232a87566857ddce807b4e3ad8de94f0277a66",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:52:32Z",
+      "generationId": "exec-2beb7c87-9f93-491d-9b67-8c6aca5a0ac2",
+      "promptSha256": "404d9b9b799e0e6a8a9c015bf273d40283e430bac61132f76af6c5582337155b",
+      "references": [
+        "slides-v2/modular-constellation-dark.png",
+        "title-dark.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0.2,
+        "y": 0.12,
+        "width": 0.6,
+        "height": 0.76,
+        "meanLuminance": 21.5,
+        "deviation": 9.8
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.04,
+            "y": 0.04,
+            "width": 0.12,
+            "height": 0.2
+          },
+          {
+            "x": 0.84,
+            "y": 0.74,
+            "width": 0.12,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.12,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "mist-orbit-right-light.png": {
+      "sha256": "033eabb708af4802f7eceaab74f64f99feceed88f99bb860a3002f9f1e9949b5",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:53:14Z",
+      "generationId": "exec-1d5b7617-7d23-4d15-98c5-2f769c1435df",
+      "promptSha256": "1f40b233abd2217749e3edc9f7bab5513e80fc9a464766c0ede7ad2ee3f80a9f",
+      "references": [
+        "slides-v2/identity-network-light.png",
+        "slides-v3-ambient/quiet-corner-light.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.64,
+        "height": 1,
+        "meanLuminance": 241.9,
+        "deviation": 7.7
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.72,
+            "y": 0.52,
+            "width": 0.18,
+            "height": 0.35
+          },
+          {
+            "x": 0.86,
+            "y": 0.36,
+            "width": 0.12,
+            "height": 0.24
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.13,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "mist-orbit-right-dark.png": {
+      "sha256": "c47cdf412035ab21d5a85a965a00a5fbfbd83bcd0e9eb995625ff7cdd9d7de81",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:56:17Z",
+      "generationId": "exec-c67fdec9-195b-4e3b-a9b6-ceb0168f0b31",
+      "promptSha256": "eb7b6e6f45346ccd9b0e8723f7bbd209480000b10e3b05fa27d068ea7df102c2",
+      "references": [
+        "superseded draft 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (hash only)",
+        "title-dark.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0,
+        "y": 0,
+        "width": 0.64,
+        "height": 1,
+        "meanLuminance": 11.6,
+        "deviation": 7.3
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.72,
+            "y": 0.52,
+            "width": 0.18,
+            "height": 0.35
+          },
+          {
+            "x": 0.86,
+            "y": 0.36,
+            "width": 0.12,
+            "height": 0.24
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.13,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "mist-orbit-left-light.png": {
+      "sha256": "6b2054c66eac78d78e5a8ca2671c76f9f9ff2dea27f79ccdaf0f6ef1a4240d79",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:54:26Z",
+      "generationId": "exec-3feca9c7-52bf-403d-8068-93d3d8c8d0a1",
+      "promptSha256": "461fd8b523d6e45b1dde822ac6827042448d2edf0ffc37302e13318929a38631",
+      "references": [
+        "slides-v3-ambient/mist-orbit-right-light.png",
+        "slides-v2/identity-network-light.png"
+      ],
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0.36,
+        "y": 0,
+        "width": 0.64,
+        "height": 1,
+        "meanLuminance": 239.9,
+        "deviation": 9
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.1,
+            "y": 0.45,
+            "width": 0.18,
+            "height": 0.35
+          },
+          {
+            "x": 0.04,
+            "y": 0.65,
+            "width": 0.08,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.13,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    },
+    "mist-orbit-left-dark.png": {
+      "sha256": "c84edc93625c8cfe61f106a1e0046e02d5f0316dd9e0ceee69a9be41167462a4",
+      "dimensions": "1672x941",
+      "contentCredentialsTimestamp": "2026-09-16T10:55:00Z",
+      "generationId": "exec-97d7e2aa-8b48-419c-9547-f9d640ea76fd",
+      "promptSha256": "14c3fece755f9121a0a6801e463611037837c8dbbdf420280d66639c2a220555",
+      "references": [
+        "slides-v3-ambient/mist-orbit-right-dark.png",
+        "slides-v2/identity-network-dark.png"
+      ],
+      "referenceResolution": {
+        "slides-v3-ambient/mist-orbit-right-dark.png": "superseded draft 8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (hash only)"
+      },
+      "referenceResolutionText": {
+        "slides-v3-ambient/mist-orbit-right-dark.png": "8c95f2226f936d07fde166ff482571dad62cf3134e6726d03c0b0796817d6319 (the superseded generation-time draft; the exact-size right-dark file now on disk was created later)"
+      },
+      "cubeCount": 2,
+      "safeZone": {
+        "x": 0.36,
+        "y": 0,
+        "width": 0.64,
+        "height": 1,
+        "meanLuminance": 12.7,
+        "deviation": 5
+      },
+      "ambientComposition": {
+        "review": "full-resolution visual review, not automated segmentation",
+        "subjectBounds": [
+          {
+            "x": 0.1,
+            "y": 0.45,
+            "width": 0.18,
+            "height": 0.35
+          },
+          {
+            "x": 0.04,
+            "y": 0.65,
+            "width": 0.08,
+            "height": 0.2
+          }
+        ],
+        "minSubjectSeparationFraction": 0.04,
+        "aggregateCubeAreaFractionAtMost": 0.13,
+        "decorativeAreaFractionAtMost": 0.25,
+        "visuallyQuietAreaFractionAtLeast": 0.65,
+        "edgeBiased": true,
+        "centred": false
+      }
+    }
+  },
+  "previews": {
+    "record": "assets/slides/previews/PROVENANCE.json",
+    "directory": "assets/slides/previews",
+    "canvas": "#121B21",
+    "thumbnail": {
+      "width": 600,
+      "height": 338
+    },
+    "positions": [
+      [
+        24,
+        24
+      ],
+      [
+        672,
+        24
+      ],
+      [
+        24,
+        410
+      ],
+      [
+        672,
+        410
+      ],
+      [
+        24,
+        796
+      ],
+      [
+        672,
+        796
+      ]
+    ],
+    "order": [
+      "distant-horizon",
+      "mist-orbit-left",
+      "mist-orbit-right",
+      "peripheral-frame",
+      "quiet-corner",
+      "quiet-corner-left"
+    ],
+    "sheets": {
+      "ambient-backgrounds-light-overview.png": {
+        "register": "light",
+        "sha256": "0439bf086a84780ed73b365a38cebe17e84a1ddcfe040ef5d61d64d9bcca0088",
+        "pixelSha256": "848a5627ca7b82c71b44f226cc7b0d17a0830e51f8c6b3dfd56cd6a036e7bff7",
+        "dimensions": "1296x1158"
+      },
+      "ambient-backgrounds-dark-overview.png": {
+        "register": "dark",
+        "sha256": "89c0a8da4e527977cbf61185b5569065afaabf6a8cb20fb162bcc4541da0117c",
+        "pixelSha256": "61c3bbdd4571160bcd1b8da0d97d2e46152afd9c60d20893e1326f03d011f073",
+        "dimensions": "1296x1158"
+      }
+    }
+  },
+  "galleries": {
+    "README.md": [
+      "ambient-backgrounds-light-overview.png",
+      "ambient-backgrounds-dark-overview.png"
+    ],
+    "assets/generated/backgrounds/README.md": [
+      "quiet-corner-light.png",
+      "quiet-corner-dark.png",
+      "quiet-corner-left-light.png",
+      "quiet-corner-left-dark.png",
+      "distant-horizon-light.png",
+      "distant-horizon-dark.png",
+      "peripheral-frame-light.png",
+      "peripheral-frame-dark.png",
+      "mist-orbit-right-light.png",
+      "mist-orbit-right-dark.png",
+      "mist-orbit-left-light.png",
+      "mist-orbit-left-dark.png",
+      "ambient-backgrounds-light-overview.png",
+      "ambient-backgrounds-dark-overview.png"
+    ],
+    "assets/slides/README.md": [
+      "ambient-backgrounds-light-overview.png",
+      "ambient-backgrounds-dark-overview.png"
+    ]
+  },
+  "decision": {
+    "path": "decisions/0014-ambient-slide-backgrounds.md",
+    "id": "0014",
+    "status": "accepted",
+    "index": "decisions/README.md",
+    "phrases": [
+      "2026-09-16",
+      "additional lower-contrast family",
+      "slides-v3-ambient",
+      "Additive role",
+      "proposed",
+      "not approved brand imagery",
+      "not licensed for extraction",
+      "IB-13",
+      "one or two",
+      "visual-review facts",
+      "not claims of automated segmentation"
+    ],
+    "privateIdentifierPattern": "\\b(Discord|message\\s+id|thread\\s+id|private\\s+(message|thread)\\s+identifier)\\b",
+    "privateIdentifierFlags": "i"
+  },
+  "sources": {
+    "register": "provenance/sources.json",
+    "generatedKey": "SRC-GENERATED-IMAGES",
+    "phrases": [
+      "0014",
+      "slides-v3-ambient",
+      "2026-09-16"
+    ]
+  },
+  "readmeTable": "assets/generated/backgrounds/README.md",
+  "wording": {
+    "README.md": [
+      "slides-v3-ambient",
+      "ambient-backgrounds-light-overview.png",
+      "proposed"
+    ],
+    "assets/README.md": [
+      "slides-v3-ambient",
+      "subordinate"
+    ],
+    "assets/generated/backgrounds/README.md": [
+      "slides-v3-ambient",
+      "IB-13",
+      "220",
+      "36",
+      "deviation 12"
+    ],
+    "assets/slides/README.md": [
+      "ambient-backgrounds-light-overview.png",
+      "ambient-backgrounds-dark-overview.png"
+    ],
+    "imagery/README.md": [
+      "IB-13",
+      "subordinate"
+    ],
+    "imagery/briefs.md": [
+      "## IB-13",
+      "slides-v3-ambient",
+      "not hero art"
+    ],
+    "patterns/marketing-layouts.md": [
+      "slides-v3-ambient",
+      "safe zone"
+    ],
+    "examples/marketing/README.md": [
+      "slides-v3-ambient",
+      "safe zone"
+    ],
+    "examples/agent-playbooks/README.md": [
+      "--only ambient",
+      "IB-13"
+    ],
+    "CLAUDE.md": [
+      "slides-v3-ambient",
+      "--only ambient",
+      "IB-13"
+    ],
+    "AGENTS.md": [
+      "slides-v3-ambient",
+      "--only ambient"
+    ],
+    "LICENSES/GENERATED-IMAGES.md": [
+      "slides-v3-ambient",
+      "not licensed for extraction"
+    ],
+    "LICENSES/README.md": [
+      "slides-v3-ambient",
+      "0014"
+    ],
+    "TRADEMARKS.md": [
+      "slides-v3-ambient",
+      "0014",
+      "not licensed for extraction"
+    ],
+    "SECURITY.md": [
+      "slides-v3-ambient",
+      "ambient"
+    ],
+    "CONTRIBUTING.md": [
+      "--only ambient",
+      "slides-v3-ambient"
+    ],
+    "provenance/README.md": [
+      "slides-v3-ambient",
+      "hash only"
+    ],
+    "provenance/reconciliation.md": [
+      "0014",
+      "slides-v3-ambient"
+    ],
+    "provenance/open-items.md": [
+      "0014",
+      "slides-v3-ambient"
+    ],
+    "CHANGELOG.md": [
+      "slides-v3-ambient",
+      "IB-13"
+    ]
+  }
+}

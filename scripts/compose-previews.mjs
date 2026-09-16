@@ -9,10 +9,10 @@
  * A composition entry with a `canvas` colour and no `base` is a contact sheet: the canvas is filled
  * with the colour, then every placement is area-averaged (the box filter of scripts/lib/png.mjs) to
  * its width and height and copied to its x and y. The output is 8-bit RGB without alpha and carries
- * no ancillary chunk, so the same inputs always give the same pixels; the validator's `branded`
- * check decodes each sheet and requires exactly these pixels, and its `rasters` check measures the
- * placements independently. Entries with a `base` (the app showcases, made with a soft shadow in an
- * image tool) are left alone and reported as skipped.
+ * no ancillary chunk, so the same inputs always give the same pixels; the validators' `branded` and
+ * `ambient` checks decode their respective sheet pair and require exactly these pixels, while the
+ * `rasters` check measures every placement independently. Entries with a `base` (the app showcases,
+ * made with a soft shadow in an image tool) are left alone and reported as skipped.
  *
  * The contract is pixels, not bytes. The encoder's deflate stream comes from the zlib the running
  * Node bundles, and different Node lines bundle different zlib releases, so the same pixels encode to
@@ -162,7 +162,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     const outcomes = writeSheets(ROOT);
     for (const o of outcomes) console.log(`${o.path}: ${o.width}x${o.height}, ${o.bytes.length} bytes, sha256 ${o.sha256} (${o.action}: ${o.reason})`);
     const written = outcomes.filter((o) => o.action === "written").length;
-    if (written) console.log(`${written} of ${outcomes.length} contact sheets written. Record each written sheet's printed hash in assets/slides/previews/PROVENANCE.json and scripts/validate/branded-backgrounds.json, then run node scripts/validate.mjs --only assets and --only branded.`);
+    if (written) console.log(`${written} of ${outcomes.length} contact sheets written. Record each written sheet's printed hash in assets/slides/previews/PROVENANCE.json and its set-specific pinned fixture, then run node scripts/validate.mjs --only assets plus the matching --only branded or --only ambient check.`);
     else console.log(`${outcomes.length} contact sheets already hold the composed pixels; nothing written, committed bytes and hashes kept.`);
   }
 }

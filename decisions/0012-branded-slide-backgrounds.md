@@ -1,6 +1,6 @@
 # 0012 The official UP! box depicted inside the twelve generated slide backgrounds
 
-Status: accepted
+Status: accepted; the reference node and the depicted geometry are superseded by 0013 (the flat-badge renders this record admitted were replaced on 2026-09-16 by solid closed container-cube renders generated from the already-public onboarding illustrations); the authorization scope, rights and language clauses continue through 0013
 Date: 2026-09-15
 Closes: none (OPEN-03 and OPEN-04 stay open; this record admits a depiction, not a mark file or a trademark statement)
 
